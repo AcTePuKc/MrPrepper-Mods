@@ -2,15 +2,15 @@
 # Source: Dialogues/herbGuaranaLittle1 through Dialogues/prepGuaranaLittle8
 # English is authoritative; French/Russian used only as context checks.
 
-Dialogues/herbGuaranaLittle1=<voice type=greeting>\nЗдравей, лютиче! Вече се върна! Как беше в мината? Носиш ли <color=yellow>гъбите</color>?
+Dialogues/herbGuaranaLittle1=<voice type=greeting>\nЗдравей, слънчице! Вече се върна! Как беше в мината? Носиш ли <color=yellow>гъбите</color>?
 Dialogues/prepGuaranaLittle2=<voice type=acceptance>\nНе беше точно разходка в парка, но се справих. Ето ги.
 Dialogues/herbGuaranaLittle3=<voice type=thanks>\nЧудесно! Съвсем скоро ще измисля рецепта за нов <color=yellow>чай</color>.\n<voice type=upset>\nМеждувременно все повече хора ми се оплакват от <color=yellow>проблеми със съня</color>, странни главоболия и затруднения с концентрацията. \n<voice type=question>\nИ ти ли имаш такива проблеми, миличък?
 Dialogues/prepGuaranaLittle4=<voice type=upset>\nЕ, като го спомена... Да, случва се.
 Dialogues/herbGuaranaLittle5=<voice type=disappointment>\nВиждаш ли? Повярвай на старата жена: трябва да има нещо във въздуха. А обичайните ми билкови лекове сякаш вече не действат както трябва.\n<voice type=order>\nЗатова мисля, че трябва да опитам нещо по-силно и да забъркам нови смеси. \n<color=yellow>По-навътре</color> в <color=yellow>гората</color> расте <color=yellow>гуарана</color>. Ще я познаеш по <color=yellow>червените плодове</color>. Трудно е да я сбъркаш с нещо друго.
 Dialogues/prepGuaranaLittle6=<voice type=surprise>\n<color=yellow>Гуарана</color>? Това не е ли някакво екзотично растение?
-Dialogues/herbGuaranaLittle7=<voice type=surprise>\nЛудост, нали? Не знам откъде се е взела, но явно се чувства като у дома си в горите на окръг Мъррикавил. \n<voice type=order>\nКакто и да е - донеси ми малко <color=yellow>плодове</color> и ще видя дали ще вършат работа в смесите ми.
+Dialogues/herbGuaranaLittle7=<voice type=surprise>\nЛудост, нали? Не знам откъде се е взела, но явно се чувства като у дома си в горите на окръг Мърикавил. \n<voice type=order>\nКакто и да е - донеси ми малко <color=yellow>плодове</color> и ще видя дали ще вършат работа в смесите ми.
 Dialogues/prepGuaranaLittle8=<voice type=acceptance>\nДобре тогава. Всичко в името на добрите <color=yellow>билкови смеси</color>, нали?
 
 # REVIEW / CONSISTENCY
-# Murricaville County -> „окръг Мъррикавил“ is staged here as the natural Bulgarian form.
+# Murricaville County -> „окръг Мърикавил“ is staged here as the natural Bulgarian form.
 # Run a later global place-name consistency pass before applying all fixes to labels.txt.
