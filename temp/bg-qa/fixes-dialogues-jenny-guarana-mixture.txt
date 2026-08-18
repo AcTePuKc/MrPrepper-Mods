@@ -1,0 +1,11 @@
+# Jenny - guarana mixture request
+# Source: Dialogues/prepGuaranaMixture1 through Dialogues/prepGuaranaMixture5
+# Only source-backed replacements are staged here.
+
+Dialogues/herbGuaranaMixture2=<voice type=greeting>\nО, здравей, лютиче! Какво те води насам?
+Dialogues/prepGuaranaMixture3=<voice type=question>\nМислех си... Готова ли е твоята <color=yellow>специална смес</color> с гуарана? Може ли да получа една доза?\nПланирам да тръгна... на <color=yellow>дълго пътуване</color>. И бих предпочел <color=yellow>да не заспя</color> по средата.
+Dialogues/herbGuaranaMixture4=<voice type=laugh>\nА, <color=yellow>сместа</color> се получи доста добре. Някои от приятелите ми вече успяха да изкарат <color=yellow>цяла нощ будни</color> благодарение на нея!\nНо има един проблем: за сместа трябват доста суровини. А след тези няколко теста вече ги изчерпахме.\n<voice type=order>\nЗатова ще трябва да ми донесеш <color=yellow>още плодове</color>. Трябват ни достатъчно за нашите нужди и за една допълнителна доза за теб.
+Dialogues/prepGuaranaMixture5=Започвам да подозирам, че имаш доста от тези „приятели“. Но добре, ще отгледам <color=yellow>още плодове</color> за теб.
+
+# OK / retained
+# Dialogues/prepGuaranaMixture1 - current BG is already natural and source-faithful.
