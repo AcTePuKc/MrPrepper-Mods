@@ -20,8 +20,11 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Lavinia | Лавиния | Huntress name |
 | Xeno | Ксено | Character/dog name, pending final consistency scan |
 | Sleepless | Безсънните | Proper name of Bob/Jenny's underground resistance group; plural people, not the abstract noun `безсъние` |
+| Bob (mine) | Боб | Human character associated with the mine |
+| Bob (Jenny's plant) | Боб | Jenny's named plant; do not confuse with human Bob. `prepBobGeneric*` / `herbBobGeneric*` establish the joke explicitly. |
 | Murricaville | Мъррикавил | Town name; use this transliteration consistently |
 | Murricaville County | окръг Мъррикавил | Avoid literal/garbled forms such as `Муритикайл Каунти` |
+| herbalist | билкарка | Jenny is female; avoid masculine `билкар` for her dialogue |
 | mine (noun) | мина | Use for the location unless a specific context clearly requires `шахта` |
 | old mine | старата мина | Jenny quest/location wording |
 | buttercup | слънчице | Jenny nickname; localize as a natural affectionate address rather than literal `лютиче` |
