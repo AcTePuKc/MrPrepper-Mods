@@ -1,0 +1,9 @@
+# Jenny - guarana delivery completed
+# Source: Dialogues/prepGuaranaDone1 through Dialogues/prepGuaranaDone3
+# Only source-backed replacements are staged here.
+
+Dialogues/herbGuaranaDone2=<voice type=laugh>\nХи-хи. Каква забавна идея!\n<voice type=thanks>\nМного ти благодаря, млади човече, задължена съм ти!\n<voice type=acceptance>\nОчаквай <color=yellow>доставка</color> в <color=yellow>пощенската си кутия</color>. И приятно пътуване, лютиче!
+
+# OK / retained
+# Dialogues/prepGuaranaDone1 - current BG preserves the source meaning.
+# Dialogues/prepGuaranaDone3 - current BG is natural and source-faithful.
