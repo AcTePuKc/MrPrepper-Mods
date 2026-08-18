@@ -1,0 +1,24 @@
+# Reviewed UI replacements - combat / controls / minigames
+# Format: key=new Bulgarian value
+# Only entries confirmed against the English source belong here.
+
+# Combat tutorial / controls
+UI/CombatTutDescription1=Има два бутона за атака.\nНатисни за единична атака или задръж, за да продължиш да атакуваш.
+UI/AttackLeft=Атака наляво
+UI/AttackRight=Атака надясно
+UI/keyBindsConflict=Някои клавишни комбинации са в конфликт!
+UI/advancedCombatMode=Тази книга активира разширения боен режим, който ти позволява да атакуваш и да се движиш едновременно. Можеш да го изключиш по-късно. Да го активираш ли сега?
+UI/advancedCombatModeNo=Все пак получаваш другите бонуси от тази книга:\nпо-висока скорост и повече щети.
+UI/advancedCombatModeSetting=Спирай при атака
+
+# Minigame event UI
+UI/minigameCongratulation=ПОЗДРАВЛЕНИЯ
+UI/minigameCongratulation2=MR. PREPPER!
+UI/minigameReachedTargetScore=ДОСТИГНА ЦЕЛЕВИЯ РЕЗУЛТАТ В ИГРАТА:
+UI/minigameYouWon=ТИ ПОБЕДИ
+UI/minigameOutstandingJob=ОТЛИЧНА РАБОТА! ЩЕ СЕ ВИДИМ НА СЛЕДВАЩОТО СЪБИТИЕ
+UI/minigameGameingClub=КЛУБ ЗА ВИДЕОИГРИ В КВАРТАЛА
+
+# REVIEW / CONTEXT
+# UI/minigameFlierTitle source is GAME COMPETITION; current Bulgarian is a hallucination. Final wording could be ИГРОВО СЪСТЕЗАНИЕ / СЪСТЕЗАНИЕ ПО ВИДЕОИГРИ depending on flyer context.
+# Keep MR. PREPPER untranslated as a proper game/character title until the Prepper naming decision is finalized.
