@@ -28,6 +28,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | herbal tea | билков чай | Jenny dialogue terminology |
 | guarana | гуарана | Plant name |
 | guarana fruit(s) | плод(ове) от гуарана | Prefer natural Bulgarian word order |
+| mixture | смес | Jenny's guarana/herbal preparation; keep consistent instead of alternating with `микстура` |
 | equip | екипирай | UI action, not `облекло` / `облечи` |
 | build | построй | Context action |
 | power on | включи | Context action |
