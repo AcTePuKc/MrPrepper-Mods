@@ -1,0 +1,10 @@
+# Joe / Chupacabra - generic dialogue
+# Source: Dialogues/prepChupacabra1 through Dialogues/chupaChupacabra7
+
+Dialogues/prepChupacabra1=<voice type=greeting>\nХей, кой е доброто момче?
+Dialogues/chupaChupacabra2=(гледа подозрително)
+Dialogues/joeChupacabra3=<voice type=negation>\nЧупакабра не се връзва на такива глупости. Но не се тревожи - той е добро и дружелюбно куче.
+Dialogues/prepChupacabra4=<voice type=acceptance>\nИзглежда силен и умен. Помага ли ти с работата?
+Dialogues/joeChupacabra5=Да. Плаши вредителите и странните скитници, които се заблуждават насам. Помага ми и да намирам разни неща, когато забравям къде съм ги оставил.\nНамерих го преди около десет години.\n<voice type=surprise>\nМежду другото, от доста време не съм виждал друго куче наоколо. Странно, нали?\n
+Dialogues/prepChupacabra6=Хм, и аз не съм. Значи още повече сте извадили късмет, че сте се намерили.
+Dialogues/chupaChupacabra7=Гав!
