@@ -1,0 +1,10 @@
+# Jenny - guarana quest, growing stage
+# Source: Dialogues/prepGuaranaMore1 through Dialogues/herbGuaranaMore6
+# English is authoritative; French/Russian used only as context checks.
+
+Dialogues/prepGuaranaMore1=<voice type=greeting>\nЗдравей, Джени. Предполагам, че това са плодовете, които търсеше?
+Dialogues/herbGuaranaMore2=<voice type=thanks>\nТочно така! Виждаш ли ги, Боб? Толкова червени! Толкова зрели! Много ти благодаря!\n<voice type=disappointment>\nПървите ми чайове с гъбите, които донесе от мината, се оказаха нож с две остриета.\n<voice type=laugh>\nНаистина помогнаха на приятелите ми да останат будни, но ги направиха и... малко разсеяни.
+Dialogues/prepGuaranaMore3=Кой би предположил.
+Dialogues/herbGuaranaMore4=Засега ще се придържам към по-изпитани съставки. Трябват ми <color=yellow>още плодове гуарана</color>. Ще отглеждам и сама, но нямам много място.\n<voice type=question>\nЩе бъдеш ли така добър да вземеш малко от тези <color=yellow>семена</color> и също да започнеш да ги <color=yellow>отглеждаш</color>?
+Dialogues/prepGuaranaMore5=<voice type=acceptance>\nПредполагам, че мога да ги добавя към малката си домашна плантация за удоволствие.
+Dialogues/herbGuaranaMore6=<voice type=thanks>\nПрекрасно! Върни се, когато имаш реколта. Аз и приятелите ми ще сме ти благодарни.
