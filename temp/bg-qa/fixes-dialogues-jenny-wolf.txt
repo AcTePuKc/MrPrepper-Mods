@@ -1,0 +1,16 @@
+# Jenny - first meeting / wolf quest
+# Source: Dialogues/herbWolf1 through Dialogues/herbWolf9
+# Only source-backed replacements are staged here.
+
+Dialogues/herbWolf1=<voice type=greeting>\nЗдравей, лютиче! Знаех си, че ще дойдеш. \n<voice type=laugh>\nИзглеждаш като силен и способен млад мъж.
+Dialogues/prepWolf2=<voice type=surprise>\nОтдавна никой не ме е наричал „млад“.\n<voice type=question>\nА ти си...?
+Dialogues/herbWolf3=<voice type=greeting>\nО, къде са ми обноските! Казвам се <color=yellow>Джени</color>. Аз ти изпратих писмото.\nИзвинявай за потайността, но в днешно време човек никога не е прекалено предпазлив.\nОбикновено можеш да ме намериш тук по това време.\n<voice type=order>\nБилкарка съм. Може да се каже, че съм човекът, към когото да се обръщаш за всичко, свързано с растенията.
+Dialogues/herbWolf5=<voice type=order>\nО, просто <color=yellow>Джени</color>, моля. И направо по същество: имам нужда от помощта ти.\n<voice type=anger>\nИмам уютна <color=yellow>хижа</color> в <color=yellow>гората</color>, но сега не мога да стигна до нея.\n<voice type=fear>\nНаоколо постоянно се навърта един наистина <color=yellow>свиреп вълк</color>. Опитах всичко. \n<voice type=laugh>\nДори не се хвана на отровните ми билки, скрити във вкусна наденица.\n<voice type=question>\nМожеш ли да се отървеш от него заради мен?
+Dialogues/prepWolf8=<voice type=acceptance>\nИмаме. Ще се погрижа за <color=yellow>вълка</color>.
+Dialogues/herbWolf9=<voice type=thanks>\nЧуваш ли, Боб? Ще си върнем хижата!
+
+# REVIEW / CONTEXT - not staged
+# Dialogues/prepWolf4 - source: "People call me Prepper. Nice to meet you, ma'am."
+# Current BG is understandable, but standalone "Prepper" remains a context decision.
+# Dialogues/prepWolf6 - current BG matches the Little Red Riding Hood joke closely enough.
+# Dialogues/herbWolf7 - current BG preserves the source meaning; leave for later editorial polish.
