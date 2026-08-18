@@ -46,10 +46,8 @@ UI/contextCustomize=ПЕРСОНАЛИЗИРАЙ
 UI/contextCLOSE=ЗАТВОРИ
 UI/contextSHAVE=ОБРЪСНИ
 UI/contextMILK=ИЗДОЙ
-UI/contextFEED=НАХРАНИ
 UI/contextFILLET=НАРЕЖИ НА ФИЛЕТА
 UI/contextFILLET_ALL=НАРЕЖИ ВСИЧКИ НА ФИЛЕТА
-UI/contextPET=ПОГАЛИ
 UI/contextPUSH=БУТНИ
 
 # Inspection UI
@@ -87,21 +85,11 @@ UI/diff=Трудност
 UI/corruptSuc=Файлът ти за запазване е повреден. Автоматичното възстановяване беше успешно и всичко вече трябва да е наред. Ако срещнеш други проблеми, свържи се с нас чрез Steam или Discord.
 UI/corruptFail=Файлът ти за запазване е повреден. Автоматичното възстановяване не успя. Повреденият файл е преместен в папката Corr в директорията със запазените ти файлове. Моля, свържи се с нас чрез Steam или Discord и ще се опитаме да помогнем.
 
-# DLC / fishing UI - confirmed source meaning
+# DLC / general late UI - confirmed source meaning
 UI/contextMaterial=ЧЕРЕН ПЛАТ
 UI/contextBrokenCamera=СЧУПЕН ФОТОАПАРАТ
 UI/wall=Стена
 UI/customRoomTextureInfo=Можеш да използваш <color=yellow>свои изображения</color>.\nПостави ги в папката „<color=yellow>Custom Room Texture</color>“ в директорията на играта и презареди запазения си файл.\nИзображенията трябва да са във формат <color=yellow>JPG или PNG</color>.
-UI/bestFishingRod=Най-добра въдица
-UI/bestBait=Най-добра примамка
-UI/Rainy=Дъждовно
-UI/Foggy=Мъгливо
-UI/Stormy=Бурно
-UI/OldRod=Стара въдица
-UI/GoodRod=Добра въдица
-UI/ExpertRod=Експертна въдица
-UI/Pet=Домашен любимец
-UI/animalPet=Домашен любимец
 
 # REVIEW / CONTEXT - intentionally not applied yet
 # Prepper / Препър: unresolved for character/title/common-noun usage. Mr. Prepper remains unchanged as brand/title.
