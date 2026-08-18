@@ -19,6 +19,15 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Jenny | Джени | Character name |
 | Lavinia | Лавиния | Huntress name |
 | Xeno | Ксено | Character/dog name, pending final consistency scan |
+| Murricaville | Мъррикавил | Town name; use this transliteration consistently |
+| Murricaville County | окръг Мъррикавил | Avoid literal/garbled forms such as `Муритикайл Каунти` |
+| mine (noun) | мина | Use for the location unless a specific context clearly requires `шахта` |
+| old mine | старата мина | Jenny quest/location wording |
+| buttercup | лютиче | Jenny's plant nickname; keep as a flower nickname rather than flattening to generic endearment |
+| daisy | маргаритка | Jenny's plant nickname; preserve the changing plant-name joke |
+| herbal tea | билков чай | Jenny dialogue terminology |
+| guarana | гуарана | Plant name |
+| guarana fruit(s) | плод(ове) от гуарана | Prefer natural Bulgarian word order |
 | equip | екипирай | UI action, not `облекло` / `облечи` |
 | build | построй | Context action |
 | power on | включи | Context action |
@@ -37,3 +46,4 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 - Do not translate product, platform, studio, publisher, or game names such as Mr. Prepper, Rejected Games, Steam and Discord.
 - Preserve all TMP/I2 tags, placeholders, escaped newlines and formatting tokens exactly unless the source itself changes them.
 - For gendered dialogue, identify the speaker from the key/prefix and adjacent dialogue before editing.
+- Jenny deliberately uses changing plant/flower nicknames. Translate the individual plant name naturally instead of replacing all of them with one generic endearment.
