@@ -13,7 +13,7 @@ This directory is intentionally kept out of the release translation. It can be d
 
 ## Review order
 
-- [ ] UI and system text
+- [ ] UI and system text - IN PROGRESS; base UI and late DLC/custom-mode UI have reviewed fix sets
 - [ ] Items and item descriptions
 - [ ] Objectives, quests, tips and letters
 - [ ] Generic dialogue
@@ -26,6 +26,12 @@ This directory is intentionally kept out of the release translation. It can be d
 - [ ] Placeholder, tag and escaped newline validation
 - [ ] Final terminology consistency pass
 
+## Working files
+
+- `glossary.md` - verified terminology and protected names
+- `fixes-ui.txt` - reviewed base UI replacements
+- `fixes-ui-dlc.txt` - reviewed custom-mode / DLC / late UI replacements
+
 ## Status convention
 
 - `FIX` - objectively wrong translation, safe to replace
@@ -35,23 +41,17 @@ This directory is intentionally kept out of the release translation. It can be d
 
 ## Current findings
 
+### Naming
+
+- `Mr. Prepper` is protected as the game title / brand and stays unchanged.
+- `Prepper` as a character/title/common noun remains `CONTEXT`; do not globally replace it with `Препър`.
+- `Rejected Games` is a protected studio name and stays unchanged.
+
 ### UI first pass
 
-Confirmed objective errors include:
+Confirmed objective errors include wrong parts of speech in context actions, missing UI keys that would fall back to English, translated protected names, Russian contamination, and semantic hallucinations such as `Gear Slot 3 -> Работна маса 3` and `Best fishing rod -> Най-добра риболовна кърпа`.
 
-- `UI/contextSLEEP=Сън` for `SLEEP`
-- `UI/contextCRAFT=ИЗРАБОТКА` for `CRAFT`
-- `UI/contextTRADE=Търговия` for `TRADE`
-- `UI/contextWATER=Вода` for action `WATER` / French `ARROSER`
-- `UI/contextHARVEST=ЖЪНЕЖ` for `HARVEST`
-- `UI/contextEQUIP=ОБЛЕКЛО` for `EQUIP`
-- `UI/contextMINE=Рудник` for `MINE`
-- `UI/contextBUILD=ИЗРАБОТИ` for `BUILD`
-- `UI/contextPOWEROFF=ИЗКЛЪЧВАНЕ` for `POWER OFF`
-- `UI/contextDRY=Сух` for `DRY`
-- `UI/GearSlot3=Работна маса 3` for `Gear Slot 3`
-- inconsistent `UI/planRocket1..4`
-- `UI/planFood=Намери храна` loses the meaning of `Establish a food source`
+The later UI/DLC block contains substantially more machine-translation damage than the opening UI block. Confirmed examples include `Бессмертен`, `ЗАБРАНИ` for `CLOSE`, `ПИЩАНЕ` for `FEED`, `Тягни` for `PULL`, broken fishing-rod terminology, and several malformed custom-mode descriptions.
 
 ### Known high-risk area
 
