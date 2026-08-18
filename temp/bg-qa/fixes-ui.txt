@@ -1,0 +1,51 @@
+# Reviewed UI replacements
+# Format: key=new Bulgarian value
+# Only entries confirmed against the English source belong here.
+
+UI/contextSLEEP=СПИ
+UI/contextCRAFT=ИЗРАБОТИ
+UI/contextTRADE=ТЪРГУВАЙ
+UI/contextRECEIVE=ПОЛУЧИ
+UI/contextRECHARGE=ПРЕЗАРЕДИ
+UI/contextWATER=ПОЛЕЙ
+UI/contextPLANT=ЗАСАДИ
+UI/contextREAD=ПРОЧЕТИ
+UI/contextTURNON=ВКЛЮЧИ
+UI/contextCOOK=СГОТВИ
+UI/contextEQUIP=ЕКИПИРАЙ
+UI/contextTALK=ГОВОРИ
+UI/contextCOLLECT=СЪБЕРИ
+UI/contextCHANGECOLOR=СМЕНИ ЦВЕТА
+UI/contextUSE=ИЗПОЛЗВАЙ
+UI/contextREPAIR=ПОПРАВИ
+UI/contextQUICK_PLANT=БЪРЗО ЗАСАДИ
+UI/contextLAUNCH_ROCKET=ИЗСТРЕЛЯЙ РАКЕТАТА
+UI/contextOPEN=ОТВОРИ
+UI/contextINSPECT=ПРЕГЛЕДАЙ
+UI/contextGRAB=ВЗЕМИ
+UI/contextBUILD=ПОСТРОЙ
+UI/contextHIDE=СКРИЙ
+UI/contextPOWERON=ВКЛЮЧИ
+UI/contextPOWEROFF=ИЗКЛЮЧИ
+UI/contextDESTROY=УНИЩОЖИ
+UI/contextCANCEL=ОТМЕНИ
+UI/contextDOWN=НАДОЛУ
+UI/contextUP=НАГОРЕ
+UI/contextGETBACK=ВЪРНИ СЕ
+UI/contextMELT=СТОПИ
+UI/contextDRY=ИЗСУШИ
+UI/contextGIVE=ДАЙ
+UI/contextAsk=ПОПИТАЙ
+UI/contextCustomize=ПЕРСОНАЛИЗИРАЙ
+UI/GearSlot3=Слот за екипировка 3
+UI/planFood=Осигури източник на храна
+UI/planRocket1=Окончателен план за ракетата - Фаза 1
+UI/planRocket2=Окончателен план за ракетата - Фаза 2
+UI/planRocket3=Окончателен план за ракетата - Фаза 3
+UI/planRocket4=Окончателен план за ракетата - Фаза 4
+
+# REVIEW / CONTEXT - intentionally not applied yet
+# UI/contextHARVEST: choose short in-game command, likely ОБЕРИ
+# UI/contextMINE: choose between КОПАЙ and ДОБИВАЙ after interaction context check
+# UI/contextQUICK_SET: source QUICK SET is ambiguous without interaction context
+# UI/contextFort: source Fort Observer needs game context before rewriting
