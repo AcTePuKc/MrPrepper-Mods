@@ -7,5 +7,9 @@ Keys with conflicting English values: 0
 Chunk size: 1500
 Chunks written: 4
 Primary output columns: key, English
+Compare output columns: key, English, Bulgarian, French, Russian
+Bulgarian coverage: 5506/5633
+French coverage: 5161/5633
+Russian coverage: 5162/5633
 
 No conflicting duplicate keys found.
