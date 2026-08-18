@@ -1,0 +1,1135 @@
+# source	term	english
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/StrengthTrainingBook1	You can carry more.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/StrengthTrainingBook2	You can carry even more.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/WalrusBook	Better resistance to cold.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/FishTemptationTechniques	Fish catch baits faster.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/GroundbaitVirtuoso	You gain a chance of not losing a bait when fishing.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/MaintenanceOfTheFishermansEquipment	Fishing rods wear out slower.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/AnimalExtractionBook	You get more of a product out of every animal (wool, milk, etc.)
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/AnimalsWhispererBook	Animals are no longer scared of you. \nUnlocks new interactions.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/ClimbingBook	Stamina drains slower while climbing.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/WalrusBook2	Even better resistance to cold.
+I2Languages (I2.Loc.LanguageSourceAsset)	Skills/PumaExpertBook	You can't be suprise attacked by pumas.
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/herbTittel	Dear Neighbor,
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/herbSignature	The Local Herbalist
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/herbFirstLetter	Do you like flowers, herbs and plants in general? Are you having trouble making friends in the town? Are you tired of urban life and sad men in suits visiting your home? Do you enjoy nature?\nIf any of this is true to you (and I'm sure it is!), please come to the forest during the day. You might meet someone friendly!\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/herbPill	It seems you didn't achieve what you wanted during your last trip. Take this and have better luck next time!
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutTittle	Dear Mr. Prepper,
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutSignature	Yours truly,\nThe Minuteman\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutFirstLetter	You don't know me, but your ambitions have caught my eye. You are an interesting person, Mr. Prepper. And there are not many interesting people in the town these days. \nI know that your little road trip didn't go well. Too bad! But if I may suggest something: go big. And don't stick to land route only. I'm attaching something you may find useful. It's a tried and tested design. It might seem crazy at a first glance, but Prepper, I know you can do it. \nAnd don't be afraid, your secrets are safe with me. And expect more fan mail from me soon!\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetter2	I hope my letter finds you well. Do you feel inspired by my last gift?\nI would like to start a small exchange between us, if you'll agree. From time to time, I will send you a letter or a package with some useful information or an item. And I have access to some rather curious supplies and sources, trust me!\nHowever, there are some things that are hard to obtain for me – and here is where I believe you, Mr. Prepper, would help me. \nYou can deliver me things like you would trade them on the local marketplace – I'm sure you'll figure this out.\nAs an icebreaker - I would just love, love to have a jar of blueberry jam! \n\n\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetter3	How are you? I have recently taken interest in a certain fascinating topic that can also become timely. However, due to regulations of our wise government – bless the President – obtaining reliable sources on this topic is challenging.\nBut Mr. Prepper, you might have more luck! Please deliver me a good book about nuclear warfare and its consequences. Something non-fiction. I am sure I can make up for all the trouble!\nI am not sure where to obtain unusual books these days, given the Agency's pressure. I think the whole book business must have gone underground.
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetter4	Thank you very much for the book, it was very informative indeed! Now I have a follow-up request: could you bring me a Geiger counter? I am not saying I need to use it right now… but still I would like to learn how to use it, and rather sooner than later. \nThe Geiger counter is already quite an old technology; maybe you'll find one where other old things are?\nI will be grateful!
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetter5	Thank you very much for the Geiger counter! Now I feel much more… prepared. \nRemember my first gift for you? Have you already started constructing your vehicle? I'm sure you'll handle most of it easily, but keep in mind that such technology requires impeccable quality of elements, hard to achieve in our do-it-yourself conditions.\nBut fear not! I happen to know about a device which will help you greatly: an AI-based, highly adaptable rocket control module, together with a top-notch accelerometer.\nI know you can find the control module in Fort Observer, an abandoned military base not far from Murricaville. They used to work on sending things to space there, among other research. I cannot point you to a specific location, unfortunately. But I'm sure you'll find a way, Mr. Prepper!\n\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetter6	I'm afraid we are both in trouble. Despite my precautions, there is a certain Agent who has taken interest in me and my recent... investigations. If he keeps snooping around, he might also get to you eventually.\nBut here's how you can help: you could put the Agent in trouble so he gets off our backs. This Agent lives nearby under the name of James FitzPatrick. \nPlant him an illegal item and I'll denounce him to the Agency.\nIt would be best if it was not simply illegal, but... illegal with a flair. To truly impress other Agents.\nI have a feeling the postman would be willing to help with this. He's also not a fan of the Agency. \nRemember, Mr. Prepper, it's for our safety! Our ambitions are too grand to be thwarted by some petty agents!\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetterWaterControl	Just a quick note: my source in the Agency tells me that the water usage will be added to the things checked during an inspection. Excessive use may be noticed. Please pay attention!
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetterElectricityControl	Heads up: as our great country has some problems with electricity supply, the Agency plans to start controlling domestic electricity usage. Keep in mind that high consumption may look suspicious. Take care!
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetterCupboardControl	A quick friendly warning: the Agency wants to ramp up the intensity of inspections. Be ready that they might want to look into your cupboards and prepare accordingly.
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetterCupboardControl2	And here I am with another warning: some people in the Agency are determined to prove you really are up to something, and they will look into your cupboards and cabinets even more closely. Be sure to keep anything that might be suspicious out of their sight!
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/huntLetterAd	<i><b><pos=20%><size=140%>HUNTER'S CLUB\n<line-height=20%>\n<line-height=100%><pos=10%><size=100%>Everything what the wilderness around Murricaville has to offer! Fresh game from different animals, free-range and ethically shot to death! And if you want to do the hunting yourself – I offer a wide choice of traps & baits.\n<line-height=70%><pos=40%><size=80%>-- Lavinia, your local huntress
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetter7	I regret to inform you that while our small sabotage has worked out brilliantly – Agent FitzPatrick will never bother any citizens again – I am in a dire situation now. We took out the Agent, but the Agency has noticed my special interests anyway. I am in hiding now; I had to leave my job, house, and most of my things. I am not as well prepared for such situations like you, so I need to ask for your help. Could you send me some food? Preferably canned and long-lasting.\nI also need to inform you of something you won't read in the Truth: the international situation is very tense currently. It seems the foreign powers have serious concerns about the real purpose of the Brazen Serpent satellite. It's hard to say how it ends.\nTake care and don't forget about me, Mr. Prepper!\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/minutLetter8	Thank you very much for the food you sent me! You are my inspiration and guardian angel, Mr. Prepper. \nThis might be the last letter I am sending you and I have one final request. They are coming for me to my hideout. And I need to be prepared: either for forcing my way through them or making my last stand. For that, I need sufficient firepower. A regular handgun will not do.\nDear Mr. Prepper, could you give me an automatic rifle and 100 rounds of ammunition? If I survive the battle, I promise to answer a lot of questions that must be bugging you. If I do not, please remember me dearly, Mr. Prepper.\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/HalloweenNote	Dear Citizen, Boo-hoo! It's Halloween time!Find the scarecrow! (And please remember to be compliant with security & wellbeing regulations at all times.)
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/farmInvitationTittle	Work Order - Farm
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/farmInvitation	Dear Citizen,\nin accordance with the Resources & Workforce Allocation Act, you are now assigned to the task of repair and maintenance of the White Sands Farm. Please arrive to the location without any unnecessary delay. \nBless the President,
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/farmInvitationSignature	The Agency
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/joeUraniumTittle	A New Find
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/joeUraniumLetter	Hey, Prepper!\nCome to my junkyard, I have something for you! A very interesting find! It glows in UV light!
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/joeSignature	Joe 
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/cryoTechNote1	cryoTechNote
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/cryoTechNote2	cryoTechNote
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/cryoTechNote3	cryoTechNote
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/cryoTechNote4	cryoTechNote
+I2Languages (I2.Loc.LanguageSourceAsset)	Letter/cryoTechNote5	cryoTechNote
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tip	Tip
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault0	Prepare yourself for the worst
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault1	You can move items from and into boxes with a double click
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault1Port	You can move items from and into boxes by press <sprite index=Button2_UIAtlas> on them
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault2	You can move items from and into boxes with Shift + LMB
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault2Port	You can move items from and into boxes with <sprite index=Button8_UIAtlas> while holding <sprite index=Button0_UIAtlas>
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault3	Hold Shift to place items more precisely
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault3Port	Hold <sprite index=Button26_UIAtlas> to place items more precisely
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault4	Inspecting items and reading their descriptions can give useful tips
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault5	Plants can wilt if you don't take care of them
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault6	Crafting and cooking increases your Preparedness 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault7	Planting, watering and harvesting plants increases your Preparedness 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault8	Trading increases your Preparedness 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault9	Go to sleep early to regenerate more stamina
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault10	Reading news increases your Preparedness 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault11	Keep your stamina and health over 50% to avoid losing Preparedness 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault12	You craft faster while your stamina and health are over 50%
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault13	Disassembling items gives you their blueprints
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault14	Your stamina decreases faster while you work
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault15	Your Preparedness decreases slower while you work
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault16	While dragging a group of items, click RMB to drop one item
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault16Port	While dragging a group of items, press <sprite index=Button29_UIAtlas> to drop one item
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipMines1	You can melt stone into glass in a furnace
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault17	Some items in locations respawn over time
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDesert1	You can disassemble grenades
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDesert2	Scavenging the desert is a good source of many materials. The farther you go, the better the loot
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault18	Level up traders to unlock new ones
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault19	Always read letters
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipMines2	You need a mining helmet to see in the dark
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDesert3	Some NPCs appear only at night
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault20	Read your journal if you get lost
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault21	Most items can be used quickly with LMB
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault21Port	Most items can be used quickly with <sprite index=Button0_UIAtlas>
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault22	Double-click on an action in the context menu of an item to run to it and perform the action
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault22Port	Double-press <sprite index=Button0_UIAtlas> on an action in the context menu of an item to run to it and perform the action
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault23	Hold Left Ctrl to speed up time
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault24	You can destroy rooms in the building mode by clicking the red cross button
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault24Port	You can destroy rooms in the building mode by selecting the red cross
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipForest1	Take a look at a note on the traps sign to get an idea of a kind of loot you can get in this area
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipDefault25	
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipAgent1	If your suspicion level is high it will take multiple visits to bring it back down
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipAgent2	You can get the positive Agent buff only if your suspicion level is at 0 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipAgent3	If you were a good citizen for a long time, Agent may turn a blind eye
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipAgent4	Power of negative agent buff is dependent on your suspicion level
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFaint1	You can reload one of last 30 days after you faint four times
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFaint2	You can get rid of after-faint debuff by sleeping
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm1	Hamsters can help you generate power 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm2	Plant flowers in a room with beehive so the bees can produce some honey
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm3	Cows produce more milk than goats 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm4	You can kill animals to get meat - but please don't 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm5	You can breed animals - take good care of them and leave extra space in room for the offspring! 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm6	Breeding and selling animals can be a good business
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm7	Different animal variants can breed with each other without any issues
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm8	Animals need enough space to live. Fences and room borders restrict their living space
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm9	If the needs of animals are not satisfied, they won't produce anything and won't be able to breed
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm10	You can buy a book with new cooking recipes from Will 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm11	Will sells different animals on higher trade levels
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFarm12	You can fillet fish to eat them. Some fish turn to baits instead of food when filleted 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipMaze1	The night maze opens at 6 PM every day 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipMaze2	The night maze is harder, but gives better rewards 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipMaze3	Use the map to avoid Skull rooms
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFishingLakeSign1	Fish have their preferences regarding weather, time of day and other things
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFishingLakeSign2	You can check the weather forecast on the radio
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFishingLakeSign3	If you are hunting for a specific fish, read about its preferences on an info board near the lake
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipFishingLakeSign4	Not every fish likes the same thing - choose your baits well
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipAnimalsXeno1	The more Xeno trusts you, the more activities he is willing to do
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipAnimalsXeno2	Activities with Xeno increase his trust level
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipAnimalsXeno3	Remember to meet Xeno's needs, otherwise he will be forced to meet them elsewhere
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipAnimalsXeno4	Xeno is very fond of rat meat treats
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear1	If you equip your Geiger Counter, it will automatically open when it detects a source of radiation.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear2	Radiated items are hidden everywhere! Use a Geiger Counter to find them.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear3	Anti-radiation extract is the best method to quickly reduce the Prepper's radiation level.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear4	Nap, sleep or eat to reduce Prepper's radiation level.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear5	You can safely keep Nuclear Material in your inventory. Its radiation level is too small to affect you.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear6	Keeping irradiated items in your inventory makes the Prepper's radiation level grow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear7	Some of the irradiated items can respawn. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear8	Dr Edward, the scientist, can give you recipes for items that automate planting and harvesting. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear9	Use a Pitter to get seeds out of fruits, vegetables and other items.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear10	Keep irradiated items away from food and plants.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear11	Centrifuge can be used to clear some items of radiation.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear12	If you don't know where to find an item from a Scientist's Request, just ask him!
+I2Languages (I2.Loc.LanguageSourceAsset)	Tips/tipNuclear13	Crane Minigame price resets every day.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFight1	Combat: [Q] - attack left, [E] - attack right
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFight2	Move away to dodge wolfthem.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFight3	Hold <color=yellow>Left Control</color> to block the wolf's attacks
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFight3Port	Hold <sprite index=Button26_UIAtlas> to block the wolf's attacks
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFight4	or move away to dodge them.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFight5	Use your bat in fight.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFight6	Good luck!
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFightAddon1	Oh wait--
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFightAddon2	--you don't have a baseball bat!
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFightAddon3	In this case...
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/FirstFightAddon4	...you should RUN!
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt1	Tutorial
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt2	Controls
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt3	Nap time
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt4	Hunger
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt5	Preparedness
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt6	New escape plan
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt7	Build a bunker
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt8	Old friend
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt9	Workbench
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt10	Trading
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt11	Forest
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt12	Collecting
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt13	Back home
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt14	Disassemble
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt15	You've got mail
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt16	Refresh
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt17	Ladder
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt18	Place the ladder
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt19	Light
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt20	Light
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt21	Light
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt22	Night time
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt23	Agent inspection
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt24	Report
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt25	Workbench
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt26	Breakfast
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tt27	Journal
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td1	This is a tutorial. Let me show you around.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td2	Get familiar with the basic controls.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td3	You are tired after your escape attempt. You deserve a <color=yellow>nap</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td4	You are hungry. Go <color=yellow>eat</color> something. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td5	Keep your Preparedness high.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td6	Check your new <color=yellow>escape plan</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td7	Build the first room of your bunker.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td7Port	Build the first room of your bunker. Select Room option, point place to create room and confirm with<sprite index=Button0_UIAtlas>
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td8	You need to craft a <color=yellow>ladder</color> for your bunker. \nFirst, uncover your trusty <color=yellow>workbench</color>. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td9	Your workbench is a bit rusty. \nLet's see what you need to refresh it.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td10	You will need some metal and some wood. Start with buying <color=yellow>8 units of metal</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td11	Go to the forest and find some wood. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td12	# wood logs.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td13	Go back home.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td14	Disassemble 3 logs to get wood. \n<color=yellow># logs disassembled<color=yellow>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td15	Receive your metal.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td16	Upgrade your workbench.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td17	You can finally craft a ladder!
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td18	Just place the ladder. Drag & drop it.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td19	You need <color=yellow>lamps</color> for your bunker. You need <color=yellow>glass</color> to make them. Let's disassemble something at the workbench.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td20	Craft a wall lamp.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td21	Place wall lamp in the bunker. Drag & drop it.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td21Port	Place wall lamp in the bunker.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td22	You NEED to go to sleep before <color=yellow>3 AM</color>. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td23	The Agent will come soon. You need to <color=yellow>hide or grab suspicious items</color> and open the door for him.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td24	This is the Agent's report. Keep your house in unchanged state so the reports stay positive.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td25	Place the workbench in your bunker.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td26	Cook and eat some food.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/td27	Check your journal.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPrep1	This is your Preparedness.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPrep2	It's your most valuable stat.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPrep3	If it drops to zero, you will faint.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPrep4	Stay well fed and well rested to keep it high.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutFoodSource	Establish \na food source
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBuildFirstRoom	Build the first room
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBuildFirstRoom2	of my bunker.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutGrowPlant	Grow some plants
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutGrowPlant2	in my bunker.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBasic0	or
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBasic1	to see what you can do with it
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBasic2	with
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBasicCamera	Move camera using
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBasicPrepper	Move Mr. Prepper
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBasicRun	Double click to run
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBasicRunPort	Double press <sprite index=Button0_UIAtlas> to run
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutBasicClickOn	on any object
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutCantDoThat	You can't do that in the tutorial!
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPlants1.1	To make your basic underground farm you will need:
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPlants1.2	<color=yellow>5x Room Soil</color> - can be crafted in the workbench
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPlants1.3	<color=yellow>5x Seed bags</color> - you may find some in your home
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPlants1.4	Seeds can also be bought in trade.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPlants2.1	Plants need <color=yellow>water</color> and <color=yellow>light</color> to grow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPlants2.2	You can take some water from a <color=yellow>sink</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutPlants2.3	Keep your farm room <color=yellow>well lit</color>.\nMore light - faster growth.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutDriveAvoid	Hold <color=yellow>LMB</color> or <color=yellow>SPACE</color> to change the lane and avoid obstacles
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutDriveAvoidPort	Hold <sprite index=Button0_UIAtlas> to change the lane and avoid obstacles
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutDriveJump	Hold <color=yellow>RMB</color> or <color=yellow>LEFT SHIFT</color> to boost the car acceleration when the car goes up the ramp and jump safely
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutDriveJumpPort	Hold <sprite index=Button3_UIAtlas> to boost the car acceleration when the car goes up the ramp and jump safely
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/cooking1	Remember that you will get the most of your food\nif you cook it first.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/cooking2	Try to start with a soup or a smoothie.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/cooking3	Soups additionally require water - you can get it from the sink.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/blackOut1	It's a blackout. Too many things are using electricity.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/blackOut2	This is your electricity box.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/blackOut3	Here you can check the percentage of electricity being used.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/blackOut4	Electricity supply provided by the government is very limited.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/blackOut5	For now, you have to turn something off to get power back.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/blackOut6	Later on you will be able to build your own generators to get more electricity.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/trustTut1	This is your mutual trust level with this neighbor.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/trustTut2	Every time you level up your trust,
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/trustTut3	you will get access to more and better offers.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/trustTut4	You may also unlock more traders this way via neighbor's recommendation.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/upgradeTut1	Room upgrade acquired!
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/upgradeTut2	Put it inside a room upgrade box to upgrade a room.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/upgradeTut3	The number of room upgrade modules required to upgrade a room depends on the room size.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/mazeTut1	Reach the end of the maze.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/mazeTut2	The maze will close once you leave it.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/mazeTut3	The maze has 5 levels of difficulty.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/mazeTut4	Keep completing maze runs to reach the higher difficulty levels.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/dogExpeditionTut1	Your friendship with Xeno is already at such a high level that he has allowed himself for a little trip. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/dogExpeditionTut2	After taking care of his doggy affairs, he will definitely come back to you.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/fishingTut1	Let's get you through the process of fishing.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/fishingTut2	It's not so easy to get yourself a fresh fish to eat. If you want to win the fight with a fish on the other end of the fishing line, you have to be successful in two types of events on this wheel.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/fishingTut3	Thin semicircles are about clicking in the right time. When you see a thin semicircle, click LMB or RMB right at the moment when a semicircle touches the inside circle.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/fishingTut4	When you see a thick semicircle, hold LMB or RMB throughout the whole time when a semicircle touches the inside circle.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/fishingTutLabel1	Fishing Minigame
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/fishingTutLabel2	Click semicircle
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/fishingTutLabel3	Hold semicircle
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/postApoTut60Seconds0	Collect all the things important to you from the surface before more exposures happen.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/postApoTut60Seconds1	Hurry up becasue you have only <color=red>60 SECONDS</color>!
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tipCombatUpdate1	Use [Q] & [E] to attack.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tipCombatUpdate2	You can change the preferred attack mode in the gameplay settings.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tipEggsCollect1	Right click on the chicken coop and choose <color=yellow>Collect</color> to quickly collect all eggs at once.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutMountainItemPlacement1	When placing items on the mountain,\na <color=blue>blue</color> highlight means Prepper will need to climb to reach that spot.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutMountainItemPlacement2	He might not be able to get there,\nbut he will give it a try.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutMountainClimbDebuff1	Prepper needs <color=#388942>stamina</color> to climb.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutMountainClimbDebuff2	The more stamina he has, the longer he can keep climbing.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutMountainClimbDebuff3	While climbing, the stamina bar <color=#BEC05C>fills up</color>, showing how close Prepper is to his limit.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutMountainClimbDebuff4	When the stamina bar starts turning <color=red>red</color>, Prepper is overexerting himself, activating a debuff that drains his stamina.
+I2Languages (I2.Loc.LanguageSourceAsset)	Tutorial/tutMountainClimbDebuff5	If the stamina bar fills completely, Prepper will fall.
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Bob	Bob's House
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Citydumbs	Junkyard
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Forest	Forest
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Grocery	Grocery
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Home	Home
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Jenny	Jenny
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Jetsons	Jetsons' House
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Mine	Old Creek Mine
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Nancy	Nancy's House
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/OilStation	Gas station
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Supermarket	Supermarket
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Hunter	Huntress
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Gourmet	Gourmet
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/HomeLable	Home
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/ForestLable	Forest
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/MineLable	Old Creek Mine
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/DesertLable	Desert
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/ForestHutLable	Hut
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/ForestJennyLable	Jenny's Hut
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/MinutMan	Minuteman
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Sergiej	Sergey
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Joe	Joe
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/FortEntrance	Fort Observer - Entrance
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/FortMain	Fort Observer
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/FortStorage	Fort Observer - Storage
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Entrance	Entrance
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Level	Level
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/LevelUnknown	Level Unknown
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Tailor	Tony the Tailor
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Will	Will the Farmer
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Hen	Henry the Chicken
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Farm	White Sands Farm
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Lake	Lake
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Maze	Wheat Maze
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/UFOship	UFO Ship
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/WheatField	Wheat Field
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/UFOMaze	Mysterious Maze
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/DeeperMine	Deeper Mine
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/PowerPlant	Power Plant
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/ExpeditionMine	Mine
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/Mountain	Mountain
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/MountainRailWay	Railway Station
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/MountainRailWaySubText	out of 10
+I2Languages (I2.Loc.LanguageSourceAsset)	Locations/MountainTrader	Climber
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Full	<b>Full</b>\nOm nom nom. \nYour fullness decreases slower.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Hungry	<b>Hungry</b>\nYou are very hungry. \nYour Preparedness decreases faster. \nYou should eat something.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/NightTime	<b>Nighttime</b>\nIt's nighttime. \nYou can call it a day and go to sleep.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Sleeping	<b>Sleeping</b>\nYou are asleep. \nYour stamina is regenerating.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Sleepy	<b>Sleepy</b>\nYou're feeling drowsy.\nYour stamina decreases fast and you cannot nap.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Tired	<b>Tired</b>\nYou are very tired. \nYour Preparedness decreases faster. \nYou should have a nap or go to sleep.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Working	<b>Working</b>\nYou are working. \nYour stamina decreases faster.\nYour Preparedness decreases slower.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/InGoodCondition	<b>In Good Condition</b>\nYou are well fed and well rested.\nYour Preparedness is not decreasing and you can work faster.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/InBadCondition	<b>In Bad Condition</b>\nYour Preparedness is decreasing.\nGet your stamina and health over 50% to get into good condition!
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Cold1	<b>Cold</b>\nYou are cold. Your stamina decreases faster.\nCraft some warm clothes to counter it.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Cold2	<b>Very Cold</b>\nYou are very cold. Your stamina and Preparedness decreases faster. \nCraft some warm clothes to counter it.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Cold3	<b>Freezing</b>\nYou are extremely cold! All your stats decrease fast!\nEquip warm clothes or run away from here! 
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/BeatenUpName	Beaten Up
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/BeatenUp1	<b>Beaten Up</b>\nRough night... Your max Preparedness is lowered. \nIt will go back to normal after you sleep through the night. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/BeatenUp2	<b>Beaten Up Twice</b>\nRough night... Your max Preparedness is halved. \nIt will get better after you sleep through the night. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/BeatenUp3	<b>Beaten Up Thrice</b>\nRough night... You know the drill.\nIt will get better after you sleep through the night. \nMake sure to sleep and eat a lot! Stay safe.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Poison	<b>Poison</b>\nYou are poisoned. Have you eaten something raw or old?\nYou will get less health points from food.\nYou need to wait it out or sleep it off.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Covard1	<b>Chicken</b>\nRunning from fights makes you feel... unPrepared.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Covard2	<b>Coward</b>\nRunning from fights makes you feel unPrepared.\nWin a fight or go to sleep to fix that.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Covard3	<b>Co- Co- Co- Coward</b>\nRunning from fights makes you feel unPrepared.\nWin a fight or go to sleep to fix that.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/KeepCalm	<b>Keep Calm</b>\nYour attributes are not changing during conversation.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/AgentP	<b>Agent Happy</b>\nYour Agent's Report was positive.\nYour Preparedness decreases slower.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/AgentN	<b>Agent Unhappy</b> \nYour Agent's Report was negative. \nYour Preparedness decreases faster.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/UFO	A UFO will apear on the farm on Sunday.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/PreUFO	Something will happen on a farm at 3 AM on Sunday.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/PrePreUFO	Something happens on a farm on Sunday.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/BestfirendDog1	<b>Comfort Animal</b>\nA dog is a man's best friend.\nYou feel more prepared. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/BestfirendDog2	<b>Best Friend</b>\nA true friend leaves paw prints on your heart.\nYou feel even more prepared. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/BestfirendDog3	<b>Companion for Life</b>\nDogs are not our whole life, but they make our lives whole.\nYou feel prepared for everything with your best friend. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/BestFriend	Dogs are not our whole life, but they make our lives whole.' -- Roger Caras
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Preppared	<b>Prepared</b>\nYour preparedness regenerates for a limited time.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/GamingTime	<b>Gaming Time</b>\nYour preparedness does not decrease and time moves slower.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Irradiation1	<b>Low-dose Ionized</b>\nYou received a small dose of radiation.\nYou lose preparedness a bit faster. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Irradiation2	<b>Radiation Burn</b>\nYou lose preparedness fast. \nLeave the contaminated area and remove radioactive items from your inventory.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Irradiation3	<b>Acute Radiation Syndrome</b>\nYoOu re((|3ved a sUb$tan4_ial d0se of r4d|at|on. You l%se pr#pare-ness f@st. \nLe4ve the co%tami$ated ar#a and re&ove radio@#ctive it#ms fr.m your inv&*tory.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Climb	<b>Climbing Strain</b>\nYour stamina decreases much faster.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Bonfire1	<b>Campfire Resting</b>\nYour stamina regenerats over time.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/Bonfire2	<b>Lit Campfire Resting</b>\nYour stamina regenerats fast over time.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/WarmedUp	<b>Warmed Up</b>\nYou are partialy protected from coldness.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/ChalkedHands1	<b>Bearly Chalked Hands</b>\nClimbing is easier. This buff deteriorates while climbing and is nearly gone.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/ChalkedHands2	<b>Well-Chalked Hands</b>\nClimbing is easier. This buff deteriorates while climbing.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/ColdAcclimation	<b>Cold Acclimation</b>\nYou have some coldness resistance. Your stamina decrease slower. \nWhile this buff persist you can't use Cryo Sleep Pod.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/ImprovedHealth	<b>Improved Health</b>\nYour max health is temporarily increased.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/ImprovedStamina	<b>Improved Stamina</b>\nYour max stamina is temporarily increased.
+I2Languages (I2.Loc.LanguageSourceAsset)	Buff/ImprovedPreparedness	<b>Improved Preparedness</b>\nYour max preparedness is temporarily increased.
+I2Languages (I2.Loc.LanguageSourceAsset)	Fonts/Standard	Handwritten font
+I2Languages (I2.Loc.LanguageSourceAsset)	Fonts/Letter	Handwritten font
+I2Languages (I2.Loc.LanguageSourceAsset)	Quests/herb1	
+I2Languages (I2.Loc.LanguageSourceAsset)	Quests/quest1_description	ENG Idź panie wilka wychłostaj
+I2Languages (I2.Loc.LanguageSourceAsset)	Quests/quest1_name	ENG Zielarka
+I2Languages (I2.Loc.LanguageSourceAsset)	Quests/quest2_description	ENG Zabij wilka
+I2Languages (I2.Loc.LanguageSourceAsset)	Quests/quest2_name	ENG Wilk
+I2Languages (I2.Loc.LanguageSourceAsset)	Images/preparationStart	Preparation Start
+I2Languages (I2.Loc.LanguageSourceAsset)	Images/escapePlan	Escape Plan
+I2Languages (I2.Loc.LanguageSourceAsset)	Images/runPrepper	Run, Prepper, Run
+I2Languages (I2.Loc.LanguageSourceAsset)	Images/ready	Ready to go?
+I2Languages (I2.Loc.LanguageSourceAsset)	Images/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Images/imgPreparationStart	prepStart
+I2Languages (I2.Loc.LanguageSourceAsset)	Images/imgReady	rocket_ready
+I2Languages (I2.Loc.LanguageSourceAsset)	Images/imgRun	escape_icon
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq1Title	The Granny and the Wolf
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq1	Jenny, the local herbalist, has asked me to kill the wolf standing in the way to her cabin. I would need to fix the ropeway to get to him. It would also be nice not to fight the beast empty-handed.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq1::1	Repair the ropeway in the forest.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq1::2	Kill the wolf that blocks the way to Jenny's cabin on forest level 2.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq1::3	Visit Jenny at her cabin.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbqDEMO	Jenny has asked me to grow $item$ for her.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq2Title	Mushrooms
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq2	Jenny has asked me to bring her <color=yellow>8 mushrooms</color> from the mine. She want to use it to make tea.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq2bck	Jenny has asked me to bring her $item$ from the mine. She want to use it to make tea.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq2::1	Bring Jenny <color=yellow>8 mushrooms</color> from the mine.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq2::1bck	Bring Jenny $item$ from the mine.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq2::2	To be continued in full version
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq3Title	Exotic Fruits
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq3	Jenny has asked me to bring her <color=yellow>8 guarana</color> from the forest. I need to repair the ropeway on forest level 2 to get there.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq3bck	Jenny has asked me to bring her $item$ from the forest. I need to repair the ropeway on forest level 2 to get there.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq3::1	Repair the ropeway in the forest level 2.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq3::2	Bring Jenny <color=yellow>8 guarana</color> from forest level 3.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq3::2bck	Bring Jenny $item$ from forest level 3.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq4Title	Underground Plantation
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq4	Jenny has asked me to grow guarana plants seeds and bring her my harvest. <color=yellow>20 guarana</color> should be enough.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq4bck	Jenny has asked me to grow guarana plants seeds and bring her my harvest. $item$ should be enough.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq4::1	Plant 4 guarana seeds.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq4::2	Bring Jenny <color=yellow>20 guarana</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq4::2bck	Bring Jenny $item$.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq5Title	Air Crash Investigation
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq5	Jenny has asked me to clear the way to the crashed plane in the forest. I will need to repair the ropeway on forest level 4 to get there.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq5::1	Repair the ropeway on forest level 4.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq5::2	Find the plane wreckage on forest level 5.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq6Title	Be More Exotic
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbWaitTitle	Jenny
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbWait::1	Visit Jenny at her cabin.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq6	Jenny needs even more guarana. She has asked me to bring her <color=yellow>99 guarana</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq6bck	Jenny needs even more guarana. She has asked me to bring her $item$.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq6::1	Bring Jenny <color=yellow>99 guarana</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq6::1bck	Bring Jenny $item$.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq7Title	The Pill
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq7	Jenny can't give me the pill yet. She said something about gaining trust of the Sleepless first. Wonder how can I do it?
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq7::1	Find a way to get the pill from Jenny.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq8	quest 8
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq9	quest 9
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbq10	quest 10
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/rocketInspirationTitle	New Escape Plan
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/rocketInspiration	I haven't come up with a good escape plan yet. I need to find some inspiration and make some more planning.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/rocketInspiration::1	Find inspiration for your ultimate escape plan.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/rocketPlan1	This rocket schematic is actually very inspiring…
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/rocketInspiration::2	Use the rocket image for inspiration for your ultimate escape plan.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbFirstLetterTitle	The Herbalist
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbFirstLetter	A local herbalist can be met in the forest during the daytime.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/herbFirstLetter::1	Go to the forest in the daytime and meet the herbalist.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan1Title	Minuteman
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan1	A strange person calling himself 'Minuteman' sends letters to me. He had previously sent me a detailed rocket image, and now he wants a blueberry jam. I think I will make it for him as a token of goodwill.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan1::1	Send Minuteman a jar of blueberry jam
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan2Title	Nuclear Warfare
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan2	Minuteman is looking for a good book about nuclear warfare. I need to find one.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan2::1	Find a book about nuclear warfare.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan2::2	Deliver the book about nuclear warfare to Minuteman.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan3Title	Not Great, Not Terrible
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan3	Minuteman is getting more and more into the topic of atomic bombs and radioactivity. He appears to know something... Anyway, he wants a Geiger counter. I need to find one and deliver it to him.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan3::1	Find a Geiger counter.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan3::2	Deliver the Geiger counter to Minuteman.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan4Title	Bless the President
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan4	Minuteman says there is an Agent who is dangerous to him, and by extension - to me. But he has a plan: he wants to discredit him in the Agency. I need to find an offensive and illegal object and find a way to plant it in the Agent's home.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan4::1	Find an offensive and illegal item.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan4::2	Convince the Postman to plant the offensive figurine.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan5Title	Care Package 
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan5	Minuteman goes into hiding and needs some long lasting food. I will send him some.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan5::1	Deliver long-lasting food to Minuteman.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan6Title	Locked & Loaded
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan6	Minuteman feels in danger and needs some firepower to defend himself with. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan6::1	Deliver a rifle and some ammunition to Minuteman.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan7	m7
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan8	m8
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/minutMan4::3	Ask the Postman about the illegal delivery.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillarTitle	Into the Woods
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar	The ropeway in the forest would be a great way to move around, but it's long broken. I should fix it.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::1	Repair the forest ropeway on level 1 (<color=yellow>lever</color>).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::1bck	Repair the forest ropeway on level 1 ($items$).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::2	Repair the forest ropeway on level 2 (<color=yellow>lever</color>, <color=yellow>15 metal</color>).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::2bck	Repair the forest ropeway on level 2 ($items$).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::3	Repair the forest ropeway on level 3 (<color=yellow>lever</color>, <color=yellow>20 metal</color>, <color=yellow>10 plastic</color>).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::3bck	Repair the forest ropeway on level 3 ($items$).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::4	Repair the forest ropeway on level 4 (<color=yellow>lever</color>, <color=yellow>20 plastic</color>, <color=yellow>10 electronics</color>).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::4bck	Repair the forest ropeway on level 4 ($items$).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::5	Repair the forest ropeway on level 5 (<color=yellow>lever</color>, <color=yellow>30 electronics</color>, <color=yellow>30 metal</color>).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/ForestPillar::5bck	Repair the forest ropeway on level 5 ($items$).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/RocketTitle	The Countdown
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket	I need to escape from here. I have decided to build a functional rocket. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket::1	Build a rocket silo (<color=yellow>50 stone</color>, <color=yellow>20 metal</color>, <color=yellow>10 glass</color>).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket::1bck	Build a rocket silo ($items$).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket::2	Finish phase 2 of building a rocket. Item needed: <color=yellow>60 metal</color>, <color=yellow>20 plastic</color>, <color=yellow>Artificial Horizon</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket::2bck	Finish phase 2 of building a rocket. Item needed: $items$.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket::3	Finish phase 3 of building a rocket. Item needed: <color=yellow>20 electronics</color>, <color=yellow>40 metal</color>, <color=yellow>Hydrogen</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket::3bck	Finish phase 3 of building a rocket. Item needed: $items$.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket::4	Finish phase 4 of building a rocket. Item needed: <color=yellow>50 plastic</color>, <color=yellow>20 electronics</color>, <color=yellow>10 textile</color>, <color=yellow>Rocket control module</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/Rocket::4bck	Finish phase 4 of building a rocket. Item needed: $items$.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource1Title	Ultimate Plan
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource1	I should start with checking my ultimate plan.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource1::1	Check your ultimate escape plan.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource2Title	Self-Reliant
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource2	I need to establish a food source for myself.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource2::1	Place 5 patches of soil in your bunker.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource2::2	Collect 5 bags of seeds.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource2::3	Plant the seeds.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource2::4	Provide plants with water and light.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/FoodSource4	Provide plants with water and light
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/AfterFoodSource	Food source ready. I should go back to my ultimate escape plan.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/UltimatePlanTitle	Ultimate Plan
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/UltimatePlan::AfterFoodSource	Check your ultimate escape plan.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq1Title	Mind Control Protection
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq0	Broken revolver
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq0::1	Bring the broken revolver to Joe.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq1	Joe seeks to protect himself from the mind-controlling waves he believes are around. He wants tinfoil for this, of course.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq1::1	Bring Joe <color=yellow>1 foil</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeqWaitTitle	Joe
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeqWait::1	Come another day.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq2Title	The Missing Cryptid
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq2	Chupacabra, Joe's beloved dog, is missing. I need to help find him.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq2::1	Repair the forest ropeway on level 3.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq2::2	Find Chupacabra in the forest.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq2::3	Come back to Joe.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeqWait::2	Try coming another day for something new.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq3Title	Radio Free North America
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq3	There are rumours about a broadcast in English coming from Mexico, warning American citizens and exposing lies of the government. I want to catch it somewhere from the desert.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq3::1	Bring Joe <color=yellow>5 electronics</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq3::1bck	Bring Joe $item$.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq3::2	Come back to Joe later.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq3::3	Catch the signal.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/joeq3::4	Come back to Joe and tell him about the broadcast.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/fortObserverTitle	Who Observes the Observer?
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/fortObserver	I need to get to the Fort Observer and obtain a rocket control module from there.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/fortObserver::1	Ask Joe about the location of Fort Observer.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/fortObserver::2	Earn Joe's trust.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/fortObserver::3	Ask Joe about Fort Observer.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/fortObserver::4	Go to Fort Observer.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/fortObserver::5	Find control module that you can use in your rocket.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/fortObserver::6	Find a way to trick AI to release you with control module.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq1Title	This Elevator of Mine
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq1	I met Bob, a slightly shady character taking care of the mine. He wants me to fix the elevator.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq1::1	Check the elevator.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq1::2	Fix the elevator. You need <color=yellow>10 metal</color>.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq1::2bck	Fix the elevator. You need $items$.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq1::3	Go back to Bob.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq2Title	Bob's Jacket
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq2	Bob needs his warm jacket back. He has lost it somewhere in the mine.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq2::1	Find Bob's jacket.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq2::2	Get back to Bob with the jacket.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq3Title	Bob's Glasses
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq3	Bob needs his glasses. I think I saw glasses on another Bob... 
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq3::1	Find glasses for Bob.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq3::2	Get back to Bob with glasses.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq4Title	Ivy Bob: Hydrogen Storage
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq4	There might be a hydrogen storage on level -5, even if Bob denies it.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq4::1	Take a look at level -5.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq5Title	Sleepless Base
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq5	The Sleepless have their own base, apparently. It would be worth paying a visit.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq5::1	Follow Bob to the base at level -5.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq6Title	Bob's Proposition
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq6	Bob needs help with the Operation Awakening. I should let the Sleepless know when I'm ready for the rocket launch.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/bobq6::1	Put on a red light to notify the Sleepless about the incoming launch.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/inFullVersion	(Available in full version)
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/endGameTitle	The Launch
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/endGame	It's time to end this and fly away.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/endGame::1	Finish building the rocket.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/endGame::2	Activate the alarm switch on the top floor to inform the Sleepless. (After doing that, there is no way back.)
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/endGame::3	Go to your backyard and wait for the Sleepless to arrive.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/endGame::4	Say your goodbyes. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/endGame::5	Open the door to the Agent.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/endGame::6	Escape.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/missingPassTitle	Missing Mining Pass
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/missingPass	The pass to the level -4 of the mine is missing. I have to find it somewhere else.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/missingPass::1	Find the mining pass to the level -4
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/letterTitle	Minuteman's Letter
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/letter	I have an unopened letter from Minuteman.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/letter::1	Open the letter from Minuteman.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmTitle	Animal Farm
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farm	Visit the farm.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farm::1	Visit the farm.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmPreFanceTitle	Work Order
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmPreFance	Check the situation on the farm.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmPreFance::1	Check the situation on the farm.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmPreFance::2	Come back to Will.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFanceTitle	Pen
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFance	Repair the goats' pen. If the damage is too big, craft a new one at the workbench.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFance::1	Repair the goats' pen.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFance::2	Come back to Will.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWheatTitle	Grain
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWheat	Feed the chickens and the goats. You need to gather some grain. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWheat::1	Feed the chickens and the goats.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWheat::1.1	Wait for the animals to eat and check on them later.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWheat::1.2	Check on the animals.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWheat::2	Milk a goat.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWheat::3	Come back to Will.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzorsTitle	Shearing
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzors	Shear the goats.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzors::1	Find the shears.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzors::2	Follow the dog.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzors::3	Ask Will about the dog.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzors::4	Give the Will's dog some rat meat.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzors::5	Shear the goats.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzors::6	Milk the goats.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSizzors::7	Go back to Will.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmChickenHouseTitle	Chickens' Living Quarters
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmChickenHouse	Clean up space by the chickens' coop.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmChickenHouse::1	Clean up space by the chickens' coop.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmMilkAndEgssTitle	Milk and Eggs
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmMilkAndEgss	Bring  <color=yellow>3 cartons of milk</color> and <color=yellow>5 eggs</color> to Will
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmMilkAndEgss::1	Bring  <color=yellow>3 bottles of milk</color> and <color=yellow>5 eggs</color> to Will
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWaitTitle	Will
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWait	Come back to Will tomorrow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWait::1	Come back to Will tomorrow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmLostAnimalsTitle	Lost animals
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmLostAnimals	Animals keep disappearing. Something must be done about this.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmLostAnimals::1	Investigate what happened to the animals.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmLostAnimals::2	Set up <color=yellow>3 bear traps with baits</color> behind the barn (requires workbench lvl 2).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmLostAnimals::3	Check the traps tommorow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmLostAnimals::3.5	Report back to Will.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmLostAnimals::4	Keep protecting the farm with traps.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmLostAnimals::5	Check the traps.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmMazeTitle	Maze
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmMaze	Go for a maze run.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmMaze::1	Go for a maze run.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWait2Title	Will
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWait2	Come back to Will tomorrow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmWait2::1	Come back to Will tomorrow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmAgentLegTitle	Black fabric
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmAgentLeg	I need to find out what is this black piece of fabric I have found in a trap.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmAgentLeg::1	Ask Will about the black fabric.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmAgentLeg::2	Find out who does this black fabric belong to.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmAgentLeg::3	Confront the Agent about the black fabric.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSundayTitle	Sunday
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSunday	The Agent warned me not to go to the farm on Sunday. Let's investigate why not.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSunday::1	Visit the farm on Sunday.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmSunday::2	Wait for more clues to come up.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFindAnimalsTitle	Good Shepherd
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFindAnimals	Find the missing animals.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFindAnimals::1b	Find someone who knows a thing or two about tracking devices.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFindAnimals::1a	Ask Joe about the tracking device.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFindAnimals::2	Come back to Joe tommorow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFindAnimals::3	Find animals using Joe's tracking device ($x$/5 rescued).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmGoFishingTitle	Fishing
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmGoFishing	Go fishing.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmGoFishing::1	Go fishing.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmBrokenCameraTitle	Broken Camera
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmBrokenCamera	Fix the broken camera.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmBrokenCamera::1	Inspect the broken camera.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmBrokenCamera::2	Find someone who can fix the broken camera.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmBrokenCamera::3	Ask Joe about the broken camera.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmBrokenCamera::4	Come back to Joe tomorrow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmConfrontationTitle	Confrontation
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmConfrontation	Spend the night at the farm on Sunday.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmConfrontation::1	Spend the night at the farm on Sunday.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmDestroyUFOTitle	The Wawel Dragon
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmDestroyUFO	Destroy the UFO.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmDestroyUFO::1	Talk to Joe about possible ways to destroy the UFO.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmDestroyUFO::2	Create a bomb out of a fake goat.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmDestroyUFO::3	Plant the fake goat at the farm on Sunday.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFishQuestTitle	Fishing Time
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/farmFishQuest::1	Bring to Will and Henry a following fish: $x$
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/uraniumVisitJoeTitle	Glowing Glass
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/uraniumVisitJoe::1	Ask Joe about the strange glowing piece of glass.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/uraniumMineTitle	Where's the uranium?
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/uraniumMine::1	Ask Bob about a possible Uranium Mine in Murricaville.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/uraniumMine::2	Come back to Bob tomorrow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/uraniumMine::3	Search the lowest level of the mine with a Geiger Counter.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/radiatedMushroomsTitle	Mutant Mushrooms
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/radiatedMushrooms::1	Show a radiated mushroom to Jenny.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/radiatedMushrooms::2	Come back to Jenny tomorrow.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearEngineeringTitle	Nuclear Engineering
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearEngineering::1	Ask Bob for a book about nuclear energy and engineering.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestTitle	Scientist's Request
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuest::1	Bring the following item to Dr. Edward: $item$
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearOldMaskQuestTitle	Keeping the Sleepless Sleepless
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearOldMaskQuest::1	Bring <color=yellow>5x energy drink</color> to the Sleepless.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearExplorePowerPlantTitle	Power Plant
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearExplorePowerPlant	Explore the abandoned power plant.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearExplorePowerPlant::1	Explore the abandoned power plant.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearTalkToScientistTitle	Dr. Edward
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearTalkToScientist	Talk to Dr. Edward.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearTalkToScientist::1	Talk to Dr. Edward.\nUse Anti-radiation extract (Optional).
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage1Title	Nuclear Power Plant
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage1::1	Complete all the scientist's requests from this stage $current$
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage1	Complete all the scientist's requests to help him fix the Nuclear Generator. I can always ask him for more details if I'm not sure where to find the requested item.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage2Title	Repairing the Local Dam
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage2	Complete all the scientist's requests to help him fix the Local Dam. I can always ask him for more details if I'm not sure where to find the requested item.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage2::1	Complete all the scientist's requests from this stage $current$
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage3Title	Power Plant Stabilization
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage3	Complete all the scientist's requests to help him stabilize the Nuclear Generator. I can always ask him for more details if I'm not sure where to find the requested item.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage3::1	Complete all the scientist's requests from this stage $current$
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage4Title	Scientist's project: ???
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage4	Complete all the scientist's requests to help him... do whatever it is he's doing. I can always ask him for more details if I'm not sure where to find the requested item.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistQuestStage4::1	Complete all the scientist's requests from this stage $current$
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistWaitTillNextDayTitle	Dr. Edward
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearScientistWaitTillNextDay::1	Come back to the Dr. Edward the next day.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearStabilizeGeneratorTitle	Stabilize the Nuclear Generator
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearStabilizeGenerator	The scientist is out of his mind. I have to take stabilizing the generator into my own hands.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearStabilizeGenerator::1	Find a way to stabilize the nuclear generator
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearStabilizeGenerator::2	I have to find a way to fix the overheating core and the damaged containment shell of the nuclear generator.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearStabilizeGenerator::3	I have to find a way to fix the unstable core of the nuclear generator.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearStabilizeGenerator::4	Craft the Nuclear Generator Refueler and the Deionizing Beacon
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearStabilizeGenerator::5	Craft the Reactor Safety System
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/nuclearStabilizeGenerator::6	Install the Reactor Safety System in the Nuclear Power Plant
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainTitle	Mountain.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountain	Check the mountain location.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountain::1	Check the mountain location.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoNotesTitle	Cryo-tech Notes
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoNotes	I want make a cryo sleep pod. I need to collect notes about cryo-tech experiments in the mountains.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoNotes::1	Collect Cryo-tech notes ($x$/$y$)
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoSleepPodTitle	Cryo Sleep Pod
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoSleepPod	I starting to understand Agancy's cryo tech. I will try one of thayer designs - Cryo Sleep Pod.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoSleepPod::1	Craft Cryo Sleep Pod
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoSleepPod::2	Try out Cryo Sleep Pod
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoSleepPod::3	Identify the cause of Cryo Sleep Pod malfunction
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoSleepPod::4	Calibrate Cryo Sleep Pod
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainCryoSleepPod::5	Try Cryo Sleep Pod again
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlankTitle	Save Blank
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlank	Blank wants to use the cryo sleep pod on top of the mountain and she doesn't know that it need to by calibrated for her. I'm the only person that can save her life.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlank::1	Learn more details about Blank ($x$/$y$)
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlank::2	Reach the mountain top.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlank::3	Find Blank.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlank::4	Inspect Blank's Cryo Sleep Pod.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlank::5	Calibrate Blank's Cryo Sleep Pod.
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlank::6	Check back on Blank after some time. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal/mountainSaveBlank::7	Check back on Blank. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_DamagedLines	Attention! As a result of an accident during military maneuvers, state high-voltage lines were interrupted. It is estimated that in the next few days the problem will be solved, however, the supply of electricity in some regions of the country may be withheld. If you have any questions or problems, please contact your local energy emergency services.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_DamagedLines_Bold	
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_DamagedLines_Headline	Damaged high voltage lines
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_Reactor	Citizens! The government informs. As a result of the failure of the nuclear reactor in our largest state power plant, some households may temporarily be deprived of electric power. We apologize for any inconvenience. If repairs will occur as a prolonged event, our functionaries will make sure that every citizen has access to food and drinking water. Stay prepared.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_Reactor_Bold	Reactor's failure
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_Reactor_Headline	Reactor
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_Thunderstorms	Meteorologists proclaim that next week will be exceptionally abundant in dangerous weather events, including storms. There may be power blackouts. Citizen, be aware! If there are characteristic signs in the sky, such as bright flares and rain and hail, stay home. If you are outside, take shelter in a nearby building or enter the car. Under no circumstances should you open an umbrella or stand under a tree.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_Thunderstorms_Bold	Thunderstorms
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Electricity_Thunderstorms_Headline	Blackout
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_Embargo	Citizens! Due to a treacherous embargo imposed by the foreign powers, the upcoming week will be particularly hard for us. The import of goods is inhibited and this will negatively affect trade.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_Embargo_Bold	No Trading
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_Embargo_Headline	
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_LabourDay	Embargo
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_LabourDay_Bold	Labour Day
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_LabourDay_Headline	Labour Day
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_LostPostman	The local police informs that yesterday an investigation was initiated regarding the search for the missing Mr. Postman. We expect delays in the delivery of letters and other postal goods. All citizens who have been in contact with those missing in the last days are asked to provide information at the local police station. Remember, civic responsibility is the highest virtue.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_LostPostman_Bold	Lost Mr. Postman
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Trade_LostPostman_Headline	Postman
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Pipeline	This week the weather wasn't exceptional. As a result of periodic glaciations in the northern parts of the country, the integrity of our main pipelines was compromised. We can expect the delivery of water to be stopped in a few days. Our workers will take care of the crisis as soon as possible. Support them, citizens, and stay prepared.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Pipeline_Bold	Pipeline failure.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Pipeline_Headline	Pipeline
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Substances	The health service informs: citizen, drink only boiled water! There have been cases of serious illness after ingesting tap water. According to the local police and fire brigade, there are suspicious poisonous substances in the water. For further research and for the safety of our citizens, the supply of water will soon be cut off. We ask for your understanding. Remember! Your health is most important.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Substances_Bold	
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Substances_Headline	Suspicious substances in water
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Tame	As a result of an unexpected accident, the work of the great state dam on the East Coast will be stopped. The dam's employees started maintenance and repair work in order to resume the unit's functioning as soon as possible. If repairs get drawn out, our functionaries will make sure that every citizen has access to food and drinking water. Stay prepared.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Tame_Bold	Dam
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_Water_Tame_Headline	Dam
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/ForeignNewspaperBobContent	Discussion continues after the last week's shooting rampage perpetrated by a 27-year old man in Nottingham. Commentators draw comparisons to previous attacks in Kyoto, Malaga, Tehran, and Erfurt. Despite the different methods of attacks, in each of these cases the perpetrator had no criminal record and no discernible political motive, and they seemed to choose their victims at random. Moreover, all of the attackers exhibited a very unusual behaviour: they fell asleep shortly after their rampages, making arresting them very easy.\n“The similarities are too striking to be accidental,” says Professor Clementine Montebello from University of Birmingham. “The profile of perpetrators and their modus operandi suggests a mind control technique of some sort is involved.”\nPoliticians are quicker to draw conclusions. “The attacks are obviously caused by the Brazen Serpent mind control satellite,” says Dominic Maralinga, the Foreign Secretary. “If the US administration does not shut down the programme immediately, there will be grave consequences.”\nThe White House has once again declined any comment on the matter.\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/ForeignNewspaperBobTitle	International Pressure on the US Mounts after Nottingham Attack\n
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_1	As the beneficial effects of the Brazen Serpent satellite on the health and wellbeing of American citizens persist, the foreign powers continue to slander our flagship project. Lavrentiy Pervukhin, the Soviet Union's Chairman of the Council of Ministers, has sounded his suspicion that the Brazen Serpent is a "mass surveillance tool aimed at our citizens", and British Empire's PM, Gilbert Ellice, has called it "a dangerous experiment on the population of the US and other countries". The President staunchly opposes depicting the Brazen Serpent as anything other than a very effective medical device. He says the foreign politicians spread lies out of jealousy, trying to hide their own incompetence in providing security and healthcare for their citizens.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_1_Headline	Who's afraid of the Americans' good health?
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_2	The regenerative and protective effects of the Brazen Serpent waves are already well known, but the new study conducted by researchers from New Mexico University Alamogordo suggests that they are beneficial also to pets, especially dogs. Animals that received a dosage of healing waves were more obedient and less aggressive than the control group. Increased purring (in felines) and tail-wagging (in canines) were also reported. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_2_Headline	Brazen Serpent is also good for pets, study says
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_3	Remember: a good night's sleep makes you a better citizen! It lightens up your mood, reinforces your strength, and benefits your memory. A well-rested citizen is willing and ready to work for our country's prosperity, cooperates well with others and complies with all the security and wellbeing protocols. Don't be a sluggish night owl, citizen! Sleep well so you can rise and shine!
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_3_Headline	Good sleep is a citizen's work!
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_4	Officers of the Agency have raided a house of a man in Cactus Springs, Nevada, finding a sizeable collection of subversive materials, including banned books, unapproved textbooks, non-standard furniture, and an offensive image of the President. The owner has been interrogated in order to identify any accomplices and - after a prompt fair trial - sentenced to 30 years in a rehabilitation facility.
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_4_Headline	Subversive and offensive materials confiscated, owner sentenced
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_5_Headline	A new pathogen ravages Mexico, government unable to help the population
+I2Languages (I2.Loc.LanguageSourceAsset)	Articles/NP_SideArt_5	A newly discovered protozoan pathogen is responsible for an outbreak of a very infectious and highly deadly disease in Mexico. The protozoan spreads through contact, airborne transmission is also suspected. Mexican healthcare is overwhelmed, people die in hundreds. In order to avoid the "Mexican virus", as the President has called it in his speech, security alongside the US-Mexican border will be strengthened. Any contact with anyone coming from Mexico should be reported immediately.\nThe US citizens, however, have no reason to fear the new pathogen thanks to the protective waves of the Brazen Serpent. And as some new research from the University of California, San Diego indicates, the beneficial effects of the Brazen Serpent go even further than initially thought - the waves seem to be effective in alleviating and even curing dementia.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/state	Status
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/noSeed	needs a new seed
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/growing	growing
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/growingFruits	growing
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/needsWater	needs more water
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/needsLight	needs more light
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/readyForHarvest	ready for harvest
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/notWorking	not working, maybe it needs something?
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/working	working, please wait, not ready to collect
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/ready	ready to collect
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/nRain	needs rain
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/overload	overload. not enough power.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/overload2	build generator or turn something off
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/overloadToColor	overload.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/	
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/herbBed	But grandmother! What small cabin do you have, said Little Prepp Riding Hood.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/herbDeerTrophy	A hunter's trophy? Perhaps there is more to the Herbalist than meets the eye.\nAnd what's the deal with these antlers?
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/herbGrowingBox	A growing box. Somehow I have a feeling these are not only decorative plants.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/herbTV	There's nothing worthwhile on TV since the Plague, only news about successes of government, outdated educational programs, and old westerns.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/herbWeedHook	This is probably a weeding tool. But it could definitely kill you.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/herbDaisyGrubber	A gardening tool or a torture device? I don't trust the cute daisy painted on it. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobHideoutSupPosters	Apart from his books and comics, Bob has a collection of posters. It might be the most colorful place in whole Murricaville.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobHideoutBeetle	I don't recognize this exotic language, but it looks like something about an invasion of deadly giant bugs. Very cool.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobHideoutBless	This poster just tells it like it is. I also like to start the day with saluting the president's head in the sky. 
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobHideoutPC	A top-notch information technology. Too bad nobody had invented a wider network for these things.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobHideoutBoard	Post-it notes always make the interior look professional.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobSleeplessBasePillows	So here's where all the herbal teas from Jenny are being tested, I think.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobSleeplessBasePosters	Catchy. Properly disturbing. Not sure if effective, though.
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobSleeplessBaseChairs	I wonder how many Sleepless are there. Do they hold regular meetings?
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect/bobSleeplessBaseContainers	There's a lot of dangerous stuff for an area that's supposedly full of hydrogen.
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_0_NAME	Mr. Prepper's Path
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_0_DESC	Press START GAME after selecting a slot
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_1_NAME	Obvious from the beginning
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_1_DESC	Finish the tutorial
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_2_NAME	Little Prepp Riding Hood
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_2_DESC	Kill all the wolves around Jenny's forest hut
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_3_NAME	Atlas
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_3_DESC	Build an underground rocket silo
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_4_NAME	It's just a start!
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_4_DESC	Get to day 15
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_5_NAME	Prepp's Kitchen
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_5_DESC	Cook your first dish
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_6_NAME	Extreme Shelter Makeover
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_6_DESC	Upgrade a room
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_7_NAME	Old McDonald Had a Ranch House...
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_7_DESC	Build 5 greenhouses
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_8_NAME	Expander
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_8_DESC	Build more than 7 rooms in the bunker
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_9_NAME	If I Were a Rich Man
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_9_DESC	Have 1000 coins in your pocket
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_10_NAME	The Way of the Plant Eater
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_10_DESC	Don't eat any meat for 7 days
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_11_NAME	The Way of the Meat Eater
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_11_DESC	Eat only meat for 7 days
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_12_NAME	Scavenger
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_12_DESC	Loot 25 boxes
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_13_NAME	The Cook
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_13_DESC	Cook 50 dishes
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_14_NAME	Masterchef
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_14_DESC	Cook 200 dishes
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_15_NAME	The Negotiator
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_15_DESC	Reach max level of negotiation skill
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_16_NAME	The Builder
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_16_DESC	Read a book about building
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_17_NAME	The Agricultural Expert
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_17_DESC	Reach max level of gardening skill
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_18_NAME	I'll Do It Myself
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_18_DESC	Reach max level of DIY skill
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_19_NAME	Stay Healthy
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_19_DESC	Read a book about healthy eating
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_20_NAME	Karate Prepper
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_20_DESC	Reach max level of martial art skill
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_21_NAME	No Time to Sleep
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_21_DESC	Read a book about sleep
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_22_NAME	The Tinkerer
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_22_DESC	Read a book about fuel saving
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_23_NAME	Prepper 101
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_23_DESC	Read a guide to prepping
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_24_NAME	Arm Wrestler
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_24_DESC	Reach max level of strength
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_25_NAME	Project Iceworm
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_25_DESC	Read a book about surviving in low temperatures
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_26_NAME	Straight to the Grandma's House
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_26_DESC	Reach max level of trust with Jenny
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_27_NAME	Comics & Mining Convention
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_27_DESC	Reach max level of trust with Bob
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_28_NAME	Chupacabra Approved
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_28_DESC	Reach max level of trust with Joe
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_29_NAME	First Tool
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_29_DESC	Craft a pickaxe
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_30_NAME	Miner
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_30_DESC	Use 50 units of fuel in the mining machines
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_31_NAME	Observing the Past
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_1_31_DESC	Reach Fort Observer
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_0_NAME	The Best Penpal
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_0_DESC	Reach max level of trust with Minuteman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_1_NAME	Home Decorator
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_1_DESC	Have lamps in all colors at the same time
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_2_NAME	Wolf Slayer
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_2_DESC	Kill 100 wolves
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_3_NAME	Sleepyhead
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_3_DESC	Nap during the day
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_4_NAME	Car Mechanic 
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_4_DESC	Fix the car in the junkyard
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_5_NAME	Rocketman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_5_DESC	Build the rocket
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_6_NAME	Popular Kid
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_6_DESC	Reach max level of trust with all sellers
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_7_NAME	Kung Fu Fighting
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_7_DESC	Kill a wolf with your fists only
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_8_NAME	Gunslinger
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_8_DESC	Fire 6 bullets in 3 seconds with a revolver
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_9_NAME	Vampire Hunter
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_9_DESC	Kill 60 bats
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_10_NAME	Sleepless
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_10_DESC	Get a drug to stay awake through the night
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_11_NAME	Everything is Bob
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_11_DESC	Inspect every plant in the game
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_12_NAME	Novice Prepper
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_12_DESC	Survive 1 month
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_13_NAME	Intermediate Prepper
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_13_DESC	Survive 2 months
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_14_NAME	Advanced Prepper
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_14_DESC	Survive 4 months
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_15_NAME	The Original Prepper
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_15_DESC	Survive 1 year
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_16_NAME	Slacker
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_16_DESC	Nap 3 times on 1 day
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_17_NAME	No time to waste, there's prepping to do!
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_17_DESC	Do not nap for 7 days
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_18_NAME	Government Property
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_18_DESC	Keep your house unchanged for 7 days
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_19_NAME	Blueberrylicious
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_19_DESC	Survive 7 days on blueberries only
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_20_NAME	Booksmart
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_20_DESC	Read all the skills books
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_21_NAME	The Poacher
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_21_DESC	Catch 50 animals with traps
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_22_NAME	Invincible
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_22_DESC	Complete the game without fainting
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_23_NAME	Fair Trial
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_23_DESC	Get arrested
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_24_NAME	Gentleman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_24_DESC	Do not run for 7 days
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_25_NAME	Speedrunner
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_25_DESC	Finish the game in 30 days
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_26_NAME	Counting Stars
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_26_DESC	Collect all names in the credits
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_27_NAME	Perfect Ending
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_27_DESC	Get full ending
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/	
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_29_NAME	White Sands Farm
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_29_DESC	Visit the farm for the first time
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_30_NAME	Employee of the Month
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_30_DESC	Repair everything that can be repaired on the farm
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_31_NAME	The Lake
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_33_31_DESC	Discover the lake
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_0_NAME	Abduction
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_0_DESC	Get abducted by the UFO
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_1_NAME	Until Dawn
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_1_DESC	Escape the UFO 
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_2_NAME	Skub the Shoemaker
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_2_DESC	Destroy the UFO
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_3_NAME	Search and Rescue
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_3_DESC	Find all the missing animals
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_4_NAME	Egg Hunt
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_4_DESC	Collect 60 eggs from chickens
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_5_NAME	Milkman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_5_DESC	Collect 100 milk units by milking animals
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_6_NAME	Hamster-powered
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_6_DESC	Have the whole shelter powered by hamsters only
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_7_NAME	Beekeeper
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_7_DESC	Collect 30 units of honey from beehives
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_8_NAME	Dog Owner
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_8_DESC	Reach the 1st friendship level with Xeno
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_9_NAME	Dog Person
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_9_DESC	Reach the 2nd friendship level with Xeno
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_10_NAME	Best Friend
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_10_DESC	Reach maximum friendship level with Xeno
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_11_NAME	Gotta Pet 'Em All
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_11_DESC	Pet all the animal types
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_12_NAME	Maze Runner
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_12_DESC	Unlock maximum maze level
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_13_NAME	Night Runner
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_13_DESC	Finish the 5th level of the night maze
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_14_NAME	Golden Fish
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_14_DESC	Catch golden fish
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_15_NAME	The Fisher King
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_15_DESC	Catch all the fish types
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_16_NAME	Novice Fisherman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_16_DESC	Reach the novice fisherman rank
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_17_NAME	Apprentice Fisherman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_17_DESC	Reach the apprentice fisherman rank
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_18_NAME	Advanced Fisherman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_18_DESC	Reach the advanced fisherman rank
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_19_NAME	Expert Fisherman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_19_DESC	Reach the expert fisherman rank
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_20_NAME	Master Fisherman
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_43_20_DESC	Reach the master fisherman rank
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_1_NAME	Initiating Chain Reaction
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_1_DESC	Visit the nuclear power plant for the first time
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_2_NAME	Lab Assistant
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_2_DESC	Finish stage 1 of scientist's item quests
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_3_NAME	Junior Researcher
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_3_DESC	Finish stage 2 of scientist's item quests
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_4_NAME	Field Research Specialist
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_4_DESC	Finish stage 3 of scientist's item quests
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_5_NAME	Chief Science Partner
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_5_DESC	Finish stage 4 of scientist fetch quests
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_6_NAME	Talked Him Off the Tesla Coil
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_6_DESC	Save the scientist from himself
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_7_NAME	Radioactive Geocaching
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_7_DESC	Find 20 radioactive items with Geiger counter
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_8_NAME	Bikini Atoll
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_8_DESC	Find a mannequin on the desert
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_9_NAME	Environmental Consequences
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_9_DESC	Find a rare mutated plant in the forest
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_10_NAME	Meltdown Threshold
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_10_DESC	Reach maximum level of irradiation
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_11_NAME	Uranium Mine
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_11_DESC	Enter the uranium mine
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_12_NAME	Prize Collector
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_12_DESC	Get 20 prize boxes using the crane machine
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_13_NAME	Peaceful Atom
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_13_DESC	Craft a nuclear generator
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_14_NAME	When Life Gives You Lemons
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_14_DESC	Buy 20 lemonades
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_15_NAME	Expedition 33
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_15_DESC	Complete expeditions to all locations at max level
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_16_NAME	The Gadget
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_16_DESC	Detonate Nuclear bomb
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_17_NAME	Crane Machine Veteran
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_17_DESC	Reach level 10 in the crane machine
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_18_NAME	Two Birds, One Claw
+I2Languages (I2.Loc.LanguageSourceAsset)	SteamAchievements/NEW_ACHIEVEMENT_44_18_DESC	Win two prize boxes in a single crane machine move
+I2Languages (I2.Loc.LanguageSourceAsset)	New Text	kolrotr\t
+I2Languages (I2.Loc.LanguageSourceAsset)	afterDeath	You were unconscious for
+I2Languages (I2.Loc.LanguageSourceAsset)	days	days
+I2Languages (I2.Loc.LanguageSourceAsset)	day	day
+I2Languages (I2.Loc.LanguageSourceAsset)	dead	dead
+I2Languages (I2.Loc.LanguageSourceAsset)	fainted	fainted
+I2Languages (I2.Loc.LanguageSourceAsset)	houres	hours
+I2Languages (I2.Loc.LanguageSourceAsset)	houresUnder5	hours
+I2Languages (I2.Loc.LanguageSourceAsset)	hour	hour
+I2Languages (I2.Loc.LanguageSourceAsset)	minutes	minutes
+I2Languages (I2.Loc.LanguageSourceAsset)	minutesUnder5	minutes
+I2Languages (I2.Loc.LanguageSourceAsset)	minut	minute
+I2Languages (I2.Loc.LanguageSourceAsset)	dayShort	d
+I2Languages (I2.Loc.LanguageSourceAsset)	hourShort	h
+I2Languages (I2.Loc.LanguageSourceAsset)	minutShort	m
+I2Languages (I2.Loc.LanguageSourceAsset)	refresher	olin
+I2Languages (I2.Loc.LanguageSourceAsset)	test	The electricity has been cut off!
+I2Languages (I2.Loc.LanguageSourceAsset)	test2	force
+I2Languages (I2.Loc.LanguageSourceAsset)	Bought	bought
+I2Languages (I2.Loc.LanguageSourceAsset)	sold	SOLD
+I2Languages (I2.Loc.LanguageSourceAsset)	soldSale	No, thanks
+I2Languages (I2.Loc.LanguageSourceAsset)	inStock	in stock
+I2Languages (I2.Loc.LanguageSourceAsset)	inStockSale	needed
+I2Languages (I2.Loc.LanguageSourceAsset)	inspiration	Inspiration
+I2Languages (I2.Loc.LanguageSourceAsset)	and	and
+I2Languages (I2.Loc.LanguageSourceAsset)	Sell	Sell
+I2Languages (I2.Loc.LanguageSourceAsset)	Give	Give
+I2Languages (I2.Loc.LanguageSourceAsset)	total	total
+I2Languages (I2.Loc.LanguageSourceAsset)	demoFinished	        \n<color=#FFC700FF><size=175%>CONGRATULATIONS!\n<line-height=59%><color=#FFFFFFFF><size=100%>You have finished the demo.\nWe really hope that you have enjoyed it. Please feel free to share your feedback so we can make this game better.\n<line-height=70%>\n<pos=4%>Wanna continue playing?
+I2Languages (I2.Loc.LanguageSourceAsset)	yes	YES!
+I2Languages (I2.Loc.LanguageSourceAsset)	No	No
+I2Languages (I2.Loc.LanguageSourceAsset)	openAgent	Open the door, the Agent has come!
+I2Languages (I2.Loc.LanguageSourceAsset)	tutorialQ	Do you want to play the tutorial?
+I2Languages (I2.Loc.LanguageSourceAsset)	saveing	Saving
+I2Languages (I2.Loc.LanguageSourceAsset)	myCash	My cash
+I2Languages (I2.Loc.LanguageSourceAsset)	Buy	Buy
+I2Languages (I2.Loc.LanguageSourceAsset)	Inspect	Inspect
+I2Languages (I2.Loc.LanguageSourceAsset)	exitG	Exit
+I2Languages (I2.Loc.LanguageSourceAsset)	exitW	Exit to windows
+I2Languages (I2.Loc.LanguageSourceAsset)	Settings	Settings
+I2Languages (I2.Loc.LanguageSourceAsset)	exitM	Exit to menu
+I2Languages (I2.Loc.LanguageSourceAsset)	Hold	Hold
+I2Languages (I2.Loc.LanguageSourceAsset)	Controls	Controls
+I2Languages (I2.Loc.LanguageSourceAsset)	Audio	Audio
+I2Languages (I2.Loc.LanguageSourceAsset)	Results	Results
+I2Languages (I2.Loc.LanguageSourceAsset)	Volume	Volume
+I2Languages (I2.Loc.LanguageSourceAsset)	Game	Game
+I2Languages (I2.Loc.LanguageSourceAsset)	Graphics	Graphics
+I2Languages (I2.Loc.LanguageSourceAsset)	Music	Music
+I2Languages (I2.Loc.LanguageSourceAsset)	Ambient	Ambient
+I2Languages (I2.Loc.LanguageSourceAsset)	Effects	Effects
+I2Languages (I2.Loc.LanguageSourceAsset)	Always Run	Always Run
+I2Languages (I2.Loc.LanguageSourceAsset)	Language	Language
+I2Languages (I2.Loc.LanguageSourceAsset)	Keyboard Camera Speed	Keyboard Camera Speed
+I2Languages (I2.Loc.LanguageSourceAsset)	Keyboard Camera SpeedPort	Camera Speed
+I2Languages (I2.Loc.LanguageSourceAsset)	Screen Edge Camera Speed	Screen Edge Camera Speed
+I2Languages (I2.Loc.LanguageSourceAsset)	Show Tips	Show Tips
+I2Languages (I2.Loc.LanguageSourceAsset)	Resolution	Resolution
+I2Languages (I2.Loc.LanguageSourceAsset)	Fullscreen	Fullscreen
+I2Languages (I2.Loc.LanguageSourceAsset)	V-sync	V-sync
+I2Languages (I2.Loc.LanguageSourceAsset)	Brightness	Brightness
+I2Languages (I2.Loc.LanguageSourceAsset)	Antialiasing	Antialiasing
+I2Languages (I2.Loc.LanguageSourceAsset)	Extra Antialiasing	Extra Antialiasing
+I2Languages (I2.Loc.LanguageSourceAsset)	Depth Of Field	Depth Of Field
+I2Languages (I2.Loc.LanguageSourceAsset)	Ambient Occlusion	Ambient Occlusion
+I2Languages (I2.Loc.LanguageSourceAsset)	Ambient Obscurance	Ambient Obscurance
+I2Languages (I2.Loc.LanguageSourceAsset)	Bloom	Bloom
+I2Languages (I2.Loc.LanguageSourceAsset)	Shadow Quality	Shadow Quality
+I2Languages (I2.Loc.LanguageSourceAsset)	Texture Quality	Texture Quality
+I2Languages (I2.Loc.LanguageSourceAsset)	Detail Level	Detail Level
+I2Languages (I2.Loc.LanguageSourceAsset)	Forward Rendering	Forward Rendering
+I2Languages (I2.Loc.LanguageSourceAsset)	Attack Type	Attack Type
+I2Languages (I2.Loc.LanguageSourceAsset)	Low	Low
+I2Languages (I2.Loc.LanguageSourceAsset)	Medium	Medium
+I2Languages (I2.Loc.LanguageSourceAsset)	High	High
+I2Languages (I2.Loc.LanguageSourceAsset)	Framerate Limit	Framerate Limit
+I2Languages (I2.Loc.LanguageSourceAsset)	No Limit	No Limit
+I2Languages (I2.Loc.LanguageSourceAsset)	V-sync Limit	V-sync Limit
+I2Languages (I2.Loc.LanguageSourceAsset)	deposite	Deposit All
+I2Languages (I2.Loc.LanguageSourceAsset)	apply	Apply
+I2Languages (I2.Loc.LanguageSourceAsset)	takeAll	Take All
+I2Languages (I2.Loc.LanguageSourceAsset)	Journal	Journal
+I2Languages (I2.Loc.LanguageSourceAsset)	Gear	Gear
+I2Languages (I2.Loc.LanguageSourceAsset)	eatAll	Eat All
+I2Languages (I2.Loc.LanguageSourceAsset)	reload	Reload?
+I2Languages (I2.Loc.LanguageSourceAsset)	moreRocket	More of the rocket\nin the full version
+I2Languages (I2.Loc.LanguageSourceAsset)	traded	TRADED
+I2Languages (I2.Loc.LanguageSourceAsset)	Continue	Continue
+I2Languages (I2.Loc.LanguageSourceAsset)	New Game	New Game
+I2Languages (I2.Loc.LanguageSourceAsset)	Options	Options
+I2Languages (I2.Loc.LanguageSourceAsset)	Exit	Exit
+I2Languages (I2.Loc.LanguageSourceAsset)	Play	Play
+I2Languages (I2.Loc.LanguageSourceAsset)	Remove	Remove
+I2Languages (I2.Loc.LanguageSourceAsset)	TooHeavy	Too heavy
+I2Languages (I2.Loc.LanguageSourceAsset)	SomeNews	maybe some news?
+I2Languages (I2.Loc.LanguageSourceAsset)	NeedFuel	you need fuel
+I2Languages (I2.Loc.LanguageSourceAsset)	NeedWater	You need water
+I2Languages (I2.Loc.LanguageSourceAsset)	WrongContainer	not proper container
+I2Languages (I2.Loc.LanguageSourceAsset)	NotReady	Not ready
+I2Languages (I2.Loc.LanguageSourceAsset)	WayBlocked	Way is blocked
+I2Languages (I2.Loc.LanguageSourceAsset)	CantGo	Can't go there
+I2Languages (I2.Loc.LanguageSourceAsset)	saved	saved
+I2Languages (I2.Loc.LanguageSourceAsset)	time	time
+I2Languages (I2.Loc.LanguageSourceAsset)	NotPrepared	You were not prepared
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase0	FULL GAME\nINCLUDES
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase1	ROOM\nUPGRADES
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase2	WATER SUPPLY\nSYSTEMS
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase3	POWER SUPPLY\nSYSTEMS
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase4	VARIOUS FARM\nTYPES
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase5	MINING
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase6	FULL STORY AND\nQUEST SYSTEM
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase7	AND THAT IS ONLY\nTHE BEGINNING!
+I2Languages (I2.Loc.LanguageSourceAsset)	PrologueExitShowcase8	VISIT MR. PREPPER\nSTEAM PAGE
+I2Languages (I2.Loc.LanguageSourceAsset)	createDate	created
+I2Languages (I2.Loc.LanguageSourceAsset)	saveDate	saved
+I2Languages (I2.Loc.LanguageSourceAsset)	version	version
+I2Languages (I2.Loc.LanguageSourceAsset)	VersionsInfographicsPrologue	<size=125%><color=#FFDA3EFF>What's the prologue?</color></size>\n+ Tutorial\n+ Basic Mechanics\n+ Extended Mechanics\n+ Beginning of the story
+I2Languages (I2.Loc.LanguageSourceAsset)	VersionsInfographicsPrologueButton	<align="center"><size=125%><color=#FFDA3EFF>Wanna play prologue?</color></size>\n<size=125%><align="center"><cspace=1.4em>[click here]</cspace>
+I2Languages (I2.Loc.LanguageSourceAsset)	VersionsInfographicsDemo	<size=125%><color=#FFDA3EFF>What's the demo?</color></size>\n+ Tutorial\n+ Basic Mechanics
+I2Languages (I2.Loc.LanguageSourceAsset)	VersionsInfographicsDemoLabel	<size=125%><color=#FFDA3EFF>You're playing demo <align="center">right now</color></size>
+I2Languages (I2.Loc.LanguageSourceAsset)	Keep Cursor Inside Window	Keep the cursor inside the window
+I2Languages (I2.Loc.LanguageSourceAsset)	Display Mode	Display mode
+I2Languages (I2.Loc.LanguageSourceAsset)	Windowed	Window
+I2Languages (I2.Loc.LanguageSourceAsset)	Fullscreen Window	Borderless window
+I2Languages (I2.Loc.LanguageSourceAsset)	Maximized Window	Maximized window
+I2Languages (I2.Loc.LanguageSourceAsset)	Exclusive Mode	Fullscreen
+I2Languages (I2.Loc.LanguageSourceAsset)	Buffering	Buffering
+I2Languages (I2.Loc.LanguageSourceAsset)	Off	Off
+I2Languages (I2.Loc.LanguageSourceAsset)	Grain	Film grain
+I2Languages (I2.Loc.LanguageSourceAsset)	lightsMinigame	Lights On
+I2Languages (I2.Loc.LanguageSourceAsset)	blocksMinigame	Block Out
+I2Languages (I2.Loc.LanguageSourceAsset)	pushMe	Push me
+I2Languages (I2.Loc.LanguageSourceAsset)	FBaitRunoutPopup	I've run out of fishing bait.
+I2Languages (I2.Loc.LanguageSourceAsset)	FMissRodPopup	What...? Where is my fishing rod?
+I2Languages (I2.Loc.LanguageSourceAsset)	FEndOfFishsesPopup	All fish have run away.
+I2Languages (I2.Loc.LanguageSourceAsset)	mazeMinigameWin	You won!
+I2Languages (I2.Loc.LanguageSourceAsset)	FUIOpenPopup	You can't continue fishing with the equipment open.
+I2Languages (I2.Loc.LanguageSourceAsset)	mazeGranadesMinigameTitle	Throw Grenades
+I2Languages (I2.Loc.LanguageSourceAsset)	mazeShootingMinigameTitle	Shoot the Target
+I2Languages (I2.Loc.LanguageSourceAsset)	openingSoon	OPENING SOON
+I2Languages (I2.Loc.LanguageSourceAsset)	cast	Cast
+I2Languages (I2.Loc.LanguageSourceAsset)	quit	Quit
+I2Languages (I2.Loc.LanguageSourceAsset)	cancel	Cancel
+I2Languages (I2.Loc.LanguageSourceAsset)	toLake	To the lake
+I2Languages (I2.Loc.LanguageSourceAsset)	toFarm	To the farm
+I2Languages (I2.Loc.LanguageSourceAsset)	toWheat	To the Wheat Field
+I2Languages (I2.Loc.LanguageSourceAsset)	rank1	Novice
+I2Languages (I2.Loc.LanguageSourceAsset)	rank2	Apprentice
+I2Languages (I2.Loc.LanguageSourceAsset)	rank3	Advanced
+I2Languages (I2.Loc.LanguageSourceAsset)	rank4	Expert
+I2Languages (I2.Loc.LanguageSourceAsset)	rank5	Master
+I2Languages (I2.Loc.LanguageSourceAsset)	Change Combat Mode	Fight Mode
+I2Languages (I2.Loc.LanguageSourceAsset)	Chop Mine	Chop/Mine
+I2Languages (I2.Loc.LanguageSourceAsset)	Climb Down	Climb down
+I2Languages (I2.Loc.LanguageSourceAsset)	Climb Up	Climb up
+I2Languages (I2.Loc.LanguageSourceAsset)	Fast Forward TIme	Fast Forward Time
+I2Languages (I2.Loc.LanguageSourceAsset)	HoldButton	Hold
+I2Languages (I2.Loc.LanguageSourceAsset)	Swap	Transfer
+I2Languages (I2.Loc.LanguageSourceAsset)	Vibrations	Vibration
+I2Languages (I2.Loc.LanguageSourceAsset)	take	Take
+I2Languages (I2.Loc.LanguageSourceAsset)	mountainZone	zone
+I2Languages (I2.Loc.LanguageSourceAsset)	mountainZones	zones
+I2Languages (I2.Loc.LanguageSourceAsset)	Test/aaaaa	gfffs
+I2Languages (I2.Loc.LanguageSourceAsset)	UI/Blueprint	Blueprint

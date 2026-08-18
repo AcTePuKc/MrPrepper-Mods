@@ -1,0 +1,10 @@
+I2 English dump normalization report
+====================================
+Input logical records: 11266
+Unique logical records: 5634
+Exact duplicate records removed: 5632
+Terms with conflicting English values: 0
+Chunk size: 1500
+Chunks written: 4
+
+No conflicting duplicate terms found.
