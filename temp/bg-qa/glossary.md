@@ -17,6 +17,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Steam | Steam | Keep untranslated |
 | Discord | Discord | Keep untranslated |
 | Jenny | Джени | Character name |
+| Mary | Мери | Jenny's old friend; keep consistent in story dialogue |
 | Lavinia | Лавиния | Huntress name |
 | Xeno | Ксено | Character/dog name, pending final consistency scan |
 | Sleepless | Безсънните | Proper name of Bob/Jenny's underground resistance group; plural people, not the abstract noun `безсъние` |
