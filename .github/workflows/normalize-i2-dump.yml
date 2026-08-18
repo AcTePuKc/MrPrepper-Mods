@@ -1,4 +1,4 @@
-name: Normalize I2 English dump
+name: Normalize I2 translation dumps
 
 on:
   workflow_dispatch:
@@ -9,6 +9,9 @@ on:
       - .github/workflows/normalize-i2-dump.yml
       - scripts/normalize_i2_dump.py
       - temp/translation-dumps/i2-terms-en-only.tsv
+      - temp/translation-dumps/i2-reference-french.txt
+      - temp/translation-dumps/i2-reference-russian.txt
+      - src/MrPrepperTranslationMod/translations/labels.txt
 
 permissions:
   contents: write
@@ -23,25 +26,27 @@ jobs:
         with:
           ref: translation/bg-qa-fixes
 
-      - name: Normalize and split dump
+      - name: Normalize and split dumps
         run: |
           python3 scripts/normalize_i2_dump.py \
             temp/translation-dumps/i2-terms-en-only.tsv \
             temp/translation-dumps/generated \
+            --bg src/MrPrepperTranslationMod/translations/labels.txt \
+            --fr temp/translation-dumps/i2-reference-french.txt \
+            --ru temp/translation-dumps/i2-reference-russian.txt \
             --chunk-size 1500
 
       - name: Show report
         run: cat temp/translation-dumps/generated/report.txt
 
-      - name: Upload normalized dump
+      - name: Upload normalized QA dumps
         uses: actions/upload-artifact@v4
         with:
-          name: i2-english-normalized
+          name: i2-qa-normalized
           path: temp/translation-dumps/generated/
 
       - name: Commit generated files
         run: |
-          # Stage first: plain `git diff` does not see newly generated/untracked files.
           git add temp/translation-dumps/generated
 
           if git diff --cached --quiet; then
@@ -51,7 +56,7 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Generate normalized English I2 dump"
+          git commit -m "Generate normalized translation QA dumps"
           git push
 
 # Temporary QA helper: remove after the Bulgarian localization review is complete.
