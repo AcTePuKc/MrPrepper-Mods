@@ -1,0 +1,18 @@
+# Jenny - Bob the plant / glasses dialogue
+# Important context: this Bob is Jenny's plant, not Bob from the mine, unless the line explicitly says "the other Bob".
+# English authoritative; FR/RU used for context only.
+
+Dialogues/prepBobGeneric1=<voice type=question>\nО, значи... даваш имена на всичките си растения?
+Dialogues/herbBobGeneric2=<voice type=laugh>\nЪм. Миличък, аз съм билкарка. Бера растения, суша ги, режа ги, готвя ги, изстисквам ги, горя ги. И така нататък.\nТака че не, не давам имена на всичките си растения.
+Dialogues/prepBobGeneric3=<voice type=question>\nДобре. Тогава... какво му е специалното на Боб?
+Dialogues/herbBobGeneric4=<voice type=order>\nЕ, Боб ми е приятел. \nИ моля те, бъди мил с него. Той е чувствителен и има добра памет.
+Dialogues/prepBobGeneric5=<voice type=greeting>\nДобре. Тогава... приятно ми е, Боб.
+Dialogues/herbBobGeneric6=<voice type=order>\nИ той се радва! Не разваляй нещата.
+
+Dialogues/prepBobGlasses1=<voice type=question>\nЗдравейте, Джени и Боб. Може ли да ви помоля за една услуга?
+Dialogues/herbBobGlasses2=<voice type=greeting>\nЗдравей. Слушаме те внимателно.
+Dialogues/prepBobGlasses3=Става дума за другия Боб. Знаеш, онзи от мината. Двукракия.\nНапоследък зрението му се влошава. Трябват му очила, за да чете. И изобщо, за да се оправя в мината.\n<voice type=question>\nТа се чудех... дали Боб... тоест, Боб, би дал очилата си на Боб?
+Dialogues/herbBobGlasses4=<voice type=question>\nУсещам, че е готов да помогне, добра душа е той. Но... очилата не му ли трябват още?
+Dialogues/prepBobGlasses5=Ъм... мисля, че... на Боб вече не му трябват. Расте толкова добре, всеки ден става все по-зелен. Сигурен съм, че зрението му вече е чудесно.\nЗаради... знаеш... фотосинтезата и такива неща. 
+Dialogues/herbBobGlasses6=<voice type=surprise>\nМисля, че си прав! Боб ще се оправи и без очилата. А може би му е време и за нов външен вид. Вземи ги!
+Dialogues/prepBobGlasses7=<voice type=thanks>\nБлагодаря, Джени! И на теб, Боб. Страхотен тип си, Боб.
