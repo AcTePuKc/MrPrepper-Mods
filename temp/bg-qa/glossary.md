@@ -20,6 +20,8 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Mary | Мери | Jenny's old friend; keep consistent in story dialogue |
 | Lavinia | Лавиния | Huntress name |
 | Xeno | Ксено | Character/dog name, pending final consistency scan |
+| Chupacabra | Чупакабра | Joe's dog; proper name, not the creature term in these dialogue keys |
+| Big Joe | Големия Джо | Joe's ironic nickname; he explicitly explains that he is not big |
 | Sleepless | Безсънните | Proper name of Bob/Jenny's underground resistance group; plural people, not the abstract noun `безсъние` |
 | Bob (mine) | Боб | Human character associated with the mine |
 | Bob (Jenny's plant) | Боб | Jenny's named plant; do not confuse with human Bob. `prepBobGeneric*` / `herbBobGeneric*` establish the joke explicitly. |
