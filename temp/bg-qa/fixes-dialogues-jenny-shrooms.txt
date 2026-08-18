@@ -1,0 +1,9 @@
+# Jenny - mushroom quest
+# Source: Dialogues/herbShrooms1 through Dialogues/herbShrooms5
+# English is authoritative; French/Russian used only as context checks.
+
+Dialogues/herbShrooms1=<voice type=thanks>\nО, здравей, маргаритке! Аз и Боб ти благодарим, че победи големия лош вълк! Надявам се да не си пострадал.
+Dialogues/prepShrooms2=<voice type=disappointment>\nМоля те, не ме наричай... а, както и да е. Няма защо. И не, добре съм.
+Dialogues/herbShrooms3=Сега, след като си върнах малкия уютен дом и работилницата, искам отново да се захвана с кулинарните си експерименти.\nМного от приятелите ми в града страдат от определени <color=yellow>проблеми със съня</color>.\n<voice type=laugh>\nКато добра стара дама искам да помогна. Пробвам различни съставки за... <color=yellow>билков чай</color>.\nЧух за любопитен вид <color=yellow>гъби</color>, които растат в <color=yellow>старата мина</color> точно извън града.\n<voice type=question>\nМожеш ли да ми донесеш от тях? Имам предчувствие, че ще паснат чудесно на новия ми чай.
+Dialogues/prepShrooms4=Любопитни <color=yellow>гъби</color>. От <color=yellow>старата мина</color>. За <color=yellow>чай</color>.\n<voice type=acceptance>\nДа, разбира се, защо не.
+Dialogues/herbShrooms5=<voice type=thanks>\nЧудесно! Само бъди внимателен, млади човече, <color=yellow>мината</color> е опасно място. \nНо има шанс да срещнеш и една <color=yellow>приятелски настроена душа</color> там.
