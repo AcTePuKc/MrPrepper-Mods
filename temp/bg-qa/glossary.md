@@ -24,8 +24,8 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Murricaville County | окръг Мъррикавил | Avoid literal/garbled forms such as `Муритикайл Каунти` |
 | mine (noun) | мина | Use for the location unless a specific context clearly requires `шахта` |
 | old mine | старата мина | Jenny quest/location wording |
-| buttercup | лютиче | Jenny's plant nickname; keep as a flower nickname rather than flattening to generic endearment |
-| daisy | маргаритка | Jenny's plant nickname; preserve the changing plant-name joke |
+| buttercup | слънчице | Jenny nickname; localize as a natural affectionate address rather than literal `лютиче` |
+| daisy | цвете мое | Jenny nickname in `herbShrooms1`; chosen to keep the affectionate flower theme and make Prepper's objection sound natural |
 | herbal tea | билков чай | Jenny dialogue terminology |
 | guarana | гуарана | Plant name |
 | guarana fruit(s) | плод(ове) от гуарана | Prefer natural Bulgarian word order |
@@ -48,4 +48,4 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 - Do not translate product, platform, studio, publisher, or game names such as Mr. Prepper, Rejected Games, Steam and Discord.
 - Preserve all TMP/I2 tags, placeholders, escaped newlines and formatting tokens exactly unless the source itself changes them.
 - For gendered dialogue, identify the speaker from the key/prefix and adjacent dialogue before editing.
-- Jenny deliberately uses changing plant/flower nicknames. Translate the individual plant name naturally instead of replacing all of them with one generic endearment.
+- Jenny deliberately uses changing affectionate plant/flower nicknames. Localize each one as a natural Bulgarian endearment that preserves the playful botanical character, rather than translating the plant name mechanically.
