@@ -51,3 +51,5 @@ jobs:
           git add temp/translation-dumps/generated
           git commit -m "Generate normalized English I2 dump"
           git push
+
+# QA helper workflow: keep until Bulgarian localization review is complete.
