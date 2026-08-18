@@ -1,0 +1,13 @@
+# Jenny - guarana mixture withheld / trust gate
+# Source: Dialogues/prepGuaranaTooSoon1 through Dialogues/prepGuaranaTooSoon7
+# Only source-backed replacements are staged here.
+
+Dialogues/prepGuaranaTooSoon3=<voice type=question>\nА кога мога да очаквам <color=yellow>сместа</color>?
+Dialogues/herbGuaranaTooSoon4=<voice type=upset>\nАх. Виж, лютиче, има малък <color=yellow>проблем</color>.\n<voice type=disappointment>\nЗасега <color=yellow>не ми е позволено</color> да ти я дам. Съжалявам, но решението всъщност не е мое.
+Dialogues/prepGuaranaTooSoon5=<voice type=surprise>\nКакво?! Какво означава това? И кой не ти позволява - Боб?
+Dialogues/herbGuaranaTooSoon6=<voice type=anger>\nНе бъди неуважителен, млади човече. Боб няма нищо общо с това. \nПриятелите ми наистина се нуждаят от сместа и не са сигурни дали могат да ти <color=yellow>имат доверие</color>.\nНо съм сигурна, че скоро ще спечелиш <color=yellow>доверието</color> им. Когато настъпи подходящият момент, един от приятелите ми ще те изпрати отново при мен.\n<voice type=upset>\nСъжалявам, лютиче.
+Dialogues/prepGuaranaTooSoon7=<voice type=anger>\nТова изобщо не ми харесва. Имахме уговорка. Ще се върна.
+
+# OK / retained
+# Dialogues/prepGuaranaTooSoon1 - current BG preserves the source meaning.
+# Dialogues/herbGuaranaTooSoon2 - current BG preserves the source meaning.
