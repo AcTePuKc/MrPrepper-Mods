@@ -1,0 +1,40 @@
+# Reviewed UI replacements - fishing / animals
+# Format: key=new Bulgarian value
+# Only entries confirmed against the English source belong here.
+
+# Fishing equipment and conditions
+UI/bestFishingRod=Най-добра въдица
+UI/bestBait=Най-добра примамка
+UI/OldRod=Стара въдица
+UI/GoodRod=Добра въдица
+UI/ExpertRod=Експертна въдица
+UI/Rainy=Дъждовно
+UI/Foggy=Мъгливо
+UI/Stormy=Бурно
+UI/FBaitBasic=Основна
+UI/FBaitGood=Добра
+UI/FBaitGreat=Много добра
+UI/FBaitExcelent=Отлична
+
+# Animal interactions
+UI/Pet=Домашен любимец
+UI/animalPet=Домашен любимец
+UI/contextPET=ПОГАЛИ
+UI/contextFEED=НАХРАНИ
+UI/contextGiveTreat=ДАЙ ЛАКОМСТВО
+UI/anyMeat=Всякакво месо
+UI/anyFruit=Всякакъв плод
+UI/goodFood=Добра храна
+UI/okayFood=Приемлива храна
+UI/barnHole=Дупка в плевнята
+
+# Dog / Xeno
+UI/dogeUndergroundTut1=Ксено ще се чувства нещастен под земята.
+UI/dogeOvergroundTut1=Ксено все още те опознава.
+UI/dogeOvergroundTut2=Трябва да го храниш и да си играеш с него, за да повишиш нивото на приятелството ви.
+UI/dogeFriendshipLevelLabel=Ниво на приятелство с Ксено:
+
+# REVIEW / CONTEXT
+# UI/getFishingReward: source says "Collect an award from Will!"; choose "Вземи наградата от Уил!" once Will transliteration is locked.
+# UI/fishingCaughtFish / UI/fishingNotCaughtFish need exact screen context before choosing noun vs sentence phrasing.
+# UI/dogFriendshipTooltip needs a full sentence-level rewrite; current Bulgarian has broken subject switching and grammar.
