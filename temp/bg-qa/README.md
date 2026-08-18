@@ -13,14 +13,14 @@ This directory is intentionally kept out of the release translation. It can be d
 
 ## Review order
 
-- [ ] UI and system text - IN PROGRESS; base UI and late DLC/custom-mode UI have reviewed fix sets
+- [ ] UI and system text - IN PROGRESS; split into base, DLC/custom-mode, combat/minigame, and fishing/animals review sets
 - [ ] Items and item descriptions
 - [ ] Objectives, quests, tips and letters
 - [ ] Generic dialogue
 - [ ] Jenny dialogue (`Dialogues/herb*`)
 - [ ] Lavinia / Huntress dialogue after speaker prefix is identified
 - [ ] Other character dialogue by speaker prefix
-- [ ] DLC / fishing / animals
+- [ ] DLC / fishing / animals dialogue
 - [ ] Changelog
 - [ ] Final English and Russian residue scan
 - [ ] Placeholder, tag and escaped newline validation
@@ -31,6 +31,8 @@ This directory is intentionally kept out of the release translation. It can be d
 - `glossary.md` - verified terminology and protected names
 - `fixes-ui.txt` - reviewed base UI replacements
 - `fixes-ui-dlc.txt` - reviewed custom-mode / DLC / late UI replacements
+- `fixes-ui-combat.txt` - combat controls, tutorials, and minigame UI
+- `fixes-ui-fishing-animals.txt` - fishing equipment, animal interactions, and Xeno UI
 
 ## Status convention
 
@@ -51,7 +53,7 @@ This directory is intentionally kept out of the release translation. It can be d
 
 Confirmed objective errors include wrong parts of speech in context actions, missing UI keys that would fall back to English, translated protected names, Russian contamination, and semantic hallucinations such as `Gear Slot 3 -> Работна маса 3` and `Best fishing rod -> Най-добра риболовна кърпа`.
 
-The later UI/DLC block contains substantially more machine-translation damage than the opening UI block. Confirmed examples include `Бессмертен`, `ЗАБРАНИ` for `CLOSE`, `ПИЩАНЕ` for `FEED`, `Тягни` for `PULL`, broken fishing-rod terminology, and several malformed custom-mode descriptions.
+The later UI/DLC block contains substantially more machine-translation damage than the opening UI block. Confirmed examples include `Бессмертен`, `ЗАБРАНИ` for `CLOSE`, `ПИЩАНЕ` for `FEED`, `Тягни` for `PULL`, broken fishing-rod terminology, malformed combat instructions, and several malformed custom-mode descriptions.
 
 ### Known high-risk area
 
