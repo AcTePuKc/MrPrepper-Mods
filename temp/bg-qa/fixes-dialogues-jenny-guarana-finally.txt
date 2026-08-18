@@ -1,0 +1,7 @@
+# Jenny - guarana mixture finally released / Sleepless reveal
+# Source: Dialogues/prepGuaranaFinally1 through Dialogues/prepGuaranaFinally3
+# Only source-backed replacements are staged here.
+
+Dialogues/prepGuaranaFinally1=<voice type=greeting>\nЗдравей, Джени. Върнах се да взема <color=yellow>сместа</color>. Боб ме изпрати при теб. Вече знам за <color=yellow>Безсънните</color>.\nИмах чувството, че всички тези силни стимуланти са за нещо по-сериозно от неделен клуб по плетене.
+Dialogues/herbGuaranaFinally2=<voice type=upset>\nИзвинявай, лютиче. Преди не можех да ти кажа открито - това щеше да изложи каузата ни на риск.\n<voice type=acceptance>\nЕто <color=yellow>сместа</color>. Успех с пътуването.
+Dialogues/prepGuaranaFinally3=<voice type=thanks>\nБлагодаря. А на вас ви пожелавам много безсънни, подривни нощи, щом това ви е по вкуса.
