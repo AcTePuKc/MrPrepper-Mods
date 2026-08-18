@@ -11,7 +11,9 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | gear | екипировка | Avoid `оборудване` unless context specifically means equipment rather than the Gear system |
 | inventory | инвентар | |
 | Preparedness | готовност | Core player attribute |
-| Prepper | Препър | Character/title usage, preserve established form |
+| Mr. Prepper | Mr. Prepper | Game title / brand. Never translate or transliterate. |
+| Prepper | CONTEXT | Character/title/common noun usage is unresolved. Do not globally replace with `Препър`. Review per key. |
+| Rejected Games | Rejected Games | Developer name. Never translate. |
 | Steam | Steam | Keep untranslated |
 | Discord | Discord | Keep untranslated |
 | Jenny | Джени | Character name |
@@ -32,6 +34,6 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 - Context-menu commands are verbs, not nouns.
 - Preserve source capitalization only when it is meaningful in the game's UI. Do not randomly mix all-caps and title case.
 - Prefer natural Bulgarian over English or Russian syntax.
-- Do not translate product/platform names such as Steam and Discord.
+- Do not translate product, platform, studio, publisher, or game names such as Mr. Prepper, Rejected Games, Steam and Discord.
 - Preserve all TMP/I2 tags, placeholders, escaped newlines and formatting tokens exactly unless the source itself changes them.
 - For gendered dialogue, identify the speaker from the key/prefix and adjacent dialogue before editing.
