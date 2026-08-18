@@ -1,0 +1,10 @@
+# Sleepless - generic ambient dialogue
+# Source: Dialogues/sleep1Hello through Dialogues/sleep6Hello
+# English is authoritative; French/Russian used only as context checks.
+
+Dialogues/sleep1Hello=Вече 37 часа не съм спал и се чувствам почти добре! А червеният цвят на тези плакати звучи наистина приятно, не мислиш ли?
+Dialogues/sleep2Hello=Понякога малко след 3 през нощта можеш да видиш хора, които се връщат към леглата си напълно в безсъзнание. Адски зловещо е.
+Dialogues/sleep3Hello=Повечето от нас, Безсънните, сме опитвали да се връзваме някъде далеч от леглата си - и не по забавните причини.
+Dialogues/sleep4Hello=Стой буден! *прозява се*
+Dialogues/sleep5Hello=Липсват ми времената, когато едно обикновено кафе стигаше, за да ме държи буден цяла нощ.
+Dialogues/sleep6Hello=Може би ще полегна тук за малко... Само една кратка дрямка...
