@@ -1,0 +1,32 @@
+# Reviewed UI replacements - custom modes / DLC / late UI
+# Format: key=new Bulgarian value
+# Only entries confirmed against the English source belong here.
+
+# Custom mode settings
+UI/customSettingsDayDuration=Множител за продължителността на деня
+UI/conditionDiffTooltip=Влияе върху ефектите от положителните и отрицателните състояния на играча, като глад, умора и др.
+UI/eventsAndEventsDurationTooltip=Събития с прекъсване на електричеството, спиране на водата и изчезване на пощальона
+UI/eventDurationNormal=Нормално
+UI/customSettingsSurpriseAgentVisits=Изненадващи посещения на агента
+UI/todaysLimit=днешният лимит:
+UI/todaysLimitReached=днешният лимит е достигнат
+UI/customModeSettingsShare=Споделяне на настройки за персонализиран режим
+UI/customModeSettingsShareDesc=Помогни ни да измислим интересни настройки за персонализирания режим. Възможно е да включим твоите настройки в бъдещи актуализации. Това ще изпрати текущите ти настройки за персонализирания режим до нас. Моля, въведи име и описание на идеята си.
+UI/customModeSettingsShareNamePlaceholder=Име на настройката...
+UI/customModeSettingsShareDescPlaceholder=Опиши настройките си...
+UI/customModeSettingsShareWarning=Името и описанието са задължителни
+
+# Uranium / crane UI
+UI/craneTittle=Машина с кран
+UI/craneCostInfo=Всяка следваща игра е по-скъпа, но цената се нулира всеки ден.
+UI/contextPULL=ДРЪПНИ
+
+# Mountain DLC / freeze-drying
+UI/contextFREEZE=ЗАМРАЗИ
+UI/frozenItemTutorialMessage=Лиофилизиран - този предмет никога не се разваля.
+
+# REVIEW / CONTEXT
+# UI/radiatedItemsTutorialMessage contains `prepper`; defer until Prepper naming is decided.
+# UI/creditsLemon appears intentionally quirky in English; verify source/context before rewriting.
+# UI/menuNuclearDLCInfo: `scout girl` needs character/context check before choosing a Bulgarian title.
+# UI/mountainDLC source is `MountainDLC`; decide whether DLC title is a protected product name.
