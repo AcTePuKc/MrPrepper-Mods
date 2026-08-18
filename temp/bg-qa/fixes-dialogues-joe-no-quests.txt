@@ -1,0 +1,9 @@
+# Joe - generic no-quest ambient dialogue
+# Source: Dialogues/joeNoQuests1 through Dialogues/joeNoQuests3
+
+Dialogues/joeNoQuests1=<voice type=question>\nКак върви, Prepper? Напоследък тук не се случва нищо особено. Просто си почивах и гледах химическите следи от прелитащите самолети.
+Dialogues/joeNoQuests2=<voice type=greeting>\nО, здрасти, Prepper. В момента нямам нищо вълнуващо за теб - на бунището всичко си е по старому. Но наминавай от време на време!
+Dialogues/joeNoQuests3=<voice type=question>\nПонякога чудиш ли се какво ли щеше да стане, ако Лий Харви Осуалд наистина беше действал сам? Не, едва ли си губиш времето с такива откачени теории.
+
+# REVIEW / CONTEXT
+# Standalone `Prepper` remains unresolved globally. Kept untranslated here pending the final naming decision.
