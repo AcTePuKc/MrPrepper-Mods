@@ -6,6 +6,6 @@ Exact key+English duplicates removed: 5633
 Keys with conflicting English values: 0
 Chunk size: 1500
 Chunks written: 4
-Output columns: key, English
+Primary output columns: key, English
 
 No conflicting duplicate keys found.
