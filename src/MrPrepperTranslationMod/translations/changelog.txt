@@ -1,0 +1,3 @@
+# Optional translations for keyless Changelog/Patchnotes text.
+# Format: exact original text=Bulgarian translation
+# Keep every \n escape, rich-text tag, color tag, and placeholder unchanged.

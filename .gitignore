@@ -1,0 +1,23 @@
+.downloads/
+.work/
+references/
+docs/
+translation/
+config/
+scripts/*
+!scripts/build-plugin.ps1
+!scripts/build-font-fix.ps1
+User.targets
+dist/
+src/**/bin/
+src/**/obj/
+src/MrPrepperTranslationMod/translations/text.txt
+*.user
+*.suo
+
+# Keep the reusable optional-mod staging area in the shared repository.
+!useful-mods/
+!useful-mods/MuteInBackground/
+!useful-mods/MuteInBackground/BepInEx/
+!useful-mods/MuteInBackground/BepInEx/config/
+!useful-mods/MuteInBackground/BepInEx/config/BepInEx.MuteInBackground.cfg
