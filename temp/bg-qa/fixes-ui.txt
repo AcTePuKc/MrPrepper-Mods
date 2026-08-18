@@ -2,6 +2,12 @@
 # Format: key=new Bulgarian value
 # Only entries confirmed against the English source belong here.
 
+# Missing UI keys / English fallback
+UI/Blueprint=Чертеж
+UI/pcs=бр.
+UI/contextNAP=ПОДРЕМНИ
+
+# Context actions
 UI/contextSLEEP=СПИ
 UI/contextCRAFT=ИЗРАБОТИ
 UI/contextTRADE=ТЪРГУВАЙ
@@ -37,15 +43,72 @@ UI/contextDRY=ИЗСУШИ
 UI/contextGIVE=ДАЙ
 UI/contextAsk=ПОПИТАЙ
 UI/contextCustomize=ПЕРСОНАЛИЗИРАЙ
+UI/contextCLOSE=ЗАТВОРИ
+UI/contextSHAVE=ОБРЪСНИ
+UI/contextMILK=ИЗДОЙ
+UI/contextFEED=НАХРАНИ
+UI/contextFILLET=НАРЕЖИ НА ФИЛЕТА
+UI/contextFILLET_ALL=НАРЕЖИ ВСИЧКИ НА ФИЛЕТА
+UI/contextPET=ПОГАЛИ
+UI/contextPUSH=БУТНИ
+
+# Inspection UI
+UI/reportManualBorderRed=Най-\nподозрителен
+UI/reportManualBorderOrange=По-\nподозрителен
+
+# Plans / progression
 UI/GearSlot3=Слот за екипировка 3
 UI/planFood=Осигури източник на храна
 UI/planRocket1=Окончателен план за ракетата - Фаза 1
 UI/planRocket2=Окончателен план за ракетата - Фаза 2
 UI/planRocket3=Окончателен план за ракетата - Фаза 3
 UI/planRocket4=Окончателен план за ракетата - Фаза 4
+UI/railWayProlog=Имаш нужда от пълната версия \nна играта, за да поправиш това
+
+# Protected names / brands
+UI/demoEnd3=Страница на Mr. Prepper в Steam
+UI/demoEnd5=С уважение,\nRejected Games
+UI/prologueEnd5=С уважение,\nRejected Games
+
+# Gear tutorial
+UI/gearTip1=За да екипираш бейзболна бухалка, отвори екипировката си.
+UI/gearTip2=Щракни два пъти върху бейзболната бухалка, за да я екипираш.
+UI/gearTip2Port=Натисни два пъти <sprite index=Button0_UIAtlas> върху бейзболната бухалка, за да я екипираш.
+UI/gearTip3=Натисни Q, за да смениш оръжието си.
+UI/gearTip3Port=Натисни <sprite index=Button30_UIAtlas>, за да смениш оръжието си.
+
+# Game modes / obvious language contamination
+UI/immortal=Безсмъртен
+UI/creativeDesc=Имаш неограничен достъп до всички предмети и материали и можеш да станеш безсмъртен. Този режим е предназначен за хора, които искат да се съсредоточат върху творческата и строителната част на играта без ограничения. В този режим няма да можеш да отключваш постижения.
+UI/sandboxDesc=Всички локации са отключени от самото начало. Това е режим без сюжет - сам избираш своя път.
+UI/moreComing=Очаквайте още
+UI/diffHardDesc=За играчи, които искат по-голямо предизвикателство.
+UI/diff=Трудност
+UI/corruptSuc=Файлът ти за запазване е повреден. Автоматичното възстановяване беше успешно и всичко вече трябва да е наред. Ако срещнеш други проблеми, свържи се с нас чрез Steam или Discord.
+UI/corruptFail=Файлът ти за запазване е повреден. Автоматичното възстановяване не успя. Повреденият файл е преместен в папката Corr в директорията със запазените ти файлове. Моля, свържи се с нас чрез Steam или Discord и ще се опитаме да помогнем.
+
+# DLC / fishing UI - confirmed source meaning
+UI/contextMaterial=ЧЕРЕН ПЛАТ
+UI/contextBrokenCamera=СЧУПЕН ФОТОАПАРАТ
+UI/wall=Стена
+UI/customRoomTextureInfo=Можеш да използваш <color=yellow>свои изображения</color>.\nПостави ги в папката „<color=yellow>Custom Room Texture</color>“ в директорията на играта и презареди запазения си файл.\nИзображенията трябва да са във формат <color=yellow>JPG или PNG</color>.
+UI/bestFishingRod=Най-добра въдица
+UI/bestBait=Най-добра примамка
+UI/Rainy=Дъждовно
+UI/Foggy=Мъгливо
+UI/Stormy=Бурно
+UI/OldRod=Стара въдица
+UI/GoodRod=Добра въдица
+UI/ExpertRod=Експертна въдица
+UI/Pet=Домашен любимец
+UI/animalPet=Домашен любимец
 
 # REVIEW / CONTEXT - intentionally not applied yet
+# Prepper / Препър: unresolved for character/title/common-noun usage. Mr. Prepper remains unchanged as brand/title.
+# UI/StatusIcon and other character references containing `prepper` need per-key review.
 # UI/contextHARVEST: choose short in-game command, likely ОБЕРИ
 # UI/contextMINE: choose between КОПАЙ and ДОБИВАЙ after interaction context check
 # UI/contextQUICK_SET: source QUICK SET is ambiguous without interaction context
 # UI/contextFort: source Fort Observer needs game context before rewriting
+# UI/contextCHOP: missing in Bulgarian; choose command after checking interaction context
+# UI/contextAnimalsBand: translation is plausible but needs in-game label/context check
