@@ -1,0 +1,7 @@
+# Joe - Big Joe nickname
+# Source: Dialogues/prepNeon1 through Dialogues/joeNeon4
+
+Dialogues/prepNeon1=<voice type=greeting>\nХей, Джо! Чудех се нещо... Защо „Големия Джо“?
+Dialogues/joeNeon2=А, това е прякор от едно време. Защото, нали знаеш... не съм голям.
+Dialogues/prepNeon3=<voice type=surprise>\nИ това е всичко? Няма тайна на Агенцията зад него? Никаква конспирация?
+Dialogues/joeNeon4=<voice type=negation>\nАбсолютно никаква. Приятелите ми просто имаха тъпо чувство за хумор. Това е цялата история.
