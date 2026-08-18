@@ -1,0 +1,7 @@
+# Jenny - generic / incomplete quest dialogue
+# English authoritative; FR/RU used for context only.
+
+Dialogues/herbTooSoonIncomplete=<voice type=upset>\nВсе още не ми е позволено да ти я дам. Съжалявам, но това всъщност не зависи от мен.
+Dialogues/herbGenericIncompleteAlt0=<voice type=question>\nНаправи ли това, за което те помолих?
+Dialogues/herbGenericIncomplete0=<voice type=question>\nХей, слънчице, носиш ли това, което ми трябва?
+Dialogues/herbGenericIncomplete1=<voice type=disappointment>\nНе? Ах, жалко. Тогава се върни по-късно, Боб и аз ще сме ти благодарни.
