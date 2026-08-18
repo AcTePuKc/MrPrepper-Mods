@@ -1,0 +1,18 @@
+# Jenny - plane wreck quest
+# Source: Dialogues/herbWreck1 through Dialogues/prepWreck12
+# Only source-backed replacements are staged here.
+
+Dialogues/herbWreck1=<voice type=thanks>\nМного ти благодаря за плодовете! Между другото - направо цъфтиш!
+Dialogues/herbWreck3=<voice type=laugh>\nЕ... поне в сравнение с останалите жители на града. И на теб ли ти се струва, че са някак... повехнали?
+Dialogues/prepWreck4=Не съм особено общителен, но да, изглеждат доста унили. За разлика от теб. Или от Боб.\n<voice type=surprise>\nМежду другото, знаеш ли, че човекът, който се грижи за мината, също се казва Боб?
+Dialogues/prepWreck6=<voice type=disappointment>\n...няма значение.
+Dialogues/herbWreck7=Както и да е, исках да те помоля за още една услуга. Този път не е свързана с растения.
+Dialogues/herbWreck9=<voice type=question>\nЗнаеш ли за <color=yellow>самолетната катастрофа</color> в гората преди няколко месеца?
+Dialogues/prepWreck10=<voice type=negation>\nЪм... не. Сигурно съм бил... някъде другаде, предполагам.
+Dialogues/herbWreck11=Не знаеш много за живота в града, нали? Както и да е. Един ден падна <color=yellow>самолет</color>.\n<voice type=surprise>\nМного шум и дим. А през следващите дни в местния ни вестник не се появи и дума за това.\nСлучи се <color=yellow>дълбоко</color>, <color=yellow>дълбоко</color> в <color=yellow>гората</color>. Мястото на катастрофата е отрязано от дерета и <color=yellow>паднали дървета</color>.\nНо искам да стигнеш дотам. Имам чувството, че пилотът е някой, когото познавам, и искам да проверя. \n<voice type=question>\nМожеш ли да намериш начин да стигнеш до останките?\n<voice type=laugh>\nСигурна съм, че на мястото ще намериш полезни <color=yellow>предмети</color> и <color=yellow>материали</color>.
+
+# OK / retained
+# Dialogues/prepWreck2 - "Наистина?"
+# Dialogues/herbWreck5 - current BG preserves the source meaning.
+# Dialogues/prepWreck8 - "Шокиран съм."
+# Dialogues/prepWreck12 - current BG is natural and source-faithful.
