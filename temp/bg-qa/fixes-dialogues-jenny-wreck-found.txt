@@ -1,0 +1,16 @@
+# Jenny - wreck discovery / memory scene
+# Source: Dialogues/prepWreckFound0 through Dialogues/herbWreckFound9
+# Only source-backed replacements are staged here.
+
+Dialogues/herbWreckFound1=<voice type=surprise>\nЗдравей, лютиче, изглеждаш сякаш си видял призрак. \n<voice type=question>\nДа позная: това <color=yellow>ти</color> ли си на снимката?
+Dialogues/prepWreckFound2=<voice type=upset>\nЪм... Да... Явно. Как разбра?
+Dialogues/herbWreckFound3=<voice type=laugh>\nИнтуицията на една стара дама. Изглеждаш като човек, който се опитва да <color=yellow>избяга</color>. Просто свързах нещата.
+Dialogues/prepWreckFound4=<voice type=upset>\nНе... аз <color=yellow>не си спомням</color>. Нищо от това.
+Dialogues/herbWreckFound5=<voice type=upset>\nСкъпи, не си единственият. Някои хора в града не помнят цели десетилетия. Други трудно разпознават приятелите си.\n<voice type=order>\nА ти поне имаш самолетна катастрофа, която да виниш.
+Dialogues/prepWreckFound6=Това е военен самолет. \n<voice type=question>\nТова означава ли, че съм бил... че съм... на тяхна страна? <color=yellow>Един от тях</color>?
+Dialogues/herbWreckFound7=Не разбирам много от военни неща. Но знам, че в момента изобщо не приличаш на човек на правителството.\nОсвен това съм почти сигурна, че именно те са те свалили. Така че дали някога си бил един от тях или не... Има ли значение сега? \n<voice type=order>\nВажното е, че си способен млад мъж. \n<voice type=laugh>\nИ съм сигурна, че още докато си говорим, вече измисляш как да избягаш с нещо <color=yellow>по-голямо</color> и <color=yellow>по-бързо</color>.
+Dialogues/herbWreckFound9=Добре, скъпи, ще те оставя да се занимаваш с това. Знаеш къде да ме намериш, ако поискаш да поговорим за растения, спомени и други неща.
+
+# OK / retained
+# Dialogues/prepWreckFound0 - "Какво е това?"
+# Dialogues/prepWreckFound8 - ellipsis only; preserve unchanged.
