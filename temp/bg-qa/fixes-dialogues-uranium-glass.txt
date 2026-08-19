@@ -1,0 +1,19 @@
+# Uranium glass / local-history quest
+# English authoritative. Murricaville Uranium Co. remains REVIEW as an in-world company name.
+
+Dialogues/joeGlowingGlass2=<voice type=laugh>\nТочно така! Невероятно е! Както казах, просто се разхождах из двора с UV лампа...
+Dialogues/prepGlowingGlass3=<voice type=acceptance>\nКакто обикновено.
+Dialogues/joeGlowingGlass4=Разбира се! И ти трябва понякога да поглеждаш на мястото си в различна светлина.
+Dialogues/prepGlowingGlass5=<voice type=question>\nЯсно. Значи това парче е светнало?
+Dialogues/joeGlowingGlass6=<voice type=surprise>\nКато неонова лампа! \nМисля, че е ураниево стъкло. Правели са такива неща, преди да започнат да използват материала за... други цели.\nНо това не е всичко. Погледни печата на дъното на стъклото.
+Dialogues/prepGlowingGlass7=<voice type=question>\n„Murricaville Uranium Co.“ Охо, мислиш ли, че е направено тук?
+Dialogues/prepGlowingGlass9=<voice type=thanks>\nДобър съвет, благодаря.
+Dialogues/joeGlowingGlass10=<voice type=order>\nИ трябва да проверяваш повече неща с Гайгеровия си брояч. Може да намериш още!
+Dialogues/joeGlowingGlass12=<voice type=laugh>\nХаха, Подготвения, мислиш ли, че държа склад за старо ядрено оборудване?\n...Да, имам още един. Вземи го. Успешен лов!
+Dialogues/prepUraniumMine3=Погледни печата върху това парче стъкло.
+Dialogues/prepUraniumMine5=Джо го намери в автоморгата си. На мен ми изглежда истинско.
+Dialogues/bobUraniumMineAfterResearch2=<voice type=acceptance>\nХа, разбира се, че намерих. И нещата бързо станаха интересни.
+Dialogues/bobUraniumMineAfterResearch4=Наистина е имало „Murricaville Uranium Co.“ тук, основана някъде преди Втората световна война, най-вероятно през 20-те години на XX век.\nПроизвеждали са различни изделия с уран.
+
+# TERMINOLOGY REVIEW
+# Murricaville Uranium Co. -> REVIEW: keep source company name for now, especially where it appears as a stamped brand.
