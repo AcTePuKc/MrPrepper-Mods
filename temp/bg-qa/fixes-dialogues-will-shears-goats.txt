@@ -5,7 +5,7 @@ Dialogues/willScizzors5=<voice type=question>\nС кокошарника вяр�
 Dialogues/willScizzors6=<voice type=disappointment>\nА що се отнася до козите... нека помисля...
 Dialogues/willScizzors7=Сигурен съм, че някъде имах подходяща ножица за стригане.\n<voice type=disappointment>\nСамо че не помня къде я сложих...\n<voice type=question>\nЩе я потърсиш ли?
 Dialogues/prepScizzors8=<voice type=acceptance>\nДа, разбира се. Защо не.
-Dialogues/willScizzorsIncomplite1=<voice type=question>\nНамери ли ножицата?
+Dialogues/willScizzorsIncomplite1=<voice type=question>\nНамери ли ножицата?\n
 Dialogues/prepScizzorsIncomplite2=<voice type=negation>\nНе. Засега е като да търся игла в купа сено.
 
 Dialogues/prepDogWithScizzors1=<voice type=surprise>\nТова куче ли беше? Чакай, то държеше ножицата в устата си?
