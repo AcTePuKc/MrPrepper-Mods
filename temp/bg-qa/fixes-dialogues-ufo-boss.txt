@@ -1,0 +1,15 @@
+# UFO maze - daylight hint and boss encounter
+# English authoritative; keeps the surreal/comedic tone.
+
+Dialogues/crowUFOScarecrowBeforeBoss1=<voice type=question>\nЗнаеш ли, че извънземните се страхуват от дневната светлина?
+Dialogues/crowUFOScarecrowBeforeBoss2=Вярно е. Изглежда, че са нощни създания. Дневната светлина, милото слънце, ги плаши.
+Dialogues/crowUFOScarecrowBeforeBoss3=<voice type=acceptance>\nУспех! Много си близо до изхода. Може би ще видиш слънцето още много пъти.
+Dialogues/prepUFOBoss1=<voice type=disappointment>\nЗадънена улица.
+Dialogues/prepUFOBoss2=<voice type=order>\nДобре тогава, елате ми, извънземни!
+Dialogues/prepUFOBoss3=<voice type=laugh>\nЩе ви изпратя с ритник обратно в космоса!
+Dialogues/prepUFOBoss4=Ще ги изморя. Няма да се дам на някаква шайка ездачи на летящи чинии.
+Dialogues/prepUFOBoss5=А сега да намеря изхода.
+Dialogues/prepUFOBossEnd1=<voice type=thanks>\nИзчезна...
+Dialogues/prepUFOBossEnd2=засега.
+Dialogues/prepUFOBossEnd3=<voice type=thanks>\nИзглежда, че и главоболието ми мина.
+Dialogues/prepUFOBossEnd4=<voice type=thanks>\nА това прилича на изход. Най-после!
