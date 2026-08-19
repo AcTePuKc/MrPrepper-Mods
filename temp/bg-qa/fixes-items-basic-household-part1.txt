@@ -1,0 +1,20 @@
+# Items - basic household / food objects, part 1
+# English authoritative. Only clear QA fixes; keep already-correct rows unchanged.
+
+Items/Blueberrie=Боровинки
+Items/BookSet1=Комплект книги
+Items/BookSet2=Комплект книги
+Items/Bowl1=Купа
+Items/Can=Консерва
+Items/Can_long=Консерва
+Items/Can_puszka_long=Консерва
+Items/Can_square=Консерва
+Items/Canvas2=Платно
+Items/Chair=Стол
+Items/Chair Wood=Дървен стол
+Items/Chandelier=Таванна лампа
+Items/Chandelier2=Таванна лампа
+Items/Chandelier3=Таванна лампа
+Items/Chandelier5=Таванна лампа
+Items/Cup Purple=Лилава чаша
+Items/DesKeyBaseballBat=Замахваш и удряш. (Не очакваше да има бейзболни отбори в Мърикавил, нали?)
