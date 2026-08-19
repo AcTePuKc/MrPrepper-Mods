@@ -1,0 +1,20 @@
+# UFO - Prepper tells Joe about the abduction
+# English authoritative; source-order QA.
+
+Dialogues/prepAfterConfrontation23=<voice type=disappointment>\nИ изобщо не ми хареса да ме отвличат.\n<voice type=question>\nИ какво правим сега?
+Dialogues/willAfterConfrontation24=<voice type=question>\nЗащо питаш мен?\n<voice type=question>\nТи си гениален изобретател, инженер, конструктор, Подготвения и джентълмен, нали?\nСигурен съм, че ще измислиш нещо.
+Dialogues/prepAfterConfrontation25=<voice type=question>\nДа измисля какво точно?
+Dialogues/willAfterConfrontation26=<voice type=anger>\nНачин да унищожим извънземните веднъж завинаги, разбира се!\n<voice type=disappointment>\nКакво друго можем да направим?\n<voice type=anger>\nТрябва да го направим заради тази ферма! А може би и заради цялото човечество.
+Dialogues/prepAfterConfrontation27=<voice type=disappointment>\nА... ясно. Просто ще победя неизвестна цивилизация с технологично превъзходство.
+Dialogues/prepAfterConfrontation28=<voice type=disappointment>\nКак се забърках в тази каша?
+Dialogues/prepAfterConfrontation29=Май трябва да говоря с Джо. Може би той ще знае какво да направим.\nГ-жа Агент спомена нещо за НЛО-тата, покрити с непробиваемо силово поле.\nТрябва да запомня това.
+Dialogues/prepUFOJoe1=<voice type=greeting>\nХей, Джо.\nТрябва ми съветът ти.
+Dialogues/joeUFOJoe2=<voice type=surprise>\nПодготвения! Какво има?\n<voice type=question>\nИмаш още доказателства за НЛО?
+Dialogues/prepUFOJoe3=Повече от това, в известен смисъл. Имах близка среща от трети вид.\nЕ, не знам точно как се броят тези видове, но срещата беше доста близка и лична.
+Dialogues/joeUFOJoe4=<voice type=question>\nКакво искаш да кажеш...?\n<voice type=surprise>\nТеб... теб отвлякоха ли?!
+Dialogues/prepUFOJoe5=<voice type=acceptance>\nДа, това е най-точният начин да го кажа.\nОтидох във фермата през нощта и в 3:00 се появи НЛО.\nПосле лъч зелена светлина ме издърпа през покрива... и припаднах.
+Dialogues/joeUFOJoe6=<voice type=surprise>\nПодготвения, това е невероятно!\n<voice type=thanks>\nМечтал съм за такава възможност! Имам толкова много въпроси!\n<voice type=question>\nВидя ли ги? Как се чувстваш сега?\n<voice type=surprise>\nТе ли са стояли зад небесната битка над Нюрнберг през 1561 г.?\n<voice type=question>\nПровери ли тялото си за някакви странни белези?
+Dialogues/prepUFOJoe7=<voice type=negation>\nПо-полека, Джо. Не е като да са ми изложили плановете си.
+Dialogues/joeUFOJoe8=<voice type=acceptance>\nДобре, добре. Просто се развълнувах. Нека караме по-бавно.\n<voice type=question>\nНЛО-то винаги ли се появява над фермата по едно и също време?
+Dialogues/prepUFOJoe9=Да. И точно затова...
+Dialogues/joeUFOJoe10=<voice type=surprise>\nПодготвения, трябва да видя това! Заведи ме там!\n<voice type=thanks>\nЩе запиша всичко!\n<voice type=laugh>\nТайната на НЛО ще бъде разкрита и ще стана богат и известен!
