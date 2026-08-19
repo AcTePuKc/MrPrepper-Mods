@@ -13,7 +13,7 @@ namespace MrPrepperTooltipScaleFix;
 [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
 public sealed class Plugin : BaseUnityPlugin
 {
-    public const string PluginGuid = "actepukc.mrprepper.tooltipsalefix";
+    public const string PluginGuid = "actepukc.mrprepper.tooltipscalefix";
     public const string PluginName = "Mr. Prepper Tooltip Scale Fix";
     public const string PluginVersion = "0.1.0";
 
@@ -81,7 +81,7 @@ public sealed class Plugin : BaseUnityPlugin
             if (!originalFontSizes.ContainsKey(id))
             {
                 originalFontSizes[id] = text.fontSize;
-            originalFontSizeBases[id] = text.fontSize;
+                originalFontSizeBases[id] = text.fontSize;
             }
 
             text.fontSize = originalFontSizes[id] * multiplier;
