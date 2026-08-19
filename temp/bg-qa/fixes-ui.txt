@@ -15,6 +15,7 @@ UI/contextRECEIVE=ПОЛУЧИ
 UI/contextRECHARGE=ПРЕЗАРЕДИ
 UI/contextWATER=ПОЛЕЙ
 UI/contextPLANT=ЗАСАДИ
+UI/contextHARVEST=ОБЕРИ
 UI/contextREAD=ПРОЧЕТИ
 UI/contextTURNON=ВКЛЮЧИ
 UI/contextCOOK=СГОТВИ
@@ -24,7 +25,9 @@ UI/contextCOLLECT=СЪБЕРИ
 UI/contextCHANGECOLOR=СМЕНИ ЦВЕТА
 UI/contextUSE=ИЗПОЛЗВАЙ
 UI/contextREPAIR=ПОПРАВИ
+UI/contextMINE=КОПАЙ
 UI/contextQUICK_PLANT=БЪРЗО ЗАСАДИ
+UI/contextQUICK_SET=БЪРЗО ПОСТАВИ
 UI/contextLAUNCH_ROCKET=ИЗСТРЕЛЯЙ РАКЕТАТА
 UI/contextOPEN=ОТВОРИ
 UI/contextINSPECT=ПРЕГЛЕДАЙ
@@ -34,6 +37,7 @@ UI/contextHIDE=СКРИЙ
 UI/contextPOWERON=ВКЛЮЧИ
 UI/contextPOWEROFF=ИЗКЛЮЧИ
 UI/contextDESTROY=УНИЩОЖИ
+UI/contextCHOP=ОТСЕЧИ
 UI/contextCANCEL=ОТМЕНИ
 UI/contextDOWN=НАДОЛУ
 UI/contextUP=НАГОРЕ
@@ -42,6 +46,7 @@ UI/contextMELT=СТОПИ
 UI/contextDRY=ИЗСУШИ
 UI/contextGIVE=ДАЙ
 UI/contextAsk=ПОПИТАЙ
+UI/contextFort=Форт „Наблюдател“
 UI/contextCustomize=ПЕРСОНАЛИЗИРАЙ
 UI/contextCLOSE=ЗАТВОРИ
 UI/contextSHAVE=ОБРЪСНИ
@@ -49,6 +54,7 @@ UI/contextMILK=ИЗДОЙ
 UI/contextFILLET=НАРЕЖИ НА ФИЛЕТА
 UI/contextFILLET_ALL=НАРЕЖИ ВСИЧКИ НА ФИЛЕТА
 UI/contextPUSH=БУТНИ
+UI/contextAnimalsBand=ПРОСЛЕДЯВАЩО УСТРОЙСТВО
 
 # Inspection UI
 UI/reportManualBorderRed=Най-\nподозрителен
@@ -63,7 +69,11 @@ UI/planRocket3=Окончателен план за ракетата - Фаза 
 UI/planRocket4=Окончателен план за ракетата - Фаза 4
 UI/railWayProlog=Имаш нужда от пълната версия \nна играта, за да поправиш това
 
-# Protected names / brands
+# Character references / protected names
+UI/StatusIcon=Статус на Подготвения [U]
+UI/tutTipDisassemble1=г-н Подготвения може да научава нови рецепти, като разглобява предмети.
+UI/demoEnd2=Ако искаш да опиташ да оцелееш в бункера и да изживееш историята на Подготвения, те насърчаваме да посетиш Steam страницата на пълната версия на Mr. Prepper:
+UI/prologueEnd2=Ако искаш да опиташ да оцелееш в бункера и да изживееш историята на Подготвения, те насърчаваме да посетиш Steam страницата на пълната версия на Mr. Prepper:
 UI/demoEnd3=Страница на Mr. Prepper в Steam
 UI/demoEnd5=С уважение,\nRejected Games
 UI/prologueEnd5=С уважение,\nRejected Games
@@ -90,13 +100,3 @@ UI/contextMaterial=ЧЕРЕН ПЛАТ
 UI/contextBrokenCamera=СЧУПЕН ФОТОАПАРАТ
 UI/wall=Стена
 UI/customRoomTextureInfo=Можеш да използваш <color=yellow>свои изображения</color>.\nПостави ги в папката „<color=yellow>Custom Room Texture</color>“ в директорията на играта и презареди запазения си файл.\nИзображенията трябва да са във формат <color=yellow>JPG или PNG</color>.
-
-# REVIEW / CONTEXT - intentionally not applied yet
-# Prepper / Препър: unresolved for character/title/common-noun usage. Mr. Prepper remains unchanged as brand/title.
-# UI/StatusIcon and other character references containing `prepper` need per-key review.
-# UI/contextHARVEST: choose short in-game command, likely ОБЕРИ
-# UI/contextMINE: choose between КОПАЙ and ДОБИВАЙ after interaction context check
-# UI/contextQUICK_SET: source QUICK SET is ambiguous without interaction context
-# UI/contextFort: source Fort Observer needs game context before rewriting
-# UI/contextCHOP: missing in Bulgarian; choose command after checking interaction context
-# UI/contextAnimalsBand: translation is plausible but needs in-game label/context check
