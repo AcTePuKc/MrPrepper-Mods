@@ -1,0 +1,18 @@
+# Part-003 items - story / utility objective fixes
+# English authoritative. Fix only clear semantic/type/terminology errors.
+
+Items/WorkshopShelf=Работен стелаж
+Items/Material=Материал
+Items/Plant=Растение
+Items/Plate=Чиния
+Items/MinutemanLetter=Писмо от Опълченеца
+Items/ChickenLeg=Пилешко бутче
+Items/ArtificialHorizon=Изкуствен хоризонт
+Items/SmokeBomb=Димна бомба
+Items/RocketLauncher=Ракетомет
+Items/BrazenSerpentModel=Модел на сателита „Медният змей“
+Items/Scans=Мозъчни сканирания и рентгенови снимки
+Items/BeetSoupCan=Консервирана супа от цвекло
+
+# Notes
+# Keep Brazen Serpent terminology consistent with the locked story term.
