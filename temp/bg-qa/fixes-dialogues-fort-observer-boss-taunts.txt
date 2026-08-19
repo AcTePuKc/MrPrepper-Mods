@@ -1,0 +1,21 @@
+# Fort Observer - Ellipse boss taunts / fight
+# Source: Dialogues/bossTaunt1 through Dialogues/bossFightEnd
+# Preserve the intentionally political/catchphrase-like humor where possible.
+
+Dialogues/bossTaunt1=<voice type=order>\nОхрана, глупако!
+Dialogues/bossTaunt2=<voice type=anger>\nЩе бъдеш посрещнат с огън и ярост!
+Dialogues/bossTaunt3=<voice type=laugh>\nОпределих те като част от оста на злото!
+Dialogues/bossTaunt4=Да, мога!
+Dialogues/bossTaunt5=Аз съм промяната, която чакаше.
+Dialogues/bossTaunt6=<voice type=anger>\nТова беше последната ти непредизвикана и подла атака.
+Dialogues/bossTaunt7=<voice type=upset>\nТи си лош hombre и още искаш да ме нападнеш. Тъжно!
+Dialogues/bossTaunt8=Целта на изкуствения интелект за сигурност би трябвало да бъде, доколкото е възможно, да премахне нуждата от собственото си съществуване.
+Dialogues/bossTaunt9=<voice type=greeting>\nЗдравей, аз съм от правителството и съм тук, за да помогна!
+Dialogues/bossTaunt10=<voice type=anger>\nЧети ми по устните: никакви нови нарушители!
+Dialogues/bossTaunt11=<voice type=laugh>\nТи си просто фалшива новина!
+Dialogues/bossFightStart=<voice type=thanks>\nБлагодаря. Сега ще бъдеш елиминиран като заплаха за сигурността. Време е Форт „Наблюдател“ да бъде на първо място!
+Dialogues/bossFightMiddle=<voice type=laugh>\nОбикновено елиминирането на заплаха става по-бързо. Но с теб е свършено. Моите копчета са по-големи от твоите!
+Dialogues/bossFightEnd=<voice type=fear>\nКритична повреда. Форт „Наблюдател“ ще остане без наблюдение. Време е да умра.
+
+# REVIEW / CONTEXT
+# `bad hombre` is intentionally left partly Spanish (`лош hombre`) to preserve the source's recognizable catchphrase/allusion.
