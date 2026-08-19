@@ -1,0 +1,42 @@
+# Will - shears, Xeno, goats
+# Source-backed QA for the shears quest and goat recovery sequence.
+
+Dialogues/willScizzors5=<voice type=question>\nС кокошарника вярвам, че ще се справиш. Нали, Хенри?
+Dialogues/willScizzors6=<voice type=disappointment>\nА що се отнася до козите... нека помисля...
+Dialogues/willScizzors7=Сигурен съм, че някъде имах подходяща ножица за стригане.\n<voice type=disappointment>\nСамо че не помня къде я сложих...\n<voice type=question>\nЩе я потърсиш ли?
+Dialogues/prepScizzors8=<voice type=acceptance>\nДа, разбира се. Защо не.
+Dialogues/willScizzorsIncomplite1=<voice type=question>\nНамери ли ножицата?
+Dialogues/prepScizzorsIncomplite2=<voice type=negation>\nНе. Засега е като да търся игла в купа сено.
+
+Dialogues/prepDogWithScizzors1=<voice type=surprise>\nТова куче ли беше? Чакай, то държеше ножицата в устата си?
+Dialogues/prepDogWithScizzors2=Сигурно е минало през задната врата на обора.\n<voice type=laugh>\nЕ... така или иначе трябва да намеря ножицата, нали?
+
+Dialogues/prepMaze1=<voice type=question>\nЗащо Уил искаше да скрие това място от мен? Това е просто огромно поле.\nНо трябва да призная, че изглежда като идеалното място да събера <color=yellow>пшеница</color> за кокошките.
+Dialogues/prepMaze2=Тук е като лабиринт.\n<voice type=question>\nНакъде да тръгна?
+Dialogues/prepFootPrints=<voice type=acceptance>\nТова са следи от кучешки лапи! Добре.
+Dialogues/prepScarecrowMaze1=<voice type=question>\nЪм... здравей?
+Dialogues/prepScarecrowSign1=<voice type=order>\n„Върни се! Тук не е безопасно!“\n<voice type=disappointment>\nБлагодаря за предупреждението... предполагам?
+Dialogues/prepCollarMaze=<voice type=upset>\nНашийникът на кучето! Надявам се да е добре.
+Dialogues/prepLake1=<voice type=question>\nО, езеро? Окръг Мърикавил не спира да ме изненадва.
+Dialogues/prepLake2=<voice type=thanks>\nА ето го и кучето!
+Dialogues/prepWillDog1=<voice type=negation>\nНе ми позволява да се приближа.\n<voice type=negation>\nА не искам да се бия с него заради ножицата.
+Dialogues/prepWillDog2=<voice type=question>\nТова кучето на Уил ли е?\n<voice type=question>\nСигурно е, нали?
+Dialogues/prepWillDog3=<voice type=order>\nЩе го попитам.
+
+Dialogues/prepFarmDog1=<voice type=greeting>\nХей, Уил! Значи... намерих ножицата.
+Dialogues/willFarmDog2=<voice type=question>\nДобре! Острига ли вече козите?
+Dialogues/prepFarmDog3=<voice type=negation>\nОще не. Едно куче открадна ножицата.\n<voice type=question>\nВъзможно ли е да е твоето куче?
+Dialogues/willFarmDog4=<voice type=negation>\nКуче? Аз нямам куче.
+Dialogues/prepFarmDog5=<voice type=question>\nСигурен ли си?\nБяло-златисто, пухкаво, с пиратска превръзка на окото. Изглежда доста разбойнически.
+Dialogues/willFarmDog6=<voice type=acceptance>\nА, той ли? Ксено! Да, добър приятел ми е.
+Dialogues/prepFarmDog7=<voice type=disappointment>\nЧудесно. Значи приятелят ти държи ножицата ни като заложник.
+
+Dialogues/prepRatMeat3=<voice type=order>\nДобре.
+Dialogues/prepRatMeat4=<voice type=thanks>\nЕто. И този път не го губи, приятелю.
+Dialogues/prepRatMeat5=<voice type=acceptance>\nА сега, ако нямаш нищо против... ще си взема ножицата обратно. Другите животни имат по-голяма нужда от нея!
+Dialogues/prepScizzorsGrabed1=<voice type=acceptance>\nФух, проработи.
+Dialogues/prepScizzorsGrabed2=<voice type=thanks>\nСега вече мога да острижа козите! Нямам търпение.
+Dialogues/prepGoatsShave1=<voice type=order>\nИии... готово.\n<voice type=order>\nСвежи, стилни и във форма.
+Dialogues/prepGoatsShave2=<voice type=order>\nСигурен съм, че сега ще се чувствате по-добре.
+Dialogues/prepGoatsShave3=<voice type=thanks>\nНай-после, мляко! Това определено се оказа по-трудно, отколкото очаквах.
+Dialogues/prepGoatInspectChill=<voice type=laugh>\nЕто, сега вече изглеждат напълно спокойни и си гледат козешката работа. Готови са да направят поразия, но съзнателно избират да не го правят.
