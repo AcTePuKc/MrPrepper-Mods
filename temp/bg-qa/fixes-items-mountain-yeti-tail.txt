@@ -1,0 +1,21 @@
+# End of part-003: Mountain / Yeti item QA
+
+Items/MountainInfiniteLevelNote=Бележка от Диана
+Items/MountainLogs=Дърва за по-късно
+Items/YetiFootPrint=Голяма следа
+Items/YetiHandPrint=Голям отпечатък от ръка
+Items/YetiRock=Скала във формата на йети
+
+# REMOVE / DEV CANDIDATES
+# Source values are identifier-like or point to the next token rather than player-facing English.
+# Items/DesSnowGlobe
+# Items/DesSnowmaker
+# Items/SnowManBase1..2 + descriptions
+# Items/SnowManCylinder + description
+# Items/SnowManHat + description
+# Items/SnowManHead1..2 + descriptions
+# Items/SnowManMiddle1..2 + descriptions
+# Items/DesSnowmanBook
+# Items/MountainHerbBook + description
+# Items/MountainTraderNote
+# Review runtime references before final deletion.
