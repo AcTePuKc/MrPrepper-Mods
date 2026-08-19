@@ -1,0 +1,34 @@
+# Final manual Prepper consistency cleanup
+# Proper-name uses -> Подготвения; generic prepper/preppers -> natural Bulgarian wording.
+# Obvious test dialogue is removed instead of translated.
+
+UI/diffEasyDesc=За тези, които просто искат да се наслаждават на спокойното ежедневие на човек, подготвен за всичко.
+Dialogues/prepWrackPlane=Когато Подготвения намери снимка при останките на самолет
+Dialogues/joeDogIncomplete1=<voice type=upset>\nПодготвения! Намери ли кучето ми? Много се притеснявам за него!
+Dialogues/bobIllegalFigurine6=Разбира се, Подготвения.
+REMOVE	Dialogues/agentDialogue
+Dialogues/prepAlarmNeedLight=Подготвения се нуждае от източник на светлина в стаята, за да работи като аларма.
+Dialogues/prepHerbBed=Но бабо! Каква малка къщичка имаш, каза Подготвения Червеношапчо.
+Dialogues/old_willAfterConfrontation7=Защо ме питаш? \nТи си гениален изобретател, инженер, строител, оцеляващ и джентълмен, нали? \nСигурен съм, че можеш да измислиш нещо.
+Dialogues/willFishingQuestBegin4=<voice type=question>\nПодготвения, би ни донесъл такава риба?
+Dialogues/agentPostApoLaunch0=Какво става тук?\nПодготвения?\nЗащо не избяга?
+Items/DesKeyBreadBox=Хората, подготвени за оцеляване, не използват хлябници, но те все още могат да се използват за материали.
+Items/DesKeyEggInSalt=Класическа храна за оцеляване. Може да издържи дълго време.
+Items/DesKeyPemmican=Много хранителна храна, направена от сушено месо и плодове. Измислена от коренните американци и обичана от хората, подготвени за оцеляване.
+Items/DesKeyKnife=Основен инструмент за всеки, който се подготвя за оцеляване.
+Items/DesKeyPreppersGuideBook=Наръчник за оцеляване: Научи се да бъдеш по-подготвен.
+Items/herbBedDes=Но бабо! Каква малка къщичка имаш, каза Подготвения Червеношапчо.
+Items/DesKeyCarrotSoup=Обичана от бебета и оцеляващи по целия свят.
+Items/DesSuitJacketBrown=Идеалистичен учител по литература или недоволен детектив? Може би просто модерен оцеляващ.
+Items/DesCargoPantsBlack=Панталони за практични, здраво стъпили на земята оцеляващи.
+Items/DesCargoPantsRottenGreen=Панталони за практични, здраво стъпили на земята оцеляващи.
+Items/DesCargoPantsMoroKhaki=Панталони за практични, здраво стъпили на земята оцеляващи.
+Items/DesDungarees=Превърни се в истински оцеляващ с тези здрави работни панталони.
+Items/DesKeySeed Pepper=Подправи живота си и се подготви за оцеляване със собствен пипер.
+Items/PrepperMix=Смес за оцеляване
+Buff/Covard2=<b>Страхливец</b>\nБягството от битки кара Подготвения да се чувства неподготвен.\nСпечели битка или поспи, за да се отърсиш от това.
+Buff/Covard3=<b>Ко-ко-ко... страхливец</b>\nБягството от битки кара Подготвения да се чувства неподготвен.\nСпечели битка или поспи, за да се отърсиш от това.
+Inspect/herbBed=Но бабо! Каква малка къщичка имаш, каза Подготвения Червеношапчо.
+SteamAchievements/NEW_ACHIEVEMENT_1_2_NAME=Подготвения Червеношапчо
+SteamAchievements/NEW_ACHIEVEMENT_1_5_NAME=Кухнята на Подготвения
+SteamAchievements/NEW_ACHIEVEMENT_1_23_DESC=Прочети наръчник за подготовка за оцеляване
