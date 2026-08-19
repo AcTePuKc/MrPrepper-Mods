@@ -28,6 +28,8 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Murricaville | Мърикавил | Town name; use this transliteration consistently |
 | Murricaville County | окръг Мърикавил | Avoid literal/garbled forms such as `Муритикайл Каунти` |
 | Brazen Serpent | Медната змия | Satellite/project name; keep consistent across broadcast, newspaper and story dialogue |
+| Fort Observer | Форт „Наблюдател“ | Military base name; semantic localization preserves the Observer/unobserved wordplay |
+| Ellipse | Елипс | Fort Observer security AI |
 | the Hum | REVIEW: Бръмченето | Joe's named low-frequency phenomenon/conspiracy term. `Бръмченето` is staged, but keep under review until more occurrences confirm it. |
 | junkyard | автоморга | Joe's location; prefer this over generic `бунище`/`лагер` when the place itself is meant |
 | herbalist | билкарка | Jenny is female; avoid masculine `билкар` for her dialogue |
