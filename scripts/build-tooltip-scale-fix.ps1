@@ -7,6 +7,6 @@ dotnet build "src\MrPrepperTooltipScaleFix\MrPrepperTooltipScaleFix.csproj" -c $
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 [pscustomobject]@{
-    PluginDir = (Resolve-Path "dist\AcTePuKc Mr Prepper Tooltip Scale Fix").Path
-    Dll = (Resolve-Path "dist\AcTePuKc Mr Prepper Tooltip Scale Fix\MrPrepperTooltipScaleFix.dll").Path
+    PluginDir = (Resolve-Path "dist\MrPrepperTooltipScaleFix").Path
+    Dll = (Resolve-Path "dist\MrPrepperTooltipScaleFix\MrPrepperTooltipScaleFix.dll").Path
 }
