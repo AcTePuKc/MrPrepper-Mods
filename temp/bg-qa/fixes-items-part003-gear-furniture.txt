@@ -1,0 +1,15 @@
+# Part-003 items - gear / furniture / weapon objective fixes
+# English authoritative. Fix clear naming and terminology errors only.
+
+Items/UfoLamp=НЛО лампа
+Items/CheckeredShirt=Карирана риза
+Items/CoffeeMachine=Кафемашина
+Items/Shotgun=Дробовик
+Items/ShotgunShell=Патрон за дробовик
+Items/MysteryBlueprint=Мистериозен чертеж
+Items/CoffeeBeans=Пакет кафе
+
+Items/DesBeeWaxCandle=Свещ от пчелен восък, когато искаш светлина без електричество или просто искаш да създадеш настроение.
+Items/DesShotgun=Ефективно оръжие за унищожаване на дивата природа в окръг Мърикавил от близко разстояние.
+Items/DesMysteryBlueprint=Джо казва, че този чертеж е извън неговата компетентност, но описва много ценно устройство. Може би можеш да опиташ да го построиш...?
+Items/DesCoffeeBeans=Пакет кафе с пресни зърна от собствената ти реколта. Вкусно и ободряващо.
