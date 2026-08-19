@@ -1,0 +1,20 @@
+# Final UI/system tail QA
+# Source: generated/compare/part-004.tsv
+
+FIX	NeedFuel=Имаш нужда от гориво
+FIX	PrologueExitShowcase1=ПОДОБРЕНИЯ НА\nСТАИ
+FIX	PrologueExitShowcase2=СИСТЕМИ ЗА\nВОДОСНАБДЯВАНЕ
+FIX	PrologueExitShowcase3=СИСТЕМИ ЗА\nЕЛЕКТРОЗАХРАНВАНЕ
+FIX	PrologueExitShowcase4=РАЗЛИЧНИ ВИДОВЕ\nФЕРМИ
+FIX	PrologueExitShowcase8=ПОСЕТИ СТРАНИЦАТА НА\nMR. PREPPER В STEAM
+FIX	lightsMinigame=Включи светлините
+FIX	blocksMinigame=Блокирай
+FIX	mazeShootingMinigameTitle=Стреляй по мишената
+FIX	openingSoon=ОТВАРЯ СКОРО
+FIX	cast=Замятане
+FIX	cancel=Отказ
+FIX	Chop Mine=Сечи/Копай
+FIX	Climb Down=Слез
+FIX	Climb Up=Изкачи се
+
+REMOVE	Test/aaaaa
