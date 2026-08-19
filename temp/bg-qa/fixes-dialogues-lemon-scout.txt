@@ -1,0 +1,17 @@
+# Lemon / scout girl dialogue
+# English authoritative; keep her identity and gender consistent.
+
+Dialogues/lemonUnlockExpedition7=<voice type=order>\nАз съм скаут! Спечелила съм значките за откриване на опасности и избягване на хищници!
+Dialogues/prepUnlockExpedition8=<voice type=question>\nЗащо изобщо имаш значка за избягване на хищници в твоя... А, няма значение.
+Dialogues/lemonUnlockExpedition9=<voice type=disappointment>\nМоля те, дай ми някакво предизвикателство! Тук на щанда за лимонада е скучно.
+Dialogues/lemonUnlockExpedition11=<voice type=acceptance>\nДа, сър! Боровинките идват веднага!\n<voice type=question>\nКъде точно трябва да отида?
+Dialogues/lemonUnlockPowerPlant1=<voice type=greeting>\nПсст... Хей, г-н Подготвения! Имам специална нова оферта! Само за най-най-добрите ми VIP клиенти!
+Dialogues/lemonUnlockPowerPlant3=О, г-н Подготвения! Разбира се, че имам предвид вас! Никой друг клиент не ми говори толкова много!
+Dialogues/prepUnlockPowerPlant4=Добре, да видим накъде води това.\n<voice type=question>\nИмаш нов вкус лимонада или нещо такова?
+Dialogues/lemonUnlockPowerPlant8=<voice type=upset>\nО, но г-н Подготвения, това наистина е изгодна оферта!\nДобре, за най-най-добрия ми VIP клиент ще направя последно предложение!\nПрез следващите десет минути информацията върви като бонус към чаша лимонада.\n<voice type=laugh>\nПриемате ли сделката, г-н Подготвения? Времето тече! Тик-так!
+Dialogues/lemonUnlockPowerPlant10=...\n<voice type=surprise>\nСамо слушайте! Намерих ОГРОМНА изоставена сграда! Бетон! Индустриална! ОГРОМНИ комини!\nИзглежда страхотно! Но наоколо мирише странно.
+Dialogues/prepUnlockPowerPlant11=<voice type=thanks>\nТова наистина е интересно. Благодаря, хлапе.
+Dialogues/lemonBuy1=<voice type=thanks>\nБлагодаря, че подкрепяте момичетата скаути, г-н Подготвения!
+Dialogues/lemonBuy2=<voice type=thanks>\nБлагодаря ви, г-н Подготвения! Татко... искам да кажа, момичетата скаути ще са ви благодарни!
+Dialogues/lemonBuy3=<voice type=thanks>\nО, много благодаря! Парите отиват за добра кауза!
+Dialogues/lemonBuy4=<voice type=thanks>\nБлагодаря, че подкрепяте местните скаути!
