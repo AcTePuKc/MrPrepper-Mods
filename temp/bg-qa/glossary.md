@@ -11,8 +11,9 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | gear | екипировка | Avoid `оборудване` unless context specifically means equipment rather than the Gear system |
 | inventory | инвентар | |
 | Preparedness | готовност | Core player attribute |
-| Mr. Prepper | Mr. Prepper | Game title / brand. Never translate or transliterate. |
-| Prepper | CONTEXT | Character/title/common noun usage is unresolved. Do not globally replace with `Препър`. Review per key. |
+| Mr. Prepper (game title / brand) | Mr. Prepper | Keep the official game title unchanged when it is actually the product/brand name |
+| Mr. Prepper (character address) | г-н Подготвения | Use when the English source explicitly says `Mr. Prepper` as the character's nickname/title |
+| Prepper (character address/name) | Подготвения | In-world nickname derived from being prepared; use when the source says standalone `Prepper` |
 | Rejected Games | Rejected Games | Developer name. Never translate. |
 | Steam | Steam | Keep untranslated |
 | Discord | Discord | Keep untranslated |
@@ -30,7 +31,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Brazen Serpent | Медната змия | Satellite/project name; keep consistent across broadcast, newspaper and story dialogue |
 | Fort Observer | Форт „Наблюдател“ | Military base name; semantic localization preserves the Observer/unobserved wordplay |
 | Ellipse | Елипс | Fort Observer security AI |
-| the Hum | REVIEW: Бръмченето | Joe's named low-frequency phenomenon/conspiracy term. `Бръмченето` is staged, but keep under review until more occurrences confirm it. |
+| the Hum | REVIEW: Бученето | Current candidate for Joe's named low-frequency phenomenon/conspiracy term. Keep under review until later context confirms it. |
 | junkyard | автоморга | Joe's location; prefer this over generic `бунище`/`лагер` when the place itself is meant |
 | herbalist | билкарка | Jenny is female; avoid masculine `билкар` for her dialogue |
 | mine (noun) | мина | Use for the location unless a specific context clearly requires `шахта` |
@@ -56,7 +57,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 - Context-menu commands are verbs, not nouns.
 - Preserve source capitalization only when it is meaningful in the game's UI. Do not randomly mix all-caps and title case.
 - Prefer natural Bulgarian over English or Russian syntax.
-- Do not translate product, platform, studio, publisher, or game names such as Mr. Prepper, Rejected Games, Steam and Discord.
+- Keep actual product, platform, studio and publisher names untranslated, including the game title `Mr. Prepper`, Rejected Games, Steam and Discord. This does not apply to the in-world character nickname `Prepper` / `Mr. Prepper`, which is localized as `Подготвения` / `г-н Подготвения`.
 - Preserve all TMP/I2 tags, placeholders, escaped newlines and formatting tokens exactly unless the source itself changes them.
 - For gendered dialogue, identify the speaker from the key/prefix and adjacent dialogue before editing.
 - Jenny deliberately uses changing affectionate plant/flower nicknames. Localize each one as a natural Bulgarian endearment that preserves the playful botanical character, rather than translating the plant name mechanically.
