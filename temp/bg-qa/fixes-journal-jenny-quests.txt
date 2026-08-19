@@ -1,0 +1,22 @@
+# Jenny / journal quest QA
+
+Journal/herbq2=Джени ме помоли да ѝ донеса <color=yellow>8 гъби</color> от мината. Иска да ги използва за чай.
+Journal/herbq2::1=Донеси на Джени <color=yellow>8 гъби</color> от мината.
+Journal/herbq3=Джени ме помоли да ѝ донеса <color=yellow>8 плода от гуарана</color> от гората. Трябва да поправя въжената линия на ниво 2 в гората, за да стигна дотам.
+Journal/herbq3::2=Донеси на Джени <color=yellow>8 плода от гуарана</color> от ниво 3 на гората.
+Journal/herbq4=Джени ме помоли да засадя семена от гуарана и да ѝ донеса реколтата. <color=yellow>20 плода от гуарана</color> трябва да са достатъчни.
+Journal/herbq4::2=Донеси на Джени <color=yellow>20 плода от гуарана</color>.
+Journal/herbq5Title=Разследване на самолетна катастрофа
+Journal/herbq5::2=Намери останките от самолета на ниво 5 в гората.
+Journal/herbWaitTitle=Джени
+Journal/herbq6=Джени има нужда от още гуарана. Помоли ме да ѝ донеса <color=yellow>99 плода от гуарана</color>.
+Journal/herbq6::1=Донеси на Джени <color=yellow>99 плода от гуарана</color>.
+Journal/rocketPlan1=Този чертеж на ракета всъщност е доста вдъхновяващ...
+Journal/herbFirstLetterTitle=Билкарката
+Journal/herbFirstLetter=Местната билкарка може да бъде срещната в гората през деня.
+
+# REMOVE / DEV CANDIDATES
+# Journal/herbq8 = quest 8
+# Journal/herbq9 = quest 9
+# Journal/herbq10 = quest 10
+# Journal/ - empty key/value record.
