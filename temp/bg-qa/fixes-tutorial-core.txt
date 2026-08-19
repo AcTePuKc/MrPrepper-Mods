@@ -1,0 +1,13 @@
+# Core tutorial QA
+
+Tutorial/td14=Разглоби 3 трупи, за да получиш дърво. \n<color=yellow># разглобени трупи<color=yellow>.
+Tutorial/td23=Агентът ще дойде скоро. Трябва да <color=yellow>скриеш или прибереш подозрителните предмети</color> и да му отвориш вратата.
+Tutorial/tutPrep2=Това е най-важната ти характеристика.
+Tutorial/tutFoodSource=Осигури \nизточник на храна
+Tutorial/tutBasicCamera=Премести камерата с
+Tutorial/tutBasicPrepper=Премести Подготвения
+Tutorial/tutPlants1.2=<color=yellow>5x Почва за стая</color> - може да се изработи на работната маса
+Tutorial/tutPlants1.3=<color=yellow>5x Торбички със семена</color> - можеш да намериш няколко у дома
+Tutorial/tutPlants2.1=Растенията се нуждаят от <color=yellow>вода</color> и <color=yellow>светлина</color>, за да растат.
+Tutorial/tutPlants2.2=Можеш да вземеш вода от <color=yellow>мивката</color>.
+Tutorial/cooking1=Помни, че ще извлечеш най-много от храната си\nако първо я сготвиш.
