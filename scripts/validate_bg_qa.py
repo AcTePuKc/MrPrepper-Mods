@@ -13,7 +13,7 @@ from __future__ import annotations
 import csv
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +24,7 @@ STATUSES = {"FIX", "REVIEW", "CONTEXT", "OK", "REMOVE"}
 TAG_RE = re.compile(r"<[^>]+>")
 DOLLAR_RE = re.compile(r"\$[^$\r\n]+\$")
 BRACE_RE = re.compile(r"\{[^{}\r\n]+\}")
+OPEN_REVIEW_RE = re.compile(r"\b(REVIEW|CONTEXT|TODO)\b", re.IGNORECASE)
 
 FORBIDDEN_FIX_PATTERNS = {
     "Препър": re.compile(r"Препър", re.IGNORECASE),
@@ -57,11 +58,16 @@ def load_source() -> dict[str, str]:
 def parse_staged():
     entries = []
     malformed = []
+    review_markers = []
     for path in sorted(QA_DIR.glob("*.txt")):
         with path.open("r", encoding="utf-8") as fh:
             for lineno, raw in enumerate(fh, 1):
                 line = raw.rstrip("\n\r")
-                if not line or line.lstrip().startswith("#"):
+                if not line:
+                    continue
+                if line.lstrip().startswith("#"):
+                    if OPEN_REVIEW_RE.search(line):
+                        review_markers.append((path, lineno, line.strip()))
                     continue
 
                 # New/status-prefixed format: FIX<TAB>key=value, REMOVE<TAB>key, etc.
@@ -76,6 +82,8 @@ def parse_staged():
                             if "=" not in payload:
                                 if status in {"FIX", "OK"}:
                                     malformed.append((path, lineno, line))
+                                else:
+                                    review_markers.append((path, lineno, line.strip()))
                                 continue
                             key, value = payload.split("=", 1)
                             key = key.strip()
@@ -94,7 +102,7 @@ def parse_staged():
                 if head in STATUSES:
                     malformed.append((path, lineno, line))
 
-    return entries, malformed
+    return entries, malformed, review_markers
 
 
 def structural_signature(text: str) -> dict[str, object]:
@@ -114,10 +122,11 @@ def structural_signature(text: str) -> dict[str, object]:
 
 def main() -> int:
     source = load_source()
-    entries, malformed = parse_staged()
+    entries, malformed, review_markers = parse_staged()
 
     errors: list[str] = []
     warnings: list[str] = []
+    status_counts = Counter(status for status, *_ in entries)
 
     for path, lineno, line in malformed:
         errors.append(f"{path.relative_to(ROOT)}:{lineno}: malformed staged QA line: {line}")
@@ -164,8 +173,15 @@ def main() -> int:
     print(f"Authoritative keys: {len(source)}")
     print(f"Staged QA entries: {len(entries)}")
     print(f"Unique staged keys: {len(by_key)}")
+    print("Status counts: " + ", ".join(f"{k}={status_counts.get(k, 0)}" for k in sorted(STATUSES)))
+    print(f"Open review markers: {len(review_markers)}")
     print(f"Warnings: {len(warnings)}")
     print(f"Errors: {len(errors)}")
+
+    if review_markers:
+        print("\nOPEN REVIEW MARKERS")
+        for path, lineno, line in review_markers:
+            print(f"- {path.relative_to(ROOT)}:{lineno}: {line}")
 
     if warnings:
         print("\nWARNINGS")
