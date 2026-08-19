@@ -1,0 +1,37 @@
+# Explicit removals - obvious development/test leftovers only
+# These entries are not useful player-facing localization text.
+
+REMOVE	Dialogues/willProto1
+REMOVE	Dialogues/prepProto1
+REMOVE	Dialogues/agentProto1
+
+REMOVE	Dialogues/scientistGiveQuestStage1
+REMOVE	Dialogues/scientistGiveQuestStage2
+REMOVE	Dialogues/scientistGiveQuestStage3
+REMOVE	Dialogues/scientistGiveQuestStage4
+REMOVE	Dialogues/scientistNoItem1
+REMOVE	Dialogues/scientistNoItem2
+REMOVE	Dialogues/scientistNoItem3
+REMOVE	Dialogues/scientistNoItem4
+REMOVE	Dialogues/scientistCompleteQuestStage1
+REMOVE	Dialogues/scientistCompleteQuestStage2
+REMOVE	Dialogues/scientistCompleteQuestStage3
+REMOVE	Dialogues/scientistCompleteQuestStage4
+REMOVE	Dialogues/scientistRandomTalk1
+REMOVE	Dialogues/scientistRandomTalk2
+REMOVE	Dialogues/scientistRandomTalk3
+REMOVE	Dialogues/scientistRandomTalk4
+REMOVE	Dialogues/scientistRandomTalk5
+
+REMOVE	Items/DesKeyTEST
+REMOVE	Items/DesKeyTestSeed
+REMOVE	Items/RoomUpgradeProto
+REMOVE	Items/TestW2
+REMOVE	Items/basePref
+REMOVE	Items/des kfu guliga holi gaba raba rada wada wosumano i oli kabo do salinano uso do
+
+REMOVE	Journal/herbq8
+REMOVE	Journal/herbq9
+REMOVE	Journal/herbq10
+
+REMOVE	Test/aaaaa
