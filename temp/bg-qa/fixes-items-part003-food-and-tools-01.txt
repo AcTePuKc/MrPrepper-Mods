@@ -1,0 +1,14 @@
+# Items part-003 - food/tools obvious QA fixes
+# English authoritative. Only objective mistranslations/grammar issues are staged.
+
+Items/DesKeySimpleTrap=Прост капан за улавяне на някои невинни животинки.
+Items/DriedOrange=Сушен портокал
+Items/EggInSalt=Яйца в сол
+Items/EnergyBar=Енергиен бар
+Items/FarmingWallLamp=Фермерска стенна лампа
+Items/MarinatedCorn=Маринована царевица
+Items/Kimchi=Кимчи
+
+# REMOVE candidates / development leftovers
+# Items/Meat1 = source key/value look like placeholder content (Meat1)
+# Items/Meat2 = source key/value look like placeholder content (Meat2)
