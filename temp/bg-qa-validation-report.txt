@@ -2,7 +2,7 @@ Authoritative keys: 5633
 Staged QA entries: 1285
 Unique staged keys: 1282
 Status counts: CONTEXT=0, FIX=1283, OK=0, REMOVE=2, REVIEW=0
-Open review markers: 28
+Open review markers: 27
 Warnings: 0
 Errors: 0
 
@@ -20,7 +20,6 @@ OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-dialogues-jenny-guarana-little.txt:14: # REVIEW / CONSISTENCY
 - temp/bg-qa/fixes-dialogues-jenny-guarana-more.txt:3: # English is authoritative; French/Russian used only as context checks.
 - temp/bg-qa/fixes-dialogues-jenny-shrooms.txt:3: # English is authoritative; French/Russian used only as context checks.
-- temp/bg-qa/fixes-dialogues-jenny-wolf.txt:13: # REVIEW / CONTEXT
 - temp/bg-qa/fixes-dialogues-joe-first-meeting.txt:3: # English is authoritative; FR/RU used for context checks.
 - temp/bg-qa/fixes-dialogues-joe-first-meeting.txt:33: # TERMINOLOGY REVIEW
 - temp/bg-qa/fixes-dialogues-joe-first-meeting.txt:35: # Keep under review until later occurrences provide enough context to confirm or replace it.
