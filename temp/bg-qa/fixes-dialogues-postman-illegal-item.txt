@@ -1,0 +1,18 @@
+# Postman - planting an illegal item / framing an Agency agent
+# Source: Dialogues/prepIllegal1 through Dialogues/postIllegalDelivered4
+# English authoritative; FR/RU used only for context checks.
+
+Dialogues/prepIllegal1=<voice type=greeting>\nЗдравейте, г-н Пощальон! Имам една... малка молба към вас. 
+Dialogues/postIllegal2=<voice type=question>\nДа?
+Dialogues/prepIllegal3=Та... чух, че сте имали проблеми с Агенцията.
+Dialogues/postIllegal4=<voice type=fear>\nОпасно е да го казвам на глас, но да, тормозиха ме дълго време. Защо питате?
+Dialogues/prepIllegal5=Имам нужда от помощта ви, за да се отървем от един особено неприятен агент. \nПланът е следният: давам ви незаконен предмет, вие го скривате някъде, където няма да се вижда веднага, а после един мой приятел го докладва на Агенцията.\n<voice type=laugh>\nАгенцията идва на проверка и - хоп! \nЕдин проблем по-малко.
+Dialogues/postIllegal6=<voice type=fear>\nГ-н Подготвения, това вече е малко прекалено... А кой изобщо е този ваш приятел? Доверявате ли му се?
+Dialogues/prepIllegal7=Ъм... да. Той знае много неща. И мога да гарантирам за него.
+Dialogues/postIllegal8=<voice type=question>\nИ за какъв предмет става дума?
+Dialogues/prepIllegal9=<voice type=laugh>\nЗа това прекрасно изображение на нашия обичан водач. 
+Dialogues/postIllegal10=<voice type=laugh>\nО! Наистина доста уличаващо.\n<voice type=acceptance>\nДобре тогава. Ще поема риска. Всяка възможност да навредим на Агенцията си струва.\nНо знаете, ако си навлека неприятности, цялата пощенска система на Мърикавил рухва.\n
+Dialogues/prepIllegalDelivered1=<voice type=greeting>\nЗдравейте, г-н Пощальон! И така, успяхте ли да поставите малкия ни „предмет за разговор“ на подходящото място?
+Dialogues/postIllegalDelivered2=О, да. Подредих го така, че наистина да направи впечатление на всеки, който го види. И предполагам, че г-н Фицпатрик няма да го открие преди Агенцията.
+Dialogues/prepIllegalDelivered3=<voice type=laugh>\nБлестящо! Благодаря ви, г-н Пощальон. Честно казано, не очаквах толкова ентусиазиран подривен дух от вас.
+Dialogues/postIllegalDelivered4=Знаете, не че съм революционер или нещо подобно. Просто мразя агентите до мозъка на костите си.
