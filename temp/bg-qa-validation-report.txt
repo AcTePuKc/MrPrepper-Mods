@@ -1,7 +1,55 @@
 Authoritative keys: 5633
 Staged QA entries: 1266
 Unique staged keys: 1263
+Status counts: CONTEXT=0, FIX=1260, OK=0, REMOVE=2, REVIEW=4
+Open review markers: 44
 Warnings: 0
 Errors: 0
+
+OPEN REVIEW MARKERS
+- temp/bg-qa/fixes-dialogues-agent-reveal.txt:3: # English authoritative; FR/RU used only for context checks.
+- temp/bg-qa/fixes-dialogues-agent-reveal.txt:56: # Inspiration & Wellbeing Department -> REVIEW: „Отдел за вдъхновение и благосъстояние“.
+- temp/bg-qa/fixes-dialogues-bob-awakening.txt:3: # English authoritative; FR/RU used only for context checks.
+- temp/bg-qa/fixes-dialogues-finale-outro.txt:3: # English authoritative; FR/RU used only for context checks.
+- temp/bg-qa/fixes-dialogues-fort-observer-boss-taunts.txt:20: # REVIEW / CONTEXT
+- temp/bg-qa/fixes-dialogues-fort-observer-memories.txt:12: # STORY CONTEXT
+- temp/bg-qa/fixes-dialogues-jenny-bob-plant.txt:2: # Important context: this Bob is Jenny's plant, not Bob from the mine, unless the line explicitly says "the other Bob".
+- temp/bg-qa/fixes-dialogues-jenny-bob-plant.txt:3: # English authoritative; FR/RU used for context only.
+- temp/bg-qa/fixes-dialogues-jenny-generic.txt:2: # English authoritative; FR/RU used for context only.
+- temp/bg-qa/fixes-dialogues-jenny-goodbye.txt:3: # English authoritative; FR/RU used for context checks.
+- temp/bg-qa/fixes-dialogues-jenny-guarana-little.txt:3: # English is authoritative; French/Russian used only as context checks.
+- temp/bg-qa/fixes-dialogues-jenny-guarana-little.txt:14: # REVIEW / CONSISTENCY
+- temp/bg-qa/fixes-dialogues-jenny-guarana-more.txt:3: # English is authoritative; French/Russian used only as context checks.
+- temp/bg-qa/fixes-dialogues-jenny-shrooms.txt:3: # English is authoritative; French/Russian used only as context checks.
+- temp/bg-qa/fixes-dialogues-jenny-wolf.txt:13: # REVIEW / CONTEXT
+- temp/bg-qa/fixes-dialogues-joe-first-meeting.txt:3: # English is authoritative; FR/RU used for context checks.
+- temp/bg-qa/fixes-dialogues-joe-first-meeting.txt:33: # TERMINOLOGY REVIEW
+- temp/bg-qa/fixes-dialogues-joe-first-meeting.txt:35: # Keep under review until later occurrences provide enough context to confirm or replace it.
+- temp/bg-qa/fixes-dialogues-joe-fort-access.txt:3: # English authoritative; FR/RU used only for context checks.
+- temp/bg-qa/fixes-dialogues-joe-geiger.txt:3: # English is authoritative; FR/RU used only as context checks.
+- temp/bg-qa/fixes-dialogues-joe-launch-goodbye.txt:3: # English authoritative; FR/RU used only for context checks.
+- temp/bg-qa/fixes-dialogues-postman-illegal-item.txt:3: # English authoritative; FR/RU used only for context checks.
+- temp/bg-qa/fixes-dialogues-scientist-nuclear-confrontation.txt:20: # TERMINOLOGY / WORDPLAY REVIEW
+- temp/bg-qa/fixes-dialogues-sleepless-generic.txt:3: # English is authoritative; French/Russian used only as context checks.
+- temp/bg-qa/fixes-dialogues-will-animals-missing-second.txt:2: # English authoritative; follows the established farm quest context.
+- temp/bg-qa/fixes-dialogues-will-goodbye.txt:3: # English authoritative; FR/RU used only for context checks.
+- temp/bg-qa/fixes-items-mountain-cryo.txt:27: # Review against actual runtime before removal if any of these are referenced by the game.
+- temp/bg-qa/fixes-items-mountain-yeti-tail.txt:21: # Review runtime references before final deletion.
+- temp/bg-qa/fixes-items-part003-quest-farm-items.txt:2: # English authoritative; preserves established names and farm context.
+- temp/bg-qa/fixes-ui-combat.txt:22: # REVIEW / CONTEXT
+- temp/bg-qa/fixes-ui-combat.txt:23: # UI/minigameFlierTitle source is GAME COMPETITION; current Bulgarian is a hallucination. Final wording could be ИГРОВО СЪСТЕЗАНИЕ / СЪСТЕЗАНИЕ ПО ВИДЕОИГРИ depending on flyer context.
+- temp/bg-qa/fixes-ui-dlc.txt:28: # REVIEW / CONTEXT
+- temp/bg-qa/fixes-ui-dlc.txt:30: # UI/creditsLemon appears intentionally quirky in English; verify source/context before rewriting.
+- temp/bg-qa/fixes-ui-dlc.txt:31: # UI/menuNuclearDLCInfo: `scout girl` needs character/context check before choosing a Bulgarian title.
+- temp/bg-qa/fixes-ui-fishing-animals.txt:37: # REVIEW / CONTEXT
+- temp/bg-qa/fixes-ui-fishing-animals.txt:39: # UI/fishingCaughtFish / UI/fishingNotCaughtFish need exact screen context before choosing noun vs sentence phrasing.
+- temp/bg-qa/fixes-ui.txt:10: # Context actions
+- temp/bg-qa/fixes-ui.txt:94: # REVIEW / CONTEXT - intentionally not applied yet
+- temp/bg-qa/fixes-ui.txt:96: # UI/StatusIcon and other character references containing `prepper` need per-key review.
+- temp/bg-qa/fixes-ui.txt:98: # UI/contextMINE: choose between КОПАЙ and ДОБИВАЙ after interaction context check
+- temp/bg-qa/fixes-ui.txt:99: # UI/contextQUICK_SET: source QUICK SET is ambiguous without interaction context
+- temp/bg-qa/fixes-ui.txt:100: # UI/contextFort: source Fort Observer needs game context before rewriting
+- temp/bg-qa/fixes-ui.txt:101: # UI/contextCHOP: missing in Bulgarian; choose command after checking interaction context
+- temp/bg-qa/fixes-ui.txt:102: # UI/contextAnimalsBand: translation is plausible but needs in-game label/context check
 
 BG QA structural validation passed.
