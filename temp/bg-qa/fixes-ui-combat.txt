@@ -18,7 +18,6 @@ UI/minigameReachedTargetScore=ДОСТИГНА ЦЕЛЕВИЯ РЕЗУЛТАТ �
 UI/minigameYouWon=ТИ ПОБЕДИ
 UI/minigameOutstandingJob=ОТЛИЧНА РАБОТА! ЩЕ СЕ ВИДИМ НА СЛЕДВАЩОТО СЪБИТИЕ
 UI/minigameGameingClub=КЛУБ ЗА ВИДЕОИГРИ В КВАРТАЛА
+UI/minigameFlierTitle=СЪСТЕЗАНИЕ ПО ВИДЕОИГРИ
 
-# REVIEW / CONTEXT
-# UI/minigameFlierTitle source is GAME COMPETITION; current Bulgarian is a hallucination. Final wording could be ИГРОВО СЪСТЕЗАНИЕ / СЪСТЕЗАНИЕ ПО ВИДЕОИГРИ depending on flyer context.
-# Keep MR. PREPPER untranslated as a proper game/character title until the Prepper naming decision is finalized.
+# MR. PREPPER is kept as the protected game/title branding in this event UI.
