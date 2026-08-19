@@ -49,6 +49,16 @@ def normalize(value: str) -> str:
     return value
 
 
+def prepper_name_candidate(english: str, bulgarian: str) -> bool:
+    """Return True when the same line belongs to the character-name cleanup layer."""
+    if not re.search(r"Препър", bulgarian, re.IGNORECASE):
+        return False
+    return bool(
+        re.search(r"\bMr\.?\s+Prepper\b", english)
+        or re.search(r"\bPrepper\b", english)
+    )
+
+
 def main() -> int:
     source, merged = simulated_mapping()
     fixes = []
@@ -56,6 +66,12 @@ def main() -> int:
         if key not in source:
             continue
         old = merged[key]
+
+        # If this line also needs character-name normalization, let the Prepper
+        # generator own the complete final value. It composes locked terms first.
+        if prepper_name_candidate(source[key], old):
+            continue
+
         new = normalize(old)
         if new != old:
             fixes.append((key, new))
@@ -63,7 +79,7 @@ def main() -> int:
     lines = [
         "# Global locked-terminology cleanup\n",
         "# Generated deterministically from the simulated post-QA localization.\n",
-        "# Prepper is intentionally excluded and reviewed separately.\n\n",
+        "# Prepper character-name overlap is delegated to fixes-global-prepper-name.txt.\n\n",
     ]
     lines.extend(f"{key}={value}\n" for key, value in fixes)
     OUT.write_text("".join(lines), encoding="utf-8")
