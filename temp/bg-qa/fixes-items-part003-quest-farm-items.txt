@@ -1,0 +1,21 @@
+# Items part-003 - quest/farm item QA fixes
+# English authoritative; preserves established names and farm context.
+
+Items/QuestChicken1=Кокошката Ърта
+Items/QuestChicken2=Кокошката Глория
+Items/QuestChicken3=Кокошката Адел
+Items/QuestChicken4=Кокошката Фиона
+Items/QuestChicken5=Кокошката Флорънс
+Items/QuestGoatAnimal1=Козата Стиви
+Items/QuestGoatAnimal2=Козелът Анджело
+Items/QuestGoatAnimal3=Козелът Том
+Items/AgentLeg=Черно парче плат
+Items/DesAgentLeg=Черно парче плат, изцапано с кръв и намерено във фермата. На кого ли принадлежи?
+Items/AnimalBand=Проследяваща лента
+Items/DesAnimalBand=Проследяваща лента, носена от козите и кокошките във фермата.
+Items/DesBeehiveBig=По-голям кошер за повече пчели. Те ще произвеждат повече мед за по-кратко време.
+Items/FishFilet=Рибно филе
+Items/GoatBomb=Козя бомба
+Items/Hey=Сено
+Items/LakeSign=Информационна табела за рибите
+Items/DesLakeSign=Информационна табела за всички видове риби, които можеш да намериш и уловиш в района на Мърикавил. Полезно!
