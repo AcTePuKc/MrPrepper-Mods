@@ -1,0 +1,11 @@
+# Xeno / postgame misc
+# English authoritative; only broken/inconsistent lines staged.
+
+Dialogues/henWillPostGame7=Кудкудяк!
+Dialogues/prepJoePostGame1=<voice type=disappointment>\nДжо, за останките от НЛО...
+Dialogues/joeJoePostGame2=<voice type=question>\nОстанки от НЛО? Кои? Тези от Розуел? \n<voice type=question>\nТези от Шаг Харбър? Или може би странният случай от Аврора, Тексас? \n<voice type=laugh>\nГ-н Подготвения, не спираш да ме изненадваш!\n<voice type=acceptance>\nНе знаех, че и ти се интересуваш от такива неща!
+Dialogues/prepJoePostGame3=<voice type=disappointment>\nОх...\nЗнаеш ли какво, май оставих нещо във фурната вкъщи.\nВеднага се връщам.
+Dialogues/prepDogeUnderground=<voice type=disappointment>\nХм... \n<voice type=disappointment>\nНе изглежда особено щастлив тук.\n<voice type=question>\nМоже би е по-добре да го държа горе, в къщата?
+Dialogues/prepDogeOverground=<voice type=acceptance>\nО, това е хубаво място за теб.\nСамо че ще трябва да те крия от Агенцията преди всяка проверка. Трябва да стоиш тихо и да ме слушаш!
+Dialogues/prepDogGone=<voice type=surprise>\nЧакай... Кучето го няма?! Моето добро момче?\n<voice type=question>\nМоже би не му е било достатъчно добре при мен?\n<voice type=upset>\nНадявам се да се върне.
+Dialogues/prepDogExpedition=О... Явно кучето просто е излязло по кучешки работи.\nДано не се забърка в неприятности.
