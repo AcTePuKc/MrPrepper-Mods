@@ -4,6 +4,8 @@
 This script is intentionally strict about structural tokens. It does not judge prose
 quality; it protects placeholders, TMP/I2 tags, escaped newlines and staged QA
 integrity before fixes are merged back into labels.txt.
+
+Run locally with: python scripts/validate_bg_qa.py
 """
 
 from __future__ import annotations
@@ -63,7 +65,6 @@ def parse_staged():
                 if not line or line.lstrip().startswith("#"):
                     continue
                 if "\t" not in line:
-                    # Notes/rationale lines are allowed only when they do not look like statuses.
                     head = line.split(None, 1)[0] if line.split() else ""
                     if head in STATUSES:
                         malformed.append((path, lineno, line))
@@ -77,7 +78,6 @@ def parse_staged():
                     value = None
                 else:
                     if "=" not in payload:
-                        # REVIEW/CONTEXT can be commentary-only; FIX/OK cannot.
                         if status in {"FIX", "OK"}:
                             malformed.append((path, lineno, line))
                         continue
@@ -119,13 +119,9 @@ def main() -> int:
             errors.append(f"{path.relative_to(ROOT)}:{lineno}: key not found in authoritative compare data: {key}")
             continue
 
-        if status == "REMOVE":
-            continue
-        if value is None:
+        if status == "REMOVE" or value is None:
             continue
 
-        # Structural comparison is strict for accepted fixes. REVIEW/CONTEXT are reported
-        # only as warnings because they may intentionally remain unresolved.
         src_sig = structural_signature(source[key])
         dst_sig = structural_signature(value)
         for field in ("tags", "dollar", "braces", "escaped_n", "escaped_r", "hash_count", "random_open", "random_close"):
@@ -143,7 +139,6 @@ def main() -> int:
                         f"{path.relative_to(ROOT)}:{lineno}: {key}: locked/obsolete form remains ({label}): {value}"
                     )
 
-    # Conflicting accepted values and FIX/REMOVE overlap.
     for key, vals in sorted(by_key.items()):
         accepted = {(status, value) for status, value, _, _ in vals if status in {"FIX", "OK"}}
         accepted_values = {value for _, value in accepted}
