@@ -161,7 +161,7 @@ public sealed class Plugin : BaseUnityPlugin
 
         var mouse = localMouse - coordinateRt.rect.min;
         var tooltipSize = manager.tooltipTrans.rect.size;
-        var gap = Mathf.Max(1f, mouseGap.Value);
+        var gap = Mathf.Max(0f, mouseGap.Value);
         var padding = Mathf.Max(0f, edgePadding.Value);
         var right = canvasSize.x - mouse.x - tooltipSize.x - gap >= padding;
         var left = mouse.x - tooltipSize.x - gap >= padding;
