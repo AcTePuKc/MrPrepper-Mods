@@ -1,0 +1,19 @@
+# Fort Observer - core access / Ellipse AI
+# Source-backed QA for the base entrance and security AI.
+
+Dialogues/bossCreated=<voice type=greeting>\nЗдравей. Аз съм Елипс, изкуственият интелект за сигурност на Форт „Наблюдател“. Не ми харесва това, което току-що направи.
+Dialogues/bossCreated1=Добре, вече можеш да минеш. Хайде. Изобщо не съм ядосан.
+Dialogues/bossWelcome=<voice type=greeting>\nДобре дошъл във Форт „Наблюдател“. Аз съм Елипс, изкуственият интелект за сигурност на базата. Боже, пази Президента!
+Dialogues/bossCard0=Моля, поставете картата си за достъп.
+Dialogues/prepNoCard1=<voice type=question>\nКарта? Ъм... забравих моята. Има ли друг начин да вляза?
+Dialogues/bossNoCard2=Моля, поставете картата си за достъп. Това е единственият начин за удостоверяване.
+Dialogues/prepCard1=Хм, чакай, може би тази ще свърши работа...
+Dialogues/bossCard2=<voice type=thanks>\nБлагодаря. Проверявам статуса.
+Dialogues/bossCard3=<voice type=acceptance>\nСамоличността е потвърдена. Добре дошъл във Форт „Наблюдател“, Mr. Prepper. 
+Dialogues/prepCard4=<voice type=surprise>\nЧакай. Това нещо... ме познава?
+Dialogues/bossLeaveItems0=Моля, оставете всички неразрешени предмети отвън, преди да влезете във Форт „Наблюдател“.
+Dialogues/bossLeaveItems1=Храната е разрешена. Моля, поставете всички останали вещи в кутията.
+Dialogues/bossComeIn=<voice type=acceptance>\nДостъпът е разрешен. Приятен работен ден във Форт „Наблюдател“. Боже, пази Президента! 
+Dialogues/prepFortObserverEnter=По дяволите. Наистина изглежда... познато.
+
+# Mr. Prepper is protected here because the security system is addressing the branded/formal name directly.
