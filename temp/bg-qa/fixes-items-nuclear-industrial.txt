@@ -1,0 +1,20 @@
+# Nuclear / industrial item QA
+# English authoritative. Only objective naming/meaning fixes staged here.
+
+Items/UraniumCompanySign=Мърикавил Ураниум Ко.
+Items/PostmanAndroid=Андроид пощальон
+Items/ScientistPlansPowerPlant=Планове на учения
+Items/ReactorSafetySystem=Система за безопасност на реактора
+Items/DesReactorSafetySystem=Устройство, което осигурява стабилизация и изолация на реактора.
+Items/SeedsMaker=Уред за премахване на костилки
+Items/RailGun=Пулсова пушка
+Items/CautionSign=Предупредителен знак
+Items/EmergancyStopLever=Лост за аварийно спиране
+Items/LedLavaLamp=LED лава лампа
+Items/RocketLavaLamp=Лава лампа с форма на ракета
+Items/RadioactiveFridge=Хладилник от атомната ера
+Items/UraniumTable=Маса с ураниево стъкло
+Items/DesUraniumTable=Елегантна дървена маса с плот от ураниево стъкло. Излъчва лукс.
+Items/UraniumWardrobe=Гардероб с ураниево стъкло
+Items/DesUraniumWardrobe=Старинен дървен гардероб с ураниево стъкло на вратите. Дрехите ти ще светят не само когато са върху теб.
+Items/BigUraniumRod=Голям уранов прът
