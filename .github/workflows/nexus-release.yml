@@ -1,0 +1,120 @@
+name: Publish GitHub Release to Nexus
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nexus-publish-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      NEXUS_API_KEY: ${{ secrets.NEXUS_API_KEY }}
+      NEXUS_GAME_DOMAIN: mrprepper
+      NEXUS_MOD_ID_BG: ${{ secrets.NEXUS_MOD_ID_BG }}
+      NEXUS_MOD_ID_TOOLTIP: ${{ secrets.NEXUS_MOD_ID_TOOLTIP }}
+      NEXUS_FILE_ID_BG: ${{ secrets.NEXUS_FILE_ID_BG }}
+      NEXUS_FILE_ID_TOOLTIP: ${{ secrets.NEXUS_FILE_ID_TOOLTIP }}
+
+    steps:
+      - name: Checkout uploader script
+        uses: actions/checkout@v4
+
+      - name: Resolve mod from release tag
+        id: mod
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag='${{ github.event.release.tag_name }}'
+
+          case "$tag" in
+            bg-v*)
+              echo "key=bg" >> "$GITHUB_OUTPUT"
+              echo "version=${tag#bg-v}" >> "$GITHUB_OUTPUT"
+              echo "display_name=Mr. Prepper - Bulgarian Translation" >> "$GITHUB_OUTPUT"
+              echo "mod_id=$NEXUS_MOD_ID_BG" >> "$GITHUB_OUTPUT"
+              echo "file_id=$NEXUS_FILE_ID_BG" >> "$GITHUB_OUTPUT"
+              ;;
+            tooltip-v*)
+              echo "key=tooltip" >> "$GITHUB_OUTPUT"
+              echo "version=${tag#tooltip-v}" >> "$GITHUB_OUTPUT"
+              echo "display_name=Mr. Prepper - Tooltip Scale Fix" >> "$GITHUB_OUTPUT"
+              echo "mod_id=$NEXUS_MOD_ID_TOOLTIP" >> "$GITHUB_OUTPUT"
+              echo "file_id=$NEXUS_FILE_ID_TOOLTIP" >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "Unsupported release tag '$tag'. Expected bg-v* or tooltip-v*." >&2
+              exit 1
+              ;;
+          esac
+
+      - name: Validate Nexus settings before download/upload
+        shell: bash
+        env:
+          MOD_ID: ${{ steps.mod.outputs.mod_id }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$NEXUS_API_KEY" ]]; then
+            echo "NEXUS_API_KEY is missing." >&2
+            exit 1
+          fi
+          if [[ -z "$MOD_ID" ]]; then
+            echo "Nexus mod ID secret is missing for this release tag. No upload attempted." >&2
+            exit 1
+          fi
+
+          status=$(curl --silent --show-error --output nexus-mod.json --write-out '%{http_code}' \
+            --header "apikey: $NEXUS_API_KEY" \
+            "https://api.nexusmods.com/v3/games/$NEXUS_GAME_DOMAIN/mods/$MOD_ID")
+
+          if [[ "$status" != "200" ]]; then
+            echo "Nexus mod preflight returned HTTP $status. NO FILE UPLOAD WAS ATTEMPTED." >&2
+            cat nexus-mod.json >&2 || true
+            exit 1
+          fi
+
+      - name: Download the single ZIP asset from this GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets
+          gh release download '${{ github.event.release.tag_name }}' --pattern '*.zip' --dir release-assets
+
+          mapfile -t zips < <(find release-assets -maxdepth 1 -type f -name '*.zip' -print)
+          if [[ ${#zips[@]} -ne 1 ]]; then
+            echo "Expected exactly one ZIP asset on the GitHub Release; found ${#zips[@]}." >&2
+            printf '%s\n' "${zips[@]:-}" >&2
+            exit 1
+          fi
+          echo "RELEASE_ASSET=${zips[0]}" >> "$GITHUB_ENV"
+
+      - name: Bootstrap first Nexus file
+        if: ${{ steps.mod.outputs.file_id == '' }}
+        env:
+          NEXUS_GAME_SCOPED_MOD_ID: ${{ steps.mod.outputs.mod_id }}
+          MOD_VERSION: ${{ steps.mod.outputs.version }}
+          MOD_DISPLAY_NAME: ${{ steps.mod.outputs.display_name }}
+          MOD_DESCRIPTION: GitHub release ${{ github.event.release.tag_name }}
+        run: node .github/scripts/nexus-bootstrap-upload.mjs
+
+      - name: Upload new version to existing Nexus file
+        if: ${{ steps.mod.outputs.file_id != '' }}
+        uses: Nexus-Mods/upload-action@c96019556046053aa26044b44396cd38929daf23
+        with:
+          api_key: ${{ secrets.NEXUS_API_KEY }}
+          file_id: ${{ steps.mod.outputs.file_id }}
+          filename: ${{ env.RELEASE_ASSET }}
+          version: ${{ steps.mod.outputs.version }}
+          display_name: ${{ steps.mod.outputs.display_name }}
+          description: GitHub release ${{ github.event.release.tag_name }}
+          category: main
+          archive_existing_version: false
+          update_mod_version: true
