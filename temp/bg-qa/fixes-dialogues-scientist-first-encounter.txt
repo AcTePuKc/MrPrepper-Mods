@@ -1,0 +1,18 @@
+# Dr. Edward - first encounter / nuclear plant setup
+# English authoritative; `plant` here is a nuclear power plant, never a literal plant.
+
+Dialogues/prepFirstEncounter2=Да, забелязах!\n<voice type=negation>\nНо змиите вече ги няма.\n<voice type=greeting>\nА мен хората ме наричат г-н Подготвения.
+Dialogues/scientistFirstEncounter3=<voice type=question>\nГ-н Подготвения, а? Звучи ми познато.\nЧакай малко.
+Dialogues/scientistFirstEncounter4=<voice type=thanks>\nБлагодаря, човече.\n<voice type=greeting>\nАз съм д-р Едуард.\n<voice type=thanks>\nБоже, пази президента.\nЗаседнал съм тук от известно време и провизиите ми почти свършиха.
+Dialogues/prepFirstEncounter5=<voice type=question>\nТи току-що каза ли...?
+Dialogues/scientistFirstEncounter6=<voice type=acceptance>\n„Благодаря“? Да, бях затворен тук няколко седмици и се радвам, че най-после съм навън.\nПроблемът с храната беше неприятен, но най-много ме ядосваше, че трябваше да прекъсна работата си.
+Dialogues/prepFirstEncounter7=Радвам се, че си добре.\n<voice type=question>\nТези змии бяха... по-различни от онези, с които съм свикнал.
+Dialogues/scientistFirstEncounter8=А, да. Заради повишената радиация в района е. Просто са малко мутирали.\n<voice type=question>\nТук си е очаквано. Ухапаха ли те гадините, г-н Подготвения?\nТози вид не е отровен, но радиацията може да е проблем.\nИмам нещо, което ще те позакърпи: смес от облъчени гъби.\n<voice type=laugh>\nКогато провизиите ми привършваха, за малко да започна да ги ям сурови! Това обаче нямаше да е добра идея.\nОбработени като екстракт вършат работа. Вземи това, ще ти е полезно.
+Dialogues/prepFirstFetchQuest1=<voice type=question>\nКакво точно правиш тук?
+Dialogues/scientistFirstFetchQuest2=А, просто работя за напредъка на науката и инженерството. И за благото на красивия ни Мърикавил.\n<voice type=thanks>\nБог да пази Мърикавил и жителите му.
+Dialogues/prepFirstFetchQuest3=<voice type=question>\nДобре. А тази наука и инженерство, с които се занимаваш, са...?
+Dialogues/scientistFirstFetchQuest4=<voice type=question>\nЗабелязал ли си как токът понякога спира без причина? \nГрадът ни се нуждае от по-добър, по-ефективен и по-стабилен източник на енергия. И аз ще го осигуря.
+Dialogues/prepFirstFetchQuest5=<voice type=question>\nЗначи предполагам, че това е атомна електроцентрала?
+Dialogues/scientistFirstFetchQuest6=<voice type=thanks>\nБинго! \nСега, когато най-после мога пак да работя, без да се тревожа за храна и хищници, трябват ми само няколко дни и централата ще работи като нова.\nИма само... един проблем.
+Dialogues/prepFirstFetchQuest7=<voice type=question>\nЗнам. Радиоактивното замърсяване се разпространява, влияе на местната фауна и разбалансира цялата екосистема?
+Dialogues/scientistFirstFetchQuest8=<voice type=negation>\nКакво? Не.\nСвършват ми ресурсите.\n<voice type=question>\nЩе ми удариш ли едно рамо, г-н Подготвения? \n<voice type=thanks>\nЗа доброто на славния ни град.
