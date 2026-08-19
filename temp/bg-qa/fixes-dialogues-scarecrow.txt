@@ -1,0 +1,11 @@
+# Scarecrow encounters
+# Source-backed QA for Dialogues/prepScarecrow2 through prepScarecrowFightAfter.
+
+Dialogues/prepScarecrow2=<voice type=laugh>\nО, виж ти, пак е той. Или тя? Те? Не знам как стоят нещата с пола при плашилата.
+Dialogues/prepScarecrow3=<voice type=question>\nДали това е поредният експеримент на Агенцията? Май този път наистина са прекалили.
+Dialogues/prepScarecrow4=<voice type=greeting>\nО, здрасти, човече-плашило! Оз е в другата посока!\nТежък случай.
+Dialogues/prepScarecrow5a=<voice type=greeting>\nЕй, Зеленчукоглав! Може ли да поговорим за момент?
+Dialogues/prepScarecrow5b=<voice type=question>\nНе? Жалко.
+Dialogues/prepScarecrow6=<voice type=laugh>\nО, ето те и теб, зловещи ми приятелю. Много, много ме е страх! Наистина! Доволен ли си вече? Може ли да приключим с тази глупост?
+Dialogues/prepScarecrowFightBefore=<voice type=order>\nЗначи ще се бием. Заради това, че те нарекох Зеленчукоглав ли? Вече няма значение. Да видим дали изобщо струваш колкото една сламка!
+Dialogues/prepScarecrowFightAfter=И това беше. Добре се би за някой, направен от слама и парцали.
