@@ -22,8 +22,12 @@ COMPARE_DIR = ROOT / "temp" / "translation-dumps" / "generated" / "compare"
 
 STATUSES = {"FIX", "REVIEW", "CONTEXT", "OK", "REMOVE"}
 TAG_RE = re.compile(r"<[^>]+>")
-DOLLAR_RE = re.compile(r"\$[^$\r\n]+\$")
+# Real I2/game variables in this dump use identifier-like $name$ tokens.
+# Do not mistake decorative/glitched prose such as sUb$tan4_ial ... co%tami$ated for a variable.
+DOLLAR_RE = re.compile(r"\$[A-Za-z_][A-Za-z0-9_]*\$")
 BRACE_RE = re.compile(r"\{[^{}\r\n]+\}")
+# # is used as a standalone numeric placeholder in UI/tutorial strings. Ignore # embedded in glitch text.
+HASH_RE = re.compile(r"(?<![A-Za-z0-9_])#(?![A-Za-z0-9_])")
 OPEN_REVIEW_RE = re.compile(r"\b(REVIEW|CONTEXT|TODO)\b", re.IGNORECASE)
 
 FORBIDDEN_FIX_PATTERNS = {
@@ -70,7 +74,6 @@ def parse_staged():
                         review_markers.append((path, lineno, line.strip()))
                     continue
 
-                # New/status-prefixed format: FIX<TAB>key=value, REMOVE<TAB>key, etc.
                 if "\t" in line:
                     maybe_status, payload = line.split("\t", 1)
                     status = maybe_status.strip()
@@ -90,7 +93,6 @@ def parse_staged():
                         entries.append((status, key, value, path, lineno))
                         continue
 
-                # Legacy format used by most staged files: key=value means accepted FIX.
                 if "=" in line:
                     key, value = line.split("=", 1)
                     key = key.strip()
@@ -114,7 +116,7 @@ def structural_signature(text: str) -> dict[str, object]:
         "braces": BRACE_RE.findall(text),
         "escaped_n": text.count(r"\n"),
         "escaped_r": text.count(r"\r"),
-        "hash_count": without_tags.count("#"),
+        "hash": HASH_RE.findall(without_tags),
         "random_open": text.count("<random>"),
         "random_close": text.count("</random>"),
     }
@@ -143,7 +145,7 @@ def main() -> int:
 
         src_sig = structural_signature(source[key])
         dst_sig = structural_signature(value)
-        for field in ("tags", "dollar", "braces", "escaped_n", "escaped_r", "hash_count", "random_open", "random_close"):
+        for field in ("tags", "dollar", "braces", "escaped_n", "escaped_r", "hash", "random_open", "random_close"):
             if src_sig[field] != dst_sig[field]:
                 msg = (
                     f"{path.relative_to(ROOT)}:{lineno}: {key}: structural mismatch in {field}: "
