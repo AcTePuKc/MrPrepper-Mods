@@ -7,6 +7,8 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Agency | Агенцията | Proper organization name in dialogue and UI |
 | Agent | агент | Capitalize only when the source/UI function requires it |
 | Security & Wellbeing Act | Закон за сигурността и благосъстоянието | Official bureaucratic law name used by Agents during inspections |
+| Inspiration & Wellbeing Department | REVIEW: Отдел за вдъхновение и благосъстояние | Fort Observer department that tests Brazen Serpent wave technology; keep under review until wording is finalized |
+| Minuteman | REVIEW: Minuteman | Agent's secret alter ego/codename; keep source form for now, decide later whether Bulgarian transliteration is preferable |
 | bunker | бункер | |
 | blueprint | чертеж | Plural: `чертежи` |
 | gear | екипировка | Avoid `оборудване` unless context specifically means equipment rather than the Gear system |
