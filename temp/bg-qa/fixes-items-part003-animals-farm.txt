@@ -1,0 +1,18 @@
+# Items part-003 - animals/farm obvious QA fixes
+# English authoritative; fixes names, genders and false friends.
+
+Items/ChickenAnimal=Кокошка
+Items/DesChickenAnimal=Обикновена кокошка, широко разпространено селскостопанско животно с характерно кафяво оперение. Снася яйца.
+Items/DesChickenAnimalWhite=Бяла порода кокошки. Снася яйца като обикновената кокошка. Перата ѝ могат да се събират и продават.
+Items/DesChickenAnimalGray=Порода кокошки с бели пера и черни шарки. Дава пера по-бързо, но снася яйца по-бавно от обикновената порода.
+Items/RottenHey=Гнило сено
+Items/BarnBackDoor=Врата на хамбара
+Items/Will=Уил
+Items/ChickenFeeder=Хранилка за кокошки
+Items/DesChickenFeeder=Хранилка за правилното хранене на кокошките. Можеш да им даваш зърно, царевица, слънчоглед и други семена.
+Items/GoatFeeder=Хранилка за кози
+Items/DesGoatFeeder=Хранилка за кози. Можеш да я пълниш със сено или всякакви зеленчуци.
+Items/BrokenChickenHouse=Счупен кокошарник
+Items/DesCowBrown=Кафява порода крава. Не дава толкова мляко, колкото други породи, но се размножава по-бързо и дава висококачествено месо.
+Items/CowSpotted=Петниста крава
+Items/DesCowSpotted=Петниста крава. Напомня за идилични пейзажи и дава много мляко.
