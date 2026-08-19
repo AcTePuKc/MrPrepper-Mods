@@ -1,0 +1,13 @@
+# Joe - Geiger counter
+# Source: Dialogues/prepGeiger1 through Dialogues/prepGeiger9
+# English is authoritative; FR/RU used only as context checks.
+
+Dialogues/prepGeiger1=<voice type=greeting>\nХей, Джо! Този Гайгеров брояч тук... имаш ли нещо против да го заема?
+Dialogues/joeGeiger2=<voice type=surprise>\nК-какво? Защо? Подготвения, кажи ми! Облъчил ли си се?! Имало ли е изтичане на ядрено гориво?\n<voice type=fear>\nСтопяване на реактор?! Не, чакай, наоколо нямаме атомна електроцентрала. Малък ядрен взрив?\n<voice type=laugh>\nО, знам! Отвлекли са те извънземни!\n
+Dialogues/prepGeiger3=<voice type=surprise>\nКакво? Не, чакай, Джо, моля те, успокой се. \n<voice type=negation>\nНищо не ми се е случило. И доколкото знам, наоколо няма източник на радиация.\n
+Dialogues/joeGeiger4=Добре... тогава... защо ти трябва Гайгеров брояч?
+Dialogues/prepGeiger5=Ъм, за... един приятел е. Не знам за какво му трябва.
+Dialogues/joeGeiger6=Виждаш ли? Може би той знае нещо! Свързан ли е по някакъв начин с правителствените служби?
+Dialogues/prepGeiger7=<voice type=negation>\nНе. Предполагам, че просто иска да провери нещо. Или да го има за всеки случай.\nТа... мога ли да взема брояча, или не?\n
+Dialogues/joeGeiger8=<voice type=surprise>\nО, разбира се! Трябва да имам резервен някъде, така че няма проблем.\nНо моля те, непременно ми кажи, ако научиш още нещо по въпроса.\n
+Dialogues/prepGeiger9=<voice type=acceptance>\nРазбира се, ти ще си първият, който ще разбере. И благодаря!
