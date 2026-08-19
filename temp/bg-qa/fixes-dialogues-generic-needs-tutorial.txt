@@ -1,0 +1,17 @@
+# Generic Prepper needs / tutorial dialogue QA
+# Source-backed fixes from the main dialogue stream.
+
+Dialogues/prepCraft=<voice type=thanks>\nРаботна маса. Най-добрият приятел на Подготвения.\n<voice type=acceptance>\nИзработвай, разглобявай и прави магии.  \n<voice type=order>\nНо по-добре да остане скрита от Агенцията...
+
+Dialogues/prepTrade=<voice type=acceptance>\nВреме е за малко търговия.\nПравиш поръчка, взимаш я след 2 часа.\n<voice type=acceptance>\nТака трябва да работи.
+
+Dialogues/agentStartScene=По решение на американското правителство, заради последния ви опит за бягство.\nОтсега нататък ще извършвам проверки.\nБъдете подготвен.
+
+Dialogues/prepHungry1=<voice type=disappointment>\nТолкова съм гладен!
+Dialogues/prepHungry2=<voice type=hunger>\nНе бих отказал нещо за хапване.
+Dialogues/prepHungry3=<voice type=hunger>\nПо дяволите, умирам от глад!
+Dialogues/prepHungry4=<voice type=upset>\nЩеше да е хубаво да хапна нещо.
+
+Dialogues/prepTired1=<voice type=question>\nУморен съм. Може би кратка дрямка?
+Dialogues/prepTired2=Не бих отказал кратка дрямка.
+Dialogues/prepTired3=Иска ми се да си легна и да подремна малко.
