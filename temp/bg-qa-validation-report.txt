@@ -1,8 +1,8 @@
 Authoritative keys: 5633
-Staged QA entries: 1266
-Unique staged keys: 1263
-Status counts: CONTEXT=0, FIX=1260, OK=0, REMOVE=2, REVIEW=4
-Open review markers: 43
+Staged QA entries: 1276
+Unique staged keys: 1273
+Status counts: CONTEXT=0, FIX=1270, OK=0, REMOVE=2, REVIEW=4
+Open review markers: 36
 Warnings: 0
 Errors: 0
 
@@ -43,12 +43,5 @@ OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-ui-fishing-animals.txt:37: # REVIEW / CONTEXT
 - temp/bg-qa/fixes-ui-fishing-animals.txt:39: # UI/fishingCaughtFish / UI/fishingNotCaughtFish need exact screen context before choosing noun vs sentence phrasing.
 - temp/bg-qa/fixes-ui.txt:10: # Context actions
-- temp/bg-qa/fixes-ui.txt:94: # REVIEW / CONTEXT - intentionally not applied yet
-- temp/bg-qa/fixes-ui.txt:96: # UI/StatusIcon and other character references containing `prepper` need per-key review.
-- temp/bg-qa/fixes-ui.txt:98: # UI/contextMINE: choose between КОПАЙ and ДОБИВАЙ after interaction context check
-- temp/bg-qa/fixes-ui.txt:99: # UI/contextQUICK_SET: source QUICK SET is ambiguous without interaction context
-- temp/bg-qa/fixes-ui.txt:100: # UI/contextFort: source Fort Observer needs game context before rewriting
-- temp/bg-qa/fixes-ui.txt:101: # UI/contextCHOP: missing in Bulgarian; choose command after checking interaction context
-- temp/bg-qa/fixes-ui.txt:102: # UI/contextAnimalsBand: translation is plausible but needs in-game label/context check
 
 BG QA structural validation passed.
