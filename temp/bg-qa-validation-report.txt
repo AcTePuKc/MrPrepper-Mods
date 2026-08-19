@@ -1,8 +1,8 @@
 Authoritative keys: 5633
-Staged QA entries: 1281
-Unique staged keys: 1278
-Status counts: CONTEXT=0, FIX=1275, OK=0, REMOVE=2, REVIEW=4
-Open review markers: 31
+Staged QA entries: 1285
+Unique staged keys: 1282
+Status counts: CONTEXT=0, FIX=1279, OK=0, REMOVE=2, REVIEW=4
+Open review markers: 29
 Warnings: 0
 Errors: 0
 
@@ -35,8 +35,6 @@ OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-items-mountain-cryo.txt:27: # Review against actual runtime before removal if any of these are referenced by the game.
 - temp/bg-qa/fixes-items-mountain-yeti-tail.txt:21: # Review runtime references before final deletion.
 - temp/bg-qa/fixes-items-part003-quest-farm-items.txt:2: # English authoritative; preserves established names and farm context.
-- temp/bg-qa/fixes-ui-fishing-animals.txt:37: # REVIEW / CONTEXT
-- temp/bg-qa/fixes-ui-fishing-animals.txt:39: # UI/fishingCaughtFish / UI/fishingNotCaughtFish need exact screen context before choosing noun vs sentence phrasing.
 - temp/bg-qa/fixes-ui.txt:10: # Context actions
 
 BG QA structural validation passed.
