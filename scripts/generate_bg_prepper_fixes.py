@@ -35,7 +35,10 @@ def simulated_mapping():
         raise RuntimeError("Duplicate keys in labels.txt")
     accepted = {}
     removes = set()
-    for status, key, value, *_ in entries:
+    for status, key, value, path, _lineno in entries:
+        # Never consume our own previous generated output.
+        if path.resolve() == OUT.resolve():
+            continue
         if status in {"FIX", "OK"} and value is not None:
             accepted[key] = value
         elif status == "REMOVE":
