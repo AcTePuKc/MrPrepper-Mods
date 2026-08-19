@@ -1,0 +1,31 @@
+# Items part-003 - story/quest item terminology fixes
+# Uses locked QA terminology.
+
+Items/MinutManLetter3=Писмо от Опълченеца
+Items/MinutManLetter4=Писмо от Опълченеца
+Items/MinutManLetter5=Писмо от Опълченеца
+Items/MinutManLetter6=Писмо от Опълченеца
+Items/MinutManLetter7=Писмо от Опълченеца
+Items/MinutManLetter8=Писмо от Опълченеца
+Items/NoSleepBook=Спящ агент
+Items/PreppersGuideBook=Подготвен наръчник за подготовка
+Items/SladgeHammer=Кувалда
+Items/SupremeBait=Върховна стръв
+Items/WalrusBook=Проект „Леден червей“
+Items/DesRoastedDeerMeat=Добре, вече знам, че не съм над това да изям Бамби.
+Items/RoastedBoarMeat=Стек
+Items/herbDeerTrophyDes=Ловен трофей? Може би билкарката крие повече, отколкото изглежда на пръв поглед.\nИ каква е историята с тези рога?
+Items/herbDaisyGrubberDes=Градински инструмент или уред за мъчения? Не вярвам на сладката маргаритка, нарисувана върху него.
+Items/SignTraps=Табела за капани
+Items/HunterNote=Бележка от Ловджийката
+Items/Bunk=Койка
+Items/DescFortObserverMonitor=Един от мониторите във Форт „Наблюдател“. Кой наблюдава наблюдателите?
+Items/DescAICore=Ядрото на охранителния ИИ на Форт „Наблюдател“.
+Items/AICore=Ядро на ИИ
+Items/AICoreCase=Корпус на ядро на ИИ
+
+# REMOVE candidates / development leftovers
+# Items/RoomUpgradeProto
+# Items/TestW2
+# Items/basePref
+# Items/des kfu guliga holi gaba raba rada wada wosumano i oli kabo do salinano uso do
