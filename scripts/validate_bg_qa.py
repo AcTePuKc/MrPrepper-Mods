@@ -25,7 +25,6 @@ TAG_RE = re.compile(r"<[^>]+>")
 DOLLAR_RE = re.compile(r"\$[^$\r\n]+\$")
 BRACE_RE = re.compile(r"\{[^{}\r\n]+\}")
 
-# Locked/obsolete variants that should not survive in accepted FIX values.
 FORBIDDEN_FIX_PATTERNS = {
     "Препър": re.compile(r"Препър", re.IGNORECASE),
     "Минитмен": re.compile(r"Минитмен", re.IGNORECASE),
@@ -64,26 +63,37 @@ def parse_staged():
                 line = raw.rstrip("\n\r")
                 if not line or line.lstrip().startswith("#"):
                     continue
-                if "\t" not in line:
-                    head = line.split(None, 1)[0] if line.split() else ""
-                    if head in STATUSES:
-                        malformed.append((path, lineno, line))
-                    continue
-                status, payload = line.split("\t", 1)
-                status = status.strip()
-                if status not in STATUSES:
-                    continue
-                if status == "REMOVE":
-                    key = payload.strip()
-                    value = None
-                else:
-                    if "=" not in payload:
-                        if status in {"FIX", "OK"}:
-                            malformed.append((path, lineno, line))
+
+                # New/status-prefixed format: FIX<TAB>key=value, REMOVE<TAB>key, etc.
+                if "\t" in line:
+                    maybe_status, payload = line.split("\t", 1)
+                    status = maybe_status.strip()
+                    if status in STATUSES:
+                        if status == "REMOVE":
+                            key = payload.strip()
+                            value = None
+                        else:
+                            if "=" not in payload:
+                                if status in {"FIX", "OK"}:
+                                    malformed.append((path, lineno, line))
+                                continue
+                            key, value = payload.split("=", 1)
+                            key = key.strip()
+                        entries.append((status, key, value, path, lineno))
                         continue
-                    key, value = payload.split("=", 1)
+
+                # Legacy format used by most staged files: key=value means accepted FIX.
+                if "=" in line:
+                    key, value = line.split("=", 1)
                     key = key.strip()
-                entries.append((status, key, value, path, lineno))
+                    if key:
+                        entries.append(("FIX", key, value, path, lineno))
+                        continue
+
+                head = line.split(None, 1)[0] if line.split() else ""
+                if head in STATUSES:
+                    malformed.append((path, lineno, line))
+
     return entries, malformed
 
 
