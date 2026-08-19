@@ -1,0 +1,13 @@
+# Joe - route to Fort Observer / staying awake
+# Source: Dialogues/prepFortEnoughTrust1 onward
+# Partial scene staged only where source context is fully visible.
+
+Dialogues/prepFortEnoughTrust1=<voice type=greeting>\nХей, Джо, имам важен въпрос и подозирам, че знаеш отговора.\nМожеш ли да ми кажеш как да стигна до военната база Форт „Наблюдател“? Знам, че е някъде в пустинята.\n
+Dialogues/joeFortEnoughTrust2=<voice type=question>\nО, вече си тръгнал по следите на военните тайни, Подготвения, а?\nМога със сигурност да ти кажа, че нямат НЛО като в Зона 51 - имам надеждна информация за това.\n<voice type=fear>\nНякои обаче казват, че мястото е обитавано от духове. Трябва да внимаваш.\n
+Dialogues/prepFortEnoughTrust3=<voice type=acceptance>\nЩе внимавам. Възможно е там да има нещо, от което се нуждая.
+Dialogues/joeFortEnoughTrust4=<voice type=acceptance> \nДобре, приятелю. Мога да ти покажа мястото на картата.\nЕто го. От последното място, което можеш да използваш като склад за припаси, те чака дълъг път.\nИ това води до друг проблем...\n
+Dialogues/prepFortEnoughTrust5=<voice type=upset>\n...прекалено е далеч, за да стигна наведнъж, преди 3:00 през нощта да ме изключи.
+Dialogues/joeFortEnoughTrust6=Умен си, Подготвения. И да, бих казал, че е невъзможно, освен ако не намериш начин да останеш буден.
+
+# CONTEXT
+# The remaining FortEnoughTrust lines are intentionally not staged until their full source is visible.
