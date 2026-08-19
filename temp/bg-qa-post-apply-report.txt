@@ -1,0 +1,16 @@
+BG QA MERGE DRY RUN
+labels.txt keys before: 5485
+accepted staged keys: 1481
+explicit REMOVE keys: 32
+changed existing keys: 0
+added missing keys: 0
+removed existing keys: 0
+labels.txt keys after simulation: 5485
+pre-existing structural mismatches: 0
+structural mismatches after simulation: 0
+resolved structural mismatches: 0
+new structural mismatches: 0
+obsolete terminology groups after simulation: 0
+errors: 0
+
+Dry-run passed. labels.txt was not modified.
