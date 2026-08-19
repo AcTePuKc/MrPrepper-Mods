@@ -1,0 +1,16 @@
+# Farm / nuclear journal tail QA
+
+Journal/farmAgentLeg::3=Изправи Агента пред факта за черното парче плат.
+Journal/farmDestroyUFO::3=Постави фалшивата коза във фермата в неделя.
+Journal/uraniumMine::1=Попитай Боб за възможна уранова мина в Мърикавил.
+Journal/uraniumMine::3=Претърси най-долното ниво на мината с Гайгеров брояч.
+Journal/radiatedMushrooms::1=Покажи на Джени облъчена гъба.
+Journal/nuclearEngineeringTitle=Ядрено инженерство
+Journal/nuclearScientistQuestTitle=Молбата на учения
+Journal/nuclearOldMaskQuestTitle=Как да държим Безсънните будни
+Journal/nuclearOldMaskQuest::1=Донеси на Безсънните <color=yellow>5x енергийни напитки</color>.
+Journal/nuclearExplorePowerPlantTitle=Електроцентрала
+Journal/nuclearScientistQuestStage1Title=Атомна електроцентрала
+Journal/nuclearScientistQuestStage1::1=Изпълни всички молби на учения от този етап $current$
+Journal/nuclearScientistQuestStage1=Изпълни всички молби на учения, за да му помогнеш да поправи ядрения генератор. Винаги мога да го попитам за повече подробности, ако не съм сигурен къде да намеря искания предмет.
+Journal/nuclearScientistQuestStage2Title=Ремонт на местния язовир
