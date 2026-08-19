@@ -1,0 +1,37 @@
+# Agent - black fabric investigation
+# English authoritative; source-order QA.
+
+Dialogues/prepAgentLegFound2=<voice type=order>\nНякакъв черен плат.
+Dialogues/prepAgentLegFound3=<voice type=question>\nТова да не е...?
+Dialogues/prepAgentLegFound4=<voice type=upset>\nДа, определено има <color=red>кръв</color> по него.
+Dialogues/prepAgentLegFound5=Откъде ли е дошло? Може би Уил има идея.
+Dialogues/prepAnimalsBand1=Джо, имам въпрос към теб.
+Dialogues/joeAnimalsBand2=<voice type=order>\nКазвай!
+Dialogues/prepAnimalsBand3=Да кажем, че имам устройство, което се използва за проследяване на определени същества.
+Dialogues/joeAnimalsBand4=<voice type=surprise>\nЗа какъв криптид говорим? Бигфут? Мотман? Джърси Девил?
+Dialogues/prepAnimalsBand5=Каквото и да е същество. Погледни това.
+Dialogues/joeAnimalsBand6=Хм... да...
+Dialogues/joeAnimalsBand7=<voice type=acceptance>\nПравителствена работа, сто процента.
+Dialogues/prepAnimalsBand8=<voice type=question>\nЗнаеш ли как мога да ги проследя?
+Dialogues/joeAnimalsBand9=Няма да е лесно...\n<voice type=acceptance>\nНо може би имам идея.
+Dialogues/joeAnimalsBand10=Ела пак утре. Ще измисля нещо.
+Dialogues/prepAnimalsBand11=<voice type=thanks>\nДобре, Джо. Разчитам на теб!
+Dialogues/joeTrackingDevice1=<voice type=laugh>\nИ воала! Най-модерният, домашно направен, copyleft, универсален търсач на ID ленти!\nЩе ги откриеш всичките за нула време!
+Dialogues/prepTrackingDevice2=<voice type=thanks>\nБлагодаря, човече! Длъжник съм ти.
+Dialogues/prepAskJoeMaterial1=<voice type=question>\nТи си специалистът по нещата, които могат да се намерят наоколо. Разпознаваш ли това?
+Dialogues/joeAskJoeMaterial2=<voice type=negation>\nНе. Нищо не ми говори.
+Dialogues/prepAskJoeMaterial3=<voice type=order>\nДобре, благодаря.
+Dialogues/prepAskBobMaterial1=<voice type=question>\nРазпознаваш ли това парче плат?
+Dialogues/bobAskBobMaterial2=<voice type=negation>\nНа шивач ли ти приличам? Може и да имам много книги, но май надценяваш знанията ми.
+Dialogues/prepAskBobMaterial3=<voice type=order>\nБлагодаря.
+Dialogues/prepAskHerbMaterial1=<voice type=question>\nРазпознаваш ли това?
+Dialogues/herbAskHerbMaterial2=<voice type=disappointment>\nНе. Изглежда като ужасна материя. Не бих я използвала за нищо.
+Dialogues/prepAskHerbMaterial3=Благодаря.
+Dialogues/prepAskPostMaterial1=<voice type=question>\nРазпознаваш ли това?
+Dialogues/postAskPostMaterial2=<voice type=negation>\nНе, нямам представа. От някаква дреха ли е? Не мисля, че принадлежи на някого, на когото доставям поща.
+Dialogues/prepAskPostMaterial3=<voice type=thanks>\nТова може да е следа, благодаря!
+Dialogues/prepAskNeighMaterial1=<voice type=question>\nРазпознаваш ли това?
+Dialogues/neighAskNeighMaterial2=<voice type=acceptance>\nХм... О, да! Мисля, че костюмите на Агентите са от такъв плат! Винаги изглеждат толкова спретнати и елегантни.
+Dialogues/prepAgentMaterialRecognize1=<voice type=question>\nАгентът куца ли?
+Dialogues/prepAgentMaterialRecognize2=<voice type=question>\nЧакай...
+Dialogues/prepAgentMaterialRecognize3=<voice type=surprise>\nТова парче черен плат да не е от костюма му?!
