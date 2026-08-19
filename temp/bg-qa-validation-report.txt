@@ -2,8 +2,7 @@ Authoritative keys: 5633
 Staged QA entries: 1267
 Unique staged keys: 1263
 Warnings: 0
-Errors: 2
+Errors: 1
 
 ERRORS
-- temp/bg-qa/fixes-dialogues-will-shears-goats.txt:8: Dialogues/willScizzorsIncomplite1: structural mismatch in escaped_n: EN=2 BG=1
 - Dialogues/willDogeTreat2: conflicting accepted translations across staged files (temp/bg-qa/fixes-dialogues-animal-rescue-goat-chicken.txt:15, temp/bg-qa/fixes-dialogues-fishing-xeno-misc.txt:13)
