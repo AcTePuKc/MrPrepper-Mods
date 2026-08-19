@@ -1,0 +1,7 @@
+Authoritative keys: 5633
+Staged QA entries: 30
+Unique staged keys: 30
+Warnings: 0
+Errors: 0
+
+BG QA structural validation passed.
