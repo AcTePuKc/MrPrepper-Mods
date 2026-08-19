@@ -1,0 +1,34 @@
+# Animal rescue - goat in forest and chicken at Bob's mine
+# English authoritative; preserve speaker gender/object references.
+
+Dialogues/willThxResqueRand1=<voice type=thanks>\nБлагодаря!
+Dialogues/willThxResqueRand2=<voice type=thanks>\nЗнаех, че мога да разчитам на теб, г-н Подготвения!
+Dialogues/willThxResqueRand3=<voice type=thanks>\nМного ти благодаря!
+Dialogues/willGoat1Talk1=Сега можеш да се върнеш към препирните с приятелките си, великолепно животно такова.
+Dialogues/willGoat2Talk1=<voice type=order>\nСемейството ти много тъгуваше за теб!
+Dialogues/willChicken1Talk1=<voice type=acceptance>\nРадвам се да те видя отново! Стилна както винаги.
+Dialogues/willChicken2Talk1=<voice type=upset>\nТолкова се тревожех за теб, направо бях ужасен! Добре дошла обратно.
+Dialogues/willChicken3Talk1=<voice type=question>\nЗдравей, как си?
+Dialogues/willTakeThemBackSingle=Ще го върна при останалите.
+Dialogues/willTakeThemBackMultiple=Ще ги върна при останалите.
+Dialogues/willDogeTreat1=Г-н Подготвения, дай на Ксено тези лакомства от мен.
+Dialogues/willDogeTreat2=Той ги обича дори повече от месо от плъх.\nПриготвени са по моя собствена тайна рецепта.
+Dialogues/prepGoatEscapeRand1=<voice type=order>\nЧакай!
+Dialogues/prepGoatEscapeRand2=<voice type=order>\nВърни се!
+Dialogues/prepGoatForest1=<voice type=surprise>\nЕто я! Една от козите от фермата.
+Dialogues/prepGoatForest2=<voice type=question>\nДържи се странно.\n<voice type=question>\nДа не я боли нещо?
+Dialogues/prepGoatForest3=Изглежда, сякаш се бори с нещо.
+Dialogues/prepGoatForest4=<voice type=acceptance>\nДобре... Изглежда, че най-после се успокои.
+Dialogues/prepGoatForest5=Хайде, приятелко, ще те върна у дома.
+Dialogues/prepMineChicken1=<voice type=greeting>\nО, здравей, Боб.
+Dialogues/prepMineChicken2=<voice type=question>\nМай си имаш проблем тук?
+Dialogues/bobMineChicken3=<voice type=upset>\nДа, тази кокошка ме побърква.\nПояви се от нищото преди няколко дни.\n<voice type=disappointment>\nИ е толкова пъргава, че не мога да я хвана.
+Dialogues/bobMineChicken4=Лентата на крака ѝ издава странен звук.\n<voice type=negation>\nПритеснявам се, че може да е някакъв предавател, а не искам скривалището ни да бъде разкрито.\n<voice type=fear>\nДа не би правителството да е изпратило тази кокошка?!
+Dialogues/bobMineChicken5=<voice type=question>\nХаха, не, това вече би било лудост, нали?
+Dialogues/prepMineChicken6=Не се притеснявай, Боб. Аз ще се оправя.\n<voice type=laugh>\nОказа се, че съм изненадващо добър с животните.
+Dialogues/prepGrabChicken1=Това мина добре.
+Dialogues/prepGrabChicken2=Трябва да я върна на Уил.
+Dialogues/bobMineChickenCought1=<voice type=thanks>\nБлагодаря, Подготвения. При теб изглежда толкова лесно.
+Dialogues/prepMineChickenCought2=Натрупах малко опит с животните благодарение на една работна поръчка от любимата ни Агенция.\n<voice type=question>\nМежду другото, как тази кокошка се е озовала тук?
+Dialogues/bobMineChickenCought3=Много добър въпрос.\nИзглежда, че просто се е появила от нищото.
+Dialogues/bobMineChickenCought4=<voice type=disappointment>\nИ... не искам да звуча като луд, Подготвения.\nНо малко преди това видях нещо да лети в нощното небе.\nИзлъчваше зелена и синя светлина, но не приличаше на самолет.\n<voice type=question>\nАгенцията пак ли е намислила нещо?
