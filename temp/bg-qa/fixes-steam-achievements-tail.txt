@@ -3,10 +3,10 @@
 
 FIX	SteamAchievements/NEW_ACHIEVEMENT_33_10_NAME=Безсънните
 FIX	SteamAchievements/NEW_ACHIEVEMENT_33_11_NAME=Всичко е Боб
-REVIEW	SteamAchievements/NEW_ACHIEVEMENT_33_12_NAME=Novice Prepper
-REVIEW	SteamAchievements/NEW_ACHIEVEMENT_33_13_NAME=Intermediate Prepper
-REVIEW	SteamAchievements/NEW_ACHIEVEMENT_33_14_NAME=Advanced Prepper
-REVIEW	SteamAchievements/NEW_ACHIEVEMENT_33_15_NAME=The Original Prepper
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_12_NAME=Новак в оцеляването
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_13_NAME=Напреднал в оцеляването
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_14_NAME=Експерт по оцеляване
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_15_NAME=Истинският оцеляващ
 FIX	SteamAchievements/NEW_ACHIEVEMENT_33_17_NAME=Няма време за губене, има подготовка за вършене!
 FIX	SteamAchievements/NEW_ACHIEVEMENT_33_19_NAME=Боровинково изкушение
 FIX	SteamAchievements/NEW_ACHIEVEMENT_33_20_NAME=Книжен умник
