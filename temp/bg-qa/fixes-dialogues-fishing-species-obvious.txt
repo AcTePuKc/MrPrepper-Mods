@@ -1,0 +1,11 @@
+# Fishing species - obvious mistranslations
+# English authoritative. This file only stages clear semantic errors; uncertain species naming can be reviewed separately.
+
+Dialogues/prepperFEpicFishRand1=<voice type=thanks>\nКакъв щастлив ден!
+Dialogues/prepFishRewardShowRand2=Гордея се с този улов.
+Dialogues/willBlackBassTalk1=Черен бас! Класика в американския риболов. Често срещан, но може да окаже сериозна съпротива.
+Dialogues/willYellowPerchTalk1=Жълт костур! Ярък цвят и ивици. Много красив и много вкусен.
+Dialogues/willStripedBassTalk1=Ивичест бас! Издръжливи са и са пригодени за дълги миграции. Добър улов.
+Dialogues/willBlackCatfishTalk1=Черен сом. Доста са дребни и са вкусни само ако са живели в чиста вода.
+Dialogues/willBlueCatfishTalk1=Син сом. Издръжливи са и живеят дълго. Но този явно си го надхитрил.
+Dialogues/willWhiteCatfishTalk1=Бял сом. Интересно, не знаех, че могат да се хванат в този район.
