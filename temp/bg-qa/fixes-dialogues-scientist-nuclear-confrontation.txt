@@ -1,0 +1,22 @@
+# Dr. Edward - nuclear confrontation
+# English authoritative. Preserve the scientist's increasingly grandiose / unstable tone.
+
+Dialogues/scientistNuclearConfrontation3=Хей, Подготвения, моля те, не се приближавай. Няма нужда да ти го шепна в ухото.
+Dialogues/scientistNuclearConfrontation4=Доставянето на почти неограничена енергия на града е огромно постижение.\n<voice type=question>\nНо защо да спирам дотук? Защо да използвам силата на атома само за осветяване на домове и улици?
+Dialogues/prepNuclearConfrontation5=<voice type=thanks>\nТова е постижение, с което наистина можеш да се гордееш!\n<voice type=thanks>\nОсвобождава хората от грижата за източниците на енергия. Така могат да използват собствения си потенциал за по-големи неща!
+Dialogues/scientistNuclearConfrontation6=<voice type=anger>\nСтига си увъртал, г-н Подготвения, и не се приближавай повече!
+Dialogues/scientistNuclearConfrontation7=Не е достатъчно просто да постигнем комфорт и стабилност. Никой няма да разбере силата на науката, ако я използваме само за електрически крушки.\nЗатова е нужно нещо повече. Демонстрация на сила. Просветление чрез мощ.
+Dialogues/prepNuclearConfrontation8=<voice type=question>\nКакво ще направиш, просто ще хвърляш ядрени бомби наоколо?\nСъс сигурност нямаш междуконтинентални ракети, с които да ги изстреляш надалеч.
+Dialogues/scientistNuclearConfrontation9=Мога да ги изстрелям на по-късо разстояние и да създам пръстен от сила около Мърикавил. Това ще е достатъчно.\n<voice type=laugh>\nЩе спечелим страхопочитание, възхищение, уважение!\n<voice type=thanks>\nBless the Pestilent!
+Dialogues/prepNuclearConfrontation10=<voice type=anger>\nТова дори не е наука, а просто огромни фойерверки!\n<voice type=negation>\nНяма да е от полза за никого. Само ще ни докара облаци радиоактивни отлагания и вероятно превантивен удар отвъд океана.\n<voice type=order>\nПросто спри! Още не е късно!
+Dialogues/scientistNuclearConfrontation11=<voice type=negation>\nНе, г-н Подготвения. Ти си просто простак, пречка по пътя на прогреса.\n<voice type=laugh>\nПриготви се да бъдеш пометен като прах. И не опитвай нищо - брониран съм срещу куршуми.
+Dialogues/scientistNuclearConfrontation12=<voice type=question>\nМислеше, че това е всичко, което имам? Опитай да пробиеш електронната ми обвивка.\nХайде вече, дари тялото си на науката.
+Dialogues/scientistNuclearConfrontation13=<voice type=laugh>\nНепобедим съм. Защитен съм. Нямаш нищо срещу мен.
+Dialogues/scientistNuclearConfrontation14=<voice type=question>\nКакво изобщо се опитваш да направиш?\nНяма да пробиеш силовото ми поле. Захапи праха.
+Dialogues/prepNuclearConfrontation15=<voice type=laugh>\nО, науката те защитава, така ли? Да видим дали ще те защити и от закона за всеобщото привличане.\nТоест: тежки неща, падащи върху главата ти.
+Dialogues/scientistNuclearConfrontation16=<voice type=surprise>\nНе! Защо трябва да проваляш всичко?!\n<voice type=anger>\nТи ме принуди. Елате, бедни и окаяни!
+Dialogues/scientistNuclearConfrontation17=<voice type=upset>\nАх... Победен... Потиснат... Разцепен...\n<voice type=upset>\nДекомпресиран... Bless the Sediment.
+
+# TERMINOLOGY / WORDPLAY REVIEW
+# Bless the Pestilent! / Bless the Sediment. appear to be deliberate corruptions of the recurring slogan "Bless the President".
+# Keep source wording temporarily until a Bulgarian corruption preserving the joke is chosen.
