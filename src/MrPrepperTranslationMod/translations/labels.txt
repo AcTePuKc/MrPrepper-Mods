@@ -311,7 +311,7 @@ UI/diffNormalDesc=Предвидена/балансирана трудност. 
 UI/diffHard=Трудно
 UI/diffHardDesc=За играчи, които искат по-голямо предизвикателство.
 UI/diff=Трудност
-UI/diffHardcoreDesc=<U>Хардкор</U> - ако изпаднеш, твоят сейв се изтрива
+UI/diffHardcoreDesc=<U>Хардкор</U> - ако припаднеш, записът ти се изтрива
 UI/diffHardcore=Хардкор
 UI/daysSurvive=Дни оцеляване
 UI/corruptSuc=Файлът ти за запазване е повреден. Автоматичното възстановяване беше успешно и всичко вече трябва да е наред. Ако срещнеш други проблеми, свържи се с нас чрез Steam или Discord.
@@ -403,7 +403,7 @@ UI/menuDiscord=Присъедини се към Discord
 UI/DLCs=DLC
 UI/farmDLC=Зооферма
 UI/dlcSave=<b><size=20>не съвместимо</size></b>\n\nТози файл на играта е запазен с активирани DLC(s). Инсталирай DLC(s) изброени в описанието на файла, за да заредиш играта.
-UI/farmDLCFirstEnableInfo=<b><size=20>Animal Farm</size></b>\n\nDLC Animal Farm е активирано. Може да го играеш със стар сейв файл или да започнеш нов. Препоръчваме да започнеш с чист сейв файл, за да се насладиш на DLC Animal Farm. Ужасявай се!
+UI/farmDLCFirstEnableInfo=<b><size=20>Animal Farm</size></b>\n\nDLC Animal Farm е активирано. Може да го играеш със стар запис файл или да започнеш нов. Препоръчваме да започнеш с чист запис файл, за да се насладиш на DLC Animal Farm. Ужасявай се!
 UI/dogeUpperFloorTut1=Ксено ще се изнерви, ако го затвориш на горния етаж
 UI/contextLAUNCH_ROCKET_SATELITE=Задай цел: Бръсен Змей
 UI/farmDLCAvailable=Налично в Animal Farm DLC
@@ -472,7 +472,7 @@ UI/AttackType1Port=Атакувай с <sprite index=27> и <sprite index=28>
 UI/AttackType2=Атакувай с [E2]
 UI/AttackType2Port=Атакувай с <sprite index=28>
 UI/AttackType3=Стар боен режим
-UI/loadSaveConfirmationText=Искаш да заредиш този сейв?
+UI/loadSaveConfirmationText=Искаш да заредиш този запис?
 UI/loadSaveMenuLabel=Зареди игра
 UI/sortButtonTooltip=Сортирай
 UI/diffCustom=Персонализиран
@@ -481,7 +481,7 @@ UI/diffCustomSettings=Настройки за персонализиран ре�
 UI/applySettings=Приложи настройките
 UI/customSettingsCreative=Режим на творчество
 UI/customSettingsSandbox=Режим "Пясъчник"
-UI/customSettingsHardcore=Режим "Твърдо ядро"
+UI/customSettingsHardcore=Хардкор режим
 UI/customSettingsEnemyQuantity=Множител за количество врагове
 UI/customSettingsPlayerDmgTaken=Множител на щетите, които получаваш
 UI/customSettingsPlayerAtkDmg=Множител на щетите при атака на играча
@@ -4698,7 +4698,7 @@ Images/imgPreparationStart=Започни подготовката
 Images/imgReady=ракета_готови
 Images/imgRun=икона за бягство
 Journal/herbq1Title=Баба и вълкът
-Journal/herbq1=Джени, местната билкарка, ме помоли да убия вълка, който пречи да стигна до нейната къща. Трябва да поправя въжената линия, за да стигна до него. Също така ще е хубаво да не се бия с чудовището с празни ръце.
+Journal/herbq1=Джени, местната билкарка, ме помоли да убия вълка, който ѝ пречи да стигне до нейната къща. Трябва да поправя въжената линия, за да стигна до него. Също така ще е хубаво да не се бия с чудовището с празни ръце.
 Journal/herbq1::1=Поправи въжената линия в гората.
 Journal/herbq1::2=Убий вълка, който блокира пътя към колибата на Джени на горски ниво 2.
 Journal/herbq1::3=Посети Джени в нейната колиба.
@@ -5403,7 +5403,7 @@ VersionsInfographicsPrologue=<size=125%><color=#FFDA3EFF>Какво е прол�
 VersionsInfographicsDemo=<size=125%><color=#FFDA3EFF>Какво е демото?</color></size>\n+ Урок\n+ Основни механики
 VersionsInfographicsDemoLabel=<size=125%><color=#FFDA3EFF>Играеш демо <align="center">сега</color></size>
 Keep Cursor Inside Window=Дръж курсора вътре в прозореца
-Display Mode=Режим на показване
+Display Mode=Режим на екрана
 Windowed=Прозорец
 Fullscreen Window=Безрамков прозорец
 Maximized Window=Максимизиран прозорец
