@@ -16,17 +16,48 @@ on:
       - 'scripts/validate_bg_qa.py'
       - '.github/workflows/validate-bg-qa.yml'
 
+permissions:
+  contents: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Validate staged Bulgarian localization QA
-        run: python scripts/validate_bg_qa.py
+      - name: Run structural validator
+        id: validate
+        shell: bash
+        run: |
+          set +e
+          python scripts/validate_bg_qa.py > temp/bg-qa-validation-report.txt 2>&1
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          cat temp/bg-qa-validation-report.txt
+          exit 0
+
+      - name: Commit validation report
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add temp/bg-qa-validation-report.txt
+          if git diff --cached --quiet; then
+            echo "Validation report unchanged."
+          else
+            git commit -m "Update Bulgarian QA validation report"
+            git push
+          fi
+
+      - name: Fail on structural validation errors
+        if: steps.validate.outputs.exit_code != '0'
+        run: exit 1
