@@ -32,6 +32,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Bob (Jenny's plant) | Боб | Jenny's named plant; do not confuse with human Bob. `prepBobGeneric*` / `herbBobGeneric*` establish the joke explicitly. |
 | Murricaville | Мърикавил | Town name; use this transliteration consistently |
 | Murricaville County | окръг Мърикавил | Avoid literal/garbled forms such as `Муритикайл Каунти` |
+| Murricaville Uranium Co. | Мърикавил Ураниум Ко. | In-world company name stamped on uranium glass; transliterated fully to Cyrillic to avoid Latin-script/font issues in-game |
 | Brazen Serpent | Медният змей | Satellite/project name; biblical allusion. Use consistently across broadcast, newspaper and story dialogue |
 | Fort Observer | Форт „Наблюдател“ | Military base name; treat `Observer` as the proper name, not the adjective `наблюдателен`; preserves the Observer/unobserved wordplay |
 | Ellipse | Елипс | Fort Observer security AI |
@@ -62,7 +63,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 - Context-menu commands are verbs, not nouns.
 - Preserve source capitalization only when it is meaningful in the game's UI. Do not randomly mix all-caps and title case.
 - Prefer natural Bulgarian over English or Russian syntax.
-- Keep actual product, platform, studio and publisher names untranslated, including the game title `Mr. Prepper`, Rejected Games, Steam and Discord. This does not apply to the in-world character nickname `Prepper` / `Mr. Prepper`, which is localized as `Подготвения` / `г-н Подготвения`.
+- Keep actual product, platform, studio and publisher names untranslated, including the game title `Mr. Prepper`, Rejected Games, Steam and Discord. This does not apply to in-world names/labels where Cyrillic transliteration is preferable for font compatibility.
 - Preserve all TMP/I2 tags, placeholders, escaped newlines and formatting tokens exactly unless the source itself changes them.
 - For gendered dialogue, identify the speaker from the key/prefix and adjacent dialogue before editing.
 - Jenny deliberately uses changing affectionate plant/flower nicknames. Localize each one as a natural Bulgarian endearment that preserves the playful botanical character, rather than translating the plant name mechanically.
