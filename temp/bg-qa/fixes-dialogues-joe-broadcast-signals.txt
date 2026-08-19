@@ -1,0 +1,24 @@
+# Joe - broadcast signal progression
+# Source: prepBroadcastComplete / joeBroadcastFound / prepSignal* / radioSignal*
+# Keeps Brazen Serpent terminology aligned with the main broadcast block.
+
+Dialogues/prepBroadcastComplete1=<voice type=greeting>\nХей, Джо, донесох електронните части. Погледни ги.
+Dialogues/joeBroadcastComplete2=<voice type=acceptance>\nТези ще свършат работа! Сега ще отида да монтирам радиото в колата. Ела пак по-късно.
+Dialogues/joeBroadcastFound1=<voice type=greeting>\nХей, приятелю! Оправих радиото в колата. Обзалагам се, че вече е достатъчно мощно, за да хване нещо.\nСега можеш да се отправиш към пустинята и да опиташ да уловиш предаването. Умирам от любопитство да разбера какво казват!\n
+Dialogues/prepBroadcastFound2=<voice type=acceptance>\nЩе ти го запиша, ако успея да го хвана!
+
+Dialogues/prepSignalNone1=Я да видим дали радиото ще хване нещо. 
+Dialogues/radioSignalNone2=(смущения)
+Dialogues/prepSignalNone3=<voice type=negation>\nАбсолютно нищо. Трябва да отида по-далеч.
+
+Dialogues/prepSignalBarely1=Може би сега ще имам повече късмет.
+Dialogues/radioSignalBarely2=(смущения) …правителство… …медицински… …памет… …не… (смущения)
+Dialogues/prepSignalBarely3=<voice type=anger>\nПо дяволите, от това нищо смислено не може да се разбере. Трябва да пробвам другаде.
+
+Dialogues/prepSignalPartially1=Добре, да опитаме пак.
+Dialogues/radioSignalPartially2=(смущения) … „Медната змия“… …средство… …поредица от терористични… …готова на границите… …не е нужно да страдате… (смущения)
+Dialogues/prepSignalPartially3=<voice type=order>\nСигналът е по-силен, но съобщението не става по-разбираемо. Трябва да продължа по-далеч.
+
+Dialogues/prepSignalFull1=Сега вече имам добро предчувствие. Да пробваме.
+Dialogues/radioSignalFull2=…Внимание! До всички граждани на Съединените американски щати! Вашето правителство ви лъже!\nСателитът „Медната змия“ не е медицински проект! „Медната змия“ е средство за контрол на ума!\n„Медната змия“ причинява липса на мотивация, проблеми с паметта и уязвимост към манипулация!\nСмята се, че поредица от терористични атаки е свързана с „Медната змия“!\nГраждани на Съединените щати! Въстанете срещу правителството си или преминете на наша страна!\nНа границите ви очаква помощ! Не е нужно да страдате!\nВнимание! До всички граждани… (предаването се повтаря)
+Dialogues/prepSignalFull3=<voice type=surprise>\nУау.\nВсичко си идва на мястото, но, по дяволите, това звучи сериозно.\nИ изглежда поне една от конспиративните теории на Джо е била вярна. Чудя се как ще го приеме.
