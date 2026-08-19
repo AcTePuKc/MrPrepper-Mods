@@ -52,6 +52,14 @@ def structural_mismatches(mapping: dict[str, str], source: dict[str, str]):
     return result
 
 
+def signature_diff(src: dict[str, object], dst: dict[str, object]) -> str:
+    parts = []
+    for field in src:
+        if src[field] != dst[field]:
+            parts.append(f"{field}: EN={src[field]!r} BG={dst[field]!r}")
+    return "; ".join(parts)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--write", action="store_true", help="write the merged result to labels.txt")
@@ -133,7 +141,6 @@ def main() -> int:
     if after_duplicates:
         errors.append("Merge produced duplicate keys: " + ", ".join(sorted(set(after_duplicates))))
 
-    # Every accepted value must survive exactly; every explicit removal must be absent.
     for key, expected in accepted.items():
         if after.get(key) != expected:
             errors.append(f"Accepted staged value not reproduced exactly after merge: {key}")
@@ -144,9 +151,8 @@ def main() -> int:
     after_mismatch = structural_mismatches(after, source)
     new_mismatch_keys = sorted(set(after_mismatch) - set(before_mismatch))
     resolved_mismatch_keys = sorted(set(before_mismatch) - set(after_mismatch))
+    touched_structural_errors = sorted(set(accepted) & set(after_mismatch))
 
-    # A touched key must never be structurally broken after merge, even if it was already broken before.
-    touched_structural_errors = sorted((set(accepted) & set(after_mismatch)))
     if new_mismatch_keys:
         errors.append("Merge introduces new structural mismatches: " + ", ".join(new_mismatch_keys))
     if touched_structural_errors:
@@ -169,6 +175,18 @@ def main() -> int:
     print(f"resolved structural mismatches: {len(resolved_mismatch_keys)}")
     print(f"new structural mismatches: {len(new_mismatch_keys)}")
     print(f"errors: {len(errors)}")
+
+    if before_mismatch:
+        print("\nPRE-EXISTING STRUCTURAL MISMATCHES")
+        for key in sorted(before_mismatch):
+            src_sig, dst_sig = before_mismatch[key]
+            print(f"- {key}: {signature_diff(src_sig, dst_sig)}")
+
+    if after_mismatch:
+        print("\nSTRUCTURAL MISMATCHES AFTER SIMULATION")
+        for key in sorted(after_mismatch):
+            src_sig, dst_sig = after_mismatch[key]
+            print(f"- {key}: {signature_diff(src_sig, dst_sig)}")
 
     if missing:
         print("\nMISSING KEYS TO APPEND")
