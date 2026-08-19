@@ -12,6 +12,12 @@ resolved structural mismatches: 0
 new structural mismatches: 0
 errors: 0
 
+PRE-EXISTING STRUCTURAL MISMATCHES
+- Buff/Irradiation3: dollar: EN=['$tan4_ial d0se of r4d|at|on. You l%se pr#pare-ness f@st. \\nLe4ve the co%tami$'] BG=[]; hash_count: EN=4 BG=0
+
+STRUCTURAL MISMATCHES AFTER SIMULATION
+- Buff/Irradiation3: dollar: EN=['$tan4_ial d0se of r4d|at|on. You l%se pr#pare-ness f@st. \\nLe4ve the co%tami$'] BG=[]; hash_count: EN=4 BG=0
+
 MISSING KEYS TO APPEND
 - Dialogues/bobPostLaunch4.5
 - Dialogues/prepFishingRod17
