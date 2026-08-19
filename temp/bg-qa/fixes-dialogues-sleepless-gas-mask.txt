@@ -1,0 +1,14 @@
+# Sleepless - gas mask trade
+# English authoritative; speaker is one of the Sleepless.
+
+Dialogues/prepGasMask1=<voice type=question>\nИзвинявай, може ли да попитам защо носиш този противогаз?\nНикой друг тук не носи такъв.
+Dialogues/prepGasMask3=Доста стар модел е.\nСъмнявам се, че още работи.\n<voice type=question>\nОт какво точно се пазиш?
+Dialogues/sleep1GasMask4=Ъм... С него се диша по-трудно... \nТака ми помага да не заспивам.\nВсеки си има различни методи, нали знаеш.
+Dialogues/prepGasMask5=<voice type=acceptance>\nЯсно.\n<voice type=question>\nА случайно би ли го продал?
+Dialogues/prepGasMask7=<voice type=question>\nА да го разменим за нещо друго?
+Dialogues/sleep1GasMask8=Е... като се замисля, не е особено удобно да го нося постоянно. \nАко имаш нещо, което ще ме държи буден по-добре от това... може и да се разберем.
+Dialogues/prepGasMask9=<voice type=acceptance>\nМоже би имам идея. Ще се върна при теб.
+Dialogues/prepGasMaskRecive1=Ето. Вземай от това от време на време.\nДоста по-приятно е от противогаза.
+Dialogues/sleep1GasMaskRecive2=<voice type=question>\nИ ще ми помогне да не заспивам?
+Dialogues/prepGasMaskRecive3=Да. На мен ми помага чудесно.
+Dialogues/sleep1GasMaskRecive4=<voice type=acceptance>\nСтава.
