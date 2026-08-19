@@ -1,10 +1,10 @@
 Authoritative keys: 5633
-Staged QA entries: 1418
-Unique staged keys: 1414
-Status counts: CONTEXT=0, FIX=1386, OK=0, REMOVE=32, REVIEW=0
+Staged QA entries: 1400
+Unique staged keys: 1388
+Status counts: CONTEXT=0, FIX=1368, OK=0, REMOVE=32, REVIEW=0
 Open review markers: 27
 Warnings: 0
-Errors: 3
+Errors: 0
 
 OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-dialogues-agent-reveal.txt:3: # English authoritative; FR/RU used only for context checks.
@@ -35,7 +35,4 @@ OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-items-part003-quest-farm-items.txt:2: # English authoritative; preserves established names and farm context.
 - temp/bg-qa/fixes-ui.txt:10: # Context actions
 
-ERRORS
-- temp/bg-qa/fixes-global-prepper-name.txt:20: Dialogues/bobPropositionIncomplete: locked/obsolete form remains (old Operation Awakening variant): Здравей, Подготвения. Готов ли си за излитането? Готови сме за Операция Събуждане.
-- temp/bg-qa/fixes-global-prepper-name.txt:65: Dialogues/scientistScientistLaunch1: locked/obsolete form remains (old Operation Awakening variant): Здравей, Подготвения! Боб ми разказа за ракетата, докато ни разказваше за Операция Събуждане.\nТака че явно имаш повече умения в науката, отколкото да си ми лабораторен асистент.
-- temp/bg-qa/fixes-global-prepper-name.txt:77: Dialogues/scientist_NuclearMaterial: locked/obsolete form remains (old Murricaville variant): Огледай се навсякъде, Подготвения.\nНе съм само аз, Мюрикавил е имал много повече случаи да бъде изложен на радиация през историята си.\nЩе се изненадаш колко много облъчени предмети лежат навсякъде.\nСигурен съм, че ще намериш някои за нула време.
+BG QA structural validation passed.
