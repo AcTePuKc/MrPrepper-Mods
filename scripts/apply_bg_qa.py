@@ -10,12 +10,27 @@ merge introduces no new structural token/tag/newline mismatches.
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
 from validate_bg_qa import ROOT, load_source, parse_staged, structural_signature
 
 LABELS = ROOT / "src" / "MrPrepperTranslationMod" / "translations" / "labels.txt"
+
+# Report globally after simulation. These are candidates for manual consistency review,
+# not automatic failures because some occurrences of generic "prepper" may be common nouns.
+GLOBAL_SCAN_PATTERNS = {
+    "Препър": re.compile(r"Препър", re.IGNORECASE),
+    "Минитмен/Minuteman": re.compile(r"Минитмен|Минуteman|\bMinuteman\b", re.IGNORECASE),
+    "old Murricaville": re.compile(r"Мюрикавил|Мъррикавил", re.IGNORECASE),
+    "old Xeno / Latin Xeno": re.compile(r"\bЗено\b|\bXeno\b", re.IGNORECASE),
+    "old Fort Observer": re.compile(r"Форт Обзървър|Форт Наблюдател(?![“\"]|\s*„)|\bFort Observer\b", re.IGNORECASE),
+    "old Brazen Serpent": re.compile(r"\bBrazen Serpent\b|Бразана\s+Змия", re.IGNORECASE),
+    "old Operation Awakening": re.compile(r"операция\s+[„\"]?Събуждане[“\"]?", re.IGNORECASE),
+    "Latin Eartha": re.compile(r"\bEartha\b"),
+    "Latin White Sands": re.compile(r"\bWhite Sands\b", re.IGNORECASE),
+}
 
 
 def parse_labels(text: str):
@@ -58,6 +73,18 @@ def signature_diff(src: dict[str, object], dst: dict[str, object]) -> str:
         if src[field] != dst[field]:
             parts.append(f"{field}: EN={src[field]!r} BG={dst[field]!r}")
     return "; ".join(parts)
+
+
+def scan_obsolete(mapping: dict[str, str]):
+    found: dict[str, list[tuple[str, str]]] = {}
+    for label, pattern in GLOBAL_SCAN_PATTERNS.items():
+        hits = []
+        for key, value in mapping.items():
+            if pattern.search(value):
+                hits.append((key, value))
+        if hits:
+            found[label] = hits
+    return found
 
 
 def main() -> int:
@@ -152,6 +179,7 @@ def main() -> int:
     new_mismatch_keys = sorted(set(after_mismatch) - set(before_mismatch))
     resolved_mismatch_keys = sorted(set(before_mismatch) - set(after_mismatch))
     touched_structural_errors = sorted(set(accepted) & set(after_mismatch))
+    obsolete = scan_obsolete(after)
 
     if new_mismatch_keys:
         errors.append("Merge introduces new structural mismatches: " + ", ".join(new_mismatch_keys))
@@ -174,6 +202,7 @@ def main() -> int:
     print(f"structural mismatches after simulation: {len(after_mismatch)}")
     print(f"resolved structural mismatches: {len(resolved_mismatch_keys)}")
     print(f"new structural mismatches: {len(new_mismatch_keys)}")
+    print(f"obsolete terminology groups after simulation: {len(obsolete)}")
     print(f"errors: {len(errors)}")
 
     if before_mismatch:
@@ -187,6 +216,13 @@ def main() -> int:
         for key in sorted(after_mismatch):
             src_sig, dst_sig = after_mismatch[key]
             print(f"- {key}: {signature_diff(src_sig, dst_sig)}")
+
+    if obsolete:
+        print("\nGLOBAL CONSISTENCY CANDIDATES")
+        for label, hits in obsolete.items():
+            print(f"[{label}] {len(hits)}")
+            for key, value in hits:
+                print(f"- {key}={value}")
 
     if missing:
         print("\nMISSING KEYS TO APPEND")
