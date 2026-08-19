@@ -1,0 +1,8 @@
+# Farm/UFO - camera recording and 3:00 AM deduction
+# English authoritative; source-order QA.
+
+Dialogues/joeUfoRecoding4=<voice type=thanks>\nТова очевидно е НЛО! Неидентифициран летящ обект! Летяща чиния!
+Dialogues/prepUfoRecoding5=<voice type=disappointment>\nЪм... Не знам, Джо. Записът е много размазан. Може да е всичко.
+Dialogues/prepUfoRecoding6=О... записът замръзва точно в 2:59 през нощта.\nИнтересно...
+Dialogues/prepUfoRecoding7=Засега не знам какво да правя с тази информация, но ще го обмисля.\n<voice type=thanks>\nБлагодаря, Джо! Добра работа.
+Dialogues/prepConnectTheDots1=<voice type=order>\nЗапис от правителствена камера, замръзнал на 2:59, с възможен летящ обект в кадъра.\n<voice type=order>\nАгентът ми забранява да ходя във фермата в неделя.\n<voice type=question>\nИма ли връзка? Трябва да разбера какво стои зад всичко това.\n<voice type=disappointment>\n(поема дълбоко въздух)\n<voice type=acceptance>\nЩе опитам да прекарам една нощ във фермата и да видя какво се случва в 3:00 през нощта в неделя.\nВ най-лошия случай просто няма да се наспя.
