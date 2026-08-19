@@ -1,0 +1,13 @@
+# Uranium mining / nuclear engineering
+# English authoritative; TEMP scientist placeholders intentionally excluded.
+
+Dialogues/prepUraniumMiningMachine1=<voice type=question>\nО, а това какво е? Екскаватор?\nЩе е чудесно да не добивам уран на ръка, сякаш сме в 1930 г. Да видим дали работи.
+Dialogues/prepUraniumMiningMachine2=<voice type=thanks>\nОхо, изглежда работи!\nСега ще мога бързо да добивам уранова руда. Ядреното бъдеще изглежда светло.
+Dialogues/prepUraniumMiningMachine3=Сега трябва да измисля как наистина да използвам този ресурс.\n<voice type=question>\nМоже би трябва да попитам Боб за книга по ядрена енергетика и инженерство.
+Dialogues/prepNuclearEngineering1=<voice type=greeting>\nЗдравей, Боб. Миналия път те питах за история, а днес търся нещо по-практично.\n<voice type=question>\nИмаш ли нещо за ядреното инженерство? Начини за производство на ядрена енергия?
+Dialogues/bobNuclearEngineering2=<voice type=acceptance>\nВиждам, че амбициите ти растат. Да, мисля, че имам нещо точно за теб.
+Dialogues/bobNuclearEngineering3=Ето. В тази книга се разглеждат и малки устройства. Само ме чуй, Подготвения - ще го кажа още веднъж.
+Dialogues/bobNuclearEngineering5=<voice type=disappointment>\nМоля те, не ни взривявай всичките.
+Dialogues/prepNeedNuclearRod=<voice type=negation>\nЗа това ми трябва ядрен прът.
+Dialogues/prepUraniumMineSign=<voice type=question>\nЗнак за радиация.\n<voice type=order>\nТук трябва да внимавам. Също и с предметите, които взимам оттук.
+Dialogues/prepElevatorShaftBlocked2=Асансьорната шахта изглежда срутена.\nЯвно това е краят на мината и надолу няма нищо повече.
