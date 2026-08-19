@@ -8,8 +8,10 @@ scripts/*
 !scripts/build-plugin.ps1
 !scripts/build-font-fix.ps1
 !scripts/build-tooltip-scale-fix.ps1
+!scripts/package-releases.ps1
 User.targets
 dist/
+release-packages/
 src/**/bin/
 src/**/obj/
 src/MrPrepperTranslationMod/translations/text.txt
