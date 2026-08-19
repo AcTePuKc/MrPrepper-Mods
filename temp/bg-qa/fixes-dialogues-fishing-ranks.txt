@@ -1,0 +1,18 @@
+# Fishing rank progression
+# English authoritative; normalize Bulgarian rank titles consistently.
+
+Dialogues/willRankUp1.1=Какво? Какво има, Хенри?
+Dialogues/willRankUp1.2=А... Той казва, че вече си <color=yellow>Начинаещ рибар</color>!\nПоздравления.
+Dialogues/willRankUp1.3=Мхм... с всеки следващ ранг задачите ще стават по-трудни, а наградите - по-добри.
+Dialogues/willRankUp2=Повиши се до <color=yellow>Рибар чирак</color>!
+Dialogues/willRankUp3=В очите на Хенри вече си <color=yellow>Напреднал рибар</color>!
+Dialogues/willRankUp4=Невероятно! Вече можеш да се наречеш <color=yellow>Рибар експерт</color>!
+Dialogues/willRankUp5.1=Г-н Подготвения, достигна върха.\nСпоред Хенри вече си <color=yellow>Майстор рибар</color>!
+Dialogues/willRankUp5.2=Научи всичко, на което Хенри можеше да те научи.\nВече сте равни по риболовно майсторство. Невероятно!
+Dialogues/willRank1=Ти си <color=yellow>Начинаещ рибар</color>.
+Dialogues/willRank2=Ти си <color=yellow>Рибар чирак</color>.
+Dialogues/willRank3=Ти си <color=yellow>Напреднал рибар</color>.
+Dialogues/willRank4=Ти си <color=yellow>Рибар експерт</color>.
+Dialogues/willRank5=Ти си <color=yellow>Майстор рибар</color>.
+Dialogues/willFishCount1=Изпълнил си... колко задачи, Хенри?
+Dialogues/willToRankUp=Изпълни още <color=yellow>[count]</color> риболовни задачи, за да повишиш ранга си.
