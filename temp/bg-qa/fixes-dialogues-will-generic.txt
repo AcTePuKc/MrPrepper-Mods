@@ -1,0 +1,11 @@
+# Will - generic ambient dialogue / farm background
+# English authoritative; preserve jokes and character voice.
+
+Dialogues/willRand1=<voice type=anger>\nНе знам защо Агенцията избра точно мен да надзиравам фермата. Разбирам това-онова от риболов, но никога не съм бил фермер.
+Dialogues/willRand2=Веднъж намерих една книга. По заглавието реших, че може да е наръчник по животновъдство.\n<voice type=disappointment>\nНо не. Оказа се някаква странна притча. Или пък просто не съм я разбрал.
+Dialogues/willRand3=<voice type=thanks>\nПреди се абонирах за хубави списания. American Angler, Angler's World, Super Carp...\n<voice type=anger>\nСега по пощата получавам само „Нашата истина“. Боже, пази Президента.
+Dialogues/willRand4=<voice type=order>\nМного сутрини си казвам: „Днес ще изправя тази ферма отново на крака!“\n<voice type=disappointment>\nНо просто... е прекалено изтощително. А Агенцията не помага особено.
+Dialogues/willRand5=<voice type=laugh>\nНякога и аз бях малко изследовател като теб, но после една коза ме ухапа по коляното.
+
+# NOTE
+# willRand5 deliberately preserves the Skyrim-style "arrow to the knee" parody structure.
