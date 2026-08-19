@@ -1,0 +1,14 @@
+# Fishing / Xeno - misc dialogue fixes
+# English authoritative; only objectively broken or inconsistent lines staged here.
+
+Dialogues/prepSleeplessChickenHintRand1=Проследяващото устройство сочи към този вход.
+Dialogues/prepSleeplessChickenHintRand2=Входът е блокиран.
+Dialogues/prepSleeplessChickenHintRand3=Блокирано е. Може би Боб може да ми помогне.
+Dialogues/prepSleeplessChickenHintRand4=Устройството сочи насам, но в момента не мога да мина.
+Dialogues/prepFriendshipLevel2=Изглежда, че все пак ме харесва.
+Dialogues/prepTreatIsNotHealthy=Не бива да давам на кучето си тези лакомства твърде често.\nВеднъж на ден е достатъчно.
+Dialogues/prepDogeUpperFloor=<voice type=disappointment>\nХм... \n<voice type=disappointment>\nИзглежда, че Ксено иска да излиза навън.\n<voice type=question>\nМоже би трябва да го сваля долу. Оттам ще може да излиза в двора.
+Dialogues/willThxResqueRand2=<voice type=thanks>\nЗнаех, че мога да разчитам на теб, г-н Подготвения!
+Dialogues/willDogeTreat1=Г-н Подготвения, дай на Ксено тези лакомства от мен.
+Dialogues/willDogeTreat2=Обича ги дори повече от месото от плъх.\nНаправени са по собствената ми тайна рецепта.
+Dialogues/willChicken1Name=<voice type=greeting>\nЪрта!
