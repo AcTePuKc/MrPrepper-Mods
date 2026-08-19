@@ -1,7 +1,14 @@
 Authoritative keys: 5633
-Staged QA entries: 30
-Unique staged keys: 30
+Staged QA entries: 1267
+Unique staged keys: 1263
 Warnings: 0
-Errors: 0
+Errors: 7
 
-BG QA structural validation passed.
+ERRORS
+- temp/bg-qa/fixes-dialogues-agent-inspection-house.txt:10: Dialogues/agentPlanNoticed: structural mismatch in escaped_n: EN=8 BG=7
+- temp/bg-qa/fixes-dialogues-fort-observer-memories.txt:6: Dialogues/prepObserverTestChamb: structural mismatch in escaped_n: EN=11 BG=10
+- temp/bg-qa/fixes-dialogues-scientist-nuclear-confrontation.txt:8: Dialogues/scientistNuclearConfrontation7: structural mismatch in escaped_n: EN=2 BG=1
+- temp/bg-qa/fixes-dialogues-will-farm-intro.txt:19: Dialogues/prepFarm4: structural mismatch in escaped_n: EN=2 BG=3
+- temp/bg-qa/fixes-dialogues-will-farm-intro.txt:22: Dialogues/willFarm7: structural mismatch in escaped_n: EN=3 BG=4
+- temp/bg-qa/fixes-dialogues-will-shears-goats.txt:8: Dialogues/willScizzorsIncomplite1: structural mismatch in escaped_n: EN=2 BG=1
+- Dialogues/willDogeTreat2: conflicting accepted translations across staged files (temp/bg-qa/fixes-dialogues-animal-rescue-goat-chicken.txt:15, temp/bg-qa/fixes-dialogues-fishing-xeno-misc.txt:13)
