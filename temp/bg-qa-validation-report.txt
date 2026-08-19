@@ -2,7 +2,7 @@ Authoritative keys: 5633
 Staged QA entries: 1266
 Unique staged keys: 1263
 Status counts: CONTEXT=0, FIX=1260, OK=0, REMOVE=2, REVIEW=4
-Open review markers: 44
+Open review markers: 43
 Warnings: 0
 Errors: 0
 
@@ -11,7 +11,6 @@ OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-dialogues-agent-reveal.txt:56: # Inspiration & Wellbeing Department -> REVIEW: „Отдел за вдъхновение и благосъстояние“.
 - temp/bg-qa/fixes-dialogues-bob-awakening.txt:3: # English authoritative; FR/RU used only for context checks.
 - temp/bg-qa/fixes-dialogues-finale-outro.txt:3: # English authoritative; FR/RU used only for context checks.
-- temp/bg-qa/fixes-dialogues-fort-observer-boss-taunts.txt:20: # REVIEW / CONTEXT
 - temp/bg-qa/fixes-dialogues-fort-observer-memories.txt:12: # STORY CONTEXT
 - temp/bg-qa/fixes-dialogues-jenny-bob-plant.txt:2: # Important context: this Bob is Jenny's plant, not Bob from the mine, unless the line explicitly says "the other Bob".
 - temp/bg-qa/fixes-dialogues-jenny-bob-plant.txt:3: # English authoritative; FR/RU used for context only.
