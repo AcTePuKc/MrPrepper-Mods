@@ -1,0 +1,11 @@
+# Items - clear description fixes, part 2
+# English authoritative. Only objective meaning/grammar fixes.
+
+Items/DesKeySofa=Още една мебел. Продай я или я разглоби.
+Items/DesKeyTomato=Добре познат зеленчук. Опитай да го сготвиш! Чудесна основа за супи и сосове.
+Items/DesKeyTowel1=Наистина ли искаш да чистиш точно сега? Винаги можеш да я разглобиш.
+
+# REMOVE CANDIDATES
+# Items/DesKeyTEST = test
+# Items/DesKeyTestSeed = test
+# These are development/test leftovers and add no useful localization content.
