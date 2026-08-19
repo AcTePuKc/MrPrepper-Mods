@@ -1,0 +1,20 @@
+# Will - second animal disappearance / tracking idea
+# English authoritative; follows the established farm quest context.
+
+Dialogues/willAnimalsMissingSecond1=<voice type=fear>\nГ-н Подготвения! Трагедия! Пак се случи!\n<voice type=fear>\nЖивотните изчезнаха! Моля те, помогни ми!
+Dialogues/prepAnimalsMissingSecond2=<voice type=disappointment>\nПо дяволите, мислех, че сме приключили с това. Не се притеснявай, Уил. Ще направя всичко възможно да ги намеря.
+Dialogues/prepAnimalsMissingSecond3=<voice type=order>\nЩе започна с капаните.
+Dialogues/willAnimalsMissingSecondIncomplite1=<voice type=fear>\nКакво се е случило този път?
+Dialogues/prepAnimalsMissingSecondIncomplite2=<voice type=negation>\nОще не знам. Ще разследвам.
+Dialogues/prepAgentMaterial1=Хей, Уил. Намерих това в един от капаните.
+Dialogues/prepAgentMaterial2=<voice type=question>\nИмаш ли представа как е попаднало там?
+Dialogues/willAgentMaterial3=<voice type=negation>\nНе... но изглежда като... плат. Парче от някаква дреха?
+Dialogues/prepAgentMaterial4=И аз това си помислих. Ще поразпитам.
+Dialogues/willFindAnimals1=<voice type=upset>\nГ-н Подготвения...
+Dialogues/willFindAnimals2=<voice type=upset>\nМоже да звучи налудничаво, но...\nАко капаните работят както трябва, значи зад това стои нещо или някой друг, а не диви животни.\n<voice type=question>\nАми ако животните ми още са живи и можем да ги намерим?
+Dialogues/prepFindAnimals3=Е... не можем да изключим тази възможност.
+Dialogues/chupaFindAnimals4=Гав!
+Dialogues/prepFindAnimals5=<voice type=acceptance>\nМоже би имам идея.
+Dialogues/prepFindAnimals6=Тези ID ленти... Всички наши животни ги имат.\nИ ако не греша, може да са някакъв вид проследяващи устройства.
+Dialogues/prepFindAnimals7a=И единственият човек, който може да знае как да ги проследим, е технологичният експерт на Мърикавил - Джо.
+Dialogues/prepFindAnimals7b=<voice type=negation>\nСамо че не знам как да ги проследя. Трябва да намеря някого, който разбира от такива устройства.
