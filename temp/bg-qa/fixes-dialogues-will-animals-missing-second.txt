@@ -13,7 +13,7 @@ Dialogues/prepAgentMaterial4=И аз това си помислих. Ще пор
 Dialogues/willFindAnimals1=<voice type=upset>\nГ-н Подготвения...
 Dialogues/willFindAnimals2=<voice type=upset>\nМоже да звучи налудничаво, но...\nАко капаните работят както трябва, значи зад това стои нещо или някой друг, а не диви животни.\n<voice type=question>\nАми ако животните ми още са живи и можем да ги намерим?
 Dialogues/prepFindAnimals3=Е... не можем да изключим тази възможност.
-Dialogues/chupaFindAnimals4=Гав!
+Dialogues/chupaFindAnimals4=Бау!
 Dialogues/prepFindAnimals5=<voice type=acceptance>\nМоже би имам идея.
 Dialogues/prepFindAnimals6=Тези ID ленти... Всички наши животни ги имат.\nИ ако не греша, може да са някакъв вид проследяващи устройства.
 Dialogues/prepFindAnimals7a=И единственият човек, който може да знае как да ги проследим, е технологичният експерт на Мърикавил - Джо.
