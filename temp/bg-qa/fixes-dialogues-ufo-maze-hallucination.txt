@@ -1,0 +1,29 @@
+# UFO maze / hallucination sequence
+# English authoritative; source-order QA.
+
+Dialogues/prepMazeClosed=СКОРО ОТВАРЯ\n<voice type=question>\nКакво е това? Изглежда малко не на място...
+Dialogues/prepMazeOpen=ОТВОРЕНО
+Dialogues/prepMazeDay=„Дневен лабиринт“
+Dialogues/prepMazeNight=„Нощен лабиринт“
+Dialogues/prepMazeDiff1=<voice type=laugh>\n„Трудност 1“
+Dialogues/prepMazeDiff2=„Трудност 2“
+Dialogues/prepMazeDiff3=„Трудност 3“
+Dialogues/prepMazeDiff4=<voice type=order>\n„Трудност 4“
+Dialogues/prepMazeDiff5=<voice type=fear>\n„Трудност 5“
+Dialogues/prepNeedAGun=<voice type=negation>\nТрябва ми огнестрелно оръжие за това.
+Dialogues/prepUFOMazeEnter1=<voice type=question>\nКакво... О, уау. Къде съм?
+Dialogues/prepUFOMazeEnter2=<voice type=disappointment>\nГлавата ми... ще се пръсне.
+Dialogues/prepUFOMazeEnter3=<voice type=fear>\nПо дяволите! Още са по петите ми!
+Dialogues/prepUFOMazeEnter4=<voice type=fear>\nТрябва да се махна оттук!
+Dialogues/prepUFOScarecrow1=<voice type=greeting>\nО. Здравейте, г-н Плашило. Това не го очаквах.
+Dialogues/crowUFOScarecrow2=<voice type=greeting>\nЗдравейте, г-н Подготвения.
+Dialogues/prepUFOScarecrow2.5=Здравейте. Не ми се случва често да го казвам.
+Dialogues/prepUFOScarecrow3=<voice type=disappointment>\nТова става все по-странно.
+Dialogues/crowUFOScarecrow4=Не се тревожете, г-н Подготвения. Това е просто халюцинация. Нали?
+Dialogues/crowUFOScarecrow5=Утре няма да помните нищо от това. Абсолютно нищо.
+Dialogues/crowUFOScarecrow6=Не вярвайте на всичко, което виждате. Да видиш значи да повярваш, но понякога значи и да не вярваш.
+Dialogues/prepUFOScarecrow7=Благодаря за това.
+Dialogues/prepUFOFeet=<voice type=negation>\nТова... не изглежда както трябва.
+Dialogues/prepUFORat=<voice type=disappointment>\nТова е притеснително.
+Dialogues/prepNeedScizzors=<voice type=negation>\nТрябва ми подходяща ножица за това.
+Dialogues/prepNeedGoatFood=<voice type=negation>\nТрябва ми храна за козите.\nСеното им е любимо,\nно козите могат да ядат почти всичко, което не е месо.
