@@ -1,0 +1,21 @@
+BG QA MERGE DRY RUN
+labels.txt keys before: 5507
+accepted staged keys: 1280
+explicit REMOVE keys: 2
+changed existing keys: 1179
+added missing keys: 4
+removed existing keys: 0
+labels.txt keys after simulation: 5511
+pre-existing structural mismatches: 1
+structural mismatches after simulation: 1
+resolved structural mismatches: 0
+new structural mismatches: 0
+errors: 0
+
+MISSING KEYS TO APPEND
+- Dialogues/bobPostLaunch4.5
+- Dialogues/prepFishingRod17
+- Dialogues/prepReveal14
+- Dialogues/prepReveal6
+
+Dry-run passed. labels.txt was not modified.
