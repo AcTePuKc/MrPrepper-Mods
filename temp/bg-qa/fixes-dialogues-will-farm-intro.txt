@@ -1,0 +1,27 @@
+# Will - farm introduction
+# Source-backed QA for the Agency introduction and first conversation with Will.
+
+Dialogues/msagentFarmIntro1=<voice type=order>\nВече говорихме за това. Състоянието на тази ферма все още е неприемливо.\n<voice type=order>\nТрябва да направите подобрения. Това е последното предупреждение, г-н Уил Корсо.\n
+Dialogues/willFarmIntro2=<voice type=upset>\nТова е много работа, а аз съм стар. Не мога да се справя сам.
+Dialogues/msagentFarmIntro3=<voice type=disappointment>\nГ-н Корсо...
+Dialogues/msagentFarmIntro3.5=Ще ви изпратим способен човек, който да ви помага.\n<voice type=order>\nМоля, позволете му да ви помогне.
+Dialogues/willFarmIntro4=<voice type=disappointment>\nЕх, добре.
+
+Dialogues/msagentToPrepperOnFarm1=<voice type=greeting>\nО, той вече е тук. Боже, пази Президента, г-н Подготвения.
+Dialogues/prepToPrepperOnFarm2=<voice type=laugh>\nБоже, пази. Трябва да призная, че бях изненадан да науча, че земеделието също е в компетенциите на Агенцията.
+Dialogues/msagentToPrepperOnFarm3=<voice type=order>\nАко бях гражданин под наблюдение като вас, г-н Подготвения, бих намалил сарказма.\n<voice type=order>\nИ бих обръщал особено внимание на всички процедури и разпоредби.\n
+Dialogues/prepToPrepperOnFarm4=<voice type=laugh>\nО, разбира се, процедурите и разпоредбите са сред любимите ми неща.\n<voice type=question>\nНо сериозно, какво толкова специално има в тази ферма?\n
+Dialogues/msagentToPrepperOnFarm5=<voice type=order>\nНяма да обсъждам такива въпроси с вас, г-н Подготвения. Всичко добро.
+
+Dialogues/willFarm1=<voice type=anger>\nИ кой, по дяволите, си ти? Какво правиш на моя територия?
+Dialogues/prepFarm2=<voice type=greeting>\nНаричат ме г-н Подготвения.\nПолучих работно нареждане да дойда тук и да помогна с поддръжката.\n
+Dialogues/willFarm3=<voice type=disappointment>\nЗначи Агенцията вече ми праща доносник. Чудесно. Ще ме уволнят. Или нещо по-лошо.
+Dialogues/prepFarm4=<voice type=order>\nПовярвай ми, не съм доносник! И аз не съм във възторг от това нареждане.\nНо засега нека им играем по свирката, а може и двамата да извлечем нещо от това.\n
+Dialogues/willFarm5=<voice type=disappointment>\nА, по дяволите всичко това. Цялата Агенция и особено този Агент.\n<voice type=anger>\nВсичко е по тяхна вина!\n<voice type=anger>\nСъстоянието на фермата! И състоянието на животните!\n<voice type=anger>\nВсичко е по тяхна вина!
+Dialogues/prepFarm6=<voice type=disappointment>\nЪм... да, добре. Мисля, че мога да помогна.\n<voice type=question>\nМога ли сега да поогледам наоколо?
+Dialogues/willFarm7=<voice type=disappointment>\nДа, разбира се. Разгледай.\n<voice type=order>\nСамо, моля те, не се отдалечавай много. Аз и Хенри те наблюдаваме.\n
+Dialogues/willFarm7.5=<voice type=order>\nСамо до обора и обратно, моля. Засега не ти трябва да ходиш по-далеч.
+Dialogues/prepFarm8=<voice type=acceptance>\nА. Добре. Разбира се. Ще уважавам тайните ти.
+
+Dialogues/willCheckFarmIncomplite1=<voice type=question>\nРазбра ли какво не е наред с животните ми?
+Dialogues/prepCheckFarmIncomplite2=<voice type=negation>\nНе, още не. Случаят се оказа малко по-заплетен.
