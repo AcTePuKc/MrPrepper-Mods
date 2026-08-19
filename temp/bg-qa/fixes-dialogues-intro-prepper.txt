@@ -1,0 +1,14 @@
+# Intro - Mr. Prepper character nickname
+# Source: Dialogues/introTextPrepper through Dialogues/introTextPrepper9
+# Character nickname is localized; the game title/brand remains Mr. Prepper.
+
+Dialogues/introTextPrepper=От Чумата и смяната на правителството насам този град е непоносим. Безжизнен. Изпълнен единствено със скука, пропаганда и контрол.\n\nОпитах се да избягам и този път се провалих. Но ще намеря начин.\n\nНаричат ме г-н Подготвения...
+Dialogues/introTextPrepper1=От Чумата насам...
+Dialogues/introTextPrepper2=...и смяната на правителството,
+Dialogues/introTextPrepper3=този град е непоносим.
+Dialogues/introTextPrepper4=Безжизнен.
+Dialogues/introTextPrepper5=Изпълнен единствено със скука, пропаганда и контрол.
+Dialogues/introTextPrepper6=Опитах се да избягам и този път се провалих.
+Dialogues/introTextPrepper7=Но ще намеря начин.
+Dialogues/introTextPrepper8=Наричат ме...
+Dialogues/introTextPrepper9=г-н Подготвения.
