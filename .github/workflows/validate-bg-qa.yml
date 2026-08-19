@@ -1,0 +1,32 @@
+name: Validate Bulgarian QA
+
+on:
+  push:
+    branches:
+      - translation/bg-qa-fixes
+    paths:
+      - 'temp/bg-qa/**'
+      - 'temp/translation-dumps/generated/compare/**'
+      - 'scripts/validate_bg_qa.py'
+      - '.github/workflows/validate-bg-qa.yml'
+  pull_request:
+    paths:
+      - 'temp/bg-qa/**'
+      - 'temp/translation-dumps/generated/compare/**'
+      - 'scripts/validate_bg_qa.py'
+      - '.github/workflows/validate-bg-qa.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate staged Bulgarian localization QA
+        run: python scripts/validate_bg_qa.py
