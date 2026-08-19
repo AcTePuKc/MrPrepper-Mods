@@ -45,8 +45,10 @@ This directory is intentionally kept out of the release translation. It can be d
 
 ### Naming
 
-- `Mr. Prepper` is protected as the game title / brand and stays unchanged.
-- `Prepper` as a character/title/common noun remains `CONTEXT`; do not globally replace it with `Препър`.
+- The actual game title / product name `Mr. Prepper` stays unchanged.
+- In-world character nickname `Prepper` -> `Подготвения`.
+- In-world formal address `Mr. Prepper` -> `г-н Подготвения` when the English source explicitly includes `Mr.`.
+- Do not use the transliteration `Препър` in reviewed dialogue.
 - `Rejected Games` is a protected studio name and stays unchanged.
 
 ### UI first pass
@@ -61,6 +63,6 @@ The fishing / animals DLC dialogue contains many grammatical and semantic halluc
 
 ### Speaker mapping
 
-- `Dialogues/prep*` - Prepper
+- `Dialogues/prep*` - Prepper / Подготвения
 - `Dialogues/herb*` - Jenny
 - other prefixes must be identified before gender-sensitive editing
