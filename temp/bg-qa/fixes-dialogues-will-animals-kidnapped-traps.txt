@@ -1,0 +1,32 @@
+# Will - missing animals / traps investigation
+# English authoritative; source-order QA.
+
+Dialogues/prepMilkAndEggsWrongTIme1=Имам малко мляко и яйца...
+Dialogues/willMilkAndEggsWrongTIme2=<voice type=anger>\nНе сега, г-н Подготвения! В момента има по-важни неща.
+Dialogues/prepWheresWill=<voice type=question>\nКъде е Уил?
+Dialogues/willAnimalsKidnaped1=<voice type=fear>\nГ-н Подготвения! Случи се нещо ужасно!
+Dialogues/prepAnimalsKidnaped2=<voice type=question>\nКакво? Козите пак ли са унищожили нещо?
+Dialogues/willAnimalsKidnaped3=<voice type=fear>\nНе! Много по-лошо! Изчезнали са!\n<voice type=upset>\nЕдна коза и две кокошки.
+Dialogues/prepAnimalsKidnaped4=<voice type=upset>\nОх...
+Dialogues/willAnimalsKidnaped5=<voice type=disappointment>\nНе съм ти казвал досега, но това не се случва за първи път.
+Dialogues/willAnimalsKidnaped6=<voice type=anger>\nСлучва се редовно! Това е една от причините да имам толкова ниска ефективност.\n<voice type=anger>\nАгенцията пак ще ми се стовари на главата!
+Dialogues/prepAnimalsKidnaped7=Нека огледам наоколо, става ли? Може би ще разбера какво е станало.
+Dialogues/willAnimalsKidnapedIncomplite1=<voice type=upset>\nИ така, разбра ли какво им се е случило?
+Dialogues/prepAnimalsKidnapedIncomplite2=<voice type=negation>\nОще не, съжалявам.
+Dialogues/prepTrapsBarnDoor=<voice type=negation>\nОтворена е. Това не е добре - Уил трябва да затваря тази врата всяка вечер.\n<voice type=question>\nМоже би е забравил?\n<voice type=disappointment>\nИзглежда забравя доста неща...\n<voice type=question>\nНо от друга страна, кой в този град не забравя?
+Dialogues/prepTrapsHoles=<voice type=question>\nИма дупка в стената на обора... Изглежда е направена отвътре.\n<voice type=order>\nНай-вероятно я е направила някоя от козите.\nТвърде малка е за вълк... но лисица би могла да се промъкне оттук.
+Dialogues/prepTrapsFootPrintsWolf1=На земята има следи от животно.
+Dialogues/prepTrapsFootPrintsWolf2=<voice type=order>\nХм. Не съм специалист, но на мен ми приличат на вълчи следи.
+Dialogues/prepTrapsFootPrintsHuman1=<voice type=question>\nДобре, тези определено са човешки...
+Dialogues/prepTrapsFootPrintsHuman2=<voice type=question>\nНе са моят номер. Може да са на Уил?
+Dialogues/prepFarmTraps1=<voice type=order>\nИзглежда зад всичко това стои някакво диво животно.
+Dialogues/prepFarmTraps2=<voice type=acceptance>\nТогава да сложим капани в района и да разберем кой е виновникът!
+Dialogues/prepFarmTrapsSet1=<voice type=order>\nГотово. Утре трябва да се върна и да ги проверя.
+Dialogues/prepFarmTrapsFirstCatch1=<voice type=acceptance>\nВълк се е хванал в капана!
+Dialogues/prepFarmTrapsFirstCatch2=Още един вълк. Нищо необичайно.
+Dialogues/prepFarmTrapsFirstCatch3=<voice type=question>\nХм...
+Dialogues/prepFarmTrapsFirstCatch4=<voice type=question>\nА това какво е?
+Dialogues/prepFarmTrapsFirstCatch5=<voice type=question>\nТова да не е...
+Dialogues/prepFarmTrapsFirstCatch6=<voice type=acceptance>\nА, не, само лисича опашка.
+Dialogues/prepFarmTrapsFirstCatch7=Добре, явно съм бил прав. Няма нищо подозрително.
+Dialogues/prepFarmTrapsFirstCatch8=По-добре да държа тези капани поставени постоянно.\n<voice type=order>\nНе искам повече животни да изчезват оттук.
