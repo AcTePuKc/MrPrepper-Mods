@@ -20,13 +20,11 @@ UI/customModeSettingsShareWarning=Името и описанието са зад
 UI/craneTittle=Машина с кран
 UI/craneCostInfo=Всяка следваща игра е по-скъпа, но цената се нулира всеки ден.
 UI/contextPULL=ДРЪПНИ
+UI/radiatedItemsTutorialMessage=Внимание! Ако носиш облъчени предмети в инвентара си,\nнивото на радиация на Подготвения ще се увеличава.
+UI/creditsLemon=Купи си лимонада!
+UI/menuNuclearDLCInfo=За да започнеш страничната история от допълнението, трябва да оцелееш до ден 12 и да изпълниш няколко задачи от основната история. Когато тези условия са изпълнени, скаутката ще се появи сутринта с информация, която започва допълнението.
 
 # Mountain DLC / freeze-drying
 UI/contextFREEZE=ЗАМРАЗИ
 UI/frozenItemTutorialMessage=Лиофилизиран - този предмет никога не се разваля.
-
-# REVIEW / CONTEXT
-# UI/radiatedItemsTutorialMessage contains `prepper`; defer until Prepper naming is decided.
-# UI/creditsLemon appears intentionally quirky in English; verify source/context before rewriting.
-# UI/menuNuclearDLCInfo: `scout girl` needs character/context check before choosing a Bulgarian title.
-# UI/mountainDLC source is `MountainDLC`; decide whether DLC title is a protected product name.
+UI/mountainDLC=Планинско допълнение
