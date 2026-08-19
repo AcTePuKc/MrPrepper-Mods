@@ -1,0 +1,19 @@
+# Dr. Edward - stage 4 / generator stabilization
+# English authoritative; preserve Prepper's increasingly alarmed tone.
+
+Dialogues/scientistStage4Start4=<voice type=question>\nНе е ли съвършено?
+Dialogues/scientistStage4Start7=<voice type=thanks>\nНо, г-н Подготвения! Това е заместител на една ненадеждна обществена услуга!\n<voice type=thanks>\nВече можеш да се сбогуваш с дните без пощальон!
+Dialogues/scientistStage4Start8=<voice type=thanks>\nХайде, хайде, напред към света!
+Dialogues/prepStage4Start9=<voice type=question>\nЧакай, какво става тук? Защо толкова често го нямаше?\n<voice type=question>\nТи имаше ли нещо общо с това?\n<voice type=anger>\nАргх, май вече няма значение.\n<voice type=order>\nСамо да ти напомня, че трябваше да работиш по стабилизирането на генератора.
+Dialogues/prepStage4Start10=<voice type=anger>\nСега в района има още повече радиация!
+Dialogues/scientistStage4Start11=Да, да, позабавих се малко, но почти е готово.\nПросто ми се довери.\n<voice type=thanks>\nКълна се в любимия ни президент!
+Dialogues/prepStage4Start12=<voice type=negation>\nЕ, сега вече съм много по-спокоен.
+Dialogues/scientistStage4Start13=Още ще ми трябва помощта ти, г-н Подготвения. \nПо пътя към инженерното съвършенство все още ми липсват куп неща.
+Dialogues/prepStage4Start14=<voice type=negation>\n...Не, стига толкова. Той няма да го поправи.\n<voice type=order>\nТрябва да се заема сам, иначе този откачалник ще превърне цялото място в ядрена пустош.\n<voice type=order>\nЩе продължа да работя по убежището си. \nТрябва да е безопасно и надеждно, за всеки случай.\nМеждувременно ще го държа под око.\nМоже би някой от чертежите му ще ми даде идея как да поправя генератора.\nА ако нещо се обърка - убежището. Всичко ще е наред. Аз ще съм наред.
+Dialogues/prepReciveRadiationStabilizer1=<voice type=thanks>\nНай-после! \nСега трябва да го изпробвам и да го инсталирам в убежището си.\nМоже би това или нещо подобно ще ми помогне да поправя ядрения генератор.
+Dialogues/prepInstallRadiationStabilizer1=Няма прекомерна радиация!\nРаботи. Може би ако продължа в тази посока, ще успея да поправя ядрения генератор.
+Dialogues/scientistStage4Complite1=<voice type=thanks>\nЧудесно! Ресурсите са достатъчни. \n<voice type=thanks>\nНай-после сме на прага на голям пробив!
+Dialogues/prepNuclearPlantWithoutRadiationStabilizer=<voice type=negation>\nЗатворено е.\nПредполагам, че му трябва още време, каквото и да прави там.
+Dialogues/prepNuclearPlantBombs=<voice type=surprise>\nМамка му, какво е всичко това?! Това ядрени бойни глави ли са?\n<voice type=anger>\nЗнаех, че не е най-разумният човек, но това вече е пълна лудост.
+Dialogues/prepNuclearPlantGenerator=По-добре да се погрижа за това.\nНе знам колко време ни остава.
+Dialogues/prepNuclearPlantGeneratorFixed=<voice type=thanks>\nУф, изглежда добре.\nМисля, че засега сме в безопасност.
