@@ -1,0 +1,21 @@
+# Will - farm reward / milk and eggs
+# Source-backed QA for farm completion and production check dialogue.
+
+Dialogues/willFarmReward1=<voice type=question>\nГ-н Подготвения?
+Dialogues/prepFarmReward2=<voice type=question>\nДа?
+Dialogues/willFarmReward3=Стигнах до извода, че се оказа доста полезен тук.\nИзвинявай за хладното посрещане. С годините станах подозрителен.
+Dialogues/prepFarmReward4=<voice type=acceptance>\nНяма проблем.
+Dialogues/willFarmReward5=<voice type=order>\nДобре. Ето, вземи тези кокошки.
+Dialogues/willFarmReward6=Можеш да ги изядеш или да ги отглеждаш за яйца. Ти решаваш.
+Dialogues/willFarmReward7=<voice type=acceptance>\nА ако решиш да ги отглеждаш - ето няколко полезни чертежа за животновъдство. Успех!
+Dialogues/prepFarmReward8=<voice type=thanks>\nБлагодаря! От известно време си мисля да направя малка животинска ферма.
+
+Dialogues/willMilkAndEggs1=<voice type=question>\nХей, Подготвения, как мина?
+Dialogues/prepMilkAndEggs2=<voice type=thanks>\nВзех ножицата! И кучето не пострада.
+Dialogues/willMilkAndEggs3=<voice type=order>\nДобре.\nНека видим дали трудът ти се е отплатил.\n<voice type=question>\nМожеш ли да ми донесеш малко мляко и яйца от животните ми?
+Dialogues/prepMilkAndEggs4=<voice type=order>\nНадявам се.
+Dialogues/willMilkAndEggsIncomplite1=<voice type=question>\nВзе ли мляко и яйца?
+Dialogues/prepMilkAndEggsIncomplite2=<voice type=negation>\nРаботя по въпроса.
+Dialogues/prepMilkAndEggsFinished1=<voice type=order>\nЕто малко мляко и яйца.
+Dialogues/willMilkAndEggsFinished2=<voice type=thanks>\nЯ виж ти.\n<voice type=question>\nТова наистина ли е от моите животни?
+Dialogues/prepMilkAndEggsFinished3=Да. Всичко е прясно и от нашата собствена ферма. Е, от държавната ферма. Но разбираш какво имам предвид.
