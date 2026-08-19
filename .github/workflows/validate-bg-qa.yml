@@ -10,6 +10,7 @@ on:
       - 'scripts/validate_bg_qa.py'
       - 'scripts/apply_bg_qa.py'
       - 'scripts/generate_bg_consistency_fixes.py'
+      - 'scripts/generate_bg_prepper_fixes.py'
       - '.github/workflows/validate-bg-qa.yml'
   pull_request:
     paths:
@@ -18,6 +19,7 @@ on:
       - 'scripts/validate_bg_qa.py'
       - 'scripts/apply_bg_qa.py'
       - 'scripts/generate_bg_consistency_fixes.py'
+      - 'scripts/generate_bg_prepper_fixes.py'
       - '.github/workflows/validate-bg-qa.yml'
 
 permissions:
@@ -39,6 +41,9 @@ jobs:
 
       - name: Generate locked terminology cleanup
         run: python scripts/generate_bg_consistency_fixes.py
+
+      - name: Generate Prepper character-name cleanup
+        run: python scripts/generate_bg_prepper_fixes.py
 
       - name: Run structural validator
         id: validate
@@ -68,7 +73,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add temp/bg-qa/fixes-global-locked-terminology.txt temp/bg-qa-validation-report.txt temp/bg-qa-merge-dry-run-report.txt
+          git add temp/bg-qa/fixes-global-locked-terminology.txt temp/bg-qa/fixes-global-prepper-name.txt temp/bg-qa-validation-report.txt temp/bg-qa-merge-dry-run-report.txt
           if git diff --cached --quiet; then
             echo "QA staging and reports unchanged."
           else
