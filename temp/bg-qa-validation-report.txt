@@ -1,7 +1,7 @@
 Authoritative keys: 5633
 Staged QA entries: 1285
 Unique staged keys: 1282
-Status counts: CONTEXT=0, FIX=1279, OK=0, REMOVE=2, REVIEW=4
+Status counts: CONTEXT=0, FIX=1283, OK=0, REMOVE=2, REVIEW=0
 Open review markers: 28
 Warnings: 0
 Errors: 0
