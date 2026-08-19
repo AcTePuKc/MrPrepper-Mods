@@ -77,6 +77,10 @@ Keys must remain unchanged. Preserve placeholders, line breaks, color tags,
 voice tags, alignment tags, and other formatting markers exactly. Do not add
 speaker names or explanatory text to a translation.
 
+See [`translations/README.md`](src/MrPrepperTranslationMod/translations/README.md)
+for the Bulgarian terminology decisions, protected names, and localization
+editing rules.
+
 ## Building a new language mod
 
 This project can be used as a template for another language:
