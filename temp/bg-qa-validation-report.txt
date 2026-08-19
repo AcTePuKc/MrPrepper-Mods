@@ -1,8 +1,7 @@
 Authoritative keys: 5633
-Staged QA entries: 1267
+Staged QA entries: 1266
 Unique staged keys: 1263
 Warnings: 0
-Errors: 1
+Errors: 0
 
-ERRORS
-- Dialogues/willDogeTreat2: conflicting accepted translations across staged files (temp/bg-qa/fixes-dialogues-animal-rescue-goat-chicken.txt:15, temp/bg-qa/fixes-dialogues-fishing-xeno-misc.txt:13)
+BG QA structural validation passed.
