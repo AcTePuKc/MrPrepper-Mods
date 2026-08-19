@@ -1,0 +1,7 @@
+# Animal food requirement lines
+# English authoritative; preserve item meaning exactly.
+
+Dialogues/prepNeedGoatFood=<voice type=negation>\nТрябва ми храна за козите.\nСеното им е любимо,\nно козите могат да ядат почти всичко, което не е месо.
+Dialogues/prepNeedDogFood=<voice type=negation>\nТрябва ми храна за кучето.\nМесото от плъх му е любимо.\nНо и всякакво друго месо ще свърши работа.
+Dialogues/prepNeedChickenFood=<voice type=negation>\nТрябва ми храна за кокошките.\nПшеницата им е любима.\nЦаревица, слънчоглед или други семена също ще свършат работа.
+Dialogues/prepNeedCowFood=<voice type=negation>\nТрябва ми храна за кравите.\nСеното и царевицата са им любими.\nОбичат и по някой плод за похапване.
