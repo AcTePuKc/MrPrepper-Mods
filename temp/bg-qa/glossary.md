@@ -6,6 +6,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 |---|---|---|
 | Agency | Агенцията | Proper organization name in dialogue and UI |
 | Agent | агент | Capitalize only when the source/UI function requires it |
+| Security & Wellbeing Act | Закон за сигурността и благосъстоянието | Official bureaucratic law name used by Agents during inspections |
 | bunker | бункер | |
 | blueprint | чертеж | Plural: `чертежи` |
 | gear | екипировка | Avoid `оборудване` unless context specifically means equipment rather than the Gear system |
