@@ -2,7 +2,7 @@ Authoritative keys: 5633
 Staged QA entries: 1285
 Unique staged keys: 1282
 Status counts: CONTEXT=0, FIX=1279, OK=0, REMOVE=2, REVIEW=4
-Open review markers: 29
+Open review markers: 28
 Warnings: 0
 Errors: 0
 
@@ -28,7 +28,6 @@ OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-dialogues-joe-geiger.txt:3: # English is authoritative; FR/RU used only as context checks.
 - temp/bg-qa/fixes-dialogues-joe-launch-goodbye.txt:3: # English authoritative; FR/RU used only for context checks.
 - temp/bg-qa/fixes-dialogues-postman-illegal-item.txt:3: # English authoritative; FR/RU used only for context checks.
-- temp/bg-qa/fixes-dialogues-scientist-nuclear-confrontation.txt:20: # TERMINOLOGY / WORDPLAY REVIEW
 - temp/bg-qa/fixes-dialogues-sleepless-generic.txt:3: # English is authoritative; French/Russian used only as context checks.
 - temp/bg-qa/fixes-dialogues-will-animals-missing-second.txt:2: # English authoritative; follows the established farm quest context.
 - temp/bg-qa/fixes-dialogues-will-goodbye.txt:3: # English authoritative; FR/RU used only for context checks.
