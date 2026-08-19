@@ -32,9 +32,15 @@ Source:
 
 ### 150% DPI / UI Scaling Fix
 
-**Status: planned / research**
+**Status: working test build**
 
-Potential fix for UI problems when Windows display scaling is set to values such as 150%. The implementation approach still needs to be investigated.
+Tooltip-only fix for the game's very small item popups at high Windows display scaling. It scales the tooltip text and keeps the popup outside the mouse pointer when screen space allows it.
+
+Source:
+[`src/MrPrepperTooltipScaleFix`](src/MrPrepperTooltipScaleFix)
+
+The tested configuration template is included at:
+[`src/MrPrepperTooltipScaleFix/config`](src/MrPrepperTooltipScaleFix/config)
 
 ### In-game Mod Configurator
 
@@ -53,7 +59,8 @@ Individual projects may have additional requirements or configuration options. S
 ```text
 src/
 ├── MrPrepperTranslationMod/   Bulgarian localization
-└── CyrillicFontFix/           Cyrillic font rendering fix (in development)
+├── CyrillicFontFix/            Cyrillic font rendering fix (in development)
+└── MrPrepperTooltipScaleFix/   Tooltip size and positioning fix
 
 scripts/                       Build/development helpers
 useful-mods/                   Additional supporting mod work
