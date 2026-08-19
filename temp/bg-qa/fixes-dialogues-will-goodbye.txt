@@ -1,0 +1,11 @@
+# Will - final goodbye before launch
+# Source: Dialogues/willWillLaunch1 through Dialogues/willWillLaunch7
+# English authoritative; FR/RU used only for context checks.
+
+Dialogues/willWillLaunch1=Здрасти, Подготвения. Значи това е краят, а?
+Dialogues/prepWillLaunch2=Така изглежда, Уил.
+Dialogues/willWillLaunch3=Знаеш, че не съм човек на много думи, Подготвения. Не знам какво точно да кажа.
+Dialogues/prepWillLaunch4=Нека опитам аз: работната поръчка, която ме доведе до фермата, се превърна в доста голямо приключение.
+Dialogues/willWillLaunch5=Направо извън този свят. Отначало мислех, че ще си просто поредната досада от Агенцията. Радвам се, че грешах.
+Dialogues/prepWillLaunch6=И благодаря, че ме научи на толкова много за животните. Най-вече за рибите.
+Dialogues/willWillLaunch7=Няма защо. Надявам се да не се отказваш от риболова, където и да се озовеш.
