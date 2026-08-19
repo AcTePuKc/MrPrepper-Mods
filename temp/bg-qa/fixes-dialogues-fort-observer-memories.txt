@@ -1,7 +1,12 @@
-# Fort Observer - Prepper memories / Brazen Serpent photo
+# Fort Observer - Prepper memories / Brazen Serpent discoveries
 # Source-backed QA for story discoveries inside the base.
+
+Dialogues/prepObserverEntry=Тази миризма. Смес от метал, ръжда и някакви химикали. Странно... позната е.
+
+Dialogues/prepObserverTestChamb=Тези инструменти... Тази тестова камера... Всичко ми е някак познато. Защо?\n<voice type=fear>\nО. О, не. Май си спомням... Като сцена от друг живот.\n<voice type=upset>\nЖивотни... кучета, мисля? В тестови камери. Облъчвани с вълни.\n<voice type=upset>\nКучета нападат други кучета, сякаш побесняват на мига. Разкъсват ги на парчета.\n<voice type=upset>\nПосле седят до убитите, все още окървавени, но вече кротки и с празни очи.\n<voice type=question>\n...Защо си спомням това?
 
 Dialogues/prepObserverPicture=<voice type=surprise>\nО, някаква групова снимка. Я да видим.\n„ИЗСТРЕЛВАНЕ НА МЕДНИЯ ЗМЕЙ“, отпреди няколко години. Усмихнати лица, сериозни лица, горди лица.\n<voice type=anger>\nИ там има... О, по дяволите, само не пак. Ето ме и мен.\n<voice type=upset>\nАз съм строил това нещо. „Медният змей“.\n
 Dialogues/prepObserverCafeteria=А този... този коридор води към столовата на базата. Току-що си го спомних.\n<voice type=surprise>\nСпомням си хора. Усмихнати лица. Отборен дух. Вкусни макарони със сирене. Хубави времена.\nИмаше едно лице, което често ми се усмихваше. Срещал ли съм този човек и по-късно...? По дяволите, не знам. Всичко е в мъгла.\n
 # STORY CONTEXT
 # These lines confirm that the protagonist personally worked on the Brazen Serpent project before his memory loss.
+# The test chamber memory establishes the dog experiments that triggered his break with the regime.
