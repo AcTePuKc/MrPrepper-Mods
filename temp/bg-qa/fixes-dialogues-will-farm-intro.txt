@@ -16,10 +16,12 @@ Dialogues/msagentToPrepperOnFarm5=<voice type=order>\nНяма да обсъжд
 Dialogues/willFarm1=<voice type=anger>\nИ кой, по дяволите, си ти? Какво правиш на моя територия?
 Dialogues/prepFarm2=<voice type=greeting>\nНаричат ме г-н Подготвения.\nПолучих работно нареждане да дойда тук и да помогна с поддръжката.\n
 Dialogues/willFarm3=<voice type=disappointment>\nЗначи Агенцията вече ми праща доносник. Чудесно. Ще ме уволнят. Или нещо по-лошо.
-Dialogues/prepFarm4=<voice type=order>\nПовярвай ми, не съм доносник! И аз не съм във възторг от това нареждане.\nНо засега нека им играем по свирката, а може и двамата да извлечем нещо от това.\n
+Dialogues/prepFarm4=<voice type=order>\nПовярвай ми, не съм доносник! И аз не съм във възторг от това нареждане.\nНо засега нека им играем по свирката, а може и двамата да извлечем нещо от това.
+
 Dialogues/willFarm5=<voice type=disappointment>\nА, по дяволите всичко това. Цялата Агенция и особено този Агент.\n<voice type=anger>\nВсичко е по тяхна вина!\n<voice type=anger>\nСъстоянието на фермата! И състоянието на животните!\n<voice type=anger>\nВсичко е по тяхна вина!
 Dialogues/prepFarm6=<voice type=disappointment>\nЪм... да, добре. Мисля, че мога да помогна.\n<voice type=question>\nМога ли сега да поогледам наоколо?
-Dialogues/willFarm7=<voice type=disappointment>\nДа, разбира се. Разгледай.\n<voice type=order>\nСамо, моля те, не се отдалечавай много. Аз и Хенри те наблюдаваме.\n
+Dialogues/willFarm7=<voice type=disappointment>\nДа, разбира се. Разгледай.\n<voice type=order>\nСамо, моля те, не се отдалечавай много. Аз и Хенри те наблюдаваме.
+
 Dialogues/willFarm7.5=<voice type=order>\nСамо до обора и обратно, моля. Засега не ти трябва да ходиш по-далеч.
 Dialogues/prepFarm8=<voice type=acceptance>\nА. Добре. Разбира се. Ще уважавам тайните ти.
 
