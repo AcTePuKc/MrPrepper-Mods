@@ -1,0 +1,13 @@
+# Agency / Joe letters and gameplay tips
+
+Letter/farmInvitation=Уважаеми гражданино,\nсъгласно Закона за разпределение на ресурсите и работната сила, сте назначен да извършите ремонт и поддръжка на фермата „Уайт Сандс“. Моля, пристигнете на място без излишно забавяне. \nБог да пази Президента,
+
+Letter/joeUraniumLetter=Хей, Подготвения!\nЕла в автоморгата ми, имам нещо за теб! Много интересна находка! Свети на ултравиолетова светлина!
+
+Tips/tipDefault11=Поддържай издръжливостта и здравето си над 50%, за да не губиш готовност.
+Tips/tipDefault16Port=Докато влачиш група предмети, натисни <sprite index=Button29_UIAtlas>, за да пуснеш един предмет.
+Tips/tipDesert2=Претърсването на пустинята е добър източник на много материали. Колкото по-далеч отиваш, толкова по-добра е плячката.
+Tips/tipDefault21Port=Повечето предмети могат да се използват бързо с <sprite index=Button0_UIAtlas>.
+
+# REMOVE / DEV CANDIDATES
+# Letter/cryoTechNote1..5 - English value is the repeated identifier `cryoTechNote`, not player-facing letter text.
