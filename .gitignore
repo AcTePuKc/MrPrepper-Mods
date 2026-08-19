@@ -25,4 +25,4 @@ src/MrPrepperTranslationMod/translations/text.txt
 
 # Keep the reusable tooltip-fix configuration template.
 !src/MrPrepperTooltipScaleFix/config/
-!src/MrPrepperTooltipScaleFix/config/actepukc.mrprepper.tooltipsalefix.cfg
+!src/MrPrepperTooltipScaleFix/config/actepukc.mrprepper.tooltipscalefix.cfg
