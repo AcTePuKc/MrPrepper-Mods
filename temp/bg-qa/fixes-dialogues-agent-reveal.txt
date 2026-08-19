@@ -1,4 +1,4 @@
-# Agent / Minuteman - identity reveal and Prepper backstory
+# Agent / Опълченеца - identity reveal and Prepper backstory
 # Source: Dialogues/agentReveal1 through Dialogues/prepReveal46
 # English authoritative; FR/RU used only for context checks.
 
@@ -6,10 +6,10 @@ Dialogues/agentReveal1=Здравейте, г-н Подготвения.
 Dialogues/prepReveal2=<voice type=greeting>\nО. Здравей. Аз... не очаквах проверка точно сега. Мислех, че... вече няма нужда от тях.
 Dialogues/agentReveal3=<voice type=surprise>\nА, познахте ме без очилата! Много сте наблюдателен, г-н Подготвения!\nМислех, че маскировката ми ще издържи по-дълго и ще успея да ви изненадам.\n<voice type=negation>\nА що се отнася до проверките... вече не се занимавам с такива неща.\n
 Dialogues/prepReveal4=Не очилата те издадоха. Просто познавам гласа ти много добре.\n„Това е стандартна процедура“, нали знаеш.\nНо трябва да призная, г-н Агент, че съм объркан. Не разбирам защо си тук.\n
-Dialogues/agentReveal5=О, г-н Подготвения. Отсега нататък, моля, наричайте ме Minuteman.
+Dialogues/agentReveal5=О, г-н Подготвения. Отсега нататък, моля, наричайте ме Опълченеца.
 Dialogues/prepReveal6=<voice type=question>\n…
 Dialogues/agentReveal7=О, мислех, че вече сте се досетили! Да, аз бях този, който ви изпращаше всички онези предмети и информация.\n<voice type=thanks>\nИ благодаря, че изпълнявахте молбите ми, г-н Подготвения!
-Dialogues/prepReveal7.1=<voice type=surprise>\nЗначи... искаш да ми кажеш, че всички тези проверки и доклади... са били само за пред хората?\n<voice type=anger>\nЗабавляваше ли се да ме тормозиш, Minuteman?
+Dialogues/prepReveal7.1=<voice type=surprise>\nЗначи... искаш да ми кажеш, че всички тези проверки и доклади... са били само за пред хората?\n<voice type=anger>\nЗабавляваше ли се да ме тормозиш, Опълченеца?
 Dialogues/agentReveal7.2=Но, г-н Подготвения! Трябваше да поддържам привидността!\n<voice type=order>\nТрябваше да си върша съвестно работата за Агенцията, за да мога да ви помагам!\nИ дори устоях на изкушението да погледна под килима ви!
 Dialogues/prepReveal8=<voice type=question>\nА, разбира се, просто си изпълнявал заповеди. Но как успя да избягаш от засадата на Агенцията?
 Dialogues/agentReveal9=А, това ли. Очаквах да загина героично, но всъщност не беше чак толкова страшно.\nПредупредиха ме за засадата, но се оказа, че ме чака само един по-възрастен Агент.\nОттегли се след предупредителния ми изстрел, вероятно за да повика подкрепление. Използвах възможността да избягам от скривалището.\nИ ето ме тук. Не устоях на изкушението да ви се представя с по-истинската си самоличност.\n
@@ -33,8 +33,8 @@ Dialogues/prepReveal26=<voice type=surprise>\nЗа какво говориш?
 Dialogues/agentReveal27=За наблюдение на ефектите от Медния змей. Бяхте загубили паметта си, така че бяхте чисто платно за вълните за контрол на ума. Но всички знаеха, че имате силен характер.\nИдеална възможност да се провери силата на сателита, нали? Затова ви назначиха Агент, който да ви наблюдава, и ви пуснаха на свобода. Е, „свобода“.\n
 Dialogues/prepReveal28=<voice type=question>\nТи ли ме наблюдаваше?
 Dialogues/agentReveal29=<voice type=negation>\nА, не. Онзи Агент беше уволнен, след като се опитахте да избягате с кола.\nПосле ги убедих да продължат експеримента. Предложих редовни проверки. Съгласиха се.\nА и аз самият исках да ви разгледам по-отблизо.\n
-Dialogues/prepReveal30=<voice type=disappointment>\nТова е малко странно, Minuteman.
-Dialogues/agentReveal31=Не, възхищавах ви се. Бях очарован. Винаги бяхте различен.\nА бягството ви... кучетата, надписът върху огледалото. Беше... красиво.\nПо онова време вече ми беше писнало от скуката в Агенцията. Затова реших да ви помогна.\nТрябваше да поддържам привидността, така че съвестно извършвах всички проверки, но същевременно създадох alter ego-то Minuteman, за да ви помагам.\n
+Dialogues/prepReveal30=<voice type=disappointment>\nТова е малко странно, Опълченеца.
+Dialogues/agentReveal31=Не, възхищавах ви се. Бях очарован. Винаги бяхте различен.\nА бягството ви... кучетата, надписът върху огледалото. Беше... красиво.\nПо онова време вече ми беше писнало от скуката в Агенцията. Затова реших да ви помогна.\nТрябваше да поддържам привидността, така че съвестно извършвах всички проверки, но същевременно създадох alter ego-то Опълченеца, за да ви помагам.\n
 Dialogues/prepReveal32=Значи всичко е било за пред хората. А ти какво печелиш от това?
 Dialogues/agentReveal33=<voice type=question>\nОсвен че искрено исках да помогна на най-интересния човек в Мърикавил?
 Dialogues/prepReveal34=<voice type=acceptance>\nДа, освен това.
@@ -49,9 +49,9 @@ Dialogues/prepReveal42=<voice type=negation>\nНе, невъзможно е. В�
 Dialogues/agentReveal43=<voice type=fear>\nГ-н Подготвения! Всички сме в смъртна опасност! Нямаме представа колко още ще издържат Мърикавил и цялата страна!
 Dialogues/prepReveal44=<voice type=acceptance>\nЕ... добре. Можеш да използваш бункера ми, след като отлетя. На мен повече няма да ми трябва.\nОборудването не отговаря на Закона за сигурността и благосъстоянието, но се надявам да нямаш нищо против.\n
 Dialogues/agentReveal45=<voice type=thanks>\nГ-н Подготвения, благодаря! Това ще ми помогне много.\nИ успех с полета, където и да сте тръгнали.\n<voice type=disappointment>\nСамо трябва да призная, че си представях срещата ни малко... по-топла.\n
-Dialogues/prepReveal46=<voice type=order>\nТова е стандартна процедура, Minuteman.
+Dialogues/prepReveal46=<voice type=order>\nТова е стандартна процедура, Опълченеца.
 
-# TERMINOLOGY REVIEW
-# Minuteman -> REVIEW: keep source codename unchanged for now; decide later whether to transliterate.
+# TERMINOLOGY
+# Minuteman -> Опълченеца; semantic localization of the American revolutionary citizen-militiaman codename.
 # Inspiration & Wellbeing Department -> REVIEW: „Отдел за вдъхновение и благосъстояние“.
 # Brazen Serpent -> Медният змей / Медния змей according to Bulgarian syntax.
