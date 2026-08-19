@@ -1,0 +1,17 @@
+# Items - clear description fixes, part 1
+# English authoritative. Only objective meaning/grammar fixes.
+
+Items/DesKeyKitchenHood=Кухненски абсорбатор. Предпазва те от изпарения или ти дава материали.
+Items/Kitchen Cupboard=Обикновено кухненско шкафче. Разглоби го. Просто го направи!
+Items/DesKeyKitchenWardrobe3=Обикновено кухненско шкафче. Разглоби го. Просто го направи!
+Items/DesKeyKitchenWardrobe4=Обикновено кухненско шкафче. Разглоби го. Просто го направи!
+Items/DesKeyKitchenWardrobe5=Обикновен кухненски шкаф. Разглоби го. Просто го направи!
+Items/DesKeyKitchenWardrobe_M=Обикновено кухненско шкафче. Разглоби го. Просто го направи!
+Items/DesKeyLever=Сравнително прост лост. Може би ще е полезен за поправката на въжената линия?
+Items/DesKeyPhone=Ало? Мен ли търсиш?
+Items/DesKeyPlate Green=Не ти трябват всички тези чинии. Ще получиш стъкло, след като ги разглобиш.
+Items/DesKeyPlate Red=Не ти трябват всички тези чинии. Ще получиш стъкло, след като ги разглобиш.
+Items/DesKeyPlate White=Не ти трябват всички тези чинии. Ще получиш стъкло, след като ги разглобиш.
+
+# REMOVE CANDIDATE
+# Items/ is an empty key/value record and contributes no localization content.
