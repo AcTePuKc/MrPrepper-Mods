@@ -1,0 +1,13 @@
+# Part-003 items - food / nuclear objective fixes
+# English authoritative. Keep tone and jokes; fix clear naming/type errors.
+
+Items/NightWalkerSoup=Супа на нощния странник
+Items/MeatChineseSoup=Инстантни нудли - вкус на месо
+Items/TomatoChineseSoup=Инстантни нудли - доматен вкус
+Items/CoffeeFlavouredStew=Яхния с вкус на кафе
+Items/HunterStew=Ловджийска яхния
+Items/MinerStew=Миньорска яхния
+
+Items/DesKeyMeatChineseSoup=Вкус на нудли и натриев глутамат - просто, но силно удоволствие.
+Items/DesKeyCoffeeFlavouredStew=Можеш да пиеш кафе с храната си, но можеш и да сложиш кафе в самото ястие. Хранително и ободряващо едновременно.
+Items/DesKeyHunterStew=Тази питателна яхния е концентрираният дух на гората. Ще те накара да се почувстваш част от природата, в хармония с вътрешните ѝ ритми.
