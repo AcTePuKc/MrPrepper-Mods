@@ -9,7 +9,6 @@ both a character name and a common noun/brand.
 from __future__ import annotations
 
 import re
-from pathlib import Path
 
 from apply_bg_qa import LABELS, parse_labels
 from validate_bg_qa import ROOT, load_source, parse_staged
@@ -27,7 +26,10 @@ def simulated_mapping():
         raise RuntimeError("Duplicate keys in labels.txt")
     accepted = {}
     removes = set()
-    for status, key, value, *_ in entries:
+    for status, key, value, path, _lineno in entries:
+        # Never consume our own previous generated output.
+        if path.resolve() == OUT.resolve():
+            continue
         if status in {"FIX", "OK"} and value is not None:
             accepted[key] = value
         elif status == "REMOVE":
@@ -38,24 +40,12 @@ def simulated_mapping():
 
 
 def normalize(value: str) -> str:
-    # Minuteman
     value = re.sub(r"Минуteman|Минитмен|\bMinuteman\b", "Опълченеца", value, flags=re.IGNORECASE)
-
-    # Murricaville and county spelling
     value = re.sub(r"Мюрикавил|Мъррикавил|Мърицивил|Мърицивал|Муритикавил", "Мърикавил", value, flags=re.IGNORECASE)
-
-    # Xeno
     value = re.sub(r"\bЗено\b|\bXeno\b", "Ксено", value, flags=re.IGNORECASE)
-
-    # Fort Observer
     value = re.sub(r"Форт Обзървър|Форт Наблюдател|\bFort Observer\b", "Форт „Наблюдател“", value, flags=re.IGNORECASE)
-
-    # Brazen Serpent
     value = re.sub(r"\bBrazen Serpent\b|Бразана\s+Змия|Змийска отрова", "Медният змей", value, flags=re.IGNORECASE)
-
-    # Operation Awakening
     value = re.sub(r"Операция\s+[„\"]?Събуждане[“\"]?", "Операция Пробуждане", value, flags=re.IGNORECASE)
-
     return value
 
 
