@@ -1,0 +1,42 @@
+# Finale / outro / final goodbyes
+# Source: Dialogues/prepFinale, prepRocketComplete, outroTextPrepper*, prepGoodbyesStart*, bobHi/joeHi/herbHi/willHi, prepGoodbyeEnd*, etc.
+# English authoritative; FR/RU used only for context checks.
+
+Dialogues/prepFinale=Най-сетне. Тук всичко свършва.\nСлед малко ще профуча надалеч в гигантски метален куршум.\nДалеч оттук, от най-скучното място на Земята.\nСбогом, Мърикавил, няма да ми липсваш!
+Dialogues/prepRocketComplete=Готово.\nМалката ми лъскава красавица е завършена. Последната част от върховния ми план за бягство.\nПроцедурата по изстрелването може да започне всеки момент. Сега остава само да помисля дали имам още нещо за довършване в Мърикавил.\nТози път връщане назад няма.
+Dialogues/prepUnfinishedBusiness=Мога да отлетя още сега или да довърша някои неща, докато съм още тук.
+Dialogues/bobPropositionStart=<voice type=question>\nХей, Подготвения! Имаш ли минутка?
+
+Dialogues/outroTextPrepper=Рев на двигатели. Шеметна скорост. До това доведе всичко. \nПреживях самолетна катастрофа, загуба на памет и правителствено наблюдение. Изкопах си втори дом под земята. А после се бих, обработвах земята, изследвах и строях пътя си навън от този проклет град. \nВ предишния си живот работех за режима. В този помогнах на няколко странни мечтатели като мен да се борят срещу него.\nНапред! Към ново начало. Към свободата.\n...Мамка му.
+Dialogues/outroTextPrepper1=Рев на двигатели.
+Dialogues/outroTextPrepper2=Шеметна скорост. 
+Dialogues/outroTextPrepper3=До това доведе всичко.
+Dialogues/outroTextPrepper4=Преживях самолетна катастрофа,
+Dialogues/outroTextPrepper5=загуба на памет,
+Dialogues/outroTextPrepper6=правителствено наблюдение.
+Dialogues/outroTextPrepper7=Изкопах си втори дом под земята.
+Dialogues/outroTextPrepper8=А после се бих,
+Dialogues/outroTextPrepper9=обработвах земята,
+Dialogues/outroTextPrepper10=изследвах
+Dialogues/outroTextPrepper11=и строях пътя си навън от този проклет град.
+Dialogues/outroTextPrepper12=В предишния си живот работех за режима.
+Dialogues/outroTextPrepper13=В този помогнах на няколко странни мечтатели като мен да се борят срещу него.
+Dialogues/outroTextPrepper14=Напред!
+Dialogues/outroTextPrepper15=Към ново начало.
+Dialogues/outroTextPrepper16=Към свободата.
+Dialogues/outroTextPrepper17=...Мамка му.
+
+Dialogues/prepGoodbyesStart1=Добре, светлината е поставена. Сега остава само да изчакам Безсънните.
+Dialogues/prepGoodbyesStart2=Трябва да изляза и да ги потърся.
+Dialogues/prepSignalToEarly=Още е твърде рано за сигнала. \nПърво трябва да завърша ракетата!
+Dialogues/bobHi=<voice type=greeting>\n<duration value=2>\nЗдравей, Подготвения!
+Dialogues/joeHi=<voice type=greeting>\n<duration value=2>\nЗдрасти!
+Dialogues/herbHi=<voice type=greeting>\n<duration value=2>\nЗдравей!
+Dialogues/willHi=<voice type=greeting>\n<duration value=2>\nРадвам се да те видя, Подготвения.
+Dialogues/prepGoodbyeEnd1=<voice type=acceptance>\nТова е. Време е да тръгвам.
+Dialogues/joeGoodByeEnd2=<voice type=greeting>\nНа добър час, Подготвения!
+Dialogues/herbGoodbyeEnd3=<voice type=thanks>\nСбогом, слънчице!
+Dialogues/bobGoodByeEnd4=<voice type=acceptance>\nУспех там навън. Сбогом.
+Dialogues/chupaGoodbyeEnd5=Гав!
+Dialogues/willGoodbyeEnd5.5=До скоро!
+Dialogues/prepGoodbyeEnd6=Сбогом.
