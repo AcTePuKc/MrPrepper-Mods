@@ -1,0 +1,36 @@
+# Joe - first meeting / tinfoil / revolver
+# Source: Dialogues/joeFirstMeeting1 through Dialogues/prepFirstMeetingComplete3
+# English is authoritative; FR/RU used for context checks.
+
+Dialogues/joeFirstMeeting1=<voice type=question>\nХей, кой е там?
+# Dialogues/prepFirstMeeting2 - REVIEW: standalone Prepper naming remains unresolved.
+Dialogues/joeFirstMeeting3=<voice type=laugh>\nАх, Боб, старият негодник! Какво прави напоследък?
+Dialogues/prepFirstMeeting4=Грижи се за една мина. Миньорства, ако това изобщо е дума.
+Dialogues/joeFirstMeeting5=<voice type=acceptance>\nМоже и да е, ако решим, че е. И добре, че си стои в мината!\nТам долу поне би трябвало да е защитен от химическите следи, Бръмченето и вълните за контрол на ума.
+Dialogues/prepFirstMeeting6=Ъх... Хм... Добре. Боб каза, че освен всичко друго поправяш и оръжия. 
+Dialogues/prepFirstMeeting6.2=<voice type=question> \nИмам счупен револвер. Можеш ли да го погледнеш?
+Dialogues/prepFirstMeeting6.3=Ъм... Чакай. Май съм го оставил някъде. Ще се върна.
+Dialogues/joeFirstMeeting6.4=О, добре. До скоро, младежо.
+Dialogues/joeFirstMeeting7=<voice type=question>\nДа, разбира се. Но може ли да поискам нещо в замяна?
+Dialogues/prepFirstMeeting8=<voice type=acceptance>\nКазвай, ще видя какво мога да направя.
+Dialogues/joeFirstMeeting9=Как да го обясня... С всички тези вълни наоколо реших да сложа някаква защита на малката си барака.\nА може би и някаква... лична защита, която да нося със себе си.
+Dialogues/prepFirstMeeting10=<voice type=question>\nЗначи искаш да... 
+Dialogues/joeFirstMeeting11=Ами, щом става дума за вълни... Искам да ми донесеш алуминиево фолио. Поне достатъчно, за да облепя бараката отвътре.
+Dialogues/prepFirstMeeting12=<voice type=laugh>\nА, вярно! Алуминиево фолио! Универсалната защита срещу контрол на ума. Трябваше да се досетя.
+Dialogues/joeFirstMeeting13=<voice type=thanks>\nСхвана! Чудесно!
+Dialogues/prepFirstMeeting14=Разбира се-е-е. А сега, преди да тръгна да търся фолио... имам още един въпрос. Забелязах, че наоколо имаш няколко коли.\n<voice type=question>\nИмаш ли някоя, която е почти в движение, за да опитам да я стегна и подкарам?
+Dialogues/joeFirstMeeting15=Имам. Разгледай ги и пробвай. Ако успееш да поправиш някоя, твоя е.\nО, и между другото - ако искаш да потъргуваме по стария мърикавилски начин, насреща съм.\nИмам гориво, скрап и муниции. Знаеш, обичайните неща за една автоморга.
+Dialogues/prepFirstMeeting16=<voice type=thanks>\nСупер, благодаря! До скоро тогава.\n(Какво, по дяволите, е това Бръмчене?)
+
+Dialogues/joeFirstMeetingIncomplete1=<voice type=question>\nХей, Prepper, намери ли материала?
+Dialogues/prepFirstMeetingIncomplete2=<voice type=negation>\nНе, още не. Трябва да поогледам още малко.
+Dialogues/joeFirstMeetingIncomplete3=<voice type=disappointment>\nМоля те, направи го! Имам чувството, че напоследък вълните стават все по-силни.
+
+Dialogues/prepFirstMeetingComplete1=<voice type=greeting>\nХей, Джо! Донесох ти алуминиевото фолио!
+Dialogues/joeFirstMeetingComplete2=<voice type=thanks>\nО, блести! Благодаря ти много, дано сега си върна концентрацията!\nМежду другото, поправих револвера ти - като нов е. Но ако Агенцията пита за него, нищо не знам!\nСега имам малко работа, но не забравяй да наминаваш от време на време!
+Dialogues/prepFirstMeetingComplete3=<voice type=thanks>\nРазбира се. Благодаря ти, Джо!
+
+# TERMINOLOGY REVIEW
+# the Hum -> „Бръмченето“ is staged here as a natural name for the low-frequency phenomenon.
+# Keep under review until later occurrences confirm whether this is preferable to „Гулът“.
+# Prepper naming remains CONTEXT and is not globally normalized here.
