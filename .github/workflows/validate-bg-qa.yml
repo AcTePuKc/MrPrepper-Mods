@@ -74,3 +74,5 @@ jobs:
       - name: Fail on QA errors
         if: steps.validate.outputs.exit_code != '0' || steps.merge.outputs.exit_code != '0'
         run: exit 1
+
+# Reports are committed outside the watched paths, so report updates do not trigger loops.
