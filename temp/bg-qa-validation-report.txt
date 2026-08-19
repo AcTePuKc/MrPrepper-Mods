@@ -2,10 +2,9 @@ Authoritative keys: 5633
 Staged QA entries: 1267
 Unique staged keys: 1263
 Warnings: 0
-Errors: 5
+Errors: 4
 
 ERRORS
-- temp/bg-qa/fixes-dialogues-scientist-nuclear-confrontation.txt:8: Dialogues/scientistNuclearConfrontation7: structural mismatch in escaped_n: EN=2 BG=1
 - temp/bg-qa/fixes-dialogues-will-farm-intro.txt:19: Dialogues/prepFarm4: structural mismatch in escaped_n: EN=2 BG=3
 - temp/bg-qa/fixes-dialogues-will-farm-intro.txt:22: Dialogues/willFarm7: structural mismatch in escaped_n: EN=3 BG=4
 - temp/bg-qa/fixes-dialogues-will-shears-goats.txt:8: Dialogues/willScizzorsIncomplite1: structural mismatch in escaped_n: EN=2 BG=1
