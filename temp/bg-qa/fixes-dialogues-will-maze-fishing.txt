@@ -1,0 +1,31 @@
+# Will - maze / fishing follow-up
+# English authoritative; BG fixed only where needed.
+
+Dialogues/willMazeRun1=<voice type=question>\nЕ, как работят капаните ти?
+Dialogues/prepMazeRun2=<voice type=acceptance>\nДобре. Засега хванах няколко вълка и една лисица.
+Dialogues/willMazeRun3=<voice type=order>\nЧудесно! Надявам се това да е достатъчно, за да спре тези досадни хищници.\n<voice type=thanks>\nИма нещо, което искам да ти покажа.
+Dialogues/willMazeRun4=<voice type=disappointment>\nПомниш ли езерото? Онова, което не трябваше да виждаш, но ти, както винаги, си пъхна носа.
+Dialogues/prepMazeRun5=<voice type=question>\nДа. Какво за езерото?
+Dialogues/willMazeRun6=До него ще намериш входа към пшеничния лабиринт.\n<voice type=laugh>\nТова е малкият ми проект. Замислен е като детска атракция. Но може и на теб да ти хареса.\n<voice type=order>\nПробвай го и ми кажи какво мислиш!
+Dialogues/prepMazeRun7=<voice type=disappointment>\nЛабиринт. Разбира се. Как иначе.
+Dialogues/willMazeRun8=Щом влезеш в лабиринта, трябва да го минеш наведнъж.\nИскам да кажа, можеш да излезеш когато пожелаеш, но тогава ще изпуснеш част от наградите.
+Dialogues/prepMazeRun9=Ще го имам предвид.
+Dialogues/willMazeRunIncomplite1=<voice type=question>\nПробва ли вече пшеничния ми лабиринт?
+Dialogues/prepMazeRunIncomplite2=<voice type=negation>\nНе, още не.
+Dialogues/willAfterMaze1=<voice type=question>\nПосети ли лабиринта?
+Dialogues/prepAfterMaze2=<voice type=acceptance>\nВсъщност, да.
+Dialogues/willAfterMaze3=<voice type=question>\nИ как ти се стори?
+Dialogues/prepAfterMaze4=<voice type=question>\nКаза, че е детска атракция?
+Dialogues/willAfterMaze5=<voice type=laugh>\nДа! Малко е нестандартно, знам, но съм сигурен, че ще им хареса.
+Dialogues/prepAfterMaze6=<voice type=negation>\nНе знам. Аз почти умрях вътре.
+Dialogues/willAfterMaze7=<voice type=question>\nО. Но хареса ли ти?
+Dialogues/prepAfterMaze8=<voice type=disappointment>\nЪм...\n<voice type=acceptance>\nДа, донякъде.
+Dialogues/prepAfterMaze9=<voice type=disappointment>\n<I>Радвам се, че Агенцията му е дала ферма за надзор, а не детска градина.</I>
+
+Dialogues/prepFishingRodInspect=<voice type=question>\nСтара въдица. Може би ще мога да я използвам някак. Ще попитам Уил.
+Dialogues/willFishingRod12=<voice type=disappointment>\nНевероятен си, г-н Подготвения. Добре, вземи я.
+Dialogues/willFishingRod13=Ето, имам и няколко резервни примамки. Ще ти потрябват.
+Dialogues/prepFishingRod14=<voice type=thanks>\nБлагодаря!
+Dialogues/willFishingRod15=Ако ще досаждаш на някого за риболов, досаждай на Хенри.\nТой е специалистът в тази област.
+Dialogues/henFishingRod16=Кудкудяк! Кудкудяк!
+Dialogues/prepFishingRod17=...
