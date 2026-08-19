@@ -1,0 +1,27 @@
+# Mountain / cryo item QA
+# English authoritative. Do not invent translations for dev-token source strings.
+
+Items/EmptyJar=Празен буркан
+Items/ClimbingChalk=Магнезий за катерене
+Items/DesClimbingChalk=Улеснява катеренето. Ефектът му отслабва след известно време.
+Items/DesMountainHerb=Може да се използва за приготвяне на чай, който възстановява издръжливостта и готовността. Рецептата трябва първо да бъде отключена.
+Items/PlatformSupport=Подпора за платформа
+Items/VineLine=Въже от лози
+Items/DesVineLine=Може да се поставя по вертикални стени. Улеснява изкачването. До някои места може да се стигне само с въже.
+Items/WalkieTalkie=Радиостанция
+Items/IceMachine=Машина за лед
+Items/FreezeDryer=Лиофилизатор
+Items/HeatPack=Затоплящ пакет
+
+# REMOVE / DEV CANDIDATES
+# Source values themselves are identifier-like development strings rather than player-facing English.
+# Items/CryoTechNote1..5
+# Items/DesCryoTechNote1..5
+# Items/ClimbingBook + Items/DesClimbingBook
+# Items/PumaExpertBook + Items/DesPumaExpertBook
+# Items/WalrusBook2 + Items/DesWalrusBook2
+# Items/BasicHikingClothes + Items/DesBasicHikingClothes
+# Items/MountainLootBox1..3 + descriptions
+# Items/CryoSleepPod + Items/DesCryoSleepPod
+# Items/CryoTeslaCoilGun + Items/DesCryoTeslaCoilGun
+# Review against actual runtime before removal if any of these are referenced by the game.
