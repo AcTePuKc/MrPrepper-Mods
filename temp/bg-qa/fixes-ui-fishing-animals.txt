@@ -15,6 +15,9 @@ UI/FBaitBasic=Основна
 UI/FBaitGood=Добра
 UI/FBaitGreat=Много добра
 UI/FBaitExcelent=Отлична
+UI/getFishingReward=Вземи наградата от Уил!
+UI/fishingCaughtFish=Улови:
+UI/fishingNotCaughtFish=Почти! Може би следващия път!
 
 # Animal interactions
 UI/Pet=Домашен любимец
@@ -33,8 +36,4 @@ UI/dogeUndergroundTut1=Ксено ще се чувства нещастен по
 UI/dogeOvergroundTut1=Ксено все още те опознава.
 UI/dogeOvergroundTut2=Трябва да го храниш и да си играеш с него, за да повишиш нивото на приятелството ви.
 UI/dogeFriendshipLevelLabel=Ниво на приятелство с Ксено:
-
-# REVIEW / CONTEXT
-# UI/getFishingReward: source says "Collect an award from Will!"; choose "Вземи наградата от Уил!" once Will transliteration is locked.
-# UI/fishingCaughtFish / UI/fishingNotCaughtFish need exact screen context before choosing noun vs sentence phrasing.
-# UI/dogFriendshipTooltip needs a full sentence-level rewrite; current Bulgarian has broken subject switching and grammar.
+UI/dogFriendshipTooltip=Когато взаимодействаш с Ксено - например го галиш,\nдаваш му лакомства или реагираш на поведението му - приятелството ви ще се увеличава.\nАко обаче го оставяш сам вкъщи през нощта или\nпренебрегваш нуждите му дотолкова, че той избяга, приятелството ви ще намалява.\nТова не са единствените фактори, които влияят на приятелството ви.\nНаблюдавай Ксено и реакциите му, за да разбереш\nкакво променя нивото на приятелството ви.
