@@ -8,7 +8,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Agent | агент | Capitalize only when the source/UI function requires it |
 | Security & Wellbeing Act | Закон за сигурността и благосъстоянието | Official bureaucratic law name used by Agents during inspections |
 | Inspiration & Wellbeing Department | REVIEW: Отдел за вдъхновение и благосъстояние | Fort Observer department that tests Brazen Serpent wave technology; keep under review until wording is finalized |
-| Minuteman | REVIEW: Minuteman | Agent's secret alter ego/codename; keep source form for now, decide later whether Bulgarian transliteration is preferable |
+| Minuteman | Опълченеца | Agent's secret alter ego/codename. Semantic localization of the American revolutionary `Minuteman`: a citizen-soldier/volunteer militiaman ready to mobilize at short notice. Chosen to preserve the revolutionary meaning instead of using a phonetic transliteration. |
 | bunker | бункер | |
 | blueprint | чертеж | Plural: `чертежи` |
 | gear | екипировка | Avoid `оборудване` unless context specifically means equipment rather than the Gear system |
