@@ -1,8 +1,8 @@
 Authoritative keys: 5633
-Staged QA entries: 1276
-Unique staged keys: 1273
-Status counts: CONTEXT=0, FIX=1270, OK=0, REMOVE=2, REVIEW=4
-Open review markers: 36
+Staged QA entries: 1277
+Unique staged keys: 1274
+Status counts: CONTEXT=0, FIX=1271, OK=0, REMOVE=2, REVIEW=4
+Open review markers: 34
 Warnings: 0
 Errors: 0
 
@@ -35,8 +35,6 @@ OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-items-mountain-cryo.txt:27: # Review against actual runtime before removal if any of these are referenced by the game.
 - temp/bg-qa/fixes-items-mountain-yeti-tail.txt:21: # Review runtime references before final deletion.
 - temp/bg-qa/fixes-items-part003-quest-farm-items.txt:2: # English authoritative; preserves established names and farm context.
-- temp/bg-qa/fixes-ui-combat.txt:22: # REVIEW / CONTEXT
-- temp/bg-qa/fixes-ui-combat.txt:23: # UI/minigameFlierTitle source is GAME COMPETITION; current Bulgarian is a hallucination. Final wording could be ИГРОВО СЪСТЕЗАНИЕ / СЪСТЕЗАНИЕ ПО ВИДЕОИГРИ depending on flyer context.
 - temp/bg-qa/fixes-ui-dlc.txt:28: # REVIEW / CONTEXT
 - temp/bg-qa/fixes-ui-dlc.txt:30: # UI/creditsLemon appears intentionally quirky in English; verify source/context before rewriting.
 - temp/bg-qa/fixes-ui-dlc.txt:31: # UI/menuNuclearDLCInfo: `scout girl` needs character/context check before choosing a Bulgarian title.
