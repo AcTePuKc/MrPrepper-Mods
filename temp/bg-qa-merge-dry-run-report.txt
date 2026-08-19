@@ -1,8 +1,8 @@
 BG QA MERGE DRY RUN
 labels.txt keys before: 5507
-accepted staged keys: 1357
+accepted staged keys: 1444
 explicit REMOVE keys: 31
-changed existing keys: 1256
+changed existing keys: 1343
 added missing keys: 4
 removed existing keys: 25
 labels.txt keys after simulation: 5486
@@ -10,107 +10,32 @@ pre-existing structural mismatches: 0
 structural mismatches after simulation: 0
 resolved structural mismatches: 0
 new structural mismatches: 0
-obsolete terminology groups after simulation: 1
+obsolete terminology groups after simulation: 3
 errors: 0
 
 GLOBAL CONSISTENCY CANDIDATES
-[Препър] 125
+[Препър] 38
 - UI/diffEasyDesc=За тези, които просто искат да се наслаждават на спокоен ежедневен живот на препър.
 - Dialogues/prepWrackPlane=Когато препър намери снимка при останките на самолет
-- Dialogues/prepElev4=Хората ме наричат Препър. Аз съм… аматьорски строител, така да се каже. \nЗнам, че това е мина и бих искал да вляза вътре. \nРаботя за местен билкар. Тук съм, за да събера определени… организми. \n
-- Dialogues/bobJack1=<voice type=greeting>\nЗдравей, Препър! Извинявай, че си тръгнах толкова бързо миналия път, трябваше да проверя нещо.\nМного благодаря, че поправихте асансьора! Това прави много неща по-лесни.\nВсички електрически уреди изглежда се чупят лесно тези дни.\nКато това радио. Никога не се включва.\nХей, искаш ли го? На мен не ми трябва. \n
-- Dialogues/bobGlass1=<voice type=question>\nЗдравей, Препър! Може ли да ти помоля за още една услуга?
-- Dialogues/bobJackComplete1=<voice type=thanks>\nЗдравай препър. Имаш моята яка! Супер! О, човече, трябва да я измия веднага. Беше на много опасно място?
-- Dialogues/bobGlassIncomplete1=<voice type=question>\nЗдравай, препър, ти си той! Не виждам че носиш новите ми очила!\nРазбра ли?
-- Dialogues/bobGlassComplete6=<voice type=thanks>\nДа, препър, благодаря, ти си най-добрият!\nСега мисля, че заслужаваш да знаеш нещо. Но се надваждам да можеш да запазиш тайна!\n
-- Dialogues/bobGlassComplete8=<voice type=laugh>\nИмаш странно чувство за хумор, господин Препър. Както и да е, ела, трябва да ти покажа нещо.
-- Dialogues/bobHydrogen1=Хей, препър… Едно последно нещо преди да тръгнеш.
-- Dialogues/bobSleepless11=…\nТи си… По-странен, отколкото си мислех, Препър. \nДобре, време е за моята част от сделката. Но помни – не казвай на никого, иначе хората може да умрат.\n<voice type=question>\nДа влезем ли?
-- Dialogues/bobSleepless21=Знам, че вече си срещнал Джени. Ще й дам зелена светлина да ти помогне, ако имаш нужда.\nТи си странен човек, Препър, но ти вярвам.
-- Dialogues/bobSleepless23=Даваме най-доброто от себе си.\nИ, ох, Препър?\nМоля те, моля те, не ни взривявай всички с този водород.
-- Dialogues/postRand5=<voice type=acceptance>\nВинаги дрънчи и трака от къщата ти, господин Препър. Хубаво е да си зает!
-- Dialogues/postRand10=<voice type=greeting>\nДобро утро, г-н Препър, отново имаш писма! Изглежда имаш много приятели, това е хубаво.
-- Dialogues/postRand17=<voice type=question>\nКак си, господин Препър? Тази сутрин взех грешен завой и се изгубих. Смешно, май остарявам!
-- Dialogues/postRand21=Знаеш, господин Препър, и аз имах такива ежедневни посещения от Агенцията преди време, след като направих малка грешка на работа. Бъди търпелив, в един момент ще им писне.
-- Dialogues/postRand23=<voice type=greeting>\nЗдравей, г-н Препър! Надежда да се справяш добре с дефицитите! Винаги е добре да имаш някакви аварийни запаси, ако отново изчезне ток.
-- Dialogues/postRand25=<voice type=greeting>\nЗдравей, г-н Препър! Надежда да днес в пощата ще намери само добри новини!
-- Dialogues/joeDog1=<voice type=thanks>\nЗдравей, препър! Ужалено, че си тук!
+- Dialogues/postRand22=<voice type=greeting>\nДобро утро, г-н Препър! Харесва ми, че винаги си за нещо. Мърицивил е доста тих град в наши дни.
 - Dialogues/joeDogIncomplete1=<voice type=upset>\nПрепър! Намери ли кучето ми? Много се притеснявам за него!
-- Dialogues/joeDogComplete2=<voice type=laugh>\nО, препър, това си ти! Не можем да ти благодарим достатъчно, брат.
-- Dialogues/joeDogComplete8=И, Препър, имам нещо за теб. Намерих достъпна карта с надпис "Мърикавил Mining Company".\nМоже би ще ти е от полза.
-- Dialogues/bobIllegalFigurine4=Препър, знаеш ли, че си доста странен човек?\nНо добре, вземи го. Дори не помня кой го донесе тук.\n
 - Dialogues/bobIllegalFigurine6=Разбира се, Препър.
 - Dialogues/agentDialogue=Текст на агента Осем\n<prepper>\nПрепърски текст едно\n<prepper>\nТекст на препъра Две\nАгентски текст Девет\nТекст на агент десет\n<prepper>\nТекст на препъра Три
-- Dialogues/bobProposition1=<voice type=greeting>\nДобър ден, г-н Препър. Надявам се твоята малка извънредна мисия да е била добра.
-- Dialogues/bobProposition13=<voice type=thanks>\nЧудесно. Виждаме се в деня на операцията, препър.
-- Dialogues/neighHello3=Добър ден, препър! Боже, пази президента!
-- Dialogues/joeBetaBlock=Здравай, препър. Съжалявам, но това е всичко, което ще ти дам в <color=yellow>бета версията</color> на играта.
-- Dialogues/bobBetaBlock=Здравай препър, това е всичко от мен в <color=yellow>бета версията</color> на играта. Върни се в пълната!
-- Dialogues/bobr1=Здравей, Препър! Този път нямам нищо, с което да ти помогна. Може би искаш да прочетеш нещо?\nНаскоро си купих този роман, "Песен за Лебовиц". Забавна малка история за монаси.
-- Dialogues/bobr3=Здравей, Препър. Проверяваш ли нашите подривни дейности тук? Нищо особено интересно не се случва сега, но винаги можеш да ни посетиш, за да провериш отново.
-- Dialogues/bobr4=Здравей, Препър. Организираме малък дебат в стил Оксфорд за валидността на тактиките за насилствена съпротива.\nПоне ако успея да убедя един от лидерите на отбора да се върне, след като излезе от последния.\n...Но можеш да се върнеш и друг път, за да видиш дали правим нещо по-интересно.
-- Dialogues/bobr5=Здравей, Препър. Страхувам се, че тук не се случва нищо интересно в момента. Дори подривната дейност може да бъде скучна, знаеш.\nНо ела пак някой друг път!
-- Dialogues/bobAwakeningLowTrust1=<voice type=greeting>\n Здравей, господин Препър.
-- Dialogues/bobAwakeningLowTrust9=Довиждане, Препър.
+- Dialogues/bobPropositionIncomplete=Здравей, Препър. Готов ли си за излитането? Готови сме за Операция Събуждане.
 - Dialogues/prepAlarmNeedLight=Препърът се нуждае от източник на светлина в стаята, за да работи като аларма.
 - Dialogues/prepHerbBed=Но бабо! Каква малка къщичка имаш, каза Малкият Препър Червеношапчица.
-- Dialogues/willTrapsComplite3=<voice type=disappointment>\nНадявам се да си прав за тези диви животни, г-н Препър.
-- Dialogues/agentNightAgent3=<voice type=order>\nГ-то Препър, да бъдем сериозни вече.\nЗнам за твоето... разследване.
-- Dialogues/agentNightAgent5=<voice type=order>\nГ-н Препър, моля, спре да се намесваш в това.\n<voice type=order>\nТова е официална заповед от властите.
-- Dialogues/joeUfoRecoding1=<voice type=surprise>\nЗдравей, г-н Препър!\n<voice type=order>\nТази камера, която ми даде.\n<voice type=question>\nОткъде е?\n<voice type=thanks>\nНевероятно е! Записът, това е доказателството, накрая!
-- Dialogues/old_willAfterConfrontation1=Препър! Изглеждаш като мъртвец! Какво се случи?
-- Dialogues/old_willAfterConfrontation3=Звучиш като луд, господин Препър.
 - Dialogues/old_willAfterConfrontation7=Защо ме питаш? \nТи си гениален изобретател, инженер, строител, препър и джентълмен, нали? \nСигурен съм, че можеш да измислиш нещо.
-- Dialogues/msagentPreAfterConfrontation1=<voice type=question>\nЗдравей, господин Корсо. Тук ли е господин Препър?
-- Dialogues/msagentPreAfterConfrontation5=<voice type=question>\nДобре. А къде е сега г-н Препър?
-- Dialogues/willPreAfterConfrontation19=Г-н Препър вероятно просто не можа да спи на сено и се прибра вкъщи.
-- Dialogues/willAfterConfrontation1=<voice type=surprise>\nГ-то Препър! Изглежда като мъртъв! Какво се случи?
-- Dialogues/willAfterConfrontation3=<voice type=disappointment>\nЗвучиш като луд, господин Препър.
-- Dialogues/willAfterConfrontation5=<voice type=anger>\nШш, господин Препър! Внимавай, не виждаш кой е тук...
-- Dialogues/msagentAfterConfrontation8=<voice type=question>\nИмаш ли нещо да докладваш, г-н Препър?
-- Dialogues/msagentAfterConfrontation13=О, вярвам ти, г-н Препър.
-- Dialogues/joeUFOJoe12=<voice type=question>\n…какво?\n<voice type=surprise>\nДа го унищожа?\n<voice type=laugh>\nГ-н Препър, ти си по-маразен от това, което си мислил. Това е напреднала технология...\nНо след това можем да го наблюдаваме и да го изучаваме внимателно. Черт, това може да бъде вълнуващо.
-- Dialogues/willJoeMeetWill5=<voice type=greeting>\nО, здравей, господин препър.\nДжо беше заинтригуван от инцидентите на нашата ферма и дойде да поздрави.
-- Dialogues/old-willFarmEndSecond10=Благодаря ти, г-н Препър. Не знам какво щях да правя без теб!
-- Dialogues/willAllAnimalsResqued7=<voice type=thanks>\nДобре, се радвам.\nГ-р Препър. Ето, погледни.\nТака го правя с любимите му лакомства.
-- Dialogues/willAllAnimalsResqued9=Не го глези прекалено, препър.
-- Dialogues/willDogeReward1=<voice type=question>\nХм, господин Препър?
-- Dialogues/willDogeReward12=<voice type=question>\nГосподин Препър, можеш ли да се погрижиш за него вместо мен? \nВиждам, че ти харесва.
-- Dialogues/willFishRewardStarterRand2=<voice type=question>\nЗдравей, Препър. Хвана ли рибата, която искаше Хенри?
-- Dialogues/msagentMsAgentSecond1=<voice type=order>\nГ-то Препър.
-- Dialogues/willMsAgentThird7=<voice type=greeting>\nО, здравей, госпожо Агент! Какъв прекрасен ден имаме тук!\n<voice type=acceptance>\nВсичко на фермата върви чудесно. \nИ помощта на г-н Препър беше много полезна...
-- Dialogues/willMsAgentThirdAfter20=<voice type=thanks>\nБлагодаря ти, препър.\n<voice type=disappointment>\nИ не забравяй за моите изчезнали животни.\n<voice type=disappointment>\nТрябва да си почина и да помисля малко.
-- Dialogues/willWillPostGame2=<voice type=question>\nЗдравей, господин Препър. Разбира се, какво има?
 - Dialogues/willFishingQuestBegin4=<voice type=question>\nПрепър, би ни донесъл такава риба?
-- Dialogues/bobPostApoLaunch0=Препър?\nКакво правиш тук?
 - Dialogues/agentPostApoLaunch0=Какво става тук?\nПрепър?\nЗащо не избяга?
-- Dialogues/prepPostApoLaunch6=Не напразно се казвам г-н Препър!
-- Dialogues/prepFirstInteraction5=Аз съм г-н Препър. Приятно ми е да се запознаем. Ти оттук ли си?
-- Dialogues/lemonUnlockExpedition1=<voice type=greeting>\nЗдравей, господин Препър. Забелязах, че обикаляш доста.\n<voice type=question>\nЗает живот? Или... търсиш нещо?
-- Dialogues/lemonFreeSmaple=Наслади се на питието си, г-н Препър! \nПодарък от нас.
-- Dialogues/scientistNextQuest1=Имам още една молба към теб, препър.
-- Dialogues/scientistNextQuest2=Ще ми направиш ли една услуга, препър?
-- Dialogues/scientistNextQuest3=<voice type=question>\nЩе ми помогнеш отново, г-н Препър?
-- Dialogues/scientistFirstFetchQuestComplited1=А, перфектно.\n<voice type=thanks>\nБлагодаря ти, г-н Препър, това ще ми бъде много полезно.
-- Dialogues/scientistSecondFetchQuest1=<voice type=question>\nЗначи, господин Препър, как ти харесва Hazmat Backpack?
-- Dialogues/scientistStage2Start1=<voice type=greeting>\nО, г-н Препър, накрая си тук!
-- Dialogues/scientistStage2Start7.1=Това е... доста високо, да.\n<voice type=thanks>\nНо г-н Препър, това е супер!
-- Dialogues/scientistStage2Start18=О, разбира се! Не ме интересува толкова.\n<voice type=acceptance>\nНакрая ще се заная, не се притеснявай, г-н Препър!\n<voice type=thanks>\nБоже, пази президента! Слава на прогреса!
-- Dialogues/scientist_NuclearGenerator=Това е основно малък ядрен реактор, който ти позволява да произвеждаш електричество точно като всеки друг генератор.\nИмаш чертеж за него, препър.\nСигурен съм, че ще го измислиш, ти си умен.
-- Dialogues/scientistStage3Start1=<voice type=greeting>\nГ-н Препър, приятно да те видя отново, приятел!\nПрепиращите устройства са готови.\nЕла, погледни.
-- Dialogues/scientistStage3Start9=Стреляй, препър.
-- Dialogues/scientistStage3Start13=Но бих могъл да използвам помощта ти отново, г-н Препър.\nЗа да стабилизирам генератора, ми трябва по-надежден гориво.\nИзползването на тази случайна радиоактивна боклук вече няма да свърши работа.
-- Dialogues/scientistStage4Start1=<voice type=greeting>\nГ-то Препър! Накрая си тук.\n<voice type=thanks>\nВиж!\n<voice type=thanks>\nГотово е!
-- Dialogues/scientistNuclearConfrontation23=<voice type=upset>\nА, г-н Препър. Не ми харесва да променя парадигмите, принуждава те да научиш много неща отново!\nНо кажи ми едно нещо – казваш, че повечето хора са под влияние на контрол на ума.\n<voice type=question>\nЗащо не всички? А другите? А аз? Ти?
-- Dialogues/scientistAfterNuclearConfrontation2=Благодаря ти, господин Препър. Защо реши да ми помогнеш? Току-що се бихме.
-- Dialogues/bobTalkWithBobAboutEdward4=Не, не се притеснявай, г-н Препър, имам добро око на ситуацията.\nХерждам Безсънните от известно време, мога да се справя с ексцентричен учен.
-- Dialogues/scientist_AntiRadiation=Антирадиационна субстанция? Знаеш рецептата, господин Препър. Просто сготви няколко за мен.
-- Dialogues/dianaCalibratedBlankCryoSleepPod6=Ти ли си, господин Препър?
+- Dialogues/scientistEndQuestThanks2=<voice type=thanks>\nДобре работеше препър, ще го използвам за доброто на Мърицивил.
+- Dialogues/scientistFirstFetchQuestComplited6=<voice type=question>\nПочивай, г-н Препър.\nИма някакъв риск. Но какво е малкото риск в сравнение с по-голямото благо на целия Мърицивал?
+- Dialogues/scientist_NuclearMaterial=Огледай се навсякъде, препър.\nНе съм само аз, Мюрикавил е имал много повече случаи да бъде изложен на радиация през историята си.\nЩе се изненадаш колко много облъчени предмети лежат навсякъде.\nСигурен съм, че ще намериш някои за нула време.
+- Dialogues/scientistStage3Start11=<voice type=thanks>\nТова е умна идея, г-н Препър!\nВеднага ще насоча усилията си към нея.\nЗа безопасността на нашия красив град.\n<voice type=thanks>\nСлава на прогреса, всички! Благословено Муритикавил!
+- Dialogues/scientistScientistLaunch1=Здравей, Препър! Боб ми разказа за ракетата, докато ни разказваше за Операция Събуждане.\nТака че явно имаш повече умения в науката, отколкото да си ми лабораторен асистент.
 - Items/DesKeyBreadBox=Препърите не използват хлябници, но те все още могат да се използват за материали.
 - Items/DesKeyEggInSalt=Класическа храна за препъри. Може да издържи дълго време.
 - Items/DesKeyPemmican=Много хранителна храна, направена от сушено месо и плодове. Измислена от коренните американци, обичана и от препърите.
 - Items/DesKeyKnife=Основен инструмент за всеки препър.
-- Items/DesKeyPhoto=Снимка от самолетната катастрофа. На нея е изобразен пилот в самолет. Чакай, дали това не е... г-н Препър?
 - Items/DesKeyPreppersGuideBook=Ръководството на Препър: Научи се да бъдеш по-подготвен.
 - Items/herbBedDes=Но бабо! Каква малка къщичка имаш, каза Малкият Препър Червеношапчица.
 - Items/DesKeyCarrotSoup=Обичан от бебета и препъри по целия свят.
@@ -118,28 +43,21 @@ GLOBAL CONSISTENCY CANDIDATES
 - Items/DesCargoPantsBlack=Панталони за практични, земни препъри.
 - Items/DesCargoPantsRottenGreen=Панталони за практични, земни препъри.
 - Items/DesCargoPantsMoroKhaki=Панталони за практични, земни препъри.
-- Items/DesRegularBlackJeans=Малка промяна на изпитания и тестван стил на г-н Препър.
-- Items/PreppersMilkShake=Мляко с шоколад на Препъра
 - Items/DesDungarees=Превърни се в истински препър с тези здрави работни панталони.
 - Items/DesKeySeed Pepper=Подправи живота си и бъди препър със собствен пипер,
 - Items/PrepperMix=ПрепърМикс
-- Letter/minutLetter6=Страхувам се, че и двамата сме в беда. Въпреки моите предпазни мерки, има определен агент, който проявява интерес към мен и моите последни... разследвания. Ако продължи да се навърта наоколо, може да стигне и до теб в крайна сметка.\nНо ето как можеш да помогнеш: можеш да вкараш агента в беда, за да се махне от гърба ни. Този агент живее наблизо под името Джеймс Фицпатрик. \nЗасади му незаконен предмет и ще го докладвам на Агенцията.\nБи било най-добре, ако не беше просто незаконно, но... незаконно с финес. За да впечатлиш наистина другите агенти.\nИмам чувството, че пощальонът би се съгласил да помогне с това. Той също не е фен на Агенцията. \nПомни, господин Препър, това е за нашата безопасност! Нашите амбиции са твърде големи, за да бъдат спрени от някакви дребни агенти!\n
-- Letter/minutLetter8=Благодаря ти много за храната, която ми изпрати! Ти си моят вдъхновител и ангел-пазител, господин Препър. \nТова може да е последното писмо, което ти изпращам, и имам една последна молба. Те идват за мен в скривалището ми. И трябва да съм подготвен: или да си пробия път през тях, или да направя последния си отпор. За това ми трябва достатъчно огнева мощ. Обикновена ръчна пушка няма да свърши работа.\nСкъпи господин Препър, бихте ли ми дали автоматична пушка и 100 патрона? Ако оцелея в битката, обещавам да отговоря на много въпроси, които вероятно ви тормозят. Ако не, моля, спомняйте си за мен с обич, господин Препър.\n
-- Tutorial/tutMountainClimbDebuff1=Препър се нуждае от <color=#388942>издръжливост</color> за катерене
-- Tutorial/tutMountainClimbDebuff3=Докато качваш, барът за издръжливост <color=#BEC05C>запълва се</color>, показва колко е близо препър до границата си.
-- Tutorial/tutMountainClimbDebuff4=Когато барът за издръжливост започне да става <color=red>червен</color>, препър се пренапрега и активира дебаф, който изтощава неговата издръжливост.
-- Tutorial/tutMountainClimbDebuff5=Ако лентата за издръжливост се напълни напълно, Препър ще падне.
+- Letter/minutLetter7=Съжалявам да ви информирам, че макар малкият ни саботаж да е проработил блестящо – агент Фицпатрик никога повече няма да притеснява гражданите – аз сега съм в тежка ситуация. Унищожихме агента, но Агенцията забеляза моите специални интереси. Сега съм в укритие; трябваше да напусна работата си, къщата и повечето си вещи. Не съм толкова добре подготвен за такива ситуации като вас, затова се нуждая от вашата помощ. Можете ли да ми изпратите малко храна? Предпочитам консерви и дълготрайни продукти.\nТрябва също така да те информирам за нещо, което няма да прочетеш в Истината: международната ситуация в момента е много напрегната. Изглежда чуждестранните сили имат сериозни притеснения относно истинската цел на сателита Змийска отрова. Трудно е да се каже как ще завърши всичко това.\nГрижи се и не ме забравяй, г-н Препър!\n
 - Buff/Covard2=<b>Трусовец</b>\nБегството от битките прави препърания да се чувстваш неподгот.\nПечели битка или отиди да спиш, за да поправиш това.
 - Buff/Covard3=<b>Ко- Ко- Ко- Търкач</b>\nБегството от битките прави препърът да се чувства неподгот.\nПечели битка или отиди да спиш, за да поправиш това.
-- Images/runPrepper=Бягай, препър, бягай!
 - Inspect/herbBed=Но бабо! Каква малка къщичка имаш, каза Малкият Препър Червеношапчица.
-- SteamAchievements/NEW_ACHIEVEMENT_1_0_NAME=Пътят на г-н Препър
 - SteamAchievements/NEW_ACHIEVEMENT_1_2_NAME=Малката Препър Червената Шапчица
 - SteamAchievements/NEW_ACHIEVEMENT_1_5_NAME=Кухнята на Препър
-- SteamAchievements/NEW_ACHIEVEMENT_1_20_NAME=Препър по карате
-- SteamAchievements/NEW_ACHIEVEMENT_1_23_NAME=Препър 101
 - SteamAchievements/NEW_ACHIEVEMENT_1_23_DESC=Прочети ръководство за препъринг
-- Tutorial/tutMountainItemPlacement1=Когато поставяш предмети в планината,\n<color=blue>синьото</color> осветяване означава, че Препър ще трябва да се изкачи, за да стигне до това място.
+[old Murricaville] 1
+- Dialogues/scientist_NuclearMaterial=Огледай се навсякъде, препър.\nНе съм само аз, Мюрикавил е имал много повече случаи да бъде изложен на радиация през историята си.\nЩе се изненадаш колко много облъчени предмети лежат навсякъде.\nСигурен съм, че ще намериш някои за нула време.
+[old Operation Awakening] 2
+- Dialogues/bobPropositionIncomplete=Здравей, Препър. Готов ли си за излитането? Готови сме за Операция Събуждане.
+- Dialogues/scientistScientistLaunch1=Здравей, Препър! Боб ми разказа за ракетата, докато ни разказваше за Операция Събуждане.\nТака че явно имаш повече умения в науката, отколкото да си ми лабораторен асистент.
 
 MISSING KEYS TO APPEND
 - Dialogues/bobPostLaunch4.5
