@@ -1,30 +1,30 @@
 # Joe - Mexican radio broadcast / Brazen Serpent
 # Source-backed QA for the broadcast quest chain.
 
-Dialogues/joeBroadcast1=<voice type=greeting>\nЗдрасти, Prepper! Радвам се да те видя.\n<voice type=question>\nЧувал ли си слуховете за радиопредаването от... знаеш... юг?
+Dialogues/joeBroadcast1=<voice type=greeting>\nЗдрасти, Подготвения! Радвам се да те видя.\n<voice type=question>\nЧувал ли си слуховете за радиопредаването от... знаеш... юг?
 Dialogues/prepBroadcast2=<voice type=negation>\nНе. От юг? Имаш предвид от Мексико?
 Dialogues/joeBroadcast3=Отдавна не съм произнасял това име на глас. Виждаш ли, пропагандата на Агенцията ми е влязла чак в кръвта.\nДа, от Мексико. Хората казват, че улавят радиосигнал, но е прекалено слаб, за да се разбере какво казва.\nПробвах с моето радио. Хванах нещо, но не успях да различа думите. Сигурен съм обаче, че е повтарящо се съобщение, а не обикновена радиостанция.
 Dialogues/prepBroadcast4=<voice type=surprise>\nПредаване от чужбина? Интересно!\n<voice type=question>\nМоже би трябва да опитаме да хванем сигнала с радио в кола? Някъде в пустинята на юг оттук?
-Dialogues/joeBroadcast5=И аз това си мислех, Prepper. Проблемът е, че радиото в колата е счупено. С няколко свестни електронни части мога да го поправя. \n<voice type=disappointment>\nСамо че се оказа, че вече съм използвал всичките, които имах в автоморгата, за някои... други проекти.\n<voice type=question>\nЩе ми намериш ли качествени електронни части, за да сложа по-мощно радио в колата?
+Dialogues/joeBroadcast5=И аз това си мислех, Подготвения. Проблемът е, че радиото в колата е счупено. С няколко свестни електронни части мога да го поправя. \n<voice type=disappointment>\nСамо че се оказа, че вече съм използвал всичките, които имах в автоморгата, за някои... други проекти.\n<voice type=question>\nЩе ми намериш ли качествени електронни части, за да сложа по-мощно радио в колата?
 Dialogues/prepBroadcast6=<voice type=acceptance>\nРазбира се, ще опитам. 
 
-Dialogues/joeBroadcastIncomplete1=<voice type=greeting>\nХей, Prepper! Намери ли електронните части? Това предаване страшно ме заинтригува!
+Dialogues/joeBroadcastIncomplete1=<voice type=greeting>\nХей, Подготвения! Намери ли електронните части? Това предаване страшно ме заинтригува!
 Dialogues/prepBroadcastIncomplete2=<voice type=negation>\nОще не! Но работя по въпроса, вярвай ми.
-Dialogues/joeBroadcastFoundIncomplete1=<voice type=greeting>\nPrepper! Успя ли вече да хванеш сигнала?
+Dialogues/joeBroadcastFoundIncomplete1=<voice type=greeting>\nПодготвения! Успя ли вече да хванеш сигнала?
 Dialogues/prepBroadcastFoundIncomplete2=<voice type=negation>\nЗасега никакъв късмет, съжалявам.
 
 Dialogues/radioBroadcastText=…Внимание! До всички граждани на Съединените американски щати! Вашето правителство ви лъже!\nСателитът „Медната змия“ не е медицински проект! „Медната змия“ е средство за контрол на ума!\n„Медната змия“ причинява липса на мотивация, проблеми с паметта и уязвимост към манипулация!\nСмята се, че поредица от терористични атаки е свързана с „Медната змия“!\nГраждани на Съединените щати! Въстанете срещу правителството си или преминете на наша страна!\nНа границите ви очаква помощ! Не е нужно да страдате!\nВнимание! До всички граждани… (предаването се повтаря)\n
 
-Dialogues/joeBroadcastFoundComplete1=<voice type=greeting>\nЗдрасти, Prepper! Успя ли да хванеш предаването?
+Dialogues/joeBroadcastFoundComplete1=<voice type=greeting>\nЗдрасти, Подготвения! Успя ли да хванеш предаването?
 Dialogues/prepBroadcastFoundComplete2=<voice type=acceptance>\nДа, успях. Съобщението се чете със силен испански акцент. Записах го, но мога да ти кажа най-важното.
 Dialogues/joeBroadcastFoundComplete3=<voice type=order>\nКазвай веднага, нямам търпение!
 Dialogues/prepBroadcastFoundComplete4=Общо взето казват, че сателитът „Медната змия“ е средство за контрол на ума.\nИ това наистина би обяснило доста неща.
-Dialogues/joeBroadcastFoundComplete5=<voice type=laugh>\nВълните! Казах ти, Prepper!
+Dialogues/joeBroadcastFoundComplete5=<voice type=laugh>\nВълните! Казах ти, Подготвения!
 Dialogues/prepBroadcastFoundComplete6=Казват също, че причинява проблеми с паметта и концентрацията. О, и го свързват с няколко терористични атаки.
-Dialogues/joeBroadcastFoundComplete7=<voice type=upset>\nТова... не знам, Prepper. Направо съм съсипан. От известно време ме беше страх от тези вълни за контрол на ума, но тайно се надявах, че не е истина.\nСега вече знам със сигурност, а това нещо постоянно обикаля над главите ни.\n<voice type=question>\nА мексиканците имаха ли някакъв... съвет за нас?\n
+Dialogues/joeBroadcastFoundComplete7=<voice type=upset>\nТова... не знам, Подготвения. Направо съм съсипан. От известно време ме беше страх от тези вълни за контрол на ума, но тайно се надявах, че не е истина.\nСега вече знам със сигурност, а това нещо постоянно обикаля над главите ни.\n<voice type=question>\nА мексиканците имаха ли някакъв... съвет за нас?\n
 Dialogues/prepBroadcastFoundComplete8=Казват ни да въстанем или да избягаме на тяхна страна. Лесна работа, нали?
-Dialogues/joeBroadcastFoundComplete9=По дяволите, Prepper. Твърде стар и слаб съм, за да напусна тази автоморга и да взема Чупакабра със себе си.\nНо знам, че ти можеш да ги надхитриш. Измъкни се оттук и може би се бори с тях отвън.\n<voice type=order>\nМоля те, направи го заради нас.
+Dialogues/joeBroadcastFoundComplete9=По дяволите, Подготвения. Твърде стар и слаб съм, за да напусна тази автоморга и да взема Чупакабра със себе си.\nНо знам, че ти можеш да ги надхитриш. Измъкни се оттук и може би се бори с тях отвън.\n<voice type=order>\nМоля те, направи го заради нас.
 Dialogues/prepBroadcastFoundComplete10=<voice type=thanks>\nБлагодаря, Джо. Вярвай ми... правя каквото мога.  
 
-# REVIEW / CONTEXT
-# Standalone Prepper remains unresolved and is intentionally left as `Prepper` here.
+# TERMINOLOGY
+# Prepper -> „Подготвения“ in direct address; use „г-н Подготвения“ only when the English source explicitly says Mr. Prepper.
