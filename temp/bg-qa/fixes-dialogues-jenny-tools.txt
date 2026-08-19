@@ -1,0 +1,5 @@
+# Jenny - gardening tools / weeding metaphor
+# Source: Dialogues/herbTools
+# Preserve the deliberate double meaning between gardening and subversion.
+
+Dialogues/herbTools=Ах, защо тази физиономия? Не се плаши, това са само градинарските ми инструменти. \nИ двата са за ефективно плевене. С подходящите инструменти и правилната техника можеш да изкорениш всичко - било то маргаритка или магарешки бодил.\nДали все още говоря само за градинарство? Не ми обръщай внимание, аз съм просто една стара дама. \n
