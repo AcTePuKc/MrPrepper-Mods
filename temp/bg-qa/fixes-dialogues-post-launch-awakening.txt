@@ -1,0 +1,25 @@
+# Post-launch - Operation Awakening reactions
+# Source: Dialogues/bobPostLaunch through Dialogues/bobPostLaunch13a
+# Keeps Operation Awakening terminology and speaker gender consistent.
+
+Dialogues/bobPostLaunch=Уау, това беше впечатляващо.\nИ сега най-сетне дойде моментът! Да започваме Операция Пробуждане!\n...Боже, каква е тази светлина?! Не! Взрив!\nНе сме... не сме... не сме подготвени... не сме подготвени... не сме подготвени за това!\n...или сме?
+Dialogues/bobPostLaunch1=<voice type=thanks>\nУау, това беше впечатляващо.
+Dialogues/bobPostLaunch2=И сега най-сетне дойде моментът! Да започваме Операция Пробуждане!
+Dialogues/joePostLaunch3=Да, капитане!
+Dialogues/herbPostLaunch4=Готова съм. Да посеем семената на несъгласието!
+Dialogues/willPostLaunch4.2=Хайде тогава.
+Dialogues/scientistPostLaunch4.3=Време е да занесем науката при хората.
+Dialogues/bobPostLaunch4.5=<voice type=surprise>\n!?
+Dialogues/bobPostLaunch5=<voice type=anger>\nТи? Какво правиш тук?!
+Dialogues/agentPostLaunch6=Аз... мога да обясня. Но историята е дълга и ще ни трябва доста време.\nНо съм на ваша страна!
+Dialogues/bobPostLaunch7=<voice type=surprise>\n...Боже, каква е тази светлина?!
+Dialogues/bobPostLaunch8=<voice type=fear>\nНе! Взрив!
+Dialogues/agentPostLaunch9=<voice type=fear>\nБях прав!
+Dialogues/scientistPostLaunch9.5=Не бях аз!
+Dialogues/joePostLaunch10=<voice type=fear>\nЗа това не съм се записвал!
+Dialogues/herbPostLaunch11=<voice type=fear>\nБоже мили! Не гледай, Боб. Ще се справим.
+Dialogues/willPostLaunch11.5=<voice type=fear>\nНе! Ужасно е! Хенри, дръж се, ще се справим!
+Dialogues/bobPostLaunch12=<voice type=fear>\nНе сме... не сме... не сме подготвени... не сме подготвени... не сме подготвени за това!
+Dialogues/bobPostLaunch12a=<voice type=fear>\nНе съм... не съм... не съм подготвен... не съм подготвен... не съм подготвен за това!
+Dialogues/bobPostLaunch13=<voice type=question>\n...или сме?
+Dialogues/bobPostLaunch13a=<voice type=question>\n...или съм?
