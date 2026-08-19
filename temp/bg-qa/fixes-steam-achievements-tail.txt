@@ -1,0 +1,18 @@
+# Steam achievements - tail QA
+# Source: generated/compare/part-004.tsv
+
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_10_NAME=Безсънните
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_11_NAME=Всичко е Боб
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_12_NAME=Начинаещ Подготвен
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_13_NAME=Средно напреднал Подготвен
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_14_NAME=Напреднал Подготвен
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_15_NAME=Истинският Подготвен
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_17_NAME=Няма време за губене, има подготовка за вършене!
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_19_NAME=Боровинково изкушение
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_20_NAME=Книжен умник
+FIX	SteamAchievements/NEW_ACHIEVEMENT_33_29_NAME=Ферма „Уайт Сандс“
+FIX	SteamAchievements/NEW_ACHIEVEMENT_43_8_DESC=Достигни 1-во ниво на приятелство с Ксено
+FIX	SteamAchievements/NEW_ACHIEVEMENT_43_9_DESC=Достигни 2-ро ниво на приятелство с Ксено
+FIX	SteamAchievements/NEW_ACHIEVEMENT_43_10_DESC=Достигни максимално ниво на приятелство с Ксено
+
+REMOVE	SteamAchievements/
