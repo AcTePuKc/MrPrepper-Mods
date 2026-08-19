@@ -33,6 +33,7 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Ellipse | Елипс | Fort Observer security AI |
 | the Hum | REVIEW: Бученето | Current candidate for Joe's named low-frequency phenomenon/conspiracy term. Keep under review until later context confirms it. |
 | junkyard | автоморга | Joe's location; prefer this over generic `бунище`/`лагер` when the place itself is meant |
+| Geiger counter | Гайгеров брояч | Standard Bulgarian technical term; use consistently |
 | herbalist | билкарка | Jenny is female; avoid masculine `билкар` for her dialogue |
 | mine (noun) | мина | Use for the location unless a specific context clearly requires `шахта` |
 | old mine | старата мина | Jenny quest/location wording |
