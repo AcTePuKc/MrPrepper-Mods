@@ -1,6 +1,6 @@
 # Joe - route to Fort Observer / staying awake
-# Source: Dialogues/prepFortEnoughTrust1 onward
-# Partial scene staged only where source context is fully visible.
+# Source: Dialogues/prepFortEnoughTrust1 through Dialogues/prepNotEnoughTrust3
+# English authoritative; FR/RU used only for context checks.
 
 Dialogues/prepFortEnoughTrust1=<voice type=greeting>\nХей, Джо, имам важен въпрос и подозирам, че знаеш отговора.\nМожеш ли да ми кажеш как да стигна до военната база Форт „Наблюдател“? Знам, че е някъде в пустинята.\n
 Dialogues/joeFortEnoughTrust2=<voice type=question>\nО, вече си тръгнал по следите на военните тайни, Подготвения, а?\nМога със сигурност да ти кажа, че нямат НЛО като в Зона 51 - имам надеждна информация за това.\n<voice type=fear>\nНякои обаче казват, че мястото е обитавано от духове. Трябва да внимаваш.\n
@@ -8,6 +8,8 @@ Dialogues/prepFortEnoughTrust3=<voice type=acceptance>\nЩе внимавам. �
 Dialogues/joeFortEnoughTrust4=<voice type=acceptance> \nДобре, приятелю. Мога да ти покажа мястото на картата.\nЕто го. От последното място, което можеш да използваш като склад за припаси, те чака дълъг път.\nИ това води до друг проблем...\n
 Dialogues/prepFortEnoughTrust5=<voice type=upset>\n...прекалено е далеч, за да стигна наведнъж, преди 3:00 през нощта да ме изключи.
 Dialogues/joeFortEnoughTrust6=Умен си, Подготвения. И да, бих казал, че е невъзможно, освен ако не намериш начин да останеш буден.
+Dialogues/prepFortEnoughTrust7=Хм, май имам идея как да се справя с това. Благодаря, Джо.
 
-# CONTEXT
-# The remaining FortEnoughTrust lines are intentionally not staged until their full source is visible.
+Dialogues/prepFortNotEnoughTrust1=<voice type=greeting>\nЗдравей, Джо. Имам важен въпрос: знаеш ли точното местоположение на военната база Форт „Наблюдател“?\nЗнам, че е някъде в пустинята, а никой не познава пустинята по-добре от теб.\n
+Dialogues/joeFortNotEnoughTrust2=Може и да знам за какво говориш.\nНо, знаеш, приятелю, нищо лично - няма да раздавам секретна информация на човек, когото едва познавам.\n<voice type=negation>\nНе и при сегашната политическа обстановка, това е сигурно.\nНо ако ми помогнеш с някоя и друга работа, може и да реша, че мога да ти се доверя.\n
+Dialogues/prepNotEnoughTrust3=<voice type=upset>\nЕ, жалко. Не мислиш наистина, че съм един от хората на Агенцията, нали?\n<voice type=acceptance>\nНо добре, мога да ти докажа, че заслужавам доверие. Наистина трябва да стигна до тази база.
