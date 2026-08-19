@@ -29,10 +29,10 @@ Temporary terminology guide for the QA pass. Expand only when a term has been ch
 | Bob (Jenny's plant) | Боб | Jenny's named plant; do not confuse with human Bob. `prepBobGeneric*` / `herbBobGeneric*` establish the joke explicitly. |
 | Murricaville | Мърикавил | Town name; use this transliteration consistently |
 | Murricaville County | окръг Мърикавил | Avoid literal/garbled forms such as `Муритикайл Каунти` |
-| Brazen Serpent | Медната змия | Satellite/project name; keep consistent across broadcast, newspaper and story dialogue |
-| Fort Observer | Форт „Наблюдател“ | Military base name; semantic localization preserves the Observer/unobserved wordplay |
+| Brazen Serpent | Медният змей | Satellite/project name; biblical allusion. Use consistently across broadcast, newspaper and story dialogue |
+| Fort Observer | Форт „Наблюдател“ | Military base name; treat `Observer` as the proper name, not the adjective `наблюдателен`; preserves the Observer/unobserved wordplay |
 | Ellipse | Елипс | Fort Observer security AI |
-| the Hum | REVIEW: Бученето | Current candidate for Joe's named low-frequency phenomenon/conspiracy term. Keep under review until later context confirms it. |
+| the Hum | Бученето | Confirmed story term for the low-frequency phenomenon/conspiracy discussed by Joe |
 | junkyard | автоморга | Joe's location; prefer this over generic `бунище`/`лагер` when the place itself is meant |
 | Geiger counter | Гайгеров брояч | Standard Bulgarian technical term; use consistently |
 | herbalist | билкарка | Jenny is female; avoid masculine `билкар` for her dialogue |
