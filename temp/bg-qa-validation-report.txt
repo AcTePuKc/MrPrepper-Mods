@@ -1,10 +1,10 @@
 Authoritative keys: 5633
-Staged QA entries: 1479
-Unique staged keys: 1475
-Status counts: CONTEXT=0, FIX=1447, OK=0, REMOVE=32, REVIEW=0
+Staged QA entries: 1495
+Unique staged keys: 1483
+Status counts: CONTEXT=0, FIX=1463, OK=0, REMOVE=32, REVIEW=0
 Open review markers: 27
 Warnings: 0
-Errors: 0
+Errors: 16
 
 OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-dialogues-agent-reveal.txt:3: # English authoritative; FR/RU used only for context checks.
@@ -35,4 +35,20 @@ OPEN REVIEW MARKERS
 - temp/bg-qa/fixes-items-part003-quest-farm-items.txt:2: # English authoritative; preserves established names and farm context.
 - temp/bg-qa/fixes-ui.txt:10: # Context actions
 
-BG QA structural validation passed.
+ERRORS
+- temp/bg-qa/fixes-global-locked-terminology.txt:10: Dialogues/bobPropositionIncomplete: locked/obsolete form remains (Препър): Здравей, Препър. Готов ли си за излитането? Готови сме за Операция Пробуждане.
+- temp/bg-qa/fixes-global-locked-terminology.txt:17: Dialogues/postRand22: locked/obsolete form remains (Препър): <voice type=greeting>\nДобро утро, г-н Препър! Харесва ми, че винаги си за нещо. Мърикавил е доста тих град в наши дни.
+- temp/bg-qa/fixes-global-locked-terminology.txt:22: Dialogues/scientistEndQuestThanks2: locked/obsolete form remains (Препър): <voice type=thanks>\nДобре работеше препър, ще го използвам за доброто на Мърикавил.
+- temp/bg-qa/fixes-global-locked-terminology.txt:23: Dialogues/scientistFirstFetchQuestComplited6: locked/obsolete form remains (Препър): <voice type=question>\nПочивай, г-н Препър.\nИма някакъв риск. Но какво е малкото риск в сравнение с по-голямото благо на целия Мърикавил?
+- temp/bg-qa/fixes-global-locked-terminology.txt:24: Dialogues/scientistScientistLaunch1: locked/obsolete form remains (Препър): Здравей, Препър! Боб ми разказа за ракетата, докато ни разказваше за Операция Пробуждане.\nТака че явно имаш повече умения в науката, отколкото да си ми лабораторен асистент.
+- temp/bg-qa/fixes-global-locked-terminology.txt:27: Dialogues/scientistStage3Start11: locked/obsolete form remains (Препър): <voice type=thanks>\nТова е умна идея, г-н Препър!\nВеднага ще насоча усилията си към нея.\nЗа безопасността на нашия красив град.\n<voice type=thanks>\nСлава на прогреса, всички! Благословено Мърикавил!
+- temp/bg-qa/fixes-global-locked-terminology.txt:29: Dialogues/scientist_NuclearMaterial: locked/obsolete form remains (Препър): Огледай се навсякъде, препър.\nНе съм само аз, Мърикавил е имал много повече случаи да бъде изложен на радиация през историята си.\nЩе се изненадаш колко много облъчени предмети лежат навсякъде.\nСигурен съм, че ще намериш някои за нула време.
+- temp/bg-qa/fixes-global-locked-terminology.txt:73: Letter/minutLetter7: locked/obsolete form remains (Препър): Съжалявам да ви информирам, че макар малкият ни саботаж да е проработил блестящо – агент Фицпатрик никога повече няма да притеснява гражданите – аз сега съм в тежка ситуация. Унищожихме агента, но Агенцията забеляза моите специални интереси. Сега съм в укритие; трябваше да напусна работата си, къщата и повечето си вещи. Не съм толкова добре подготвен за такива ситуации като вас, затова се нуждая от вашата помощ. Можете ли да ми изпратите малко храна? Предпочитам консерви и дълготрайни продукти.\nТрябва също така да те информирам за нещо, което няма да прочетеш в Истината: международната ситуация в момента е много напрегната. Изглежда чуждестранните сили имат сериозни притеснения относно истинската цел на сателита Медният змей. Трудно е да се каже как ще завърши всичко това.\nГрижи се и не ме забравяй, г-н Препър!\n
+- Dialogues/bobPropositionIncomplete: conflicting accepted translations across staged files (temp/bg-qa/fixes-global-locked-terminology.txt:10, temp/bg-qa/fixes-global-prepper-name.txt:21)
+- Dialogues/postRand22: conflicting accepted translations across staged files (temp/bg-qa/fixes-global-locked-terminology.txt:17, temp/bg-qa/fixes-global-prepper-name.txt:51)
+- Dialogues/scientistEndQuestThanks2: conflicting accepted translations across staged files (temp/bg-qa/fixes-global-locked-terminology.txt:22, temp/bg-qa/fixes-global-prepper-name.txt:59)
+- Dialogues/scientistFirstFetchQuestComplited6: conflicting accepted translations across staged files (temp/bg-qa/fixes-global-locked-terminology.txt:23, temp/bg-qa/fixes-global-prepper-name.txt:61)
+- Dialogues/scientistScientistLaunch1: conflicting accepted translations across staged files (temp/bg-qa/fixes-global-locked-terminology.txt:24, temp/bg-qa/fixes-global-prepper-name.txt:66)
+- Dialogues/scientistStage3Start11: conflicting accepted translations across staged files (temp/bg-qa/fixes-global-locked-terminology.txt:27, temp/bg-qa/fixes-global-prepper-name.txt:72)
+- Dialogues/scientist_NuclearMaterial: conflicting accepted translations across staged files (temp/bg-qa/fixes-global-locked-terminology.txt:29, temp/bg-qa/fixes-global-prepper-name.txt:78)
+- Letter/minutLetter7: conflicting accepted translations across staged files (temp/bg-qa/fixes-global-locked-terminology.txt:73, temp/bg-qa/fixes-global-prepper-name.txt:98)
