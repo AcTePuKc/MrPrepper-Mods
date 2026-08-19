@@ -3,10 +3,10 @@
 # English is authoritative; FR/RU used for context checks.
 
 Dialogues/joeFirstMeeting1=<voice type=question>\nХей, кой е там?
-# Dialogues/prepFirstMeeting2 - REVIEW: standalone Prepper naming remains unresolved.
+Dialogues/prepFirstMeeting2=<voice type=greeting>\nЗдравей, аз съм Подготвения. Аз съм приятел... Боб ме изпрати тук.
 Dialogues/joeFirstMeeting3=<voice type=laugh>\nАх, Боб, старият негодник! Какво прави напоследък?
 Dialogues/prepFirstMeeting4=Грижи се за една мина. Миньорства, ако това изобщо е дума.
-Dialogues/joeFirstMeeting5=<voice type=acceptance>\nМоже и да е, ако решим, че е. И добре, че си стои в мината!\nТам долу поне би трябвало да е защитен от химическите следи, Бръмченето и вълните за контрол на ума.
+Dialogues/joeFirstMeeting5=<voice type=acceptance>\nМоже и да е, ако решим, че е. И добре, че си стои в мината!\nТам долу поне би трябвало да е защитен от химическите следи, Бученето и вълните за контрол на ума.
 Dialogues/prepFirstMeeting6=Ъх... Хм... Добре. Боб каза, че освен всичко друго поправяш и оръжия. 
 Dialogues/prepFirstMeeting6.2=<voice type=question> \nИмам счупен револвер. Можеш ли да го погледнеш?
 Dialogues/prepFirstMeeting6.3=Ъм... Чакай. Май съм го оставил някъде. Ще се върна.
@@ -20,9 +20,9 @@ Dialogues/prepFirstMeeting12=<voice type=laugh>\nА, вярно! Алумини�
 Dialogues/joeFirstMeeting13=<voice type=thanks>\nСхвана! Чудесно!
 Dialogues/prepFirstMeeting14=Разбира се-е-е. А сега, преди да тръгна да търся фолио... имам още един въпрос. Забелязах, че наоколо имаш няколко коли.\n<voice type=question>\nИмаш ли някоя, която е почти в движение, за да опитам да я стегна и подкарам?
 Dialogues/joeFirstMeeting15=Имам. Разгледай ги и пробвай. Ако успееш да поправиш някоя, твоя е.\nО, и между другото - ако искаш да потъргуваме по стария мърикавилски начин, насреща съм.\nИмам гориво, скрап и муниции. Знаеш, обичайните неща за една автоморга.
-Dialogues/prepFirstMeeting16=<voice type=thanks>\nСупер, благодаря! До скоро тогава.\n(Какво, по дяволите, е това Бръмчене?)
+Dialogues/prepFirstMeeting16=<voice type=thanks>\nСупер, благодаря! До скоро тогава.\n(Какво, по дяволите, е това Бучене?)
 
-Dialogues/joeFirstMeetingIncomplete1=<voice type=question>\nХей, Prepper, намери ли материала?
+Dialogues/joeFirstMeetingIncomplete1=<voice type=question>\nХей, Подготвения, намери ли материала?
 Dialogues/prepFirstMeetingIncomplete2=<voice type=negation>\nНе, още не. Трябва да поогледам още малко.
 Dialogues/joeFirstMeetingIncomplete3=<voice type=disappointment>\nМоля те, направи го! Имам чувството, че напоследък вълните стават все по-силни.
 
@@ -31,6 +31,6 @@ Dialogues/joeFirstMeetingComplete2=<voice type=thanks>\nО, блести! Бла
 Dialogues/prepFirstMeetingComplete3=<voice type=thanks>\nРазбира се. Благодаря ти, Джо!
 
 # TERMINOLOGY REVIEW
-# the Hum -> „Бръмченето“ is staged here as a natural name for the low-frequency phenomenon.
-# Keep under review until later occurrences confirm whether this is preferable to „Гулът“.
-# Prepper naming remains CONTEXT and is not globally normalized here.
+# the Hum -> „Бученето“ is the current staged candidate for the low-frequency phenomenon.
+# Keep under review until later occurrences provide enough context to confirm or replace it.
+# Prepper -> „Подготвения“; Mr. Prepper -> „г-н Подготвения“ when the source explicitly contains Mr.
