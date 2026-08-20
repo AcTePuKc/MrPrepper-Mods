@@ -16,7 +16,21 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.main16lifecycleprofiler";
     public const string PluginName = "Mr. Prepper Main16 Lifecycle Profiler";
-    public const string PluginVersion = "0.1.0";
+    public const string PluginVersion = "0.2.0";
+
+    private static readonly string[] TargetMethods =
+    {
+        "Characters.Dialogue.Start",
+        "ItemsInfo.Awake",
+        "ComputerImageLoader.Start",
+        "TradingManager.Start",
+        "SetItemDataFromExcel.Awake",
+        "FlipPanelBase.Awake",
+        "NPCTextFade.Awake",
+        "TextTimerUnscaled.Start",
+        "SettingsManager.Start",
+        "ListWindow.OnEnable"
+    };
 
     private static Main16LifecycleProfiler instance;
     private static ConfigEntry<bool> profilerEnabled;
@@ -48,10 +62,10 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
     {
         instance = this;
         profilerEnabled = Config.Bind("Main16Lifecycle", "Enabled", true,
-            "Profile game MonoBehaviour Awake/OnEnable/Start methods during the Main16 load window.");
+            "Profile selected Main16 lifecycle hotspots discovered by the broad exploratory pass.");
         postLoadFrames = Config.Bind("Main16Lifecycle", "PostLoadFrames", 8,
-            "Number of frames after the Main16 sceneLoaded callback to keep collecting lifecycle timings.");
-        minimumTotalMs = Config.Bind("Main16Lifecycle", "MinimumTotalMs", 5.0,
+            "Number of frames after the Main16 sceneLoaded callback to keep collecting timings.");
+        minimumTotalMs = Config.Bind("Main16Lifecycle", "MinimumTotalMs", 1.0,
             "Only methods whose aggregate measured time reaches this threshold are printed in the summary.");
         topCount = Config.Bind("Main16Lifecycle", "TopCount", 20,
             "Maximum number of methods printed in each ranked summary.");
@@ -63,16 +77,21 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
         }
 
         harmony = new Harmony(PluginGuid);
-        var patched = PatchGameLifecycleMethods();
+        var patched = PatchTargetLifecycleMethods();
         PatchSceneRequests();
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         Logger.LogInfo(
             $"{PluginName} {PluginVersion} loaded. patchedLifecycleMethods={patched} " +
             $"postLoadFrames={postLoadFrames.Value} minimumTotalMs={minimumTotalMs.Value:0.###} topCount={topCount.Value}");
+
+        foreach (var method in PatchedMethods.OrderBy(DescribeMethod))
+        {
+            Logger.LogInfo($"[MAIN16 LIFE PATCH] {DescribeMethod(method)}");
+        }
     }
 
-    private int PatchGameLifecycleMethods()
+    private int PatchTargetLifecycleMethods()
     {
         var assembly = AppDomain.CurrentDomain.GetAssemblies()
             .FirstOrDefault(a => string.Equals(a.GetName().Name, "Assembly-CSharp", StringComparison.Ordinal));
@@ -92,49 +111,62 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
             types = ex.Types.Where(t => t != null).ToArray();
         }
 
+        var typeMap = types
+            .Where(t => t != null)
+            .GroupBy(t => t.FullName ?? t.Name)
+            .ToDictionary(g => g.Key, g => g.First(), StringComparer.Ordinal);
+
         var prefix = new HarmonyMethod(typeof(Main16LifecycleProfiler), nameof(LifecyclePrefix));
         var postfix = new HarmonyMethod(typeof(Main16LifecycleProfiler), nameof(LifecyclePostfix));
         var patched = 0;
 
-        foreach (var type in types)
+        foreach (var target in TargetMethods)
         {
-            if (type == null || type.IsAbstract || !typeof(MonoBehaviour).IsAssignableFrom(type))
+            var split = target.LastIndexOf('.');
+            if (split <= 0 || split >= target.Length - 1)
             {
                 continue;
             }
 
-            foreach (var name in new[] { "Awake", "OnEnable", "Start" })
+            var typeName = target.Substring(0, split);
+            var methodName = target.Substring(split + 1);
+
+            if (!typeMap.TryGetValue(typeName, out var type))
             {
-                MethodInfo method;
-                try
-                {
-                    method = type.GetMethod(
-                        name,
-                        BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly,
-                        null,
-                        Type.EmptyTypes,
-                        null);
-                }
-                catch
-                {
-                    continue;
-                }
+                Logger.LogWarning($"[MAIN16 LIFE] Target type not found: {typeName}");
+                continue;
+            }
 
-                if (!CanPatch(method))
-                {
-                    continue;
-                }
+            MethodInfo method;
+            try
+            {
+                method = type.GetMethod(
+                    methodName,
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly,
+                    null,
+                    Type.EmptyTypes,
+                    null);
+            }
+            catch
+            {
+                method = null;
+            }
 
-                try
-                {
-                    harmony.Patch(method, prefix: prefix, postfix: postfix);
-                    PatchedMethods.Add(method);
-                    patched++;
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogWarning($"[MAIN16 LIFE] Could not patch {DescribeMethod(method)}: {ex.GetType().Name}: {ex.Message}");
-                }
+            if (!CanPatch(method))
+            {
+                Logger.LogWarning($"[MAIN16 LIFE] Target method unavailable or not patchable: {target}()");
+                continue;
+            }
+
+            try
+            {
+                harmony.Patch(method, prefix: prefix, postfix: postfix);
+                PatchedMethods.Add(method);
+                patched++;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogWarning($"[MAIN16 LIFE] Could not patch {target}(): {ex.GetType().Name}: {ex.Message}");
             }
         }
 
@@ -186,12 +218,7 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
 
     private static void SceneRequestPrefix(object[] __args)
     {
-        if (profilerEnabled == null || !profilerEnabled.Value || windowArmed)
-        {
-            return;
-        }
-
-        if (!ArgumentsContainMain16(__args))
+        if (profilerEnabled == null || !profilerEnabled.Value || windowArmed || !ArgumentsContainMain16(__args))
         {
             return;
         }
@@ -211,12 +238,7 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
     private static void LifecyclePrefix(MonoBehaviour __instance, MethodBase __originalMethod, ref long __state)
     {
         __state = 0L;
-        if (!windowArmed || __instance == null || __originalMethod == null)
-        {
-            return;
-        }
-
-        if (!BelongsToMain16(__instance))
+        if (!windowArmed || __instance == null || __originalMethod == null || !BelongsToMain16(__instance))
         {
             return;
         }
