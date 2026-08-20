@@ -15,6 +15,7 @@
 ; Current deterministic test flow:
 ;   New Game
 ;   -> Remove existing Slot 6 save -> Yes
+;   -> defensive popup-dismiss click just above Slot 6/New Game
 ;   -> Slot 6 -> Normal game -> Normal difficulty -> Play
 ;   -> wait for Main16 -> No tutorial
 ;   -> hold left mouse to skip the new-game intro/video
@@ -93,6 +94,12 @@ ClickPoint("RemoveSave")
 Sleep stepDelayMs
 ClickPoint("RemoveYes")
 Sleep (stepDelayMs * 2)
+
+; Some launches show an extra Yes!/display-confirmation prompt overlapping the
+; empty Slot 6/New Game (+) control. Try to dismiss it without adding another
+; calibration point: click 10 client pixels above the calibrated Slot 6 point.
+ClickPointClientOffset("Slot6", 0, -10)
+Sleep stepDelayMs
 
 ; Re-create Slot 6 as a fresh normal game.
 ClickPoint("Slot6")
@@ -234,5 +241,12 @@ MovePoint(name) {
 
 ClickPoint(name) {
     MovePoint(name)
+    Click
+}
+
+ClickPointClientOffset(name, dx, dy) {
+    MovePoint(name)
+    MouseGetPos &mx, &my
+    MouseMove mx + dx, my + dy, 0
     Click
 }
