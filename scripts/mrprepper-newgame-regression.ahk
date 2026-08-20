@@ -7,15 +7,19 @@
 ;   AutoHotkey64.exe mrprepper-newgame-regression.ahk calibrate
 ;   AutoHotkey64.exe mrprepper-newgame-regression.ahk run
 ;
-; Calibration is needed once because the current profiler log contains UI
-; button paths/timestamps but not mouse coordinates. Hover each requested
-; button and press F8. Coordinates are stored normalized to a 1920x1080
-; Unity-style bottom-left reference space so the runner scales to the current
-; client size using the same scheme as mrprepper-benchmark.ahk.
+; Calibration is needed once because the profiler logs UI button paths/timestamps
+; but not mouse coordinates. Hover each requested point and press F8.
+; Coordinates are stored normalized to a 1920x1080 Unity-style bottom-left
+; reference space so the runner scales to the current client size.
 ;
-; Run flow:
-;   New Game -> Slot 6 -> Normal game -> Normal difficulty -> Play
-;   -> No tutorial -> wait -> Esc -> Exit to Windows -> Yes
+; Current deterministic test flow:
+;   New Game
+;   -> Remove existing Slot 6 save -> Yes
+;   -> Slot 6 -> Normal game -> Normal difficulty -> Play
+;   -> wait for Main16 -> No tutorial
+;   -> hold left mouse to skip the new-game intro/video
+;   -> 8 left-clicks to advance the scripted opening sequence
+;   -> Esc -> Exit to Windows -> Yes
 ;
 ; The script uses a normal in-game exit. Force-close is only a timeout fallback.
 
@@ -23,8 +27,10 @@ mode := A_Args.Length >= 1 ? StrLower(A_Args[1]) : "run"
 startupDelayMs := A_Args.Length >= 2 ? Integer(A_Args[2]) : 14000
 stepDelayMs := A_Args.Length >= 3 ? Integer(A_Args[3]) : 1400
 loadWaitMs := A_Args.Length >= 4 ? Integer(A_Args[4]) : 23000
-postTutorialWaitMs := A_Args.Length >= 5 ? Integer(A_Args[5]) : 8000
-exitWaitMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 10000
+mouseHoldMs := A_Args.Length >= 5 ? Integer(A_Args[5]) : 2500
+advanceClickDelayMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 900
+postSequenceWaitMs := A_Args.Length >= 7 ? Integer(A_Args[7]) : 8000
+exitWaitMs := A_Args.Length >= 8 ? Integer(A_Args[8]) : 10000
 windowTimeoutSec := 45
 
 exe := "ahk_exe MrPrepper.exe"
@@ -49,7 +55,19 @@ if !WinWaitActive(exe, , 10) {
     ExitApp 3
 }
 
-required := ["NewGame", "Slot6", "NormalMode", "NormalDifficulty", "Play", "NoTutorial", "ExitToWindows", "ExitYes"]
+required := [
+    "NewGame",
+    "RemoveSave",
+    "RemoveYes",
+    "Slot6",
+    "NormalMode",
+    "NormalDifficulty",
+    "Play",
+    "NoTutorial",
+    "SkipArea",
+    "ExitToWindows",
+    "ExitYes"
+]
 for name in required {
     if !HasPoint(name) {
         MsgBox "Missing calibration point: " name "`nRun once with:`n`n" A_ScriptName " calibrate"
@@ -59,9 +77,15 @@ for name in required {
 
 Sleep startupDelayMs
 
-; Main menu -> create a new game in the dedicated second test slot.
+; Main menu -> remove the existing dedicated test save first.
 ClickPoint("NewGame")
 Sleep stepDelayMs
+ClickPoint("RemoveSave")
+Sleep stepDelayMs
+ClickPoint("RemoveYes")
+Sleep (stepDelayMs * 2)
+
+; Re-create Slot 6 as a fresh normal game.
 ClickPoint("Slot6")
 Sleep stepDelayMs
 ClickPoint("NormalMode")
@@ -70,15 +94,28 @@ ClickPoint("NormalDifficulty")
 Sleep stepDelayMs
 ClickPoint("Play")
 
-; The observed no-tutorial prompt appears after Main16 has loaded.
+; The no-tutorial prompt appears after Main16 has loaded.
 Sleep loadWaitMs
 ClickPoint("NoTutorial")
+Sleep stepDelayMs
+
+; Skip the following new-game intro/video by holding the left mouse button.
+MovePoint("SkipArea")
+SendEvent "{LButton down}"
+Sleep mouseHoldMs
+SendEvent "{LButton up}"
+Sleep stepDelayMs
+
+; Advance the deterministic scripted opening sequence.
+Loop 8 {
+    ClickPoint("SkipArea")
+    Sleep advanceClickDelayMs
+}
 
 ; Give dialogue/loading instrumentation enough time to finish writing results.
-Sleep postTutorialWaitMs
+Sleep postSequenceWaitMs
 
-; Prefer a clean shutdown so the next automated run does not inherit a
-; recovery/unclean-shutdown prompt.
+; Prefer a clean shutdown so the next automated run starts from a predictable state.
 Send "{Esc}"
 Sleep 1000
 ClickPoint("ExitToWindows")
@@ -111,16 +148,19 @@ Calibrate() {
 
     steps := [
         ["NewGame", "Hover NEW GAME / Нова игра"],
+        ["RemoveSave", "Hover REMOVE / Премахни on the test slot"],
+        ["RemoveYes", "Hover YES / Да on the remove-save confirmation"],
         ["Slot6", "Hover the SECOND TEST SLOT (Slot 6)"],
         ["NormalMode", "Hover NORMAL GAME / Нормална игра"],
         ["NormalDifficulty", "Hover NORMAL difficulty / Нормален"],
         ["Play", "Hover PLAY / Играй"],
         ["NoTutorial", "Hover NO / Не on the tutorial prompt"],
+        ["SkipArea", "Hover a safe central area used for holding/clicking through the opening sequence"],
         ["ExitToWindows", "Hover EXIT TO WINDOWS / Изход от играта"],
         ["ExitYes", "Hover YES / Да on the exit confirmation"]
     ]
 
-    MsgBox "Calibration mode.`n`nFor each step, hover the requested button and press F8.`nThe game will not be clicked by the calibration hotkey."
+    MsgBox "Calibration mode.`n`nFor each step, hover the requested point and press F8.`nThe game will not be clicked by the calibration hotkey."
 
     for step in steps {
         name := step[1]
@@ -163,7 +203,7 @@ HasPoint(name) {
     }
 }
 
-ClickPoint(name) {
+MovePoint(name) {
     global exe, ini
     ux := Integer(IniRead(ini, "Points", name "X"))
     uy := Integer(IniRead(ini, "Points", name "Y"))
@@ -174,5 +214,10 @@ ClickPoint(name) {
 
     sx := Round(ux * w / 1920)
     sy := Round((1080 - uy) * h / 1080)
-    Click sx, sy
+    MouseMove sx, sy, 0
+}
+
+ClickPoint(name) {
+    MovePoint(name)
+    Click
 }
