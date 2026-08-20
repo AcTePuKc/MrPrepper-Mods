@@ -75,7 +75,7 @@ function Archive-BepInExLog {
     )
 
     if (-not (Test-Path -LiteralPath $logPath)) {
-        Write-Warning "BepInEx log not found after run $RunNumber: $logPath"
+        Write-Warning "BepInEx log not found after run ${RunNumber}: $logPath"
         return
     }
 
