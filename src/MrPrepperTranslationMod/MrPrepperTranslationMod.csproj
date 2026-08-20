@@ -7,7 +7,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyName>MrPrepperTranslationMod</AssemblyName>
     <RootNamespace>MrPrepperTranslationMod</RootNamespace>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <GameDir Condition="'$(GameDir)' == '' and '$(MR_PREPPER_DIR)' != ''">$(MR_PREPPER_DIR)</GameDir>
     <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\MrPrepper</GameDir>
     <GameManaged>$(GameDir)\MrPrepper_Data\Managed</GameManaged>
