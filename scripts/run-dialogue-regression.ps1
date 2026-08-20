@@ -5,7 +5,7 @@ param(
     [string]$GameDir = 'C:\Program Files (x86)\Steam\steamapps\common\MrPrepper',
     [string]$AutoHotkeyExe = 'C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe',
     [int]$CooldownSeconds = 5,
-    [int]$StartupDelayMs = 20000,
+    [int]$StartupDelayMs = 26000,
     [bool]$RestoreConfigs = $true
 )
 
