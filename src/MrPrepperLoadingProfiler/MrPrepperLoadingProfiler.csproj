@@ -7,7 +7,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyName>MrPrepperLoadingProfiler</AssemblyName>
     <RootNamespace>MrPrepperLoadingProfiler</RootNamespace>
-    <Version>0.2.0</Version>
+    <Version>0.3.0</Version>
     <GameDir Condition="'$(GameDir)' == '' and '$(MR_PREPPER_DIR)' != ''">$(MR_PREPPER_DIR)</GameDir>
     <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\MrPrepper</GameDir>
     <GameManaged>$(GameDir)\MrPrepper_Data\Managed</GameManaged>
@@ -26,8 +26,14 @@
 
   <ItemGroup>
     <Reference Include="BepInEx"><HintPath>$(BepInExCore)\BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="0Harmony"><HintPath>$(BepInExCore)\0Harmony.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine"><HintPath>$(GameManaged)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameManaged)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(GameManaged)\UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UI"><HintPath>$(GameManaged)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UIModule"><HintPath>$(GameManaged)\UnityEngine.UIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.VideoModule"><HintPath>$(GameManaged)\UnityEngine.VideoModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="TextMeshPro-2017.3-Runtime"><HintPath>$(GameManaged)\TextMeshPro-2017.3-Runtime.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>
 
   <Target Name="StageMod" AfterTargets="Build">
