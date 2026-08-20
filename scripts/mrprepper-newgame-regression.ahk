@@ -18,7 +18,7 @@
 ;   -> Slot 6 -> Normal game -> Normal difficulty -> Play
 ;   -> wait for Main16 -> No tutorial
 ;   -> hold left mouse to skip the new-game intro/video
-;   -> 8 left-clicks to advance the scripted opening sequence
+;   -> 8 paced left-clicks to advance the scripted opening dialogue
 ;   -> Esc -> Exit to Windows -> Yes
 ;
 ; The script uses a normal in-game exit. Force-close is only a timeout fallback.
@@ -27,8 +27,8 @@ mode := A_Args.Length >= 1 ? StrLower(A_Args[1]) : "run"
 startupDelayMs := A_Args.Length >= 2 ? Integer(A_Args[2]) : 14000
 stepDelayMs := A_Args.Length >= 3 ? Integer(A_Args[3]) : 1400
 loadWaitMs := A_Args.Length >= 4 ? Integer(A_Args[4]) : 23000
-mouseHoldMs := A_Args.Length >= 5 ? Integer(A_Args[5]) : 2500
-advanceClickDelayMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 900
+mouseHoldMs := A_Args.Length >= 5 ? Integer(A_Args[5]) : 3500
+advanceClickDelayMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 1800
 postSequenceWaitMs := A_Args.Length >= 7 ? Integer(A_Args[7]) : 8000
 exitWaitMs := A_Args.Length >= 8 ? Integer(A_Args[8]) : 10000
 windowTimeoutSec := 45
@@ -100,13 +100,16 @@ ClickPoint("NoTutorial")
 Sleep stepDelayMs
 
 ; Skip the following new-game intro/video by holding the left mouse button.
+; A synthetic hold is intentionally longer than a casual manual hold so a
+; flaky physical mouse button cannot affect the automated run.
 MovePoint("SkipArea")
 SendEvent "{LButton down}"
 Sleep mouseHoldMs
 SendEvent "{LButton up}"
 Sleep stepDelayMs
 
-; Advance the deterministic scripted opening sequence.
+; Advance the deterministic scripted opening sequence. The dialogue needs time
+; to appear between clicks, so do not fire these as a rapid click burst.
 Loop 8 {
     ClickPoint("SkipArea")
     Sleep advanceClickDelayMs
