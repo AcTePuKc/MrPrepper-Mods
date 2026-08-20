@@ -110,32 +110,44 @@ function Set-ProfilerMode {
 
 function Get-Variants {
     if ($Experiment -eq 'RegexCacheAB') {
-        return @(
-            [pscustomobject]@{ Name='RegexCacheOn'; RegexCache=$true },
-            [pscustomobject]@{ Name='RegexCacheOff'; RegexCache=$false }
-        )
+        [pscustomobject]@{ Name='RegexCacheOn'; RegexCache=$true }
+        [pscustomobject]@{ Name='RegexCacheOff'; RegexCache=$false }
+        return
     }
-    return @([pscustomobject]@{ Name=$(if($RegexCacheEnabled){'RegexCacheOn'}else{'RegexCacheOff'}); RegexCache=$RegexCacheEnabled })
+    [pscustomobject]@{ Name=$(if($RegexCacheEnabled){'RegexCacheOn'}else{'RegexCacheOff'}); RegexCache=$RegexCacheEnabled }
 }
 
 function Get-Plan([object[]]$Variants) {
-    $plan = New-Object System.Collections.Generic.List[object]
     if ($VariantOrder -eq 'Grouped') {
-        foreach ($v in $Variants) { for($r=1;$r -le $Runs;$r++){ $plan.Add([pscustomobject]@{Round=$r;Variant=$v}) } }
-    } elseif ($VariantOrder -eq 'Random') {
-        $tmp = @(); for($r=1;$r -le $Runs;$r++){ foreach($v in $Variants){ $tmp += [pscustomobject]@{Round=$r;Variant=$v} } }
-        foreach($x in @($tmp | Sort-Object {Get-Random})){ $plan.Add($x) }
-    } else {
-        for($r=1;$r -le $Runs;$r++){
-            if(($r % 2) -eq 1){ $ordered = $Variants }
-            else {
-                $ordered = @()
-                for($j=$Variants.Count-1;$j -ge 0;$j--){ $ordered += $Variants[$j] }
+        foreach ($v in $Variants) {
+            for ($r=1; $r -le $Runs; $r++) {
+                [pscustomobject]@{ Round=$r; Variant=$v }
             }
-            foreach($v in $ordered){ $plan.Add([pscustomobject]@{Round=$r;Variant=$v}) }
+        }
+        return
+    }
+
+    if ($VariantOrder -eq 'Random') {
+        $tmp = @()
+        for ($r=1; $r -le $Runs; $r++) {
+            foreach ($v in $Variants) {
+                $tmp += [pscustomobject]@{ Round=$r; Variant=$v }
+            }
+        }
+        $tmp | Sort-Object { Get-Random }
+        return
+    }
+
+    for ($r=1; $r -le $Runs; $r++) {
+        $ordered = if (($r % 2) -eq 1) {
+            @($Variants)
+        } else {
+            @($Variants[($Variants.Count-1)..0])
+        }
+        foreach ($v in $ordered) {
+            [pscustomobject]@{ Round=$r; Variant=$v }
         }
     }
-    return @($plan)
 }
 
 function Archive-Log([int]$Index,[int]$Total,[string]$Variant,[int]$Round,[bool]$Completed) {
@@ -165,8 +177,12 @@ foreach($p in $cfg.Values){
 }
 
 $variants = @(Get-Variants)
-$plan = @(Get-Plan $variants)
-$session = New-Object System.Collections.Generic.List[object]
+$plan = @(Get-Plan -Variants $variants)
+$session = @()
+
+if ($variants.Count -lt 1 -or $plan.Count -lt 1) {
+    throw "Experiment produced an empty run plan. Experiment=$Experiment Runs=$Runs"
+}
 
 Write-Host "Experiment=$Experiment Priority=$Priority RunsPerVariant=$Runs Variants=$($variants.Count) TotalRuns=$($plan.Count) ProfilerMode=$ProfilerMode Order=$VariantOrder"
 Write-Host "Results: $experimentCsvPath"
@@ -198,10 +214,10 @@ try {
         if($done){
             $b=Import-Csv $csvPath | Select-Object -Last 1
             Add-ExperimentRow $v.Name $round $idx $b
-            $session.Add([pscustomobject]@{
+            $session += [pscustomobject]@{
                 Variant=$v.Name; RequestToSceneLoaded_s=[double]$b.RequestToSceneLoaded_s; LargestPreLoadFrame_ms=[double]$b.LargestPreLoadFrame_ms
                 PostLoadLargest_ms=[double]$b.PostLoadLargest_ms; PostLoadWindow_ms=[double]$b.PostLoadWindow_ms; Total_s=[double]$b.TotalButtonToPostWindowEnd_s
-            })
+            }
             Write-Host ("  Scene={0}s Pre={1}ms Post={2}ms Window={3}ms Total={4}s" -f $b.RequestToSceneLoaded_s,$b.LargestPreLoadFrame_ms,$b.PostLoadLargest_ms,$b.PostLoadWindow_ms,$b.TotalButtonToPostWindowEnd_s)
         } else { Write-Warning "[$idx/$($plan.Count)] run failed or timed out" }
 
@@ -221,7 +237,7 @@ try {
             Window_ms=[math]::Round((Median ([double[]]$r.PostLoadWindow_ms)),1)
             Total_s=[math]::Round((Median ([double[]]$r.Total_s)),3)
         }
-        $summaries+=$s
+        $summaries += $s
     }
     $summaries | Format-Table -AutoSize
 
