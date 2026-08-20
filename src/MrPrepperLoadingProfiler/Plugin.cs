@@ -23,7 +23,7 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.loadingprofiler";
     public const string PluginName = "Mr. Prepper Loading Profiler";
-    public const string PluginVersion = "0.6.0";
+    public const string PluginVersion = "0.7.0";
 
     private static ManualLogSource log;
     private static ConfigEntry<bool> logUiButtonPresses;
@@ -74,6 +74,7 @@ public sealed class Plugin : BaseUnityPlugin
     private static readonly HashSet<MethodBase> DynamicPatchedMethods = new();
     private static readonly Dictionary<Type, string> CoroutineOwners = new();
     private static readonly Dictionary<MethodBase, string> DynamicMethodOwners = new();
+    private static readonly List<SceneAsyncState> SceneAsyncOperations = new();
 
     private sealed class VideoState
     {
@@ -82,6 +83,17 @@ public sealed class Plugin : BaseUnityPlugin
         public bool ActiveInHierarchy;
         public bool Enabled;
         public string Description;
+    }
+
+    private sealed class SceneAsyncState
+    {
+        public AsyncOperation Operation;
+        public string Request;
+        public float StartedAt;
+        public float LastProgress = -1f;
+        public bool LastIsDone;
+        public bool LastAllowSceneActivation;
+        public int LastLoggedFrame = -1;
     }
 
     private void Awake()
@@ -125,7 +137,7 @@ public sealed class Plugin : BaseUnityPlugin
         traceDelayedInvokes = Config.Bind("Targeted", "TraceDelayedInvokes", true,
             "Trace MonoBehaviour.Invoke/InvokeRepeating calls during the targeted load window.");
         traceSceneRequests = Config.Bind("Targeted", "TraceSceneRequests", true,
-            "Trace SceneManager load requests during the targeted load window.");
+            "Trace SceneManager load requests and returned AsyncOperation progress during the targeted load window.");
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
@@ -256,7 +268,14 @@ public sealed class Plugin : BaseUnityPlugin
                     continue;
                 }
 
-                harmony.Patch(method, prefix: new HarmonyMethod(typeof(Plugin), nameof(SceneLoadRequestPrefix)));
+                var postfix = method.ReturnType == typeof(AsyncOperation)
+                    ? new HarmonyMethod(typeof(Plugin), nameof(SceneLoadRequestPostfix))
+                    : null;
+
+                harmony.Patch(
+                    method,
+                    prefix: new HarmonyMethod(typeof(Plugin), nameof(SceneLoadRequestPrefix)),
+                    postfix: postfix);
                 count++;
             }
             catch
@@ -522,17 +541,121 @@ public sealed class Plugin : BaseUnityPlugin
             $"scene='{GetActiveSceneName()}' | frame={Time.frameCount}{ownerSuffix} | trigger='{TrimForLog(targetedTrigger, 160)}'");
     }
 
-    private static void SceneLoadRequestPrefix(MethodBase __originalMethod, object[] __args)
+    private static void SceneLoadRequestPrefix(MethodBase __originalMethod, object[] __args, ref long __state)
     {
+        __state = 0L;
         if (!IsTargetedWindowActive() || traceSceneRequests == null || !traceSceneRequests.Value)
         {
             return;
         }
 
+        __state = Stopwatch.GetTimestamp();
         var args = DescribeArguments(__args);
         log?.LogInfo(
             $"[SCENE REQUEST] method='{DescribeMethod(__originalMethod)}' args='{TrimForLog(args, 220)}' | " +
             $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+    }
+
+    private static void SceneLoadRequestPostfix(MethodBase __originalMethod, object[] __args, long __state, AsyncOperation __result)
+    {
+        if (__state == 0L)
+        {
+            return;
+        }
+
+        var elapsedMs = (Stopwatch.GetTimestamp() - __state) * 1000.0 / Stopwatch.Frequency;
+        var request = DescribeMethod(__originalMethod) + " args=" + DescribeArguments(__args);
+        log?.LogInfo(
+            $"[SCENE REQUEST RETURN] {elapsedMs:0.000} ms | request='{TrimForLog(request, 260)}' | " +
+            $"operation={(ReferenceEquals(__result, null) ? "<null>" : "returned")} | realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+
+        if (ReferenceEquals(__result, null))
+        {
+            return;
+        }
+
+        foreach (var existing in SceneAsyncOperations)
+        {
+            if (ReferenceEquals(existing.Operation, __result))
+            {
+                return;
+            }
+        }
+
+        var state = new SceneAsyncState
+        {
+            Operation = __result,
+            Request = request,
+            StartedAt = Time.realtimeSinceStartup,
+            LastProgress = SafeAsyncProgress(__result),
+            LastIsDone = SafeAsyncDone(__result),
+            LastAllowSceneActivation = SafeAsyncAllowSceneActivation(__result),
+            LastLoggedFrame = Time.frameCount
+        };
+        SceneAsyncOperations.Add(state);
+
+        log?.LogInfo(
+            $"[SCENE ASYNC START] progress={state.LastProgress:0.000} isDone={state.LastIsDone} " +
+            $"allowSceneActivation={state.LastAllowSceneActivation} | request='{TrimForLog(request, 220)}' | " +
+            $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+    }
+
+    private static float SafeAsyncProgress(AsyncOperation operation)
+    {
+        try { return operation.progress; } catch { return -1f; }
+    }
+
+    private static bool SafeAsyncDone(AsyncOperation operation)
+    {
+        try { return operation.isDone; } catch { return false; }
+    }
+
+    private static bool SafeAsyncAllowSceneActivation(AsyncOperation operation)
+    {
+        try { return operation.allowSceneActivation; } catch { return false; }
+    }
+
+    private static void SampleSceneAsyncOperations(double frameMs)
+    {
+        if (SceneAsyncOperations.Count == 0)
+        {
+            return;
+        }
+
+        for (var i = SceneAsyncOperations.Count - 1; i >= 0; i--)
+        {
+            var state = SceneAsyncOperations[i];
+            if (state == null || ReferenceEquals(state.Operation, null))
+            {
+                SceneAsyncOperations.RemoveAt(i);
+                continue;
+            }
+
+            var progress = SafeAsyncProgress(state.Operation);
+            var isDone = SafeAsyncDone(state.Operation);
+            var allow = SafeAsyncAllowSceneActivation(state.Operation);
+            var progressChanged = state.LastProgress < 0f || Math.Abs(progress - state.LastProgress) >= 0.005f;
+            var stateChanged = isDone != state.LastIsDone || allow != state.LastAllowSceneActivation;
+            var stallFrame = frameMs >= 250.0;
+
+            if (progressChanged || stateChanged || stallFrame)
+            {
+                var age = Math.Max(0f, Time.realtimeSinceStartup - state.StartedAt);
+                log?.LogInfo(
+                    $"[SCENE ASYNC] progress={progress:0.000} delta={progress - state.LastProgress:+0.000;-0.000;0.000} " +
+                    $"isDone={isDone} allowSceneActivation={allow} | age={age:0.000}s frame={Time.frameCount} " +
+                    $"frameDelta={frameMs:0.0}ms | request='{TrimForLog(state.Request, 200)}'");
+                state.LastProgress = progress;
+                state.LastIsDone = isDone;
+                state.LastAllowSceneActivation = allow;
+                state.LastLoggedFrame = Time.frameCount;
+            }
+
+            if (isDone)
+            {
+                SceneAsyncOperations.RemoveAt(i);
+            }
+        }
     }
 
     private static string DescribeArguments(object[] args)
@@ -587,6 +710,7 @@ public sealed class Plugin : BaseUnityPlugin
         targetedTrigger = trigger ?? "<unknown>";
         var duration = targetedWindowSeconds != null ? Math.Max(1f, targetedWindowSeconds.Value) : 15f;
         targetedWindowUntil = Time.realtimeSinceStartup + duration;
+        SceneAsyncOperations.Clear();
 
         log?.LogInfo(
             $"[TARGET WINDOW] opened for {duration:0.0}s | realtime={Time.realtimeSinceStartup:0.000}s | " +
@@ -766,6 +890,8 @@ public sealed class Plugin : BaseUnityPlugin
         ScanVideoPlayersIfDue();
 
         var frameMs = Time.unscaledDeltaTime * 1000.0;
+        SampleSceneAsyncOperations(frameMs);
+
         var focused = Application.isFocused;
         var phase = GetCurrentPhase();
 
@@ -1273,6 +1399,7 @@ public sealed class Plugin : BaseUnityPlugin
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneUnloaded -= OnSceneUnloaded;
         SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+        SceneAsyncOperations.Clear();
         harmony?.UnpatchSelf();
     }
 }
