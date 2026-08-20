@@ -12,7 +12,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguestartilinspector";
     public const string PluginName = "Mr. Prepper Dialogue IL Inspector";
-    public const string PluginVersion = "0.5.0";
+    public const string PluginVersion = "0.6.0";
 
     private sealed class TargetSpec
     {
@@ -72,10 +72,26 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
         if (ctor == null)
         {
             Logger.LogWarning("[DIALOGUE IL] Characters.DialogueParagraph..ctor(String) was not found.");
-            return;
+        }
+        else
+        {
+            InspectMethodBody(ctor, "DialogueParagraph..ctor");
         }
 
-        InspectMethodBody(ctor, "DialogueParagraph..ctor");
+        var set = paragraphType.GetMethod(
+            "Set",
+            BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly,
+            null,
+            new[] { typeof(string) },
+            null);
+        if (set == null)
+        {
+            Logger.LogWarning("[DIALOGUE IL] Characters.DialogueParagraph.Set(String) was not found.");
+        }
+        else
+        {
+            InspectMethodBody(set, "DialogueParagraph.Set");
+        }
     }
 
     private void InspectMethod(Type type, TargetSpec spec)
