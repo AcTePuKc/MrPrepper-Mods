@@ -11,17 +11,20 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.skipstartupvideo";
     public const string PluginName = "Mr. Prepper Skip Startup Video";
-    public const string PluginVersion = "0.1.0";
+    public const string PluginVersion = "0.2.0";
 
     private const string TargetScene = "LoadingScreen";
     private const string TargetObject = "RGintro";
     private const string TargetClip = "RGintro";
+    private const double TailSeconds = 0.05;
+
+    private bool handled;
 
     private void Awake()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        TryDisableStartupVideo("plugin-awake");
-        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. targetScene='{TargetScene}' targetObject='{TargetObject}' targetClip='{TargetClip}'");
+        TryFastForwardStartupVideo("plugin-awake");
+        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. targetScene='{TargetScene}' targetObject='{TargetObject}' targetClip='{TargetClip}' mode=fast-forward-tail");
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -29,11 +32,14 @@ public sealed class Plugin : BaseUnityPlugin
         if (!string.Equals(scene.name, TargetScene, StringComparison.Ordinal))
             return;
 
-        TryDisableStartupVideo("scene-loaded");
+        TryFastForwardStartupVideo("scene-loaded");
     }
 
-    private void TryDisableStartupVideo(string reason)
+    private void TryFastForwardStartupVideo(string reason)
     {
+        if (handled)
+            return;
+
         var players = Resources.FindObjectsOfTypeAll<VideoPlayer>();
         foreach (var player in players)
         {
@@ -51,13 +57,22 @@ public sealed class Plugin : BaseUnityPlugin
             if (!string.Equals(clipName, TargetClip, StringComparison.Ordinal))
                 continue;
 
+            // Keep the GameObject and VideoPlayer alive so the game's own completion
+            // callback / transition logic can still run. We only jump to the tail.
             player.playOnAwake = false;
-            if (player.isPlaying || player.isPrepared)
-                player.Stop();
-            player.enabled = false;
-            player.gameObject.SetActive(false);
+            player.enabled = true;
+            player.gameObject.SetActive(true);
 
-            Logger.LogInfo($"[SKIP STARTUP VIDEO] disabled scene='{scene.name}' object='{player.gameObject.name}' clip='{clipName}' reason='{reason}'");
+            var length = player.clip != null ? player.clip.length : player.length;
+            if (length > TailSeconds)
+            {
+                player.time = Math.Max(0.0, length - TailSeconds);
+            }
+
+            player.Play();
+            handled = true;
+
+            Logger.LogInfo($"[SKIP STARTUP VIDEO] fast-forwarded scene='{scene.name}' object='{player.gameObject.name}' clip='{clipName}' length={length:0.000}s time={player.time:0.000}s reason='{reason}'");
             return;
         }
     }
