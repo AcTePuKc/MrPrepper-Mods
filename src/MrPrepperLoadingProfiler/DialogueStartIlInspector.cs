@@ -12,7 +12,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguestartilinspector";
     public const string PluginName = "Mr. Prepper Dialogue IL Inspector";
-    public const string PluginVersion = "0.3.0";
+    public const string PluginVersion = "0.4.0";
 
     private sealed class TargetSpec
     {
@@ -25,7 +25,8 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
         new() { Name = "Start", Parameters = Type.EmptyTypes },
         new() { Name = "SetParagraphs", Parameters = Type.EmptyTypes },
         new() { Name = "SetComponents", Parameters = Type.EmptyTypes },
-        new() { Name = "SetParagraphsFromLocalization", Parameters = new[] { typeof(string) } }
+        new() { Name = "SetParagraphsFromLocalization", Parameters = new[] { typeof(string) } },
+        new() { Name = "SetParagraphsFromText", Parameters = new[] { typeof(string).MakeByRefType() } }
     };
 
     private static readonly OpCode[] OneByteOpCodes = new OpCode[0x100];
