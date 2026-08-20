@@ -19,7 +19,7 @@
 ;   -> wait for Main16 -> No tutorial
 ;   -> hold left mouse to skip the new-game intro/video
 ;   -> wait for the opening camera to descend and dialogue to become visible
-;   -> 10 paced left-clicks to advance the scripted opening sequence
+;   -> 11 paced left-clicks to advance the scripted opening sequence
 ;   -> Esc -> Exit to Windows -> Yes
 ;
 ; The opening dialogue does not advance reliably with a single uniform cadence.
@@ -40,7 +40,7 @@ windowTimeoutSec := 45
 ; Delay BEFORE each opening-sequence click after the camera settle wait.
 ; Click 5 deliberately gets a longer lead-in because it was repeatedly
 ; observed to arrive before the preceding text had fully appeared.
-advanceBeforeClickMs := [0, 2200, 2200, 2200, 4500, 3200, 3200, 3200, 3200, 3200]
+advanceBeforeClickMs := [0, 2200, 2200, 2200, 4500, 3200, 3200, 3200, 3200, 3200, 3200]
 
 exe := "ahk_exe MrPrepper.exe"
 ini := A_ScriptDir "\\mrprepper-newgame-regression.ini"
