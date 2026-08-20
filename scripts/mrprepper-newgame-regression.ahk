@@ -18,8 +18,12 @@
 ;   -> Slot 6 -> Normal game -> Normal difficulty -> Play
 ;   -> wait for Main16 -> No tutorial
 ;   -> hold left mouse to skip the new-game intro/video
-;   -> 8 paced left-clicks to advance the scripted opening dialogue
+;   -> 8 paced left-clicks to advance the scripted opening sequence
 ;   -> Esc -> Exit to Windows -> Yes
+;
+; The opening dialogue does not advance reliably with a single uniform cadence.
+; The fifth click needs a longer wait before it because that line can still be
+; revealing when a faster click arrives. Use an explicit per-click schedule.
 ;
 ; The script uses a normal in-game exit. Force-close is only a timeout fallback.
 
@@ -28,10 +32,14 @@ startupDelayMs := A_Args.Length >= 2 ? Integer(A_Args[2]) : 14000
 stepDelayMs := A_Args.Length >= 3 ? Integer(A_Args[3]) : 1400
 loadWaitMs := A_Args.Length >= 4 ? Integer(A_Args[4]) : 23000
 mouseHoldMs := A_Args.Length >= 5 ? Integer(A_Args[5]) : 3500
-advanceClickDelayMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 1800
-postSequenceWaitMs := A_Args.Length >= 7 ? Integer(A_Args[7]) : 8000
-exitWaitMs := A_Args.Length >= 8 ? Integer(A_Args[8]) : 10000
+postSequenceWaitMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 8000
+exitWaitMs := A_Args.Length >= 7 ? Integer(A_Args[7]) : 10000
 windowTimeoutSec := 45
+
+; Delay BEFORE each opening-sequence click after the first one.
+; Click 5 deliberately gets a much longer lead-in because it was repeatedly
+; observed to arrive before the preceding text had fully appeared.
+advanceBeforeClickMs := [0, 2200, 2200, 2200, 4500, 3200, 3200, 3200]
 
 exe := "ahk_exe MrPrepper.exe"
 ini := A_ScriptDir "\\mrprepper-newgame-regression.ini"
@@ -100,19 +108,19 @@ ClickPoint("NoTutorial")
 Sleep stepDelayMs
 
 ; Skip the following new-game intro/video by holding the left mouse button.
-; A synthetic hold is intentionally longer than a casual manual hold so a
-; flaky physical mouse button cannot affect the automated run.
 MovePoint("SkipArea")
 SendEvent "{LButton down}"
 Sleep mouseHoldMs
 SendEvent "{LButton up}"
 Sleep stepDelayMs
 
-; Advance the deterministic scripted opening sequence. The dialogue needs time
-; to appear between clicks, so do not fire these as a rapid click burst.
-Loop 8 {
+; Advance the deterministic scripted opening sequence. The delays are before
+; each click so click #5 can be held back without changing the timing after it.
+for index, delayMs in advanceBeforeClickMs {
+    if (delayMs > 0) {
+        Sleep delayMs
+    }
     ClickPoint("SkipArea")
-    Sleep advanceClickDelayMs
 }
 
 ; Give dialogue/loading instrumentation enough time to finish writing results.
