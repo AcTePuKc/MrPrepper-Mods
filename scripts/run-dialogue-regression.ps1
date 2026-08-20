@@ -5,7 +5,7 @@ param(
     [string]$GameDir = 'C:\Program Files (x86)\Steam\steamapps\common\MrPrepper',
     [string]$AutoHotkeyExe = 'C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe',
     [int]$CooldownSeconds = 5,
-    [int]$StartupDelayMs = 26000,
+    [int]$StartupDelayMs = 30000,
     [bool]$RestoreConfigs = $true
 )
 
@@ -124,7 +124,6 @@ Write-Host "Dialogue regression: RunsPerVariant=$Runs TotalRuns=$($plan.Count) O
 Write-Host "Results: $csvPath"
 
 try {
-    # Match the successful manual diagnostic setup while avoiding the hot DialogueTag profiler.
     Set-CfgValue $cfg.Benchmark 'Benchmark' 'Enabled' 'true'
     Set-CfgValue $cfg.Benchmark 'Benchmark' 'WriteCsv' 'true'
     Set-CfgValue $cfg.Loading 'General' 'Enabled' 'true'
@@ -141,9 +140,6 @@ try {
         Stop-Game
         if(Test-Path $logPath){ Remove-Item $logPath -Force }
 
-        # Use the same proven model as the older benchmark runner: start the
-        # game and AHK together, then let AHK own the startup wait. Log/process
-        # polling added a race on this Unity build and is intentionally avoided.
         $game=Start-Process $gameExe -WorkingDirectory $GameDir -PassThru
         $ahk=Start-Process $AutoHotkeyExe -ArgumentList @('"'+$ahkScript+'"','run',$StartupDelayMs) -PassThru -Wait
         $ahkExit=$ahk.ExitCode
