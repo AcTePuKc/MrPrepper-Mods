@@ -12,9 +12,22 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguestartilinspector";
     public const string PluginName = "Mr. Prepper Dialogue IL Inspector";
-    public const string PluginVersion = "0.2.0";
+    public const string PluginVersion = "0.3.0";
 
-    private static readonly string[] TargetMethods = { "Start", "SetParagraphs", "SetComponents" };
+    private sealed class TargetSpec
+    {
+        public string Name;
+        public Type[] Parameters;
+    }
+
+    private static readonly TargetSpec[] TargetMethods =
+    {
+        new() { Name = "Start", Parameters = Type.EmptyTypes },
+        new() { Name = "SetParagraphs", Parameters = Type.EmptyTypes },
+        new() { Name = "SetComponents", Parameters = Type.EmptyTypes },
+        new() { Name = "SetParagraphsFromLocalization", Parameters = new[] { typeof(string) } }
+    };
+
     private static readonly OpCode[] OneByteOpCodes = new OpCode[0x100];
     private static readonly OpCode[] TwoByteOpCodes = new OpCode[0x100];
 
@@ -22,20 +35,10 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
     {
         foreach (var field in typeof(OpCodes).GetFields(BindingFlags.Public | BindingFlags.Static))
         {
-            if (!(field.GetValue(null) is OpCode op))
-            {
-                continue;
-            }
-
+            if (!(field.GetValue(null) is OpCode op)) continue;
             var value = unchecked((ushort)op.Value);
-            if (value < 0x100)
-            {
-                OneByteOpCodes[value] = op;
-            }
-            else if ((value & 0xff00) == 0xfe00)
-            {
-                TwoByteOpCodes[value & 0xff] = op;
-            }
+            if (value < 0x100) OneByteOpCodes[value] = op;
+            else if ((value & 0xff00) == 0xfe00) TwoByteOpCodes[value & 0xff] = op;
         }
     }
 
@@ -43,13 +46,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
     {
         var assembly = AppDomain.CurrentDomain.GetAssemblies()
             .FirstOrDefault(a => string.Equals(a.GetName().Name, "Assembly-CSharp", StringComparison.Ordinal));
-        if (assembly == null)
-        {
-            Logger.LogWarning("[DIALOGUE IL] Assembly-CSharp was not found.");
-            return;
-        }
-
-        var type = assembly.GetType("Characters.Dialogue", false);
+        var type = assembly?.GetType("Characters.Dialogue", false);
         if (type == null)
         {
             Logger.LogWarning("[DIALOGUE IL] Characters.Dialogue was not found.");
@@ -57,42 +54,36 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
         }
 
         Logger.LogInfo($"{PluginName} {PluginVersion} loaded. targetType={type.FullName}");
-        foreach (var methodName in TargetMethods)
-        {
-            InspectMethod(type, methodName);
-        }
+        foreach (var spec in TargetMethods) InspectMethod(type, spec);
     }
 
-    private void InspectMethod(Type type, string methodName)
+    private void InspectMethod(Type type, TargetSpec spec)
     {
         var method = type.GetMethod(
-            methodName,
-            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly,
+            spec.Name,
+            BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly,
             null,
-            Type.EmptyTypes,
+            spec.Parameters,
             null);
 
         if (method == null)
         {
-            Logger.LogWarning($"[DIALOGUE IL] {type.FullName}.{methodName}() was not found.");
+            Logger.LogWarning($"[DIALOGUE IL] {type.FullName}.{spec.Name}({string.Join(",", spec.Parameters.Select(p => p.Name))}) was not found.");
             return;
         }
 
         MethodBody body;
-        try
-        {
-            body = method.GetMethodBody();
-        }
+        try { body = method.GetMethodBody(); }
         catch (Exception ex)
         {
-            Logger.LogWarning($"[DIALOGUE IL] Could not read {methodName} body: {ex.GetType().Name}: {ex.Message}");
+            Logger.LogWarning($"[DIALOGUE IL] Could not read {spec.Name} body: {ex.GetType().Name}: {ex.Message}");
             return;
         }
 
         var il = body?.GetILAsByteArray();
         if (il == null || il.Length == 0)
         {
-            Logger.LogWarning($"[DIALOGUE IL] {type.FullName}.{methodName}() has no managed IL body.");
+            Logger.LogWarning($"[DIALOGUE IL] {DescribeMethod(method)} has no managed IL body.");
             return;
         }
 
@@ -102,15 +93,15 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
         var module = method.Module;
         var typeArgs = type.IsGenericType ? type.GetGenericArguments() : Type.EmptyTypes;
         var methodArgs = method.IsGenericMethod ? method.GetGenericArguments() : Type.EmptyTypes;
-
         var position = 0;
+
         while (position < il.Length)
         {
             var offset = position;
             var op = ReadOpCode(il, ref position);
             if (op.Size == 0)
             {
-                Logger.LogWarning($"[DIALOGUE IL] Unknown opcode in {methodName} at IL_{offset:X4}; stopping scan.");
+                Logger.LogWarning($"[DIALOGUE IL] Unknown opcode in {spec.Name} at IL_{offset:X4}; stopping scan.");
                 break;
             }
 
@@ -123,8 +114,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
                         var token = ReadInt32(il, ref position);
                         MethodBase target = null;
                         try { target = module.ResolveMethod(token, typeArgs, methodArgs); } catch { }
-                        var description = target != null ? DescribeMethod(target) : $"token=0x{token:X8}";
-                        calls.Add($"IL_{offset:X4} {op.Name} {description}");
+                        calls.Add($"IL_{offset:X4} {op.Name} {(target != null ? DescribeMethod(target) : $"token=0x{token:X8}")}");
                         break;
                     }
                     case OperandType.InlineField:
@@ -132,8 +122,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
                         var token = ReadInt32(il, ref position);
                         FieldInfo field = null;
                         try { field = module.ResolveField(token, typeArgs, methodArgs); } catch { }
-                        var description = field != null ? DescribeField(field) : $"token=0x{token:X8}";
-                        fields.Add($"IL_{offset:X4} {op.Name} {description}");
+                        fields.Add($"IL_{offset:X4} {op.Name} {(field != null ? DescribeField(field) : $"token=0x{token:X8}")}");
                         break;
                     }
                     case OperandType.InlineString:
@@ -151,39 +140,22 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
             }
             catch (Exception ex)
             {
-                Logger.LogWarning($"[DIALOGUE IL] Parse error in {methodName} at IL_{offset:X4} opcode={op.Name}: {ex.GetType().Name}: {ex.Message}");
+                Logger.LogWarning($"[DIALOGUE IL] Parse error in {spec.Name} at IL_{offset:X4} opcode={op.Name}: {ex.GetType().Name}: {ex.Message}");
                 break;
             }
         }
 
-        Logger.LogInfo(
-            $"[DIALOGUE IL SUMMARY] method='{type.FullName}.{methodName}()' ilBytes={il.Length} " +
-            $"directCalls={calls.Count} fieldAccesses={fields.Count} strings={strings.Count}");
-        foreach (var entry in calls)
-        {
-            Logger.LogInfo($"[DIALOGUE IL CALL] method='{methodName}' {entry}");
-        }
-        foreach (var entry in fields)
-        {
-            Logger.LogInfo($"[DIALOGUE IL FIELD] method='{methodName}' {entry}");
-        }
-        foreach (var entry in strings)
-        {
-            Logger.LogInfo($"[DIALOGUE IL STRING] method='{methodName}' {entry}");
-        }
+        Logger.LogInfo($"[DIALOGUE IL SUMMARY] method='{DescribeMethod(method)}' static={method.IsStatic} ilBytes={il.Length} directCalls={calls.Count} fieldAccesses={fields.Count} strings={strings.Count}");
+        foreach (var entry in calls) Logger.LogInfo($"[DIALOGUE IL CALL] method='{spec.Name}' {entry}");
+        foreach (var entry in fields) Logger.LogInfo($"[DIALOGUE IL FIELD] method='{spec.Name}' {entry}");
+        foreach (var entry in strings) Logger.LogInfo($"[DIALOGUE IL STRING] method='{spec.Name}' {entry}");
     }
 
     private static OpCode ReadOpCode(byte[] il, ref int position)
     {
         var first = il[position++];
-        if (first != 0xfe)
-        {
-            return OneByteOpCodes[first];
-        }
-        if (position >= il.Length)
-        {
-            return default;
-        }
+        if (first != 0xfe) return OneByteOpCodes[first];
+        if (position >= il.Length) return default;
         return TwoByteOpCodes[il[position++]];
     }
 
@@ -191,16 +163,11 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
     {
         switch (operandType)
         {
-            case OperandType.InlineNone:
-                return;
+            case OperandType.InlineNone: return;
             case OperandType.ShortInlineBrTarget:
             case OperandType.ShortInlineI:
-            case OperandType.ShortInlineVar:
-                position += 1;
-                return;
-            case OperandType.InlineVar:
-                position += 2;
-                return;
+            case OperandType.ShortInlineVar: position += 1; return;
+            case OperandType.InlineVar: position += 2; return;
             case OperandType.InlineBrTarget:
             case OperandType.InlineField:
             case OperandType.InlineI:
@@ -209,21 +176,14 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
             case OperandType.InlineString:
             case OperandType.InlineTok:
             case OperandType.InlineType:
-            case OperandType.ShortInlineR:
-                position += 4;
-                return;
+            case OperandType.ShortInlineR: position += 4; return;
             case OperandType.InlineI8:
-            case OperandType.InlineR:
-                position += 8;
-                return;
+            case OperandType.InlineR: position += 8; return;
             case OperandType.InlineSwitch:
-            {
                 var count = ReadInt32(il, ref position);
                 position += count * 4;
                 return;
-            }
-            default:
-                throw new NotSupportedException("Unsupported operand type: " + operandType);
+            default: throw new NotSupportedException("Unsupported operand type: " + operandType);
         }
     }
 
@@ -249,10 +209,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
 
     private static string Trim(string value, int max)
     {
-        if (string.IsNullOrEmpty(value))
-        {
-            return value ?? "<null>";
-        }
+        if (string.IsNullOrEmpty(value)) return value ?? "<null>";
         value = value.Replace("\r", "\\r").Replace("\n", "\\n");
         return value.Length <= max ? value : value.Substring(0, max) + "...";
     }
