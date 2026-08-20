@@ -3,7 +3,8 @@ using BepInEx.Configuration;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,12 +17,14 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.loadingbenchmark";
     public const string PluginName = "Mr. Prepper Load Benchmark";
-    public const string PluginVersion = "0.9.0";
+    public const string PluginVersion = "0.9.1";
 
     private static LoadBenchmarkPlugin instance;
     private static ConfigEntry<bool> benchmarkEnabled;
     private static ConfigEntry<UnityEngine.ThreadPriority> benchmarkPriority;
     private static ConfigEntry<int> postLoadFrames;
+    private static ConfigEntry<bool> writeCsv;
+    private static ConfigEntry<string> csvFileName;
 
     private Harmony harmony;
     private static bool runActive;
@@ -46,6 +49,10 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
             "Priority to force for the benchmark load. Valid values: Low, BelowNormal, Normal, High.");
         postLoadFrames = Config.Bind("Benchmark", "PostLoadFrames", 8,
             "Number of Main16 Update frames to include in the compact benchmark result.");
+        writeCsv = Config.Bind("Output", "WriteCsv", true,
+            "Append every completed benchmark run to a persistent CSV file.");
+        csvFileName = Config.Bind("Output", "CsvFileName", "benchmark-results.csv",
+            "CSV filename written under the BepInEx directory.");
 
         if (!benchmarkEnabled.Value)
         {
@@ -57,7 +64,7 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
         InstallHooks();
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. benchmarkPriority={benchmarkPriority.Value} postLoadFrames={postLoadFrames.Value}");
+        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. benchmarkPriority={benchmarkPriority.Value} postLoadFrames={postLoadFrames.Value} csv={GetCsvPath()}");
     }
 
     private void InstallHooks()
@@ -65,143 +72,82 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
         var press = AccessTools.Method(typeof(Button), "Press");
         if (press != null)
         {
-            var prefix = new HarmonyMethod(typeof(LoadBenchmarkPlugin), nameof(ButtonPressPrefix))
-            {
-                priority = Priority.First
-            };
-            var postfix = new HarmonyMethod(typeof(LoadBenchmarkPlugin), nameof(ButtonPressPostfix))
-            {
-                priority = Priority.Last
-            };
+            var prefix = new HarmonyMethod(typeof(LoadBenchmarkPlugin), nameof(ButtonPressPrefix)) { priority = Priority.First };
+            var postfix = new HarmonyMethod(typeof(LoadBenchmarkPlugin), nameof(ButtonPressPostfix)) { priority = Priority.Last };
             harmony.Patch(press, prefix: prefix, postfix: postfix);
         }
 
         foreach (var method in typeof(SceneManager).GetMethods(BindingFlags.Static | BindingFlags.Public))
         {
-            if (!string.Equals(method.Name, "LoadSceneAsync", StringComparison.Ordinal) || method.ReturnType != typeof(AsyncOperation))
-            {
-                continue;
-            }
-
+            if (!string.Equals(method.Name, "LoadSceneAsync", StringComparison.Ordinal) || method.ReturnType != typeof(AsyncOperation)) continue;
             try
             {
-                if (method.GetMethodBody() == null)
-                {
-                    continue;
-                }
-
-                harmony.Patch(
-                    method,
+                if (method.GetMethodBody() == null) continue;
+                harmony.Patch(method,
                     prefix: new HarmonyMethod(typeof(LoadBenchmarkPlugin), nameof(SceneRequestPrefix)),
                     postfix: new HarmonyMethod(typeof(LoadBenchmarkPlugin), nameof(SceneRequestPostfix)));
             }
-            catch
-            {
-            }
+            catch { }
         }
     }
 
     private static void ButtonPressPrefix(Button __instance)
     {
-        if (!IsSaveSlotPlay(__instance))
-        {
-            return;
-        }
-
+        if (!IsSaveSlotPlay(__instance)) return;
         runActive = true;
         buttonAt = Time.realtimeSinceStartup;
-        requestAt = -1f;
-        progress90At = -1f;
-        sceneLoadedAt = -1f;
+        requestAt = progress90At = sceneLoadedAt = -1f;
         sceneOperation = null;
         sceneRequest = "<none>";
         largestPreLoadFrameMs = 0.0;
         PostLoadFrameMs.Clear();
         postLoadSamplesRemaining = 0;
         naturalPriority = Application.backgroundLoadingPriority;
-
-        instance?.Logger.LogInfo(
-            $"[BENCHMARK START] naturalPriority={naturalPriority} targetPriority={benchmarkPriority.Value} realtime={buttonAt:0.000}s frame={Time.frameCount}");
+        instance?.Logger.LogInfo($"[BENCHMARK START] naturalPriority={naturalPriority} targetPriority={benchmarkPriority.Value} realtime={buttonAt:0.000}s frame={Time.frameCount}");
     }
 
     private static void ButtonPressPostfix(Button __instance)
     {
-        if (!runActive || !IsSaveSlotPlay(__instance))
-        {
-            return;
-        }
-
+        if (!runActive || !IsSaveSlotPlay(__instance)) return;
         Application.backgroundLoadingPriority = benchmarkPriority.Value;
         appliedPriority = Application.backgroundLoadingPriority;
-        instance?.Logger.LogInfo(
-            $"[BENCHMARK PRIORITY] applied={appliedPriority} natural={naturalPriority} realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+        instance?.Logger.LogInfo($"[BENCHMARK PRIORITY] applied={appliedPriority} natural={naturalPriority} realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
     }
 
     private static bool IsSaveSlotPlay(Button button)
     {
-        if (button == null || button.gameObject == null)
-        {
-            return false;
-        }
-
-        var path = GetObjectPath(button.gameObject);
-        return path.IndexOf("/SavedPanel/Play", StringComparison.OrdinalIgnoreCase) >= 0;
+        if (button == null || button.gameObject == null) return false;
+        return GetObjectPath(button.gameObject).IndexOf("/SavedPanel/Play", StringComparison.OrdinalIgnoreCase) >= 0;
     }
 
     private static void SceneRequestPrefix(MethodBase __originalMethod, object[] __args)
     {
-        if (!runActive)
-        {
-            return;
-        }
-
+        if (!runActive) return;
         var args = DescribeArguments(__args);
-        if (args.IndexOf("Main16", StringComparison.OrdinalIgnoreCase) < 0)
-        {
-            return;
-        }
-
+        if (args.IndexOf("Main16", StringComparison.OrdinalIgnoreCase) < 0) return;
         if (requestAt < 0f)
         {
             requestAt = Time.realtimeSinceStartup;
             sceneRequest = DescribeMethod(__originalMethod) + " args=" + args;
-            instance?.Logger.LogInfo(
-                $"[BENCHMARK REQUEST] priority={Application.backgroundLoadingPriority} realtime={requestAt:0.000}s frame={Time.frameCount} request='{Trim(sceneRequest, 220)}'");
+            instance?.Logger.LogInfo($"[BENCHMARK REQUEST] priority={Application.backgroundLoadingPriority} realtime={requestAt:0.000}s frame={Time.frameCount} request='{Trim(sceneRequest, 220)}'");
         }
     }
 
     private static void SceneRequestPostfix(object[] __args, AsyncOperation __result)
     {
-        if (!runActive || ReferenceEquals(__result, null) || !ReferenceEquals(sceneOperation, null))
-        {
-            return;
-        }
-
+        if (!runActive || ReferenceEquals(__result, null) || !ReferenceEquals(sceneOperation, null)) return;
         var args = DescribeArguments(__args);
-        if (args.IndexOf("Main16", StringComparison.OrdinalIgnoreCase) < 0)
-        {
-            return;
-        }
-
+        if (args.IndexOf("Main16", StringComparison.OrdinalIgnoreCase) < 0) return;
         sceneOperation = __result;
     }
 
     private void Update()
     {
-        if (!runActive)
-        {
-            return;
-        }
-
+        if (!runActive) return;
         var frameMs = Time.unscaledDeltaTime * 1000.0;
-
         if (sceneLoadedAt < 0f)
         {
-            if (frameMs > largestPreLoadFrameMs)
-            {
-                largestPreLoadFrameMs = frameMs;
-            }
-
+            if (frameMs > largestPreLoadFrameMs) largestPreLoadFrameMs = frameMs;
             if (!ReferenceEquals(sceneOperation, null) && progress90At < 0f)
             {
                 float progress;
@@ -209,21 +155,15 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
                 if (progress >= 0.899f)
                 {
                     progress90At = Time.realtimeSinceStartup;
-                    Logger.LogInfo(
-                        $"[BENCHMARK 90] requestTo90={Seconds(requestAt, progress90At):0.000}s frameDelta={frameMs:0.0}ms progress={progress:0.000} priority={Application.backgroundLoadingPriority}");
+                    Logger.LogInfo($"[BENCHMARK 90] requestTo90={Seconds(requestAt, progress90At):0.000}s frameDelta={frameMs:0.0}ms progress={progress:0.000} priority={Application.backgroundLoadingPriority}");
                 }
             }
             return;
         }
 
-        if (postLoadSamplesRemaining <= 0)
-        {
-            return;
-        }
-
+        if (postLoadSamplesRemaining <= 0) return;
         PostLoadFrameMs.Add(frameMs);
         postLoadSamplesRemaining--;
-
         if (postLoadSamplesRemaining == 0)
         {
             LogBenchmarkResult();
@@ -233,17 +173,11 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (!runActive || !string.Equals(scene.name, "Main16", StringComparison.OrdinalIgnoreCase))
-        {
-            return;
-        }
-
+        if (!runActive || !string.Equals(scene.name, "Main16", StringComparison.OrdinalIgnoreCase)) return;
         sceneLoadedAt = Time.realtimeSinceStartup;
         postLoadSamplesRemaining = Math.Max(1, postLoadFrames.Value);
         Application.backgroundLoadingPriority = naturalPriority;
-
-        Logger.LogInfo(
-            $"[BENCHMARK SCENE LOADED] requestToSceneLoaded={Seconds(requestAt, sceneLoadedAt):0.000}s progress90ToSceneLoaded={Seconds(progress90At, sceneLoadedAt):0.000}s restoredPriority={Application.backgroundLoadingPriority}");
+        Logger.LogInfo($"[BENCHMARK SCENE LOADED] requestToSceneLoaded={Seconds(requestAt, sceneLoadedAt):0.000}s progress90ToSceneLoaded={Seconds(progress90At, sceneLoadedAt):0.000}s restoredPriority={Application.backgroundLoadingPriority}");
     }
 
     private void LogBenchmarkResult()
@@ -254,43 +188,73 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
         foreach (var value in PostLoadFrameMs)
         {
             total += value;
-            if (value >= largest)
-            {
-                secondLargest = largest;
-                largest = value;
-            }
-            else if (value > secondLargest)
-            {
-                secondLargest = value;
-            }
+            if (value >= largest) { secondLargest = largest; largest = value; }
+            else if (value > secondLargest) secondLargest = value;
         }
 
         var endAt = Time.realtimeSinceStartup;
-        var postWindowMs = total;
+        var buttonToRequest = Seconds(buttonAt, requestAt);
+        var requestTo90 = Seconds(requestAt, progress90At);
+        var progress90ToSceneLoaded = Seconds(progress90At, sceneLoadedAt);
+        var requestToSceneLoaded = Seconds(requestAt, sceneLoadedAt);
+        var totalButtonToPostWindowEnd = Seconds(buttonAt, endAt);
+
         Logger.LogInfo(
             $"[LOAD BENCHMARK] priority={appliedPriority} naturalPriority={naturalPriority} " +
-            $"buttonToRequest={Seconds(buttonAt, requestAt):0.000}s " +
-            $"requestTo90={Seconds(requestAt, progress90At):0.000}s " +
-            $"progress90ToSceneLoaded={Seconds(progress90At, sceneLoadedAt):0.000}s " +
-            $"requestToSceneLoaded={Seconds(requestAt, sceneLoadedAt):0.000}s " +
-            $"largestPreLoadFrame={largestPreLoadFrameMs:0.0}ms " +
-            $"postLoadLargest={largest:0.0}ms postLoadSecond={secondLargest:0.0}ms " +
-            $"postLoadWindow={postWindowMs:0.0}ms totalButtonToPostWindowEnd={Seconds(buttonAt, endAt):0.000}s " +
-            $"postLoadSamples={PostLoadFrameMs.Count}");
+            $"buttonToRequest={buttonToRequest:0.000}s requestTo90={requestTo90:0.000}s " +
+            $"progress90ToSceneLoaded={progress90ToSceneLoaded:0.000}s requestToSceneLoaded={requestToSceneLoaded:0.000}s " +
+            $"largestPreLoadFrame={largestPreLoadFrameMs:0.0}ms postLoadLargest={largest:0.0}ms postLoadSecond={secondLargest:0.0}ms " +
+            $"postLoadWindow={total:0.0}ms totalButtonToPostWindowEnd={totalButtonToPostWindowEnd:0.000}s postLoadSamples={PostLoadFrameMs.Count}");
+
+        AppendCsv(buttonToRequest, requestTo90, progress90ToSceneLoaded, requestToSceneLoaded,
+            largestPreLoadFrameMs, largest, secondLargest, total, totalButtonToPostWindowEnd, PostLoadFrameMs.Count);
     }
 
-    private static double Seconds(float from, float to)
+    private void AppendCsv(double buttonToRequest, double requestTo90, double progress90ToSceneLoaded,
+        double requestToSceneLoaded, double largestPreLoadFrame, double postLoadLargest,
+        double postLoadSecond, double postLoadWindow, double totalButtonToPostWindowEnd, int samples)
     {
-        return from >= 0f && to >= 0f ? Math.Max(0.0, to - from) : -1.0;
+        if (writeCsv == null || !writeCsv.Value) return;
+        try
+        {
+            var path = GetCsvPath();
+            var exists = File.Exists(path);
+            using (var writer = new StreamWriter(path, true))
+            {
+                if (!exists || new FileInfo(path).Length == 0)
+                {
+                    writer.WriteLine("TimestampUtc,Priority,NaturalPriority,ButtonToRequest_s,RequestTo90_s,Progress90ToSceneLoaded_s,RequestToSceneLoaded_s,LargestPreLoadFrame_ms,PostLoadLargest_ms,PostLoadSecond_ms,PostLoadWindow_ms,TotalButtonToPostWindowEnd_s,PostLoadSamples");
+                }
+                writer.WriteLine(string.Join(",", new[]
+                {
+                    DateTime.UtcNow.ToString("o", CultureInfo.InvariantCulture),
+                    appliedPriority.ToString(), naturalPriority.ToString(),
+                    F(buttonToRequest), F(requestTo90), F(progress90ToSceneLoaded), F(requestToSceneLoaded),
+                    F(largestPreLoadFrame), F(postLoadLargest), F(postLoadSecond), F(postLoadWindow),
+                    F(totalButtonToPostWindowEnd), samples.ToString(CultureInfo.InvariantCulture)
+                }));
+            }
+            Logger.LogInfo($"[BENCHMARK CSV] appended '{path}'");
+        }
+        catch (Exception ex)
+        {
+            Logger.LogWarning($"[BENCHMARK CSV] failed: {ex.GetType().Name}: {ex.Message}");
+        }
     }
+
+    private static string GetCsvPath()
+    {
+        var name = csvFileName != null && !string.IsNullOrWhiteSpace(csvFileName.Value)
+            ? Path.GetFileName(csvFileName.Value) : "benchmark-results.csv";
+        return Path.Combine(Paths.BepInExRootPath, name);
+    }
+
+    private static string F(double value) => value.ToString("0.000", CultureInfo.InvariantCulture);
+    private static double Seconds(float from, float to) => from >= 0f && to >= 0f ? Math.Max(0.0, to - from) : -1.0;
 
     private static string DescribeArguments(object[] args)
     {
-        if (args == null || args.Length == 0)
-        {
-            return "<none>";
-        }
-
+        if (args == null || args.Length == 0) return "<none>";
         var parts = new string[args.Length];
         for (var i = 0; i < args.Length; i++)
         {
@@ -302,11 +266,7 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
 
     private static string DescribeMethod(MethodBase method)
     {
-        if (method == null)
-        {
-            return "<null>";
-        }
-
+        if (method == null) return "<null>";
         var type = method.DeclaringType != null ? method.DeclaringType.FullName : "<no-type>";
         return type + "." + method.Name;
     }
@@ -316,30 +276,20 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
         var names = new List<string>();
         var current = gameObject.transform;
         var guard = 0;
-        while (current != null && guard++ < 32)
-        {
-            names.Add(current.name);
-            current = current.parent;
-        }
+        while (current != null && guard++ < 32) { names.Add(current.name); current = current.parent; }
         names.Reverse();
         return string.Join("/", names.ToArray());
     }
 
     private static string Trim(string value, int maxLength)
     {
-        if (string.IsNullOrEmpty(value) || value.Length <= maxLength)
-        {
-            return value ?? string.Empty;
-        }
+        if (string.IsNullOrEmpty(value) || value.Length <= maxLength) return value ?? string.Empty;
         return value.Substring(0, maxLength) + "...";
     }
 
     private void OnDestroy()
     {
-        if (runActive)
-        {
-            Application.backgroundLoadingPriority = naturalPriority;
-        }
+        if (runActive) Application.backgroundLoadingPriority = naturalPriority;
         SceneManager.sceneLoaded -= OnSceneLoaded;
         harmony?.UnpatchSelf();
         instance = null;
