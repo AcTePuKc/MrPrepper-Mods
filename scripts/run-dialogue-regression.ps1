@@ -5,6 +5,8 @@ param(
     [string]$GameDir = 'C:\Program Files (x86)\Steam\steamapps\common\MrPrepper',
     [string]$AutoHotkeyExe = 'C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe',
     [int]$CooldownSeconds = 5,
+    [int]$MenuReadyTimeoutSeconds = 45,
+    [int]$MenuSettleMs = 1000,
     [bool]$RestoreConfigs = $true
 )
 
@@ -66,6 +68,24 @@ function Stop-Game {
     foreach($p in @(Get-Process MrPrepper -ErrorAction SilentlyContinue)) {
         try { if(-not $p.HasExited){ $p.Kill(); $p.WaitForExit() } } catch { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue }
     }
+}
+
+function Wait-ForMenuScene {
+    $deadline=(Get-Date).AddSeconds($MenuReadyTimeoutSeconds)
+    while((Get-Date)-lt $deadline) {
+        if(-not(Get-Process MrPrepper -ErrorAction SilentlyContinue)) { return $false }
+        if(Test-Path $logPath) {
+            try {
+                $tail=Get-Content -LiteralPath $logPath -Tail 80 -ErrorAction Stop
+                if($tail -match "menu_wybuch_2_6") {
+                    Start-Sleep -Milliseconds $MenuSettleMs
+                    return $true
+                }
+            } catch {}
+        }
+        Start-Sleep -Milliseconds 250
+    }
+    return $false
 }
 
 function Get-Plan {
@@ -140,8 +160,18 @@ try {
         if(Test-Path $logPath){ Remove-Item $logPath -Force }
 
         $game=Start-Process $gameExe -WorkingDirectory $GameDir -PassThru
-        $ahk=Start-Process $AutoHotkeyExe -ArgumentList @('"'+$ahkScript+'"','run') -PassThru -Wait
-        $ahkExit=$ahk.ExitCode
+        $menuReady=Wait-ForMenuScene
+        if(-not $menuReady) {
+            Write-Warning "[$idx/$($plan.Count)] main menu was not observed within $MenuReadyTimeoutSeconds seconds"
+            Stop-Game
+            $ahkExit=98
+        } else {
+            # Important: do not start the coordinate-driven AHK while the game is
+            # still in LoadingScreen. Manual runs were stable because AHK was
+            # started only after the main menu was already visible.
+            $ahk=Start-Process $AutoHotkeyExe -ArgumentList @('"'+$ahkScript+'"','run') -PassThru -Wait
+            $ahkExit=$ahk.ExitCode
+        }
 
         if(-not $game.HasExited){
             try { $game.WaitForExit(15000) | Out-Null } catch {}
@@ -151,7 +181,7 @@ try {
         Start-Sleep -Milliseconds 500
         $text=if(Test-Path $logPath){Get-Content -Raw $logPath}else{''}
         $a=Get-LogAnalysis $text $v.Enabled
-        $pass=($ahkExit -eq 0) -and $a.UiFlowOk -and ($a.RuntimeErrorCount -eq 0) -and $a.CacheSummaryOk
+        $pass=$menuReady -and ($ahkExit -eq 0) -and $a.UiFlowOk -and ($a.RuntimeErrorCount -eq 0) -and $a.CacheSummaryOk
 
         $stamp=Get-Date -Format 'yyyyMMdd-HHmmss-fff'
         $status=if($pass){'pass'}else{'fail'}
@@ -161,12 +191,12 @@ try {
 
         $row=[pscustomobject]@{
             Timestamp=(Get-Date).ToString('o'); Variant=$v.Name; Round=$round; PlanIndex=$idx; Order=$VariantOrder
-            AhkExitCode=$ahkExit; Pass=$pass; UiFlowOk=$a.UiFlowOk; RuntimeErrorCount=$a.RuntimeErrorCount
+            MenuReady=$menuReady; AhkExitCode=$ahkExit; Pass=$pass; UiFlowOk=$a.UiFlowOk; RuntimeErrorCount=$a.RuntimeErrorCount
             CacheSummaryOk=$a.CacheSummaryOk; CachePatterns=$a.CachePatterns; CacheHits=$a.CacheHits; CacheMisses=$a.CacheMisses
         }
         if(Test-Path $csvPath){$row|Export-Csv $csvPath -Append -NoTypeInformation}else{$row|Export-Csv $csvPath -NoTypeInformation}
 
-        Write-Host ("  {0} AHK={1} UI={2} errors={3} cache={4} hits={5} misses={6}" -f $status.ToUpper(),$ahkExit,$a.UiFlowOk,$a.RuntimeErrorCount,$a.CacheSummaryOk,$a.CacheHits,$a.CacheMisses)
+        Write-Host ("  {0} menu={1} AHK={2} UI={3} errors={4} cache={5} hits={6} misses={7}" -f $status.ToUpper(),$menuReady,$ahkExit,$a.UiFlowOk,$a.RuntimeErrorCount,$a.CacheSummaryOk,$a.CacheHits,$a.CacheMisses)
         if($idx -lt $plan.Count){Start-Sleep -Seconds $CooldownSeconds}
     }
 
