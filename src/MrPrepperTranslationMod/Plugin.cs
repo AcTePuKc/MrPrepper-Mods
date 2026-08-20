@@ -20,7 +20,7 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.uitranslationbulgarian";
     public const string PluginName = "(UI) Mr. Prepper Bulgarian Translation";
-    public const string PluginVersion = "0.1.0";
+    public const string PluginVersion = "0.1.1";
 
     private static readonly Dictionary<string, string> Translations =
         new Dictionary<string, string>(StringComparer.Ordinal);
@@ -113,21 +113,38 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void InstallI2Hooks()
     {
-        var setLanguage = AccessTools.Method(typeof(LocalizationManager), "SetLanguage", new[] { typeof(string) });
+        var setLanguage = FindMethod(
+            typeof(LocalizationManager),
+            "SetLanguage",
+            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
+            typeof(string));
         if (setLanguage != null)
         {
             var harmony = new Harmony(PluginGuid + ".i2");
             harmony.Patch(setLanguage, postfix: new HarmonyMethod(typeof(Plugin), nameof(I2_SetLanguage_Postfix)));
             log.LogInfo("I2 hook installed: LocalizationManager.SetLanguage");
         }
+        else
+        {
+            log.LogInfo("I2 LocalizationManager.SetLanguage(string) is not present in this game build; using dictionary injection only.");
+        }
 
-        var updateDictionary = AccessTools.Method(typeof(LanguageSourceData), "UpdateDictionary", new[] { typeof(bool) });
+        var updateDictionary = FindMethod(
+            typeof(LanguageSourceData),
+            "UpdateDictionary",
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+            typeof(bool));
         if (updateDictionary != null)
         {
             var harmony = new Harmony(PluginGuid + ".i2.dictionary");
             harmony.Patch(updateDictionary, postfix: new HarmonyMethod(typeof(Plugin), nameof(I2_UpdateDictionary_Postfix)));
             log.LogInfo("I2 hook installed: LanguageSourceData.UpdateDictionary");
         }
+    }
+
+    private static MethodInfo FindMethod(Type type, string name, BindingFlags flags, params Type[] parameterTypes)
+    {
+        return type.GetMethod(name, flags, null, parameterTypes, null);
     }
 
     private static IEnumerator WaitForI2Localization()
@@ -156,10 +173,11 @@ public sealed class Plugin : BaseUnityPlugin
         startupLanguageApplied = true;
         try
         {
-            var setLanguage = AccessTools.Method(
+            var setLanguage = FindMethod(
                 typeof(LocalizationManager),
                 "SetLanguage",
-                new[] { typeof(string) });
+                BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
+                typeof(string));
             if (setLanguage == null)
             {
                 throw new MissingMethodException("I2 LocalizationManager.SetLanguage(string) was not found");
@@ -445,14 +463,14 @@ public sealed class Plugin : BaseUnityPlugin
             log.LogInfo("Static hook installed: TMP_Text.OnEnable");
         }
 
-        var uiOnEnable = AccessTools.Method(typeof(Text), "OnEnable");
+        var uiOnEnable = typeof(MaskableGraphic).GetMethod(
+            "OnEnable",
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
         if (uiOnEnable != null)
         {
-            harmony.Patch(uiOnEnable, postfix: new HarmonyMethod(typeof(Plugin), nameof(UnityText_OnEnable_Postfix)));
-            log.LogInfo("Static hook installed: UnityEngine.UI.Text.OnEnable");
+            harmony.Patch(uiOnEnable, postfix: new HarmonyMethod(typeof(Plugin), nameof(MaskableGraphic_OnEnable_Postfix)));
+            log.LogInfo("Static hook installed: UnityEngine.UI.MaskableGraphic.OnEnable");
         }
-
-
     }
 
     private void Update()
@@ -635,18 +653,19 @@ public sealed class Plugin : BaseUnityPlugin
         }
     }
 
-    private static void UnityText_OnEnable_Postfix(Text __instance)
+    private static void MaskableGraphic_OnEnable_Postfix(MaskableGraphic __instance)
     {
-        if (__instance == null)
+        var text = __instance as Text;
+        if (text == null)
         {
             return;
         }
 
-        var value = __instance.text;
+        var value = text.text;
         TranslateValue(ref value);
-        if (!string.Equals(value, __instance.text, StringComparison.Ordinal))
+        if (!string.Equals(value, text.text, StringComparison.Ordinal))
         {
-            __instance.text = value;
+            text.text = value;
         }
     }
 
