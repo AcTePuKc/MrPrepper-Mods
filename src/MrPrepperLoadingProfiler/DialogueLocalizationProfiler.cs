@@ -16,7 +16,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguelocalizationprofiler";
     public const string PluginName = "Mr. Prepper Dialogue Localization Profiler";
-    public const string PluginVersion = "0.3.0";
+    public const string PluginVersion = "0.3.1";
 
     private static DialogueLocalizationProfiler instance;
     private static ConfigEntry<bool> profilerEnabled;
@@ -30,13 +30,18 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
     private static long windowStartedTicks;
     private static long sceneLoadedTicks;
 
-    [ThreadStatic]
-    private static int localizationDepth;
+    [ThreadStatic] private static int localizationDepth;
+    [ThreadStatic] private static int setFromTextDepth;
 
     private static long totalCalls;
     private static double totalMs;
     private static double maxMs;
     private static long nullOrEmptyKeys;
+    private static long setFromTextRootCalls;
+    private static double setFromTextRootMs;
+    private static double setFromTextRootMaxMs;
+    private static int setFromTextMaxDepth;
+
     private static readonly Dictionary<string, KeyStats> Keys = new(StringComparer.Ordinal);
     private static readonly Dictionary<MethodBase, MethodStats> InnerStats = new();
 
@@ -87,8 +92,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         }
 
         harmony = new Harmony(PluginGuid);
-        harmony.Patch(
-            target,
+        harmony.Patch(target,
             prefix: new HarmonyMethod(typeof(DialogueLocalizationProfiler), nameof(TargetPrefix)),
             postfix: new HarmonyMethod(typeof(DialogueLocalizationProfiler), nameof(TargetPostfix)));
 
@@ -120,8 +124,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         {
             var getTranslation = i2Type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)
                 .FirstOrDefault(m => string.Equals(m.Name, "GetTranslation", StringComparison.Ordinal) &&
-                                     m.ReturnType == typeof(string) &&
-                                     m.GetParameters().Length == 7 &&
+                                     m.ReturnType == typeof(string) && m.GetParameters().Length == 7 &&
                                      m.GetParameters()[0].ParameterType == typeof(string));
             if (getTranslation != null) targets.Add(getTranslation);
         }
@@ -129,15 +132,13 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         var byRefString = typeof(string).MakeByRefType();
         var setFromText = dialogueType?.GetMethods(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
             .FirstOrDefault(m => string.Equals(m.Name, "SetParagraphsFromText", StringComparison.Ordinal) &&
-                                 m.GetParameters().Length == 1 &&
-                                 m.GetParameters()[0].ParameterType == byRefString);
+                                 m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == byRefString);
         if (setFromText != null) targets.Add(setFromText);
 
         var paragraphType = assembly?.GetType("Characters.DialogueParagraph", false);
         var pasteSettings = paragraphType?.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
             .FirstOrDefault(m => string.Equals(m.Name, "PasteSettings", StringComparison.Ordinal) &&
-                                 m.GetParameters().Length == 1 &&
-                                 m.GetParameters()[0].ParameterType == paragraphType);
+                                 m.GetParameters().Length == 1 && m.GetParameters()[0].ParameterType == paragraphType);
         if (pasteSettings != null) targets.Add(pasteSettings);
 
         var prefix = new HarmonyMethod(typeof(DialogueLocalizationProfiler), nameof(InnerPrefix));
@@ -171,7 +172,12 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         totalMs = 0;
         maxMs = 0;
         nullOrEmptyKeys = 0;
+        setFromTextRootCalls = 0;
+        setFromTextRootMs = 0;
+        setFromTextRootMaxMs = 0;
+        setFromTextMaxDepth = 0;
         localizationDepth = 0;
+        setFromTextDepth = 0;
         sceneLoaded = false;
         postLoadFramesRemaining = 0;
         windowStartedTicks = Stopwatch.GetTimestamp();
@@ -187,7 +193,6 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
             __state = 0L;
             return;
         }
-
         localizationDepth++;
         __state = Stopwatch.GetTimestamp();
     }
@@ -220,30 +225,57 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         if (localizationDepth > 0) localizationDepth--;
     }
 
-    private static void InnerPrefix(ref long __state)
+    private static void InnerPrefix(MethodBase __originalMethod, ref long __state)
     {
-        __state = windowArmed && localizationDepth > 0 ? Stopwatch.GetTimestamp() : 0L;
+        __state = 0L;
+        if (!windowArmed || localizationDepth <= 0 || __originalMethod == null) return;
+
+        var ticks = Stopwatch.GetTimestamp();
+        if (IsSetParagraphsFromText(__originalMethod))
+        {
+            setFromTextDepth++;
+            if (setFromTextDepth > setFromTextMaxDepth) setFromTextMaxDepth = setFromTextDepth;
+            __state = setFromTextDepth == 1 ? -ticks : ticks;
+            return;
+        }
+
+        __state = ticks;
     }
 
     private static void InnerPostfix(MethodBase __originalMethod, long __state)
     {
-        if (!windowArmed || localizationDepth <= 0 || __state == 0L || __originalMethod == null) return;
+        if (__state == 0L || __originalMethod == null) return;
 
-        var elapsedMs = TicksToMilliseconds(Stopwatch.GetTimestamp() - __state);
-        if (!InnerStats.TryGetValue(__originalMethod, out var stats))
+        var isSetFromText = IsSetParagraphsFromText(__originalMethod);
+        var isRootSetFromText = isSetFromText && __state < 0;
+        var started = __state < 0 ? -__state : __state;
+        var elapsedMs = TicksToMilliseconds(Stopwatch.GetTimestamp() - started);
+
+        if (windowArmed && localizationDepth > 0)
         {
-            stats = new MethodStats();
-            InnerStats[__originalMethod] = stats;
+            if (!InnerStats.TryGetValue(__originalMethod, out var stats))
+            {
+                stats = new MethodStats();
+                InnerStats[__originalMethod] = stats;
+            }
+            stats.Calls++;
+            stats.TotalMs += elapsedMs;
+            if (elapsedMs > stats.MaxMs) stats.MaxMs = elapsedMs;
+
+            if (isRootSetFromText)
+            {
+                setFromTextRootCalls++;
+                setFromTextRootMs += elapsedMs;
+                if (elapsedMs > setFromTextRootMaxMs) setFromTextRootMaxMs = elapsedMs;
+            }
         }
-        stats.Calls++;
-        stats.TotalMs += elapsedMs;
-        if (elapsedMs > stats.MaxMs) stats.MaxMs = elapsedMs;
+
+        if (isSetFromText && setFromTextDepth > 0) setFromTextDepth--;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (!windowArmed || !string.Equals(scene.name, "Main16", StringComparison.OrdinalIgnoreCase)) return;
-
         sceneLoaded = true;
         sceneLoadedTicks = Stopwatch.GetTimestamp();
         postLoadFramesRemaining = Math.Max(1, postLoadFrames.Value);
@@ -269,9 +301,8 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         var duplicatePercent = totalCalls > 0 ? duplicateCalls * 100.0 / totalCalls : 0.0;
         var averageMs = totalCalls > 0 ? totalMs / totalCalls : 0.0;
         var innerTotal = InnerStats.Values.Sum(s => s.TotalMs);
-        var remainder = Math.Max(0.0, totalMs - innerTotal);
 
-        Logger.LogInfo($"[DIALOGUE LOC SUMMARY] calls={totalCalls} distinctKeys={Keys.Count} duplicateCalls={duplicateCalls} duplicatePercent={duplicatePercent:0.0}% nullOrEmpty={nullOrEmptyKeys} total={totalMs:0.000}ms avg={averageMs:0.0000}ms max={maxMs:0.000}ms innerTotal={innerTotal:0.000}ms remainder={remainder:0.000}ms requestToEnd={TicksToMilliseconds(now - windowStartedTicks):0.0}ms note='innerTotal is inclusive if inner targets ever nest'");
+        Logger.LogInfo($"[DIALOGUE LOC SUMMARY] calls={totalCalls} distinctKeys={Keys.Count} duplicateCalls={duplicateCalls} duplicatePercent={duplicatePercent:0.0}% nullOrEmpty={nullOrEmptyKeys} total={totalMs:0.000}ms avg={averageMs:0.0000}ms max={maxMs:0.000}ms innerInclusiveTotal={innerTotal:0.000}ms requestToEnd={TicksToMilliseconds(now - windowStartedTicks):0.0}ms");
 
         foreach (var pair in InnerStats.OrderByDescending(pair => pair.Value.TotalMs))
         {
@@ -279,6 +310,8 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
             var avg = stats.Calls > 0 ? stats.TotalMs / stats.Calls : 0.0;
             Logger.LogInfo($"[DIALOGUE LOC INNER] method='{DescribeMethod(pair.Key)}' calls={stats.Calls} total={stats.TotalMs:0.000}ms avg={avg:0.0000}ms max={stats.MaxMs:0.000}ms");
         }
+
+        Logger.LogInfo($"[DIALOGUE LOC TEXT ROOT] calls={setFromTextRootCalls} total={setFromTextRootMs:0.000}ms avg={(setFromTextRootCalls > 0 ? setFromTextRootMs / setFromTextRootCalls : 0.0):0.0000}ms max={setFromTextRootMaxMs:0.000}ms maxDepth={setFromTextMaxDepth}");
 
         var limit = Math.Max(1, topKeys.Value);
         var byTime = Keys.OrderByDescending(pair => pair.Value.TotalMs).Take(limit).ToArray();
@@ -293,6 +326,10 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         var avg = stats.Calls > 0 ? stats.TotalMs / stats.Calls : 0.0;
         Logger.LogInfo($"[DIALOGUE LOC {rank} #{index}] key='{TrimForLog(key, 180)}' calls={stats.Calls} total={stats.TotalMs:0.000}ms avg={avg:0.0000}ms max={stats.MaxMs:0.000}ms");
     }
+
+    private static bool IsSetParagraphsFromText(MethodBase method) =>
+        method != null && string.Equals(method.Name, "SetParagraphsFromText", StringComparison.Ordinal) &&
+        string.Equals(method.DeclaringType?.FullName, "Characters.Dialogue", StringComparison.Ordinal);
 
     private static bool ArgumentsContainMain16(object[] args)
     {
@@ -326,5 +363,6 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         windowArmed = false;
         sceneLoaded = false;
         localizationDepth = 0;
+        setFromTextDepth = 0;
     }
 }
