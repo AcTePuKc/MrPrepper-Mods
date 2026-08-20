@@ -12,7 +12,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguestartilinspector";
     public const string PluginName = "Mr. Prepper Dialogue IL Inspector";
-    public const string PluginVersion = "0.6.0";
+    public const string PluginVersion = "0.7.0";
 
     private sealed class TargetSpec
     {
@@ -64,34 +64,70 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
             return;
         }
 
-        var ctor = paragraphType.GetConstructor(
+        InspectExactConstructor(paragraphType, new[] { typeof(string) }, "DialogueParagraph..ctor");
+        InspectExactMethod(paragraphType, "Set", new[] { typeof(string) }, "DialogueParagraph.Set");
+        InspectExactMethod(paragraphType, "SetDuration", Type.EmptyTypes, "DialogueParagraph.SetDuration");
+
+        var textTagType = assembly?.GetType("TextTag", false);
+        if (textTagType != null)
+        {
+            var getTag = textTagType.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)
+                .FirstOrDefault(m => string.Equals(m.Name, "GetTag", StringComparison.Ordinal) &&
+                                     m.GetParameters().Length == 3 &&
+                                     m.GetParameters()[0].ParameterType == typeof(string).MakeByRefType() &&
+                                     m.GetParameters()[1].ParameterType == typeof(string) &&
+                                     m.GetParameters()[2].ParameterType == typeof(bool));
+            if (getTag != null) InspectMethodBody(getTag, "TextTag.GetTag");
+            else Logger.LogWarning("[DIALOGUE IL] TextTag.GetTag(String&,String,Boolean) was not found.");
+        }
+        else
+        {
+            Logger.LogWarning("[DIALOGUE IL] TextTag was not found.");
+        }
+
+        var audioType = assembly?.GetType("TagAudioSettings", false);
+        if (audioType != null)
+        {
+            var setFields = audioType.GetMethods(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)
+                .FirstOrDefault(m => string.Equals(m.Name, "SetFields", StringComparison.Ordinal) && m.GetParameters().Length == 1);
+            if (setFields != null) InspectMethodBody(setFields, "TagAudioSettings.SetFields");
+            else Logger.LogWarning("[DIALOGUE IL] TagAudioSettings.SetFields(...) was not found.");
+        }
+        else
+        {
+            Logger.LogWarning("[DIALOGUE IL] TagAudioSettings was not found.");
+        }
+    }
+
+    private void InspectExactConstructor(Type type, Type[] parameters, string label)
+    {
+        var ctor = type.GetConstructor(
             BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
             null,
-            new[] { typeof(string) },
+            parameters,
             null);
         if (ctor == null)
         {
-            Logger.LogWarning("[DIALOGUE IL] Characters.DialogueParagraph..ctor(String) was not found.");
+            Logger.LogWarning($"[DIALOGUE IL] {type.FullName}..ctor({string.Join(",", parameters.Select(p => p.Name))}) was not found.");
+            return;
         }
-        else
-        {
-            InspectMethodBody(ctor, "DialogueParagraph..ctor");
-        }
+        InspectMethodBody(ctor, label);
+    }
 
-        var set = paragraphType.GetMethod(
-            "Set",
+    private void InspectExactMethod(Type type, string name, Type[] parameters, string label)
+    {
+        var method = type.GetMethod(
+            name,
             BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly,
             null,
-            new[] { typeof(string) },
+            parameters,
             null);
-        if (set == null)
+        if (method == null)
         {
-            Logger.LogWarning("[DIALOGUE IL] Characters.DialogueParagraph.Set(String) was not found.");
+            Logger.LogWarning($"[DIALOGUE IL] {type.FullName}.{name}({string.Join(",", parameters.Select(p => p.Name))}) was not found.");
+            return;
         }
-        else
-        {
-            InspectMethodBody(set, "DialogueParagraph.Set");
-        }
+        InspectMethodBody(method, label);
     }
 
     private void InspectMethod(Type type, TargetSpec spec)
