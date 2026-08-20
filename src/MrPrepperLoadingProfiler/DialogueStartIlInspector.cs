@@ -12,7 +12,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguestartilinspector";
     public const string PluginName = "Mr. Prepper Dialogue IL Inspector";
-    public const string PluginVersion = "0.4.0";
+    public const string PluginVersion = "0.5.0";
 
     private sealed class TargetSpec
     {
@@ -47,15 +47,35 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
     {
         var assembly = AppDomain.CurrentDomain.GetAssemblies()
             .FirstOrDefault(a => string.Equals(a.GetName().Name, "Assembly-CSharp", StringComparison.Ordinal));
-        var type = assembly?.GetType("Characters.Dialogue", false);
-        if (type == null)
+        var dialogueType = assembly?.GetType("Characters.Dialogue", false);
+        if (dialogueType == null)
         {
             Logger.LogWarning("[DIALOGUE IL] Characters.Dialogue was not found.");
             return;
         }
 
-        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. targetType={type.FullName}");
-        foreach (var spec in TargetMethods) InspectMethod(type, spec);
+        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. targetType={dialogueType.FullName}");
+        foreach (var spec in TargetMethods) InspectMethod(dialogueType, spec);
+
+        var paragraphType = assembly?.GetType("Characters.DialogueParagraph", false);
+        if (paragraphType == null)
+        {
+            Logger.LogWarning("[DIALOGUE IL] Characters.DialogueParagraph was not found.");
+            return;
+        }
+
+        var ctor = paragraphType.GetConstructor(
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+            null,
+            new[] { typeof(string) },
+            null);
+        if (ctor == null)
+        {
+            Logger.LogWarning("[DIALOGUE IL] Characters.DialogueParagraph..ctor(String) was not found.");
+            return;
+        }
+
+        InspectMethodBody(ctor, "DialogueParagraph..ctor");
     }
 
     private void InspectMethod(Type type, TargetSpec spec)
@@ -73,11 +93,16 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
             return;
         }
 
+        InspectMethodBody(method, spec.Name);
+    }
+
+    private void InspectMethodBody(MethodBase method, string label)
+    {
         MethodBody body;
         try { body = method.GetMethodBody(); }
         catch (Exception ex)
         {
-            Logger.LogWarning($"[DIALOGUE IL] Could not read {spec.Name} body: {ex.GetType().Name}: {ex.Message}");
+            Logger.LogWarning($"[DIALOGUE IL] Could not read {label} body: {ex.GetType().Name}: {ex.Message}");
             return;
         }
 
@@ -92,8 +117,9 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
         var fields = new List<string>();
         var strings = new List<string>();
         var module = method.Module;
-        var typeArgs = type.IsGenericType ? type.GetGenericArguments() : Type.EmptyTypes;
-        var methodArgs = method.IsGenericMethod ? method.GetGenericArguments() : Type.EmptyTypes;
+        var declaringType = method.DeclaringType;
+        var typeArgs = declaringType != null && declaringType.IsGenericType ? declaringType.GetGenericArguments() : Type.EmptyTypes;
+        var methodArgs = method is MethodInfo mi && mi.IsGenericMethod ? mi.GetGenericArguments() : Type.EmptyTypes;
         var position = 0;
 
         while (position < il.Length)
@@ -102,7 +128,7 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
             var op = ReadOpCode(il, ref position);
             if (op.Size == 0)
             {
-                Logger.LogWarning($"[DIALOGUE IL] Unknown opcode in {spec.Name} at IL_{offset:X4}; stopping scan.");
+                Logger.LogWarning($"[DIALOGUE IL] Unknown opcode in {label} at IL_{offset:X4}; stopping scan.");
                 break;
             }
 
@@ -141,15 +167,15 @@ public sealed class DialogueStartIlInspector : BaseUnityPlugin
             }
             catch (Exception ex)
             {
-                Logger.LogWarning($"[DIALOGUE IL] Parse error in {spec.Name} at IL_{offset:X4} opcode={op.Name}: {ex.GetType().Name}: {ex.Message}");
+                Logger.LogWarning($"[DIALOGUE IL] Parse error in {label} at IL_{offset:X4} opcode={op.Name}: {ex.GetType().Name}: {ex.Message}");
                 break;
             }
         }
 
         Logger.LogInfo($"[DIALOGUE IL SUMMARY] method='{DescribeMethod(method)}' static={method.IsStatic} ilBytes={il.Length} directCalls={calls.Count} fieldAccesses={fields.Count} strings={strings.Count}");
-        foreach (var entry in calls) Logger.LogInfo($"[DIALOGUE IL CALL] method='{spec.Name}' {entry}");
-        foreach (var entry in fields) Logger.LogInfo($"[DIALOGUE IL FIELD] method='{spec.Name}' {entry}");
-        foreach (var entry in strings) Logger.LogInfo($"[DIALOGUE IL STRING] method='{spec.Name}' {entry}");
+        foreach (var entry in calls) Logger.LogInfo($"[DIALOGUE IL CALL] method='{label}' {entry}");
+        foreach (var entry in fields) Logger.LogInfo($"[DIALOGUE IL FIELD] method='{label}' {entry}");
+        foreach (var entry in strings) Logger.LogInfo($"[DIALOGUE IL STRING] method='{label}' {entry}");
     }
 
     private static OpCode ReadOpCode(byte[] il, ref int position)
