@@ -16,7 +16,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguelocalizationprofiler";
     public const string PluginName = "Mr. Prepper Dialogue Localization Profiler";
-    public const string PluginVersion = "0.2.0";
+    public const string PluginVersion = "0.2.1";
 
     private static DialogueLocalizationProfiler instance;
     private static ConfigEntry<bool> profilerEnabled;
@@ -91,22 +91,13 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 
         foreach (var method in typeof(SceneManager).GetMethods(BindingFlags.Static | BindingFlags.Public))
         {
-            if (!string.Equals(method.Name, "LoadSceneAsync", StringComparison.Ordinal) ||
-                method.ReturnType != typeof(AsyncOperation))
-            {
-                continue;
-            }
-
+            if (!string.Equals(method.Name, "LoadSceneAsync", StringComparison.Ordinal) || method.ReturnType != typeof(AsyncOperation)) continue;
             try
             {
                 if (method.GetMethodBody() != null)
-                {
                     harmony.Patch(method, prefix: new HarmonyMethod(typeof(DialogueLocalizationProfiler), nameof(SceneRequestPrefix)));
-                }
             }
-            catch
-            {
-            }
+            catch { }
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -115,10 +106,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 
     private static void SceneRequestPrefix(object[] __args)
     {
-        if (profilerEnabled == null || !profilerEnabled.Value || windowArmed || !ArgumentsContainMain16(__args))
-        {
-            return;
-        }
+        if (profilerEnabled == null || !profilerEnabled.Value || windowArmed || !ArgumentsContainMain16(__args)) return;
 
         Keys.Clear();
         totalCalls = 0;
@@ -130,84 +118,51 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         windowStartedTicks = Stopwatch.GetTimestamp();
         sceneLoadedTicks = 0;
         windowArmed = true;
-
         instance?.Logger.LogInfo($"[DIALOGUE LOC START] realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
     }
 
     private static void TargetPrefix(object[] __args, ref long __state)
     {
-        __state = 0L;
-        if (!windowArmed)
-        {
-            return;
-        }
-
-        __state = Stopwatch.GetTimestamp();
+        __state = windowArmed ? Stopwatch.GetTimestamp() : 0L;
     }
 
     private static void TargetPostfix(object[] __args, long __state)
     {
-        if (!windowArmed || __state == 0L)
-        {
-            return;
-        }
+        if (!windowArmed || __state == 0L) return;
 
         var elapsedMs = TicksToMilliseconds(Stopwatch.GetTimestamp() - __state);
         totalCalls++;
         totalMs += elapsedMs;
-        if (elapsedMs > maxMs)
-        {
-            maxMs = elapsedMs;
-        }
+        if (elapsedMs > maxMs) maxMs = elapsedMs;
 
         var key = (__args != null && __args.Length > 0) ? __args[0] as string : null;
-        if (string.IsNullOrEmpty(key))
-        {
-            nullOrEmptyKeys++;
-        }
-
+        if (string.IsNullOrEmpty(key)) nullOrEmptyKeys++;
         key ??= "<null>";
+
         if (!Keys.TryGetValue(key, out var stats))
         {
             stats = new KeyStats();
             Keys[key] = stats;
         }
-
         stats.Calls++;
         stats.TotalMs += elapsedMs;
-        if (elapsedMs > stats.MaxMs)
-        {
-            stats.MaxMs = elapsedMs;
-        }
+        if (elapsedMs > stats.MaxMs) stats.MaxMs = elapsedMs;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (!windowArmed || !string.Equals(scene.name, "Main16", StringComparison.OrdinalIgnoreCase))
-        {
-            return;
-        }
+        if (!windowArmed || !string.Equals(scene.name, "Main16", StringComparison.OrdinalIgnoreCase)) return;
 
         sceneLoaded = true;
         sceneLoadedTicks = Stopwatch.GetTimestamp();
         postLoadFramesRemaining = Math.Max(1, postLoadFrames.Value);
-        Logger.LogInfo(
-            $"[DIALOGUE LOC SCENE LOADED] calls={totalCalls} distinctKeys={Keys.Count} total={totalMs:0.000}ms " +
-            $"requestToCallback={TicksToMilliseconds(sceneLoadedTicks - windowStartedTicks):0.0}ms");
+        Logger.LogInfo($"[DIALOGUE LOC SCENE LOADED] calls={totalCalls} distinctKeys={Keys.Count} total={totalMs:0.000}ms requestToCallback={TicksToMilliseconds(sceneLoadedTicks - windowStartedTicks):0.0}ms");
     }
 
     private void Update()
     {
-        if (!windowArmed || !sceneLoaded)
-        {
-            return;
-        }
-
-        if (postLoadFramesRemaining > 0)
-        {
-            postLoadFramesRemaining--;
-        }
-
+        if (!windowArmed || !sceneLoaded) return;
+        if (postLoadFramesRemaining > 0) postLoadFramesRemaining--;
         if (postLoadFramesRemaining == 0)
         {
             LogSummary();
@@ -223,56 +178,31 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         var duplicatePercent = totalCalls > 0 ? duplicateCalls * 100.0 / totalCalls : 0.0;
         var averageMs = totalCalls > 0 ? totalMs / totalCalls : 0.0;
 
-        Logger.LogInfo(
-            $"[DIALOGUE LOC SUMMARY] calls={totalCalls} distinctKeys={Keys.Count} duplicateCalls={duplicateCalls} " +
-            $"duplicatePercent={duplicatePercent:0.0}% nullOrEmpty={nullOrEmptyKeys} total={totalMs:0.000}ms " +
-            $"avg={averageMs:0.4}ms max={maxMs:0.000}ms requestToEnd={TicksToMilliseconds(now - windowStartedTicks):0.0}ms");
+        Logger.LogInfo($"[DIALOGUE LOC SUMMARY] calls={totalCalls} distinctKeys={Keys.Count} duplicateCalls={duplicateCalls} duplicatePercent={duplicatePercent:0.0}% nullOrEmpty={nullOrEmptyKeys} total={totalMs:0.000}ms avg={averageMs:0.0000}ms max={maxMs:0.000}ms requestToEnd={TicksToMilliseconds(now - windowStartedTicks):0.0}ms");
 
         var limit = Math.Max(1, topKeys.Value);
         var byTime = Keys.OrderByDescending(pair => pair.Value.TotalMs).Take(limit).ToArray();
-        for (var i = 0; i < byTime.Length; i++)
-        {
-            LogKey("TIME", i + 1, byTime[i].Key, byTime[i].Value);
-        }
+        for (var i = 0; i < byTime.Length; i++) LogKey("TIME", i + 1, byTime[i].Key, byTime[i].Value);
 
-        var byCalls = Keys.OrderByDescending(pair => pair.Value.Calls)
-            .ThenByDescending(pair => pair.Value.TotalMs)
-            .Take(limit)
-            .ToArray();
-        for (var i = 0; i < byCalls.Length; i++)
-        {
-            LogKey("CALLS", i + 1, byCalls[i].Key, byCalls[i].Value);
-        }
+        var byCalls = Keys.OrderByDescending(pair => pair.Value.Calls).ThenByDescending(pair => pair.Value.TotalMs).Take(limit).ToArray();
+        for (var i = 0; i < byCalls.Length; i++) LogKey("CALLS", i + 1, byCalls[i].Key, byCalls[i].Value);
     }
 
     private void LogKey(string rank, int index, string key, KeyStats stats)
     {
-        Logger.LogInfo(
-            $"[DIALOGUE LOC {rank} #{index}] key='{TrimForLog(key, 180)}' calls={stats.Calls} " +
-            $"total={stats.TotalMs:0.000}ms avg={(stats.Calls > 0 ? stats.TotalMs / stats.Calls : 0.0):0.4}ms max={stats.MaxMs:0.000}ms");
+        var avg = stats.Calls > 0 ? stats.TotalMs / stats.Calls : 0.0;
+        Logger.LogInfo($"[DIALOGUE LOC {rank} #{index}] key='{TrimForLog(key, 180)}' calls={stats.Calls} total={stats.TotalMs:0.000}ms avg={avg:0.0000}ms max={stats.MaxMs:0.000}ms");
     }
 
     private static bool ArgumentsContainMain16(object[] args)
     {
-        if (args == null)
-        {
-            return false;
-        }
-
+        if (args == null) return false;
         foreach (var arg in args)
-        {
-            if (arg is string value && string.Equals(value, "Main16", StringComparison.OrdinalIgnoreCase))
-            {
-                return true;
-            }
-        }
+            if (arg is string value && string.Equals(value, "Main16", StringComparison.OrdinalIgnoreCase)) return true;
         return false;
     }
 
-    private static double TicksToMilliseconds(long ticks)
-    {
-        return ticks * 1000.0 / Stopwatch.Frequency;
-    }
+    private static double TicksToMilliseconds(long ticks) => ticks * 1000.0 / Stopwatch.Frequency;
 
     private static string DescribeMethod(MethodBase method)
     {
@@ -283,10 +213,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 
     private static string TrimForLog(string value, int max)
     {
-        if (string.IsNullOrEmpty(value))
-        {
-            return value ?? "<null>";
-        }
+        if (string.IsNullOrEmpty(value)) return value ?? "<null>";
         value = value.Replace("\r", "\\r").Replace("\n", "\\n").Replace("'", "\\'");
         return value.Length <= max ? value : value.Substring(0, max) + "...";
     }
