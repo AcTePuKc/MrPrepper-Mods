@@ -5,8 +5,7 @@ param(
     [string]$GameDir = 'C:\Program Files (x86)\Steam\steamapps\common\MrPrepper',
     [string]$AutoHotkeyExe = 'C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe',
     [int]$CooldownSeconds = 5,
-    [int]$MenuReadyTimeoutSeconds = 45,
-    [int]$MenuSettleMs = 1000,
+    [int]$StartupDelayMs = 20000,
     [bool]$RestoreConfigs = $true
 )
 
@@ -70,34 +69,6 @@ function Stop-Game {
     }
 }
 
-function Wait-ForMenuScene {
-    # Start-Process may return a moment before MrPrepper is visible through
-    # Get-Process. Do not treat that startup race as an immediate failure.
-    $deadline = (Get-Date).AddSeconds($MenuReadyTimeoutSeconds)
-    $sawProcess = $false
-
-    while ((Get-Date) -lt $deadline) {
-        $proc = Get-Process MrPrepper -ErrorAction SilentlyContinue | Select-Object -First 1
-        if ($proc) { $sawProcess = $true }
-
-        if (Test-Path $logPath) {
-            try {
-                $tail = @(Get-Content -LiteralPath $logPath -Tail 120 -ErrorAction Stop)
-                if (($tail -join "`n") -match "menu_wybuch_2_6") {
-                    Start-Sleep -Milliseconds $MenuSettleMs
-                    return $true
-                }
-            } catch {}
-        }
-
-        # Only regard disappearance as a failure after the process was actually
-        # observed at least once. During initial launch it may not exist yet.
-        if ($sawProcess -and -not $proc) { return $false }
-        Start-Sleep -Milliseconds 250
-    }
-    return $false
-}
-
 function Get-Plan {
     $on  = [pscustomobject]@{Name='RegexCacheOn'; Enabled=$true}
     $off = [pscustomobject]@{Name='RegexCacheOff';Enabled=$false}
@@ -112,6 +83,7 @@ function Get-Plan {
 }
 
 function Get-LogAnalysis([string]$Text,[bool]$CacheEnabled) {
+    $menu = $Text -match "menu_wybuch_2_6"
     $newGame = $Text -match "text='Нова игра'"
     $remove = $Text -match "SavedPanel/Remove' text='Премахни'"
     $play = $Text -match "SavedPanel/Play' text='Играй'"
@@ -136,7 +108,7 @@ function Get-LogAnalysis([string]$Text,[bool]$CacheEnabled) {
     $uiOk = $newGame -and $remove -and $play -and $noTutorial -and $exit -and $exitYes
 
     [pscustomobject]@{
-        UiFlowOk=$uiOk; NewGame=$newGame; Remove=$remove; Play=$play; NoTutorial=$noTutorial; Exit=$exit; ExitYes=$exitYes
+        MenuSeen=$menu; UiFlowOk=$uiOk; NewGame=$newGame; Remove=$remove; Play=$play; NoTutorial=$noTutorial; Exit=$exit; ExitYes=$exitYes
         RuntimeErrorCount=$runtimeErrors.Count; CacheSummaryOk=$cacheSummaryOk
         CachePatterns=$cachePatterns; CacheHits=$cacheHits; CacheMisses=$cacheMisses
     }
@@ -148,7 +120,7 @@ foreach($p in $cfg.Values){
 }
 
 $plan=@(Get-Plan)
-Write-Host "Dialogue regression: RunsPerVariant=$Runs TotalRuns=$($plan.Count) Order=$VariantOrder"
+Write-Host "Dialogue regression: RunsPerVariant=$Runs TotalRuns=$($plan.Count) Order=$VariantOrder StartupDelayMs=$StartupDelayMs"
 Write-Host "Results: $csvPath"
 
 try {
@@ -169,17 +141,12 @@ try {
         Stop-Game
         if(Test-Path $logPath){ Remove-Item $logPath -Force }
 
+        # Use the same proven model as the older benchmark runner: start the
+        # game and AHK together, then let AHK own the startup wait. Log/process
+        # polling added a race on this Unity build and is intentionally avoided.
         $game=Start-Process $gameExe -WorkingDirectory $GameDir -PassThru
-        $menuReady=Wait-ForMenuScene
-        if(-not $menuReady) {
-            Write-Warning "[$idx/$($plan.Count)] main menu was not observed within $MenuReadyTimeoutSeconds seconds"
-            Stop-Game
-            $ahkExit=98
-        } else {
-            # The coordinate-driven AHK starts only after the menu scene exists.
-            $ahk=Start-Process $AutoHotkeyExe -ArgumentList @('"'+$ahkScript+'"','run') -PassThru -Wait
-            $ahkExit=$ahk.ExitCode
-        }
+        $ahk=Start-Process $AutoHotkeyExe -ArgumentList @('"'+$ahkScript+'"','run',$StartupDelayMs) -PassThru -Wait
+        $ahkExit=$ahk.ExitCode
 
         if(-not $game.HasExited){
             try { $game.WaitForExit(15000) | Out-Null } catch {}
@@ -189,7 +156,7 @@ try {
         Start-Sleep -Milliseconds 500
         $text=if(Test-Path $logPath){Get-Content -Raw $logPath}else{''}
         $a=Get-LogAnalysis $text $v.Enabled
-        $pass=$menuReady -and ($ahkExit -eq 0) -and $a.UiFlowOk -and ($a.RuntimeErrorCount -eq 0) -and $a.CacheSummaryOk
+        $pass=($ahkExit -eq 0) -and $a.MenuSeen -and $a.UiFlowOk -and ($a.RuntimeErrorCount -eq 0) -and $a.CacheSummaryOk
 
         $stamp=Get-Date -Format 'yyyyMMdd-HHmmss-fff'
         $status=if($pass){'pass'}else{'fail'}
@@ -199,12 +166,12 @@ try {
 
         $row=[pscustomobject]@{
             Timestamp=(Get-Date).ToString('o'); Variant=$v.Name; Round=$round; PlanIndex=$idx; Order=$VariantOrder
-            MenuReady=$menuReady; AhkExitCode=$ahkExit; Pass=$pass; UiFlowOk=$a.UiFlowOk; RuntimeErrorCount=$a.RuntimeErrorCount
+            StartupDelayMs=$StartupDelayMs; MenuSeen=$a.MenuSeen; AhkExitCode=$ahkExit; Pass=$pass; UiFlowOk=$a.UiFlowOk; RuntimeErrorCount=$a.RuntimeErrorCount
             CacheSummaryOk=$a.CacheSummaryOk; CachePatterns=$a.CachePatterns; CacheHits=$a.CacheHits; CacheMisses=$a.CacheMisses
         }
         if(Test-Path $csvPath){$row|Export-Csv $csvPath -Append -NoTypeInformation}else{$row|Export-Csv $csvPath -NoTypeInformation}
 
-        Write-Host ("  {0} menu={1} AHK={2} UI={3} errors={4} cache={5} hits={6} misses={7}" -f $status.ToUpper(),$menuReady,$ahkExit,$a.UiFlowOk,$a.RuntimeErrorCount,$a.CacheSummaryOk,$a.CacheHits,$a.CacheMisses)
+        Write-Host ("  {0} menu={1} AHK={2} UI={3} errors={4} cache={5} hits={6} misses={7}" -f $status.ToUpper(),$a.MenuSeen,$ahkExit,$a.UiFlowOk,$a.RuntimeErrorCount,$a.CacheSummaryOk,$a.CacheHits,$a.CacheMisses)
         if($idx -lt $plan.Count){Start-Sleep -Seconds $CooldownSeconds}
     }
 
