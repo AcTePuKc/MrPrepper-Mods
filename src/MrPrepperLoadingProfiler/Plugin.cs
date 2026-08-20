@@ -23,7 +23,7 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.loadingprofiler";
     public const string PluginName = "Mr. Prepper Loading Profiler";
-    public const string PluginVersion = "0.7.0";
+    public const string PluginVersion = "0.8.0";
 
     private static ManualLogSource log;
     private static ConfigEntry<bool> logUiButtonPresses;
@@ -34,6 +34,8 @@ public sealed class Plugin : BaseUnityPlugin
     private static ConfigEntry<bool> traceCoroutines;
     private static ConfigEntry<bool> traceDelayedInvokes;
     private static ConfigEntry<bool> traceSceneRequests;
+    private static ConfigEntry<bool> overrideBackgroundLoadingPriority;
+    private static ConfigEntry<UnityEngine.ThreadPriority> experimentalBackgroundLoadingPriority;
 
     private ConfigEntry<bool> profilerEnabled;
     private ConfigEntry<float> stallThresholdMs;
@@ -75,6 +77,8 @@ public sealed class Plugin : BaseUnityPlugin
     private static readonly Dictionary<Type, string> CoroutineOwners = new();
     private static readonly Dictionary<MethodBase, string> DynamicMethodOwners = new();
     private static readonly List<SceneAsyncState> SceneAsyncOperations = new();
+    private static UnityEngine.ThreadPriority originalBackgroundLoadingPriority;
+    private static bool backgroundPriorityOverrideActive;
 
     private sealed class VideoState
     {
@@ -138,6 +142,10 @@ public sealed class Plugin : BaseUnityPlugin
             "Trace MonoBehaviour.Invoke/InvokeRepeating calls during the targeted load window.");
         traceSceneRequests = Config.Bind("Targeted", "TraceSceneRequests", true,
             "Trace SceneManager load requests and returned AsyncOperation progress during the targeted load window.");
+        overrideBackgroundLoadingPriority = Config.Bind("Experiment", "OverrideBackgroundLoadingPriority", true,
+            "Temporarily override Unity's background loading priority only during the save-slot scene load.");
+        experimentalBackgroundLoadingPriority = Config.Bind("Experiment", "BackgroundLoadingPriority", UnityEngine.ThreadPriority.High,
+            "Unity background loading priority to test during the save-slot scene load. Valid values: Low, BelowNormal, Normal, High.");
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
@@ -156,6 +164,9 @@ public sealed class Plugin : BaseUnityPlugin
             $"Diagnostics: rawMouse={logRawMouseClicks.Value}, uiButtons={logUiButtonPresses.Value}, " +
             $"saveSlotInspection={inspectSaveSlotPlay.Value}, targetedTiming={targetedLoadDiagnostics.Value}, " +
             $"coroutines={traceCoroutines.Value}, invokes={traceDelayedInvokes.Value}, sceneRequests={traceSceneRequests.Value}, video={logVideoPlayers.Value}");
+        log.LogInfo(
+            $"[LOAD PRIORITY] startup current={Application.backgroundLoadingPriority} | " +
+            $"override={overrideBackgroundLoadingPriority.Value} target={experimentalBackgroundLoadingPriority.Value}");
         LogPoint("START", GetActiveSceneName());
     }
 
@@ -553,7 +564,7 @@ public sealed class Plugin : BaseUnityPlugin
         var args = DescribeArguments(__args);
         log?.LogInfo(
             $"[SCENE REQUEST] method='{DescribeMethod(__originalMethod)}' args='{TrimForLog(args, 220)}' | " +
-            $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+            $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount} bgPriority={Application.backgroundLoadingPriority}");
     }
 
     private static void SceneLoadRequestPostfix(MethodBase __originalMethod, object[] __args, long __state, AsyncOperation __result)
@@ -567,7 +578,8 @@ public sealed class Plugin : BaseUnityPlugin
         var request = DescribeMethod(__originalMethod) + " args=" + DescribeArguments(__args);
         log?.LogInfo(
             $"[SCENE REQUEST RETURN] {elapsedMs:0.000} ms | request='{TrimForLog(request, 260)}' | " +
-            $"operation={(ReferenceEquals(__result, null) ? "<null>" : "returned")} | realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+            $"operation={(ReferenceEquals(__result, null) ? "<null>" : "returned")} | realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount} " +
+            $"bgPriority={Application.backgroundLoadingPriority}");
 
         if (ReferenceEquals(__result, null))
         {
@@ -596,7 +608,8 @@ public sealed class Plugin : BaseUnityPlugin
 
         log?.LogInfo(
             $"[SCENE ASYNC START] progress={state.LastProgress:0.000} isDone={state.LastIsDone} " +
-            $"allowSceneActivation={state.LastAllowSceneActivation} | request='{TrimForLog(request, 220)}' | " +
+            $"allowSceneActivation={state.LastAllowSceneActivation} operationPriority={SafeAsyncPriority(__result)} " +
+            $"bgPriority={Application.backgroundLoadingPriority} | request='{TrimForLog(request, 220)}' | " +
             $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
     }
 
@@ -613,6 +626,11 @@ public sealed class Plugin : BaseUnityPlugin
     private static bool SafeAsyncAllowSceneActivation(AsyncOperation operation)
     {
         try { return operation.allowSceneActivation; } catch { return false; }
+    }
+
+    private static int SafeAsyncPriority(AsyncOperation operation)
+    {
+        try { return operation.priority; } catch { return int.MinValue; }
     }
 
     private static void SampleSceneAsyncOperations(double frameMs)
@@ -643,7 +661,8 @@ public sealed class Plugin : BaseUnityPlugin
                 var age = Math.Max(0f, Time.realtimeSinceStartup - state.StartedAt);
                 log?.LogInfo(
                     $"[SCENE ASYNC] progress={progress:0.000} delta={progress - state.LastProgress:+0.000;-0.000;0.000} " +
-                    $"isDone={isDone} allowSceneActivation={allow} | age={age:0.000}s frame={Time.frameCount} " +
+                    $"isDone={isDone} allowSceneActivation={allow} operationPriority={SafeAsyncPriority(state.Operation)} " +
+                    $"bgPriority={Application.backgroundLoadingPriority} | age={age:0.000}s frame={Time.frameCount} " +
                     $"frameDelta={frameMs:0.0}ms | request='{TrimForLog(state.Request, 200)}'");
                 state.LastProgress = progress;
                 state.LastIsDone = isDone;
@@ -711,10 +730,44 @@ public sealed class Plugin : BaseUnityPlugin
         var duration = targetedWindowSeconds != null ? Math.Max(1f, targetedWindowSeconds.Value) : 15f;
         targetedWindowUntil = Time.realtimeSinceStartup + duration;
         SceneAsyncOperations.Clear();
+        ApplyBackgroundLoadingPriorityExperiment();
 
         log?.LogInfo(
             $"[TARGET WINDOW] opened for {duration:0.0}s | realtime={Time.realtimeSinceStartup:0.000}s | " +
             $"frame={Time.frameCount} | trigger='{TrimForLog(targetedTrigger, 180)}'");
+    }
+
+    private static void ApplyBackgroundLoadingPriorityExperiment()
+    {
+        var current = Application.backgroundLoadingPriority;
+        if (overrideBackgroundLoadingPriority == null || !overrideBackgroundLoadingPriority.Value)
+        {
+            log?.LogInfo($"[LOAD PRIORITY] observe-only current={current}");
+            return;
+        }
+
+        originalBackgroundLoadingPriority = current;
+        var target = experimentalBackgroundLoadingPriority != null
+            ? experimentalBackgroundLoadingPriority.Value
+            : UnityEngine.ThreadPriority.High;
+
+        Application.backgroundLoadingPriority = target;
+        backgroundPriorityOverrideActive = true;
+        log?.LogInfo($"[LOAD PRIORITY] applied original={originalBackgroundLoadingPriority} target={target} current={Application.backgroundLoadingPriority}");
+    }
+
+    private static void RestoreBackgroundLoadingPriority(string reason)
+    {
+        if (!backgroundPriorityOverrideActive)
+        {
+            return;
+        }
+
+        var before = Application.backgroundLoadingPriority;
+        Application.backgroundLoadingPriority = originalBackgroundLoadingPriority;
+        backgroundPriorityOverrideActive = false;
+        log?.LogInfo(
+            $"[LOAD PRIORITY] restored before={before} restored={Application.backgroundLoadingPriority} reason='{TrimForLog(reason, 120)}'");
     }
 
     private static void ButtonPressPrefix(Button __instance)
@@ -1155,6 +1208,7 @@ public sealed class Plugin : BaseUnityPlugin
             }
         }
 
+        RestoreBackgroundLoadingPriority("sceneLoaded:" + sceneName);
         transitionOpen = false;
         transitionFrom = sceneName;
         lastLoadedScene = sceneName;
@@ -1388,6 +1442,7 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void OnApplicationQuit()
     {
+        RestoreBackgroundLoadingPriority("applicationQuit");
         if (profilerEnabled.Value)
         {
             LogPoint("QUIT", GetActiveSceneName());
@@ -1396,6 +1451,7 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void OnDestroy()
     {
+        RestoreBackgroundLoadingPriority("pluginDestroy");
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneUnloaded -= OnSceneUnloaded;
         SceneManager.activeSceneChanged -= OnActiveSceneChanged;
