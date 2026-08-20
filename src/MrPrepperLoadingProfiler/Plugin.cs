@@ -1,11 +1,17 @@
 using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
+using HarmonyLib;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Profiling;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 namespace MrPrepperLoadingProfiler;
 
@@ -14,9 +20,10 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.loadingprofiler";
     public const string PluginName = "Mr. Prepper Loading Profiler";
-    public const string PluginVersion = "0.2.0";
+    public const string PluginVersion = "0.3.0";
 
     private static ManualLogSource log;
+    private static ConfigEntry<bool> logUiButtonPresses;
 
     private ConfigEntry<bool> profilerEnabled;
     private ConfigEntry<float> stallThresholdMs;
@@ -26,6 +33,9 @@ public sealed class Plugin : BaseUnityPlugin
     private ConfigEntry<bool> logSceneEvents;
     private ConfigEntry<bool> logMemory;
     private ConfigEntry<int> postLoadFramesToWatch;
+    private ConfigEntry<bool> logRawMouseClicks;
+    private ConfigEntry<bool> logVideoPlayers;
+    private ConfigEntry<float> videoScanIntervalSeconds;
 
     private float summaryStartedAt;
     private int summaryStartedFrame;
@@ -42,6 +52,20 @@ public sealed class Plugin : BaseUnityPlugin
     private float transitionUnloadedAt;
     private int watchedPostLoadFramesRemaining;
     private string lastLoadedScene = "<none>";
+
+    private Harmony harmony;
+    private float nextVideoScanAt;
+    private readonly Dictionary<int, VideoState> videoStates = new();
+
+    private static string lastUserAction = "<none>";
+    private static float lastUserActionAt = -1f;
+
+    private sealed class VideoState
+    {
+        public bool IsPlaying;
+        public bool IsPrepared;
+        public string Description;
+    }
 
     private void Awake()
     {
@@ -62,18 +86,55 @@ public sealed class Plugin : BaseUnityPlugin
         logSceneEvents = Config.Bind("Scenes", "LogSceneEvents", true,
             "Log scene load, unload and active-scene changes.");
         logMemory = Config.Bind("Memory", "LogMemory", true,
-            "Include managed, Unity allocator and process working-set memory in diagnostics where available.");
+            "Include managed and Unity allocator memory in diagnostics where available.");
+        logRawMouseClicks = Config.Bind("Input", "LogRawMouseClicks", true,
+            "Log mouse clicks and the top EventSystem object under the pointer.");
+        logUiButtonPresses = Config.Bind("Input", "LogUiButtonPresses", true,
+            "Log Unity UI Button.Press calls before the button callback runs.");
+        logVideoPlayers = Config.Bind("Video", "LogVideoPlayers", true,
+            "Discover VideoPlayer components and log prepare/play/stop state changes.");
+        videoScanIntervalSeconds = Config.Bind("Video", "ScanIntervalSeconds", 0.10f,
+            "Polling interval used for VideoPlayer diagnostics.");
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
         SceneManager.activeSceneChanged += OnActiveSceneChanged;
 
+        InstallUiButtonHook();
         ResetSummaryWindow();
 
         log.LogInfo($"{PluginName} {PluginVersion} loaded.");
         log.LogInfo($"Unity={Application.unityVersion}; GameVersion={Application.version}; OS={SystemInfo.operatingSystem}");
         log.LogInfo($"CPU={SystemInfo.processorType}; RAM={SystemInfo.systemMemorySize} MB; GPU={SystemInfo.graphicsDeviceName}; VRAM={SystemInfo.graphicsMemorySize} MB");
+        log.LogInfo($"Diagnostics: rawMouse={logRawMouseClicks.Value}, uiButtons={logUiButtonPresses.Value}, video={logVideoPlayers.Value}");
         LogPoint("START", GetActiveSceneName());
+    }
+
+    private void InstallUiButtonHook()
+    {
+        var press = AccessTools.Method(typeof(Button), "Press");
+        if (press == null)
+        {
+            log.LogWarning("[UI DIAG] UnityEngine.UI.Button.Press was not found; button callback markers are unavailable.");
+            return;
+        }
+
+        harmony = new Harmony(PluginGuid + ".ui");
+        harmony.Patch(press, prefix: new HarmonyMethod(typeof(Plugin), nameof(ButtonPressPrefix)));
+        log.LogInfo("[UI DIAG] Hooked UnityEngine.UI.Button.Press.");
+    }
+
+    private static void ButtonPressPrefix(Button __instance)
+    {
+        if (log == null || logUiButtonPresses == null || !logUiButtonPresses.Value || __instance == null)
+        {
+            return;
+        }
+
+        var path = GetObjectPath(__instance.gameObject);
+        var label = GetButtonLabel(__instance);
+        var description = $"button='{path}'" + (string.IsNullOrEmpty(label) ? string.Empty : $" text='{TrimForLog(label)}'");
+        RecordUserAction("UI BUTTON", description);
     }
 
     private void Update()
@@ -82,6 +143,9 @@ public sealed class Plugin : BaseUnityPlugin
         {
             return;
         }
+
+        CaptureRawInput();
+        ScanVideoPlayersIfDue();
 
         var frameMs = Time.unscaledDeltaTime * 1000.0;
         var focused = Application.isFocused;
@@ -98,7 +162,7 @@ public sealed class Plugin : BaseUnityPlugin
 
             if (frameMs >= Math.Max(stallThresholdMs.Value, immediateStallLogThresholdMs.Value))
             {
-                log.LogWarning($"[STALL] {frameMs:0.0} ms | phase={phase} | scene='{GetActiveSceneName()}' | frame={Time.frameCount}{GetMemorySuffix()}");
+                log.LogWarning($"[STALL] {frameMs:0.0} ms | phase={phase} | scene='{GetActiveSceneName()}' | frame={Time.frameCount}{GetRecentUserActionSuffix()}{GetMemorySuffix()}");
             }
         }
 
@@ -107,7 +171,7 @@ public sealed class Plugin : BaseUnityPlugin
             var watchedIndex = Math.Max(1, postLoadFramesToWatch.Value) - watchedPostLoadFramesRemaining + 1;
             if (frameMs >= Math.Max(1f, stallThresholdMs.Value))
             {
-                log.LogInfo($"[POST-LOAD FRAME] scene='{lastLoadedScene}' | index={watchedIndex} | frame={Time.frameCount} | {frameMs:0.0} ms{GetMemorySuffix()}");
+                log.LogInfo($"[POST-LOAD FRAME] scene='{lastLoadedScene}' | index={watchedIndex} | frame={Time.frameCount} | {frameMs:0.0} ms{GetRecentUserActionSuffix()}{GetMemorySuffix()}");
             }
 
             watchedPostLoadFramesRemaining--;
@@ -119,6 +183,152 @@ public sealed class Plugin : BaseUnityPlugin
         {
             LogSummary(now);
             ResetSummaryWindow();
+        }
+    }
+
+    private void CaptureRawInput()
+    {
+        if (!logRawMouseClicks.Value)
+        {
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            RecordUserAction("MOUSE", $"button=left pos={FormatMousePosition()} target='{GetPointerTarget()}'");
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            RecordUserAction("MOUSE", $"button=right pos={FormatMousePosition()} target='{GetPointerTarget()}'");
+        }
+    }
+
+    private static string FormatMousePosition()
+    {
+        var position = Input.mousePosition;
+        return $"({position.x:0},{position.y:0})";
+    }
+
+    private static string GetPointerTarget()
+    {
+        try
+        {
+            var eventSystem = EventSystem.current;
+            if (eventSystem == null)
+            {
+                return "<no EventSystem>";
+            }
+
+            var pointer = new PointerEventData(eventSystem) { position = Input.mousePosition };
+            var results = new List<RaycastResult>();
+            eventSystem.RaycastAll(pointer, results);
+            if (results.Count == 0 || results[0].gameObject == null)
+            {
+                return "<none>";
+            }
+
+            return GetObjectPath(results[0].gameObject);
+        }
+        catch (Exception ex)
+        {
+            return "<raycast failed: " + ex.GetType().Name + ">";
+        }
+    }
+
+    private void ScanVideoPlayersIfDue()
+    {
+        if (!logVideoPlayers.Value || Time.realtimeSinceStartup < nextVideoScanAt)
+        {
+            return;
+        }
+
+        nextVideoScanAt = Time.realtimeSinceStartup + Math.Max(0.02f, videoScanIntervalSeconds.Value);
+
+        VideoPlayer[] players;
+        try
+        {
+            players = Resources.FindObjectsOfTypeAll<VideoPlayer>();
+        }
+        catch (Exception ex)
+        {
+            log.LogWarning($"[VIDEO DIAG] Could not enumerate VideoPlayer components: {ex.GetType().Name}: {ex.Message}");
+            return;
+        }
+
+        foreach (var player in players)
+        {
+            if (player == null)
+            {
+                continue;
+            }
+
+            var id = player.GetInstanceID();
+            var description = DescribeVideoPlayer(player);
+            var isPlaying = SafeVideoBool(() => player.isPlaying);
+            var isPrepared = SafeVideoBool(() => player.isPrepared);
+
+            if (!videoStates.TryGetValue(id, out var state))
+            {
+                state = new VideoState
+                {
+                    IsPlaying = isPlaying,
+                    IsPrepared = isPrepared,
+                    Description = description
+                };
+                videoStates[id] = state;
+                log.LogInfo($"[VIDEO FOUND] id={id} | {description} | prepared={isPrepared} | playing={isPlaying}");
+                continue;
+            }
+
+            if (!string.Equals(state.Description, description, StringComparison.Ordinal))
+            {
+                state.Description = description;
+            }
+
+            if (state.IsPrepared != isPrepared)
+            {
+                log.LogInfo($"[VIDEO STATE] id={id} | prepared {state.IsPrepared}->{isPrepared} | {description}");
+                state.IsPrepared = isPrepared;
+            }
+
+            if (state.IsPlaying != isPlaying)
+            {
+                log.LogInfo($"[VIDEO STATE] id={id} | playing {state.IsPlaying}->{isPlaying} | {description}");
+                state.IsPlaying = isPlaying;
+            }
+        }
+    }
+
+    private static bool SafeVideoBool(Func<bool> getter)
+    {
+        try
+        {
+            return getter();
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private static string DescribeVideoPlayer(VideoPlayer player)
+    {
+        try
+        {
+            var path = GetObjectPath(player.gameObject);
+            var scene = player.gameObject.scene.IsValid() && !string.IsNullOrEmpty(player.gameObject.scene.name)
+                ? player.gameObject.scene.name
+                : "<no-scene>";
+            var clipName = player.clip != null ? player.clip.name : "<none>";
+            var url = string.IsNullOrEmpty(player.url) ? "<none>" : TrimForLog(player.url, 120);
+            var frame = player.frame;
+            var time = player.time;
+            var length = player.length;
+            return $"scene='{scene}' object='{path}' source={player.source} clip='{TrimForLog(clipName)}' url='{url}' frame={frame} time={time:0.000}s length={length:0.000}s";
+        }
+        catch (Exception ex)
+        {
+            return $"object='<describe failed>' error={ex.GetType().Name}";
         }
     }
 
@@ -165,6 +375,7 @@ public sealed class Plugin : BaseUnityPlugin
         transitionFrom = sceneName;
         lastLoadedScene = sceneName;
         watchedPostLoadFramesRemaining = Math.Max(0, postLoadFramesToWatch.Value);
+        nextVideoScanAt = 0f;
     }
 
     private void OnActiveSceneChanged(Scene oldScene, Scene newScene)
@@ -214,7 +425,30 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void LogPoint(string eventName, string sceneName)
     {
-        log.LogInfo($"[{eventName}] scene='{sceneName}' | realtime={Time.realtimeSinceStartup:0.000}s | frame={Time.frameCount}{GetMemorySuffix()}");
+        log.LogInfo($"[{eventName}] scene='{sceneName}' | realtime={Time.realtimeSinceStartup:0.000}s | frame={Time.frameCount}{GetRecentUserActionSuffix()}{GetMemorySuffix()}");
+    }
+
+    private static void RecordUserAction(string category, string description)
+    {
+        lastUserActionAt = Time.realtimeSinceStartup;
+        lastUserAction = category + " " + description;
+        log?.LogInfo($"[{category}] realtime={lastUserActionAt:0.000}s | frame={Time.frameCount} | scene='{GetActiveSceneName()}' | {description}");
+    }
+
+    private static string GetRecentUserActionSuffix()
+    {
+        if (lastUserActionAt < 0f)
+        {
+            return string.Empty;
+        }
+
+        var ageMs = Math.Max(0f, (Time.realtimeSinceStartup - lastUserActionAt) * 1000f);
+        if (ageMs > 15000f)
+        {
+            return string.Empty;
+        }
+
+        return $" | lastAction=\"{TrimForLog(lastUserAction, 180)}\" age={ageMs:0}ms";
     }
 
     private string GetMemorySuffix()
@@ -315,6 +549,63 @@ public sealed class Plugin : BaseUnityPlugin
         return string.IsNullOrEmpty(scene.name) ? $"buildIndex:{scene.buildIndex}" : scene.name;
     }
 
+    private static string GetButtonLabel(Button button)
+    {
+        try
+        {
+            var tmp = button.GetComponentInChildren<TMP_Text>(true);
+            if (tmp != null && !string.IsNullOrWhiteSpace(tmp.text))
+            {
+                return tmp.text;
+            }
+
+            var legacy = button.GetComponentInChildren<Text>(true);
+            return legacy != null ? legacy.text : string.Empty;
+        }
+        catch
+        {
+            return string.Empty;
+        }
+    }
+
+    private static string GetObjectPath(GameObject gameObject)
+    {
+        if (gameObject == null)
+        {
+            return "<null>";
+        }
+
+        try
+        {
+            var names = new List<string>();
+            var current = gameObject.transform;
+            var guard = 0;
+            while (current != null && guard++ < 32)
+            {
+                names.Add(current.name);
+                current = current.parent;
+            }
+
+            names.Reverse();
+            return string.Join("/", names.ToArray());
+        }
+        catch
+        {
+            return gameObject.name ?? "<unnamed>";
+        }
+    }
+
+    private static string TrimForLog(string value, int maxLength = 100)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return string.Empty;
+        }
+
+        var normalized = value.Replace("\r", " ").Replace("\n", " ").Replace("\"", "'").Trim();
+        return normalized.Length <= maxLength ? normalized : normalized.Substring(0, maxLength) + "...";
+    }
+
     private void OnApplicationQuit()
     {
         if (profilerEnabled.Value)
@@ -328,5 +619,6 @@ public sealed class Plugin : BaseUnityPlugin
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneUnloaded -= OnSceneUnloaded;
         SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+        harmony?.UnpatchSelf();
     }
 }
