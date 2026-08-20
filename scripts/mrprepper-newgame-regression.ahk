@@ -20,7 +20,7 @@
 ;   -> hold left mouse to skip the new-game intro/video
 ;   -> wait for the opening camera to descend and dialogue to become visible
 ;   -> 11 paced left-clicks to advance the scripted opening sequence
-;   -> Esc -> Exit to Windows -> Yes
+;   -> short settle -> Esc -> Exit to Windows -> Yes
 ;
 ; The opening dialogue does not advance reliably with a single uniform cadence.
 ; The fifth click also gets a longer wait before it as an extra safety margin.
@@ -33,7 +33,7 @@ stepDelayMs := A_Args.Length >= 3 ? Integer(A_Args[3]) : 1400
 loadWaitMs := A_Args.Length >= 4 ? Integer(A_Args[4]) : 23000
 mouseHoldMs := A_Args.Length >= 5 ? Integer(A_Args[5]) : 3500
 openingSettleWaitMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 8000
-postSequenceWaitMs := A_Args.Length >= 7 ? Integer(A_Args[7]) : 8000
+postSequenceWaitMs := A_Args.Length >= 7 ? Integer(A_Args[7]) : 3500
 exitWaitMs := A_Args.Length >= 8 ? Integer(A_Args[8]) : 10000
 windowTimeoutSec := 45
 
@@ -128,10 +128,9 @@ for index, delayMs in advanceBeforeClickMs {
     ClickPoint("SkipArea")
 }
 
-; Give dialogue/loading instrumentation enough time to finish writing results.
+; Briefly settle after the final line, then exit normally.
 Sleep postSequenceWaitMs
 
-; Prefer a clean shutdown so the next automated run starts from a predictable state.
 Send "{Esc}"
 Sleep 1000
 ClickPoint("ExitToWindows")
