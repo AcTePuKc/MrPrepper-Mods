@@ -6,7 +6,10 @@ param(
     [string]$AutoHotkeyExe = 'C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe',
     [int]$StartupDelayMs = 25000,
     [int]$BetweenClicksMs = 1500,
+    [int]$RecoveryToContinueMs = 1200,
+    [bool]$DismissRecoveryPrompt = $true,
     [int]$RunTimeoutSeconds = 90,
+    [int]$GracefulCloseSeconds = 10,
     [int]$CooldownSeconds = 5
 )
 
@@ -43,6 +46,24 @@ function Get-CsvRunCount {
     try { return @((Import-Csv -LiteralPath $csvPath)).Count } catch { return 0 }
 }
 
+function Stop-MrPrepperGracefully {
+    $processes = @(Get-Process MrPrepper -ErrorAction SilentlyContinue)
+    foreach ($proc in $processes) {
+        try {
+            if (-not $proc.HasExited) {
+                [void]$proc.CloseMainWindow()
+                if (-not $proc.WaitForExit([math]::Max(1, $GracefulCloseSeconds) * 1000)) {
+                    Write-Warning "MrPrepper did not close gracefully within ${GracefulCloseSeconds}s; forcing exit."
+                    $proc.Kill()
+                    $proc.WaitForExit()
+                }
+            }
+        } catch {
+            Stop-Process -Id $proc.Id -Force -ErrorAction SilentlyContinue
+        }
+    }
+}
+
 Write-Host "Preparing benchmark: priority=$Priority runs=$Runs"
 Set-IniValue -Path $benchmarkCfg -Key 'BackgroundLoadingPriority' -Value $Priority
 Set-IniValue -Path $benchmarkCfg -Key 'Enabled' -Value 'true'
@@ -58,12 +79,23 @@ Write-Host "Existing CSV rows: $startCount"
 for ($i = 1; $i -le $Runs; $i++) {
     Write-Host "[$i/$Runs] Starting Mr. Prepper ($Priority)..."
 
-    Get-Process MrPrepper -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
-    Start-Sleep -Seconds 1
+    if (Get-Process MrPrepper -ErrorAction SilentlyContinue) {
+        Stop-MrPrepperGracefully
+        Start-Sleep -Seconds 1
+    }
 
     $before = Get-CsvRunCount
     Start-Process -FilePath $gameExe -WorkingDirectory $GameDir | Out-Null
-    Start-Process -FilePath $AutoHotkeyExe -ArgumentList @('"' + $ahkScript + '"', $StartupDelayMs, $BetweenClicksMs, 45) -Wait | Out-Null
+
+    $dismissFlag = if ($DismissRecoveryPrompt) { 1 } else { 0 }
+    Start-Process -FilePath $AutoHotkeyExe -ArgumentList @(
+        '"' + $ahkScript + '"',
+        $StartupDelayMs,
+        $BetweenClicksMs,
+        45,
+        $dismissFlag,
+        $RecoveryToContinueMs
+    ) -Wait | Out-Null
 
     $deadline = (Get-Date).AddSeconds($RunTimeoutSeconds)
     $completed = $false
@@ -85,7 +117,7 @@ for ($i = 1; $i -le $Runs; $i++) {
         Write-Warning "[$i/$Runs] benchmark did not complete before timeout/game exit."
     }
 
-    Get-Process MrPrepper -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+    Stop-MrPrepperGracefully
     if ($i -lt $Runs) { Start-Sleep -Seconds $CooldownSeconds }
 }
 
