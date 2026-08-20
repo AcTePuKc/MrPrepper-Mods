@@ -24,10 +24,14 @@ $bepInExDir = Join-Path $GameDir 'BepInEx'
 $benchmarkCfg = Join-Path $bepInExDir 'config\actepukc.mrprepper.loadingbenchmark.cfg'
 $profilerCfg = Join-Path $bepInExDir 'config\actepukc.mrprepper.loadingprofiler.cfg'
 $csvPath = Join-Path $bepInExDir 'benchmark-results.csv'
+$logPath = Join-Path $bepInExDir 'LogOutput.log'
+$logArchiveDir = Join-Path $bepInExDir 'benchmark-logs'
 
 foreach ($required in @($gameExe, $AutoHotkeyExe, $ahkScript, $benchmarkCfg)) {
     if (-not (Test-Path $required)) { throw "Required path not found: $required" }
 }
+
+New-Item -ItemType Directory -Path $logArchiveDir -Force | Out-Null
 
 function Set-IniValue {
     param([string]$Path, [string]$Key, [string]$Value)
@@ -64,6 +68,25 @@ function Stop-MrPrepperGracefully {
     }
 }
 
+function Archive-BepInExLog {
+    param(
+        [int]$RunNumber,
+        [bool]$Completed
+    )
+
+    if (-not (Test-Path -LiteralPath $logPath)) {
+        Write-Warning "BepInEx log not found after run $RunNumber: $logPath"
+        return
+    }
+
+    $status = if ($Completed) { 'ok' } else { 'failed' }
+    $timestamp = Get-Date -Format 'yyyyMMdd-HHmmss-fff'
+    $name = '{0}-{1:D3}-{2}-{3}.log' -f $Priority, $RunNumber, $status, $timestamp
+    $destination = Join-Path $logArchiveDir $name
+    Copy-Item -LiteralPath $logPath -Destination $destination -Force
+    Write-Host "[$RunNumber/$Runs] archived log: $destination"
+}
+
 Write-Host "Preparing benchmark: priority=$Priority runs=$Runs"
 Set-IniValue -Path $benchmarkCfg -Key 'BackgroundLoadingPriority' -Value $Priority
 Set-IniValue -Path $benchmarkCfg -Key 'Enabled' -Value 'true'
@@ -75,6 +98,7 @@ if (Test-Path $profilerCfg) {
 
 $startCount = Get-CsvRunCount
 Write-Host "Existing CSV rows: $startCount"
+Write-Host "Archived logs: $logArchiveDir"
 
 for ($i = 1; $i -le $Runs; $i++) {
     Write-Host "[$i/$Runs] Starting Mr. Prepper ($Priority)..."
@@ -118,12 +142,16 @@ for ($i = 1; $i -le $Runs; $i++) {
     }
 
     Stop-MrPrepperGracefully
+    Start-Sleep -Milliseconds 300
+    Archive-BepInExLog -RunNumber $i -Completed $completed
+
     if ($i -lt $Runs) { Start-Sleep -Seconds $CooldownSeconds }
 }
 
 $endCount = Get-CsvRunCount
 Write-Host "Finished. New CSV rows: $($endCount - $startCount)"
 Write-Host "CSV: $csvPath"
+Write-Host "Logs: $logArchiveDir"
 
 if (Test-Path $csvPath) {
     $rows = Import-Csv -LiteralPath $csvPath | Where-Object Priority -eq $Priority | Select-Object -Last $Runs
