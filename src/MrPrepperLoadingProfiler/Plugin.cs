@@ -4,6 +4,7 @@ using BepInEx.Logging;
 using System;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.SceneManagement;
 
 namespace MrPrepperLoadingProfiler;
@@ -13,17 +14,18 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.loadingprofiler";
     public const string PluginName = "Mr. Prepper Loading Profiler";
-    public const string PluginVersion = "0.1.0";
+    public const string PluginVersion = "0.2.0";
 
     private static ManualLogSource log;
 
-    private ConfigEntry<bool> enabled;
+    private ConfigEntry<bool> profilerEnabled;
     private ConfigEntry<float> stallThresholdMs;
     private ConfigEntry<float> immediateStallLogThresholdMs;
     private ConfigEntry<float> summaryIntervalSeconds;
     private ConfigEntry<bool> ignoreUnfocused;
     private ConfigEntry<bool> logSceneEvents;
     private ConfigEntry<bool> logMemory;
+    private ConfigEntry<int> postLoadFramesToWatch;
 
     private float summaryStartedAt;
     private int summaryStartedFrame;
@@ -38,12 +40,14 @@ public sealed class Plugin : BaseUnityPlugin
     private bool transitionOpen;
     private string transitionFrom = "<unknown>";
     private float transitionUnloadedAt;
+    private int watchedPostLoadFramesRemaining;
+    private string lastLoadedScene = "<none>";
 
     private void Awake()
     {
         log = Logger;
 
-        enabled = Config.Bind("General", "Enabled", true,
+        profilerEnabled = Config.Bind("General", "Enabled", true,
             "Enable runtime profiling and diagnostic logging.");
         stallThresholdMs = Config.Bind("Frames", "StallThresholdMs", 50f,
             "Frames at or above this duration count as stalls in periodic summaries.");
@@ -53,10 +57,12 @@ public sealed class Plugin : BaseUnityPlugin
             "How often to print a frame, memory and GC summary.");
         ignoreUnfocused = Config.Bind("Frames", "IgnoreUnfocused", true,
             "Ignore frame stalls while the game window is not focused.");
+        postLoadFramesToWatch = Config.Bind("Frames", "PostLoadFramesToWatch", 8,
+            "Number of frames after sceneLoaded to classify separately as post-load work.");
         logSceneEvents = Config.Bind("Scenes", "LogSceneEvents", true,
             "Log scene load, unload and active-scene changes.");
         logMemory = Config.Bind("Memory", "LogMemory", true,
-            "Include managed and process memory in diagnostics where available.");
+            "Include managed, Unity allocator and process working-set memory in diagnostics where available.");
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
@@ -72,13 +78,14 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void Update()
     {
-        if (!enabled.Value)
+        if (!profilerEnabled.Value)
         {
             return;
         }
 
         var frameMs = Time.unscaledDeltaTime * 1000.0;
         var focused = Application.isFocused;
+        var phase = GetCurrentPhase();
 
         if ((!ignoreUnfocused.Value || focused) && frameMs >= Math.Max(1f, stallThresholdMs.Value))
         {
@@ -91,8 +98,19 @@ public sealed class Plugin : BaseUnityPlugin
 
             if (frameMs >= Math.Max(stallThresholdMs.Value, immediateStallLogThresholdMs.Value))
             {
-                log.LogWarning($"[STALL] {frameMs:0.0} ms | scene='{GetActiveSceneName()}' | frame={Time.frameCount}{GetMemorySuffix()}");
+                log.LogWarning($"[STALL] {frameMs:0.0} ms | phase={phase} | scene='{GetActiveSceneName()}' | frame={Time.frameCount}{GetMemorySuffix()}");
             }
+        }
+
+        if (watchedPostLoadFramesRemaining > 0)
+        {
+            var watchedIndex = Math.Max(1, postLoadFramesToWatch.Value) - watchedPostLoadFramesRemaining + 1;
+            if (frameMs >= Math.Max(1f, stallThresholdMs.Value))
+            {
+                log.LogInfo($"[POST-LOAD FRAME] scene='{lastLoadedScene}' | index={watchedIndex} | frame={Time.frameCount} | {frameMs:0.0} ms{GetMemorySuffix()}");
+            }
+
+            watchedPostLoadFramesRemaining--;
         }
 
         var now = Time.realtimeSinceStartup;
@@ -106,7 +124,7 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void OnSceneUnloaded(Scene scene)
     {
-        if (!enabled.Value)
+        if (!profilerEnabled.Value)
         {
             return;
         }
@@ -123,7 +141,7 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (!enabled.Value)
+        if (!profilerEnabled.Value)
         {
             return;
         }
@@ -145,11 +163,13 @@ public sealed class Plugin : BaseUnityPlugin
 
         transitionOpen = false;
         transitionFrom = sceneName;
+        lastLoadedScene = sceneName;
+        watchedPostLoadFramesRemaining = Math.Max(0, postLoadFramesToWatch.Value);
     }
 
     private void OnActiveSceneChanged(Scene oldScene, Scene newScene)
     {
-        if (!enabled.Value || !logSceneEvents.Value)
+        if (!profilerEnabled.Value || !logSceneEvents.Value)
         {
             return;
         }
@@ -205,25 +225,88 @@ public sealed class Plugin : BaseUnityPlugin
         }
 
         var managedMb = GC.GetTotalMemory(false) / (1024.0 * 1024.0);
-        var processMb = GetProcessMemoryMb();
-        return processMb >= 0
-            ? $" | managed={managedMb:0.0} MB | process={processMb:0.0} MB"
-            : $" | managed={managedMb:0.0} MB";
+        var monoUsedMb = TryGetUnityMemoryMb(() => Profiler.GetMonoUsedSizeLong());
+        var monoHeapMb = TryGetUnityMemoryMb(() => Profiler.GetMonoHeapSizeLong());
+        var unityAllocatedMb = TryGetUnityMemoryMb(() => Profiler.GetTotalAllocatedMemoryLong());
+        var workingSetMb = GetProcessWorkingSetMb();
+
+        var suffix = $" | managed={managedMb:0.0} MB";
+        if (monoUsedMb >= 0)
+        {
+            suffix += $" | monoUsed={monoUsedMb:0.0} MB";
+        }
+        if (monoHeapMb >= 0)
+        {
+            suffix += $" | monoHeap={monoHeapMb:0.0} MB";
+        }
+        if (unityAllocatedMb >= 0)
+        {
+            suffix += $" | unityAllocated={unityAllocatedMb:0.0} MB";
+        }
+        if (workingSetMb >= 0)
+        {
+            suffix += $" | workingSet={workingSetMb:0.0} MB";
+        }
+
+        return suffix;
     }
 
-    private static double GetProcessMemoryMb()
+    private static double TryGetUnityMemoryMb(Func<long> getter)
     {
         try
         {
-            using (var process = Process.GetCurrentProcess())
-            {
-                return process.PrivateMemorySize64 / (1024.0 * 1024.0);
-            }
+            var bytes = getter();
+            return bytes >= 0 ? bytes / (1024.0 * 1024.0) : -1;
         }
         catch
         {
             return -1;
         }
+    }
+
+    private static double GetProcessWorkingSetMb()
+    {
+        try
+        {
+            using (var process = Process.GetCurrentProcess())
+            {
+                process.Refresh();
+                var bytes = process.WorkingSet64;
+                if (bytes <= 0)
+                {
+                    bytes = Environment.WorkingSet;
+                }
+
+                return bytes > 0 ? bytes / (1024.0 * 1024.0) : -1;
+            }
+        }
+        catch
+        {
+            try
+            {
+                var bytes = Environment.WorkingSet;
+                return bytes > 0 ? bytes / (1024.0 * 1024.0) : -1;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+    }
+
+    private string GetCurrentPhase()
+    {
+        if (transitionOpen)
+        {
+            return "scene-transition";
+        }
+
+        if (watchedPostLoadFramesRemaining > 0)
+        {
+            return "post-load";
+        }
+
+        return "runtime";
     }
 
     private static string GetActiveSceneName()
@@ -234,7 +317,7 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void OnApplicationQuit()
     {
-        if (enabled.Value)
+        if (profilerEnabled.Value)
         {
             LogPoint("QUIT", GetActiveSceneName());
         }
