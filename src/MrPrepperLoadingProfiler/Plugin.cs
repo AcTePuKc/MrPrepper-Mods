@@ -23,7 +23,7 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.loadingprofiler";
     public const string PluginName = "Mr. Prepper Loading Profiler";
-    public const string PluginVersion = "0.5.0";
+    public const string PluginVersion = "0.6.0";
 
     private static ManualLogSource log;
     private static ConfigEntry<bool> logUiButtonPresses;
@@ -31,6 +31,9 @@ public sealed class Plugin : BaseUnityPlugin
     private static ConfigEntry<bool> targetedLoadDiagnostics;
     private static ConfigEntry<float> targetedWindowSeconds;
     private static ConfigEntry<float> targetedMethodThresholdMs;
+    private static ConfigEntry<bool> traceCoroutines;
+    private static ConfigEntry<bool> traceDelayedInvokes;
+    private static ConfigEntry<bool> traceSceneRequests;
 
     private ConfigEntry<bool> profilerEnabled;
     private ConfigEntry<float> stallThresholdMs;
@@ -59,7 +62,7 @@ public sealed class Plugin : BaseUnityPlugin
     private int watchedPostLoadFramesRemaining;
     private string lastLoadedScene = "<none>";
 
-    private Harmony harmony;
+    private static Harmony harmony;
     private float nextVideoScanAt;
     private readonly Dictionary<int, VideoState> videoStates = new();
 
@@ -68,6 +71,9 @@ public sealed class Plugin : BaseUnityPlugin
     private static float targetedWindowUntil = -1f;
     private static string targetedTrigger = "<none>";
     private static readonly HashSet<MethodBase> TargetedPatchedMethods = new();
+    private static readonly HashSet<MethodBase> DynamicPatchedMethods = new();
+    private static readonly Dictionary<Type, string> CoroutineOwners = new();
+    private static readonly Dictionary<MethodBase, string> DynamicMethodOwners = new();
 
     private sealed class VideoState
     {
@@ -109,11 +115,17 @@ public sealed class Plugin : BaseUnityPlugin
         videoScanIntervalSeconds = Config.Bind("Video", "ScanIntervalSeconds", 0.10f,
             "Polling interval used for VideoPlayer diagnostics.");
         targetedLoadDiagnostics = Config.Bind("Targeted", "EnableSaveSlotTiming", true,
-            "Time SaveSlotControler and nested state-machine methods after the save-slot Play button is pressed.");
+            "Time loading-related work after the save-slot Play button is pressed.");
         targetedWindowSeconds = Config.Bind("Targeted", "WindowSeconds", 15f,
-            "How long after pressing save-slot Play targeted method timing remains active.");
+            "How long after pressing save-slot Play targeted tracing remains active.");
         targetedMethodThresholdMs = Config.Bind("Targeted", "MethodLogThresholdMs", 1f,
             "Only targeted methods taking at least this many milliseconds are logged.");
+        traceCoroutines = Config.Bind("Targeted", "TraceCoroutines", true,
+            "Trace coroutines started during the targeted load window and time their MoveNext steps.");
+        traceDelayedInvokes = Config.Bind("Targeted", "TraceDelayedInvokes", true,
+            "Trace MonoBehaviour.Invoke/InvokeRepeating calls during the targeted load window.");
+        traceSceneRequests = Config.Bind("Targeted", "TraceSceneRequests", true,
+            "Trace SceneManager load requests during the targeted load window.");
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
@@ -122,6 +134,7 @@ public sealed class Plugin : BaseUnityPlugin
         harmony = new Harmony(PluginGuid);
         InstallUiButtonHook();
         InstallTargetedLoadHooks();
+        InstallSchedulingHooks();
         ResetSummaryWindow();
 
         log.LogInfo($"{PluginName} {PluginVersion} loaded.");
@@ -129,7 +142,8 @@ public sealed class Plugin : BaseUnityPlugin
         log.LogInfo($"CPU={SystemInfo.processorType}; RAM={SystemInfo.systemMemorySize} MB; GPU={SystemInfo.graphicsDeviceName}; VRAM={SystemInfo.graphicsMemorySize} MB");
         log.LogInfo(
             $"Diagnostics: rawMouse={logRawMouseClicks.Value}, uiButtons={logUiButtonPresses.Value}, " +
-            $"saveSlotInspection={inspectSaveSlotPlay.Value}, targetedTiming={targetedLoadDiagnostics.Value}, video={logVideoPlayers.Value}");
+            $"saveSlotInspection={inspectSaveSlotPlay.Value}, targetedTiming={targetedLoadDiagnostics.Value}, " +
+            $"coroutines={traceCoroutines.Value}, invokes={traceDelayedInvokes.Value}, sceneRequests={traceSceneRequests.Value}, video={logVideoPlayers.Value}");
         LogPoint("START", GetActiveSceneName());
     }
 
@@ -174,6 +188,84 @@ public sealed class Plugin : BaseUnityPlugin
         log.LogInfo($"[TARGET DIAG] SaveSlotControler instrumentation ready: patchedMethods={patched} type='{saveSlotType.FullName}'.");
     }
 
+    private void InstallSchedulingHooks()
+    {
+        if (!targetedLoadDiagnostics.Value)
+        {
+            return;
+        }
+
+        var installed = 0;
+
+        if (traceCoroutines.Value)
+        {
+            var startEnumerator = AccessTools.Method(typeof(MonoBehaviour), "StartCoroutine", new[] { typeof(IEnumerator) });
+            var startString = AccessTools.Method(typeof(MonoBehaviour), "StartCoroutine", new[] { typeof(string) });
+            if (startEnumerator != null)
+            {
+                harmony.Patch(startEnumerator, prefix: new HarmonyMethod(typeof(Plugin), nameof(StartCoroutineEnumeratorPrefix)));
+                installed++;
+            }
+            if (startString != null)
+            {
+                harmony.Patch(startString, prefix: new HarmonyMethod(typeof(Plugin), nameof(StartCoroutineStringPrefix)));
+                installed++;
+            }
+        }
+
+        if (traceDelayedInvokes.Value)
+        {
+            var invoke = AccessTools.Method(typeof(MonoBehaviour), "Invoke", new[] { typeof(string), typeof(float) });
+            var invokeRepeating = AccessTools.Method(typeof(MonoBehaviour), "InvokeRepeating", new[] { typeof(string), typeof(float), typeof(float) });
+            if (invoke != null)
+            {
+                harmony.Patch(invoke, prefix: new HarmonyMethod(typeof(Plugin), nameof(InvokePrefix)));
+                installed++;
+            }
+            if (invokeRepeating != null)
+            {
+                harmony.Patch(invokeRepeating, prefix: new HarmonyMethod(typeof(Plugin), nameof(InvokeRepeatingPrefix)));
+                installed++;
+            }
+        }
+
+        if (traceSceneRequests.Value)
+        {
+            installed += PatchSceneLoadRequests();
+        }
+
+        log.LogInfo($"[TARGET DIAG] Scheduling instrumentation ready: hooks={installed}.");
+    }
+
+    private int PatchSceneLoadRequests()
+    {
+        var count = 0;
+        foreach (var method in typeof(SceneManager).GetMethods(BindingFlags.Static | BindingFlags.Public))
+        {
+            if (method == null ||
+                (!string.Equals(method.Name, "LoadScene", StringComparison.Ordinal) &&
+                 !string.Equals(method.Name, "LoadSceneAsync", StringComparison.Ordinal)))
+            {
+                continue;
+            }
+
+            try
+            {
+                if (method.GetMethodBody() == null)
+                {
+                    continue;
+                }
+
+                harmony.Patch(method, prefix: new HarmonyMethod(typeof(Plugin), nameof(SceneLoadRequestPrefix)));
+                count++;
+            }
+            catch
+            {
+            }
+        }
+        return count;
+    }
+
     private int PatchTargetTypeMethods(Type type, HarmonyMethod prefix, HarmonyMethod postfix)
     {
         var count = 0;
@@ -192,22 +284,7 @@ public sealed class Plugin : BaseUnityPlugin
 
         foreach (var method in methods)
         {
-            if (method == null || method.IsAbstract || method.ContainsGenericParameters || method.IsSpecialName)
-            {
-                continue;
-            }
-
-            MethodBody body;
-            try
-            {
-                body = method.GetMethodBody();
-            }
-            catch
-            {
-                continue;
-            }
-
-            if (body == null)
+            if (!CanPatchManagedMethod(method))
             {
                 continue;
             }
@@ -233,17 +310,32 @@ public sealed class Plugin : BaseUnityPlugin
         return count;
     }
 
+    private static bool CanPatchManagedMethod(MethodInfo method)
+    {
+        if (method == null || method.IsAbstract || method.ContainsGenericParameters || method.IsSpecialName)
+        {
+            return false;
+        }
+
+        try
+        {
+            return method.GetMethodBody() != null;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     private static void TargetedMethodPrefix(MethodBase __originalMethod, ref long __state)
     {
         __state = 0L;
-
         if (!IsTargetedWindowActive() || __originalMethod == null)
         {
             return;
         }
 
         __state = Stopwatch.GetTimestamp();
-
         if (string.Equals(__originalMethod.Name, "Play", StringComparison.OrdinalIgnoreCase))
         {
             log?.LogInfo(
@@ -254,25 +346,227 @@ public sealed class Plugin : BaseUnityPlugin
 
     private static void TargetedMethodPostfix(MethodBase __originalMethod, long __state)
     {
-        if (__state == 0L || __originalMethod == null)
+        LogTimedTargetMethod("TARGET METHOD", __originalMethod, __state, null);
+    }
+
+    private static void StartCoroutineEnumeratorPrefix(MonoBehaviour __instance, IEnumerator routine)
+    {
+        if (!IsTargetedWindowActive() || traceCoroutines == null || !traceCoroutines.Value || routine == null)
         {
             return;
         }
 
-        var elapsedMs = (Stopwatch.GetTimestamp() - __state) * 1000.0 / Stopwatch.Frequency;
+        var owner = DescribeBehaviour(__instance);
+        var routineType = routine.GetType();
+        CoroutineOwners[routineType] = owner;
+
+        log?.LogInfo(
+            $"[COROUTINE START] owner='{TrimForLog(owner, 180)}' routine='{routineType.FullName}' | " +
+            $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+
+        PatchCoroutineMoveNext(routineType, owner);
+    }
+
+    private static void StartCoroutineStringPrefix(MonoBehaviour __instance, string methodName)
+    {
+        if (!IsTargetedWindowActive() || traceCoroutines == null || !traceCoroutines.Value)
+        {
+            return;
+        }
+
+        var owner = DescribeBehaviour(__instance);
+        log?.LogInfo(
+            $"[COROUTINE START] owner='{TrimForLog(owner, 180)}' routineMethod='{TrimForLog(methodName)}' | " +
+            $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+
+        TryPatchNamedTarget(__instance, methodName, owner, "COROUTINE METHOD");
+    }
+
+    private static void PatchCoroutineMoveNext(Type routineType, string owner)
+    {
+        if (routineType == null || harmony == null)
+        {
+            return;
+        }
+
+        var moveNext = routineType.GetMethod(
+            "MoveNext",
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+        if (!CanPatchManagedMethod(moveNext) || DynamicPatchedMethods.Contains(moveNext))
+        {
+            return;
+        }
+
+        try
+        {
+            harmony.Patch(
+                moveNext,
+                prefix: new HarmonyMethod(typeof(Plugin), nameof(DynamicMethodPrefix)),
+                postfix: new HarmonyMethod(typeof(Plugin), nameof(DynamicMethodPostfix)));
+            DynamicPatchedMethods.Add(moveNext);
+            DynamicMethodOwners[moveNext] = owner;
+            log?.LogInfo($"[COROUTINE PATCH] method='{DescribeMethod(moveNext)}' owner='{TrimForLog(owner, 160)}'");
+        }
+        catch (Exception ex)
+        {
+            log?.LogWarning($"[COROUTINE PATCH] failed method='{DescribeMethod(moveNext)}': {ex.GetType().Name}: {ex.Message}");
+        }
+    }
+
+    private static void InvokePrefix(MonoBehaviour __instance, string methodName, float time)
+    {
+        if (!IsTargetedWindowActive() || traceDelayedInvokes == null || !traceDelayedInvokes.Value)
+        {
+            return;
+        }
+
+        var owner = DescribeBehaviour(__instance);
+        log?.LogInfo(
+            $"[DELAYED INVOKE] owner='{TrimForLog(owner, 180)}' method='{TrimForLog(methodName)}' delay={time:0.000}s | " +
+            $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+        TryPatchNamedTarget(__instance, methodName, owner, "INVOKED METHOD");
+    }
+
+    private static void InvokeRepeatingPrefix(MonoBehaviour __instance, string methodName, float time, float repeatRate)
+    {
+        if (!IsTargetedWindowActive() || traceDelayedInvokes == null || !traceDelayedInvokes.Value)
+        {
+            return;
+        }
+
+        var owner = DescribeBehaviour(__instance);
+        log?.LogInfo(
+            $"[DELAYED INVOKE] owner='{TrimForLog(owner, 180)}' method='{TrimForLog(methodName)}' delay={time:0.000}s repeat={repeatRate:0.000}s | " +
+            $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+        TryPatchNamedTarget(__instance, methodName, owner, "INVOKED METHOD");
+    }
+
+    private static void TryPatchNamedTarget(MonoBehaviour instance, string methodName, string owner, string category)
+    {
+        if (instance == null || string.IsNullOrEmpty(methodName) || harmony == null)
+        {
+            return;
+        }
+
+        MethodInfo method = null;
+        try
+        {
+            method = instance.GetType().GetMethod(
+                methodName,
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+                null,
+                Type.EmptyTypes,
+                null);
+        }
+        catch
+        {
+        }
+
+        if (!CanPatchManagedMethod(method) || DynamicPatchedMethods.Contains(method) || TargetedPatchedMethods.Contains(method))
+        {
+            return;
+        }
+
+        try
+        {
+            harmony.Patch(
+                method,
+                prefix: new HarmonyMethod(typeof(Plugin), nameof(DynamicMethodPrefix)),
+                postfix: new HarmonyMethod(typeof(Plugin), nameof(DynamicMethodPostfix)));
+            DynamicPatchedMethods.Add(method);
+            DynamicMethodOwners[method] = category + " owner=" + owner;
+            log?.LogInfo($"[DYNAMIC PATCH] method='{DescribeMethod(method)}' owner='{TrimForLog(owner, 160)}'");
+        }
+        catch (Exception ex)
+        {
+            log?.LogWarning($"[DYNAMIC PATCH] failed method='{DescribeMethod(method)}': {ex.GetType().Name}: {ex.Message}");
+        }
+    }
+
+    private static void DynamicMethodPrefix(MethodBase __originalMethod, ref long __state)
+    {
+        __state = IsTargetedWindowActive() ? Stopwatch.GetTimestamp() : 0L;
+    }
+
+    private static void DynamicMethodPostfix(MethodBase __originalMethod, long __state)
+    {
+        string owner = null;
+        if (__originalMethod != null)
+        {
+            DynamicMethodOwners.TryGetValue(__originalMethod, out owner);
+        }
+        LogTimedTargetMethod("TARGET STEP", __originalMethod, __state, owner);
+    }
+
+    private static void LogTimedTargetMethod(string category, MethodBase method, long started, string owner)
+    {
+        if (started == 0L || method == null)
+        {
+            return;
+        }
+
+        var elapsedMs = (Stopwatch.GetTimestamp() - started) * 1000.0 / Stopwatch.Frequency;
         var threshold = targetedMethodThresholdMs != null
             ? Math.Max(0.01f, targetedMethodThresholdMs.Value)
             : 1.0;
 
         if (elapsedMs < threshold &&
-            !string.Equals(__originalMethod.Name, "Play", StringComparison.OrdinalIgnoreCase))
+            !string.Equals(method.Name, "Play", StringComparison.OrdinalIgnoreCase))
         {
             return;
         }
 
+        var ownerSuffix = string.IsNullOrEmpty(owner) ? string.Empty : $" | owner='{TrimForLog(owner, 180)}'";
         log?.LogInfo(
-            $"[TARGET METHOD] {elapsedMs:0.000} ms | method='{DescribeMethod(__originalMethod)}' | " +
-            $"scene='{GetActiveSceneName()}' | frame={Time.frameCount} | trigger='{TrimForLog(targetedTrigger, 160)}'");
+            $"[{category}] {elapsedMs:0.000} ms | method='{DescribeMethod(method)}' | " +
+            $"scene='{GetActiveSceneName()}' | frame={Time.frameCount}{ownerSuffix} | trigger='{TrimForLog(targetedTrigger, 160)}'");
+    }
+
+    private static void SceneLoadRequestPrefix(MethodBase __originalMethod, object[] __args)
+    {
+        if (!IsTargetedWindowActive() || traceSceneRequests == null || !traceSceneRequests.Value)
+        {
+            return;
+        }
+
+        var args = DescribeArguments(__args);
+        log?.LogInfo(
+            $"[SCENE REQUEST] method='{DescribeMethod(__originalMethod)}' args='{TrimForLog(args, 220)}' | " +
+            $"realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
+    }
+
+    private static string DescribeArguments(object[] args)
+    {
+        if (args == null || args.Length == 0)
+        {
+            return "<none>";
+        }
+
+        var parts = new string[args.Length];
+        for (var i = 0; i < args.Length; i++)
+        {
+            try
+            {
+                parts[i] = args[i] == null ? "null" : args[i].ToString();
+            }
+            catch
+            {
+                parts[i] = "<unprintable>";
+            }
+        }
+        return string.Join(", ", parts);
+    }
+
+    private static string DescribeBehaviour(MonoBehaviour behaviour)
+    {
+        if (behaviour == null)
+        {
+            return "<null>";
+        }
+
+        var type = behaviour.GetType().FullName ?? behaviour.GetType().Name;
+        var path = behaviour.gameObject != null ? GetObjectPath(behaviour.gameObject) : "<no-gameobject>";
+        return type + " @ " + path;
     }
 
     private static bool IsTargetedWindowActive()
@@ -832,11 +1126,8 @@ public sealed class Plugin : BaseUnityPlugin
             return string.Empty;
         }
 
-        var remaining =
-            Math.Max(0f, targetedWindowUntil - Time.realtimeSinceStartup);
-
-        return
-            $" | targetedWindow={remaining:0.000}s trigger=\"{TrimForLog(targetedTrigger, 140)}\"";
+        var remaining = Math.Max(0f, targetedWindowUntil - Time.realtimeSinceStartup);
+        return $" | targetedWindow={remaining:0.000}s trigger=\"{TrimForLog(targetedTrigger, 140)}\"";
     }
 
     private string GetMemorySuffix()
