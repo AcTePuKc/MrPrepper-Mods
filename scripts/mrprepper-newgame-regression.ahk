@@ -18,12 +18,12 @@
 ;   -> Slot 6 -> Normal game -> Normal difficulty -> Play
 ;   -> wait for Main16 -> No tutorial
 ;   -> hold left mouse to skip the new-game intro/video
-;   -> 8 paced left-clicks to advance the scripted opening sequence
+;   -> wait for the opening camera to descend and dialogue to become visible
+;   -> 10 paced left-clicks to advance the scripted opening sequence
 ;   -> Esc -> Exit to Windows -> Yes
 ;
 ; The opening dialogue does not advance reliably with a single uniform cadence.
-; The fifth click needs a longer wait before it because that line can still be
-; revealing when a faster click arrives. Use an explicit per-click schedule.
+; The fifth click also gets a longer wait before it as an extra safety margin.
 ;
 ; The script uses a normal in-game exit. Force-close is only a timeout fallback.
 
@@ -32,14 +32,15 @@ startupDelayMs := A_Args.Length >= 2 ? Integer(A_Args[2]) : 14000
 stepDelayMs := A_Args.Length >= 3 ? Integer(A_Args[3]) : 1400
 loadWaitMs := A_Args.Length >= 4 ? Integer(A_Args[4]) : 23000
 mouseHoldMs := A_Args.Length >= 5 ? Integer(A_Args[5]) : 3500
-postSequenceWaitMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 8000
-exitWaitMs := A_Args.Length >= 7 ? Integer(A_Args[7]) : 10000
+openingSettleWaitMs := A_Args.Length >= 6 ? Integer(A_Args[6]) : 8000
+postSequenceWaitMs := A_Args.Length >= 7 ? Integer(A_Args[7]) : 8000
+exitWaitMs := A_Args.Length >= 8 ? Integer(A_Args[8]) : 10000
 windowTimeoutSec := 45
 
-; Delay BEFORE each opening-sequence click after the first one.
-; Click 5 deliberately gets a much longer lead-in because it was repeatedly
+; Delay BEFORE each opening-sequence click after the camera settle wait.
+; Click 5 deliberately gets a longer lead-in because it was repeatedly
 ; observed to arrive before the preceding text had fully appeared.
-advanceBeforeClickMs := [0, 2200, 2200, 2200, 4500, 3200, 3200, 3200]
+advanceBeforeClickMs := [0, 2200, 2200, 2200, 4500, 3200, 3200, 3200, 3200, 3200]
 
 exe := "ahk_exe MrPrepper.exe"
 ini := A_ScriptDir "\\mrprepper-newgame-regression.ini"
@@ -112,10 +113,14 @@ MovePoint("SkipArea")
 SendEvent "{LButton down}"
 Sleep mouseHoldMs
 SendEvent "{LButton up}"
-Sleep stepDelayMs
+
+; After the skip, the opening scene starts high above the character and takes
+; several seconds to descend. Clicking during that transition can arrive before
+; the dialogue is actually ready, so wait before the first advance click.
+Sleep openingSettleWaitMs
 
 ; Advance the deterministic scripted opening sequence. The delays are before
-; each click so click #5 can be held back without changing the timing after it.
+; each click so individual slow lines can get extra time without shifting logic.
 for index, delayMs in advanceBeforeClickMs {
     if (delayMs > 0) {
         Sleep delayMs
