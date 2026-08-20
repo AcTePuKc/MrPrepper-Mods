@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net46</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>MrPrepperSkipStartupVideo</AssemblyName>
+    <RootNamespace>MrPrepperSkipStartupVideo</RootNamespace>
+    <Version>0.1.0</Version>
+    <GameDir Condition="'$(GameDir)' == '' and '$(MR_PREPPER_DIR)' != ''">$(MR_PREPPER_DIR)</GameDir>
+    <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\MrPrepper</GameDir>
+    <GameManaged>$(GameDir)\MrPrepper_Data\Managed</GameManaged>
+    <BepInExCore>$(GameDir)\BepInEx\core</BepInExCore>
+    <PluginFolderName>MrPrepperSkipStartupVideo</PluginFolderName>
+    <DistDir>$(MSBuildProjectDirectory)\..\..\dist\$(PluginFolderName)</DistDir>
+    <GamePluginsDir>$(GameDir)\BepInEx\plugins\$(PluginFolderName)</GamePluginsDir>
+  </PropertyGroup>
+
+  <Import Project="..\..\User.targets" Condition="Exists('..\..\User.targets')" />
+
+  <Target Name="ValidateGameDir" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(BepInExCore)\BepInEx.dll')" Text="BepInEx.dll not found. Install BepInEx 5.x in GameDir first." />
+    <Error Condition="!Exists('$(GameManaged)\UnityEngine.VideoModule.dll')" Text="UnityEngine.VideoModule.dll not found. Check GameDir." />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="BepInEx"><HintPath>$(BepInExCore)\BepInEx.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(GameManaged)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameManaged)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.VideoModule"><HintPath>$(GameManaged)\UnityEngine.VideoModule.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+  <Target Name="StageMod" AfterTargets="Build">
+    <MakeDir Directories="$(DistDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(DistDir)" />
+    <MakeDir Directories="$(GamePluginsDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GamePluginsDir)" />
+  </Target>
+</Project>
