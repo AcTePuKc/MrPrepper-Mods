@@ -19,7 +19,7 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
     public const string PluginVersion = "0.9.0";
 
     private static LoadBenchmarkPlugin instance;
-    private static ConfigEntry<bool> enabled;
+    private static ConfigEntry<bool> benchmarkEnabled;
     private static ConfigEntry<UnityEngine.ThreadPriority> benchmarkPriority;
     private static ConfigEntry<int> postLoadFrames;
 
@@ -40,14 +40,14 @@ public sealed class LoadBenchmarkPlugin : BaseUnityPlugin
     private void Awake()
     {
         instance = this;
-        enabled = Config.Bind("Benchmark", "Enabled", true,
+        benchmarkEnabled = Config.Bind("Benchmark", "Enabled", true,
             "Run a compact save-load benchmark after the second Continue button.");
         benchmarkPriority = Config.Bind("Benchmark", "BackgroundLoadingPriority", UnityEngine.ThreadPriority.Normal,
             "Priority to force for the benchmark load. Valid values: Low, BelowNormal, Normal, High.");
         postLoadFrames = Config.Bind("Benchmark", "PostLoadFrames", 8,
             "Number of Main16 Update frames to include in the compact benchmark result.");
 
-        if (!enabled.Value)
+        if (!benchmarkEnabled.Value)
         {
             Logger.LogInfo($"{PluginName} {PluginVersion} disabled by config.");
             return;
