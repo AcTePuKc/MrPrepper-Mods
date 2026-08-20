@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +16,7 @@ public sealed class DialogueTagProfiler : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguetagprofiler";
     public const string PluginName = "Mr. Prepper Dialogue Tag Profiler";
-    public const string PluginVersion = "0.1.0";
+    public const string PluginVersion = "0.2.0";
 
     private static DialogueTagProfiler instance;
     private static ConfigEntry<bool> profilerEnabled;
@@ -45,7 +44,7 @@ public sealed class DialogueTagProfiler : BaseUnityPlugin
     {
         instance = this;
         profilerEnabled = Config.Bind("DialogueTag", "Enabled", true,
-            "Profile TextTag.GetTag and its regex work during Main16 dialogue parsing.");
+            "Profile TextTag.GetTag during Main16 dialogue parsing.");
         postLoadFrames = Config.Bind("DialogueTag", "PostLoadFrames", 8,
             "Number of frames after Main16 sceneLoaded to keep collecting timings.");
 
@@ -85,7 +84,33 @@ public sealed class DialogueTagProfiler : BaseUnityPlugin
             postfix: new HarmonyMethod(typeof(DialogueTagProfiler), nameof(GetTagPostfix)));
         Logger.LogInfo($"[DIALOGUE TAG PATCH] {DescribeMethod(getTag)}");
 
-        var nestedPatched = PatchNestedTargets(textTagType);
+        // Keep this profiler deliberately narrow. The first version also patched Regex
+        // constructors/Match/Replace in mscorlib. A diagnostic run then terminated abruptly
+        // during Main16 initialization without a managed crash record. Patching framework
+        // library regex internals is therefore avoided here; GetTag inclusive timing is enough
+        // to establish whether the tag parser is a meaningful hotspot.
+        var getTagPattern = textTagType.GetMethod(
+            "GetTagPattern",
+            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
+            null,
+            new[] { typeof(string), typeof(bool) },
+            null);
+        var nestedPatched = 0;
+        if (getTagPattern != null)
+        {
+            try
+            {
+                harmony.Patch(getTagPattern,
+                    prefix: new HarmonyMethod(typeof(DialogueTagProfiler), nameof(NestedPrefix)),
+                    postfix: new HarmonyMethod(typeof(DialogueTagProfiler), nameof(NestedPostfix)));
+                nestedPatched = 1;
+                Logger.LogInfo($"[DIALOGUE TAG INNER PATCH] {DescribeMethod(getTagPattern)}");
+            }
+            catch (Exception ex)
+            {
+                Logger.LogWarning($"[DIALOGUE TAG INNER] Could not patch {DescribeMethod(getTagPattern)}: {ex.GetType().Name}: {ex.Message}");
+            }
+        }
 
         foreach (var method in typeof(SceneManager).GetMethods(BindingFlags.Static | BindingFlags.Public))
         {
@@ -99,54 +124,7 @@ public sealed class DialogueTagProfiler : BaseUnityPlugin
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. target={DescribeMethod(getTag)} nestedPatched={nestedPatched} postLoadFrames={postLoadFrames.Value}");
-    }
-
-    private int PatchNestedTargets(Type textTagType)
-    {
-        var targets = new List<MethodBase>();
-
-        var getTagPattern = textTagType.GetMethod(
-            "GetTagPattern",
-            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
-            null,
-            new[] { typeof(string), typeof(bool) },
-            null);
-        if (getTagPattern != null) targets.Add(getTagPattern);
-
-        var regexCtor = typeof(Regex).GetConstructor(new[] { typeof(string) });
-        if (regexCtor != null) targets.Add(regexCtor);
-
-        var regexMatch = typeof(Regex).GetMethod("Match", BindingFlags.Instance | BindingFlags.Public, null, new[] { typeof(string) }, null);
-        if (regexMatch != null) targets.Add(regexMatch);
-
-        var staticReplace = typeof(Regex).GetMethod("Replace", BindingFlags.Static | BindingFlags.Public, null,
-            new[] { typeof(string), typeof(string), typeof(string) }, null);
-        if (staticReplace != null) targets.Add(staticReplace);
-
-        var instanceReplace = typeof(Regex).GetMethod("Replace", BindingFlags.Instance | BindingFlags.Public, null,
-            new[] { typeof(string), typeof(string), typeof(int) }, null);
-        if (instanceReplace != null) targets.Add(instanceReplace);
-
-        var prefix = new HarmonyMethod(typeof(DialogueTagProfiler), nameof(NestedPrefix));
-        var postfix = new HarmonyMethod(typeof(DialogueTagProfiler), nameof(NestedPostfix));
-        var patched = 0;
-
-        foreach (var method in targets.Distinct())
-        {
-            try
-            {
-                harmony.Patch(method, prefix: prefix, postfix: postfix);
-                patched++;
-                Logger.LogInfo($"[DIALOGUE TAG INNER PATCH] {DescribeMethod(method)}");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogWarning($"[DIALOGUE TAG INNER] Could not patch {DescribeMethod(method)}: {ex.GetType().Name}: {ex.Message}");
-            }
-        }
-
-        return patched;
+        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. target={DescribeMethod(getTag)} nestedPatched={nestedPatched} safeMode=True postLoadFrames={postLoadFrames.Value}");
     }
 
     private static void SceneRequestPrefix(object[] __args)
@@ -233,7 +211,7 @@ public sealed class DialogueTagProfiler : BaseUnityPlugin
 
     private void LogSummary()
     {
-        Logger.LogInfo($"[DIALOGUE TAG SUMMARY] methods={Stats.Count} requestToEnd={TicksToMilliseconds(Stopwatch.GetTimestamp() - windowStartedTicks):0.0}ms note='nested timings are inclusive inside GetTag'");
+        Logger.LogInfo($"[DIALOGUE TAG SUMMARY] methods={Stats.Count} requestToEnd={TicksToMilliseconds(Stopwatch.GetTimestamp() - windowStartedTicks):0.0}ms safeMode=True note='GetTag is inclusive; framework Regex methods are intentionally not patched'");
 
         foreach (var pair in Stats.OrderByDescending(p => p.Value.TotalMs))
         {
