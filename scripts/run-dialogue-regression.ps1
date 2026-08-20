@@ -71,18 +71,28 @@ function Stop-Game {
 }
 
 function Wait-ForMenuScene {
-    $deadline=(Get-Date).AddSeconds($MenuReadyTimeoutSeconds)
-    while((Get-Date)-lt $deadline) {
-        if(-not(Get-Process MrPrepper -ErrorAction SilentlyContinue)) { return $false }
-        if(Test-Path $logPath) {
+    # Start-Process may return a moment before MrPrepper is visible through
+    # Get-Process. Do not treat that startup race as an immediate failure.
+    $deadline = (Get-Date).AddSeconds($MenuReadyTimeoutSeconds)
+    $sawProcess = $false
+
+    while ((Get-Date) -lt $deadline) {
+        $proc = Get-Process MrPrepper -ErrorAction SilentlyContinue | Select-Object -First 1
+        if ($proc) { $sawProcess = $true }
+
+        if (Test-Path $logPath) {
             try {
-                $tail=Get-Content -LiteralPath $logPath -Tail 80 -ErrorAction Stop
-                if($tail -match "menu_wybuch_2_6") {
+                $tail = @(Get-Content -LiteralPath $logPath -Tail 120 -ErrorAction Stop)
+                if (($tail -join "`n") -match "menu_wybuch_2_6") {
                     Start-Sleep -Milliseconds $MenuSettleMs
                     return $true
                 }
             } catch {}
         }
+
+        # Only regard disappearance as a failure after the process was actually
+        # observed at least once. During initial launch it may not exist yet.
+        if ($sawProcess -and -not $proc) { return $false }
         Start-Sleep -Milliseconds 250
     }
     return $false
@@ -166,9 +176,7 @@ try {
             Stop-Game
             $ahkExit=98
         } else {
-            # Important: do not start the coordinate-driven AHK while the game is
-            # still in LoadingScreen. Manual runs were stable because AHK was
-            # started only after the main menu was already visible.
+            # The coordinate-driven AHK starts only after the menu scene exists.
             $ahk=Start-Process $AutoHotkeyExe -ArgumentList @('"'+$ahkScript+'"','run') -PassThru -Wait
             $ahkExit=$ahk.ExitCode
         }
