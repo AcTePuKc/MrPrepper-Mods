@@ -122,7 +122,7 @@ Write-Host "Dialogue regression: RunsPerVariant=$Runs TotalRuns=$($plan.Count) O
 Write-Host "Results: $csvPath"
 
 try {
-    ; Match the successful manual diagnostic setup while avoiding the hot DialogueTag profiler.
+    # Match the successful manual diagnostic setup while avoiding the hot DialogueTag profiler.
     Set-CfgValue $cfg.Benchmark 'Benchmark' 'Enabled' 'true'
     Set-CfgValue $cfg.Benchmark 'Benchmark' 'WriteCsv' 'true'
     Set-CfgValue $cfg.Loading 'General' 'Enabled' 'true'
