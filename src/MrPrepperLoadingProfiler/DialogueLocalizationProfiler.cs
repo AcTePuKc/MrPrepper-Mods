@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +17,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguelocalizationprofiler";
     public const string PluginName = "Mr. Prepper Dialogue Localization Profiler";
-    public const string PluginVersion = "0.3.1";
+    public const string PluginVersion = "0.4.0";
 
     private static DialogueLocalizationProfiler instance;
     private static ConfigEntry<bool> profilerEnabled;
@@ -44,6 +45,8 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 
     private static readonly Dictionary<string, KeyStats> Keys = new(StringComparer.Ordinal);
     private static readonly Dictionary<MethodBase, MethodStats> InnerStats = new();
+    private static readonly Dictionary<MethodBase, MethodStats> TextParserStats = new();
+    private static readonly Dictionary<string, MethodStats> RegexPatterns = new(StringComparer.Ordinal);
 
     private sealed class KeyStats
     {
@@ -57,6 +60,12 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         public long Calls;
         public double TotalMs;
         public double MaxMs;
+    }
+
+    private struct ParserProbeState
+    {
+        public long StartedTicks;
+        public string Pattern;
     }
 
     private void Awake()
@@ -97,6 +106,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
             postfix: new HarmonyMethod(typeof(DialogueLocalizationProfiler), nameof(TargetPostfix)));
 
         var innerPatched = PatchInnerTargets(assembly, dialogueType);
+        var parserPatched = PatchTextParserTargets(assembly);
 
         foreach (var method in typeof(SceneManager).GetMethods(BindingFlags.Static | BindingFlags.Public))
         {
@@ -110,7 +120,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. target={DescribeMethod(target)} static={target.IsStatic} innerPatched={innerPatched} postLoadFrames={postLoadFrames.Value}");
+        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. target={DescribeMethod(target)} static={target.IsStatic} innerPatched={innerPatched} parserPatched={parserPatched} postLoadFrames={postLoadFrames.Value}");
     }
 
     private int PatchInnerTargets(Assembly assembly, Type dialogueType)
@@ -162,12 +172,64 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         return patched;
     }
 
+    private int PatchTextParserTargets(Assembly assembly)
+    {
+        var targets = new List<MethodBase>();
+
+        var regexMatches = typeof(Regex).GetMethod(
+            "Matches",
+            BindingFlags.Static | BindingFlags.Public,
+            null,
+            new[] { typeof(string), typeof(string) },
+            null);
+        if (regexMatches != null) targets.Add(regexMatches);
+
+        var countGetter = typeof(MatchCollection).GetProperty("Count", BindingFlags.Instance | BindingFlags.Public)?.GetGetMethod();
+        if (countGetter != null) targets.Add(countGetter);
+
+        var itemGetter = typeof(MatchCollection).GetProperty("Item", BindingFlags.Instance | BindingFlags.Public)?.GetGetMethod();
+        if (itemGetter != null) targets.Add(itemGetter);
+
+        var valueGetter = typeof(Capture).GetProperty("Value", BindingFlags.Instance | BindingFlags.Public)?.GetGetMethod();
+        if (valueGetter != null) targets.Add(valueGetter);
+
+        var paragraphType = assembly?.GetType("Characters.DialogueParagraph", false);
+        var paragraphCtor = paragraphType?.GetConstructor(
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+            null,
+            new[] { typeof(string) },
+            null);
+        if (paragraphCtor != null) targets.Add(paragraphCtor);
+
+        var prefix = new HarmonyMethod(typeof(DialogueLocalizationProfiler), nameof(TextParserPrefix));
+        var postfix = new HarmonyMethod(typeof(DialogueLocalizationProfiler), nameof(TextParserPostfix));
+        var patched = 0;
+
+        foreach (var method in targets.Distinct())
+        {
+            try
+            {
+                harmony.Patch(method, prefix: prefix, postfix: postfix);
+                patched++;
+                Logger.LogInfo($"[DIALOGUE TEXT PATCH] {DescribeMethod(method)}");
+            }
+            catch (Exception ex)
+            {
+                Logger.LogWarning($"[DIALOGUE TEXT] Could not patch {DescribeMethod(method)}: {ex.GetType().Name}: {ex.Message}");
+            }
+        }
+
+        return patched;
+    }
+
     private static void SceneRequestPrefix(object[] __args)
     {
         if (profilerEnabled == null || !profilerEnabled.Value || windowArmed || !ArgumentsContainMain16(__args)) return;
 
         Keys.Clear();
         InnerStats.Clear();
+        TextParserStats.Clear();
+        RegexPatterns.Clear();
         totalCalls = 0;
         totalMs = 0;
         maxMs = 0;
@@ -253,14 +315,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 
         if (windowArmed && localizationDepth > 0)
         {
-            if (!InnerStats.TryGetValue(__originalMethod, out var stats))
-            {
-                stats = new MethodStats();
-                InnerStats[__originalMethod] = stats;
-            }
-            stats.Calls++;
-            stats.TotalMs += elapsedMs;
-            if (elapsedMs > stats.MaxMs) stats.MaxMs = elapsedMs;
+            AddMethodStat(InnerStats, __originalMethod, elapsedMs);
 
             if (isRootSetFromText)
             {
@@ -271,6 +326,39 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         }
 
         if (isSetFromText && setFromTextDepth > 0) setFromTextDepth--;
+    }
+
+    private static void TextParserPrefix(MethodBase __originalMethod, object[] __args, ref ParserProbeState __state)
+    {
+        __state = default;
+        if (!windowArmed || setFromTextDepth <= 0 || __originalMethod == null) return;
+
+        __state.StartedTicks = Stopwatch.GetTimestamp();
+        if (__originalMethod.DeclaringType == typeof(Regex) && string.Equals(__originalMethod.Name, "Matches", StringComparison.Ordinal) &&
+            __args != null && __args.Length > 1)
+        {
+            __state.Pattern = __args[1] as string;
+        }
+    }
+
+    private static void TextParserPostfix(MethodBase __originalMethod, ParserProbeState __state)
+    {
+        if (__state.StartedTicks == 0L || __originalMethod == null || !windowArmed || setFromTextDepth <= 0) return;
+
+        var elapsedMs = TicksToMilliseconds(Stopwatch.GetTimestamp() - __state.StartedTicks);
+        AddMethodStat(TextParserStats, __originalMethod, elapsedMs);
+
+        if (__state.Pattern != null)
+        {
+            if (!RegexPatterns.TryGetValue(__state.Pattern, out var stats))
+            {
+                stats = new MethodStats();
+                RegexPatterns[__state.Pattern] = stats;
+            }
+            stats.Calls++;
+            stats.TotalMs += elapsedMs;
+            if (elapsedMs > stats.MaxMs) stats.MaxMs = elapsedMs;
+        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -301,6 +389,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         var duplicatePercent = totalCalls > 0 ? duplicateCalls * 100.0 / totalCalls : 0.0;
         var averageMs = totalCalls > 0 ? totalMs / totalCalls : 0.0;
         var innerTotal = InnerStats.Values.Sum(s => s.TotalMs);
+        var parserInclusiveTotal = TextParserStats.Values.Sum(s => s.TotalMs);
 
         Logger.LogInfo($"[DIALOGUE LOC SUMMARY] calls={totalCalls} distinctKeys={Keys.Count} duplicateCalls={duplicateCalls} duplicatePercent={duplicatePercent:0.0}% nullOrEmpty={nullOrEmptyKeys} total={totalMs:0.000}ms avg={averageMs:0.0000}ms max={maxMs:0.000}ms innerInclusiveTotal={innerTotal:0.000}ms requestToEnd={TicksToMilliseconds(now - windowStartedTicks):0.0}ms");
 
@@ -312,6 +401,21 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         }
 
         Logger.LogInfo($"[DIALOGUE LOC TEXT ROOT] calls={setFromTextRootCalls} total={setFromTextRootMs:0.000}ms avg={(setFromTextRootCalls > 0 ? setFromTextRootMs / setFromTextRootCalls : 0.0):0.0000}ms max={setFromTextRootMaxMs:0.000}ms maxDepth={setFromTextMaxDepth}");
+        Logger.LogInfo($"[DIALOGUE TEXT SUMMARY] methods={TextParserStats.Count} inclusiveTotal={parserInclusiveTotal:0.000}ms regexPatterns={RegexPatterns.Count} note='parser total is inclusive and getters may be nested in parser work'");
+
+        foreach (var pair in TextParserStats.OrderByDescending(pair => pair.Value.TotalMs))
+        {
+            var stats = pair.Value;
+            var avg = stats.Calls > 0 ? stats.TotalMs / stats.Calls : 0.0;
+            Logger.LogInfo($"[DIALOGUE TEXT INNER] method='{DescribeMethod(pair.Key)}' calls={stats.Calls} total={stats.TotalMs:0.000}ms avg={avg:0.0000}ms max={stats.MaxMs:0.000}ms");
+        }
+
+        foreach (var pair in RegexPatterns.OrderByDescending(pair => pair.Value.Calls).ThenByDescending(pair => pair.Value.TotalMs).Take(10))
+        {
+            var stats = pair.Value;
+            var avg = stats.Calls > 0 ? stats.TotalMs / stats.Calls : 0.0;
+            Logger.LogInfo($"[DIALOGUE REGEX PATTERN] calls={stats.Calls} totalMatchesCall={stats.TotalMs:0.000}ms avgMatchesCall={avg:0.0000}ms pattern='{TrimForLog(pair.Key, 220)}'");
+        }
 
         var limit = Math.Max(1, topKeys.Value);
         var byTime = Keys.OrderByDescending(pair => pair.Value.TotalMs).Take(limit).ToArray();
@@ -319,6 +423,18 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 
         var byCalls = Keys.OrderByDescending(pair => pair.Value.Calls).ThenByDescending(pair => pair.Value.TotalMs).Take(limit).ToArray();
         for (var i = 0; i < byCalls.Length; i++) LogKey("CALLS", i + 1, byCalls[i].Key, byCalls[i].Value);
+    }
+
+    private static void AddMethodStat(Dictionary<MethodBase, MethodStats> dictionary, MethodBase method, double elapsedMs)
+    {
+        if (!dictionary.TryGetValue(method, out var stats))
+        {
+            stats = new MethodStats();
+            dictionary[method] = stats;
+        }
+        stats.Calls++;
+        stats.TotalMs += elapsedMs;
+        if (elapsedMs > stats.MaxMs) stats.MaxMs = elapsedMs;
     }
 
     private void LogKey(string rank, int index, string key, KeyStats stats)
