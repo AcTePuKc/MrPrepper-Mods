@@ -16,11 +16,13 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.main16lifecycleprofiler";
     public const string PluginName = "Mr. Prepper Main16 Lifecycle Profiler";
-    public const string PluginVersion = "0.2.0";
+    public const string PluginVersion = "0.3.0";
 
     private static readonly string[] TargetMethods =
     {
         "Characters.Dialogue.Start",
+        "Characters.Dialogue.SetParagraphs",
+        "Characters.Dialogue.SetComponents",
         "ItemsInfo.Awake",
         "ComputerImageLoader.Start",
         "TradingManager.Start",
@@ -62,7 +64,7 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
     {
         instance = this;
         profilerEnabled = Config.Bind("Main16Lifecycle", "Enabled", true,
-            "Profile selected Main16 lifecycle hotspots discovered by the broad exploratory pass.");
+            "Profile selected Main16 initialization hotspots discovered by the exploratory passes.");
         postLoadFrames = Config.Bind("Main16Lifecycle", "PostLoadFrames", 8,
             "Number of frames after the Main16 sceneLoaded callback to keep collecting timings.");
         minimumTotalMs = Config.Bind("Main16Lifecycle", "MinimumTotalMs", 1.0,
@@ -77,12 +79,12 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
         }
 
         harmony = new Harmony(PluginGuid);
-        var patched = PatchTargetLifecycleMethods();
+        var patched = PatchTargetMethods();
         PatchSceneRequests();
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         Logger.LogInfo(
-            $"{PluginName} {PluginVersion} loaded. patchedLifecycleMethods={patched} " +
+            $"{PluginName} {PluginVersion} loaded. patchedMethods={patched} " +
             $"postLoadFrames={postLoadFrames.Value} minimumTotalMs={minimumTotalMs.Value:0.###} topCount={topCount.Value}");
 
         foreach (var method in PatchedMethods.OrderBy(DescribeMethod))
@@ -91,13 +93,13 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
         }
     }
 
-    private int PatchTargetLifecycleMethods()
+    private int PatchTargetMethods()
     {
         var assembly = AppDomain.CurrentDomain.GetAssemblies()
             .FirstOrDefault(a => string.Equals(a.GetName().Name, "Assembly-CSharp", StringComparison.Ordinal));
         if (assembly == null)
         {
-            Logger.LogWarning("[MAIN16 LIFE] Assembly-CSharp was not found; lifecycle profiling is unavailable.");
+            Logger.LogWarning("[MAIN16 LIFE] Assembly-CSharp was not found; targeted profiling is unavailable.");
             return 0;
         }
 
@@ -116,8 +118,8 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
             .GroupBy(t => t.FullName ?? t.Name)
             .ToDictionary(g => g.Key, g => g.First(), StringComparer.Ordinal);
 
-        var prefix = new HarmonyMethod(typeof(Main16LifecycleProfiler), nameof(LifecyclePrefix));
-        var postfix = new HarmonyMethod(typeof(Main16LifecycleProfiler), nameof(LifecyclePostfix));
+        var prefix = new HarmonyMethod(typeof(Main16LifecycleProfiler), nameof(TargetPrefix));
+        var postfix = new HarmonyMethod(typeof(Main16LifecycleProfiler), nameof(TargetPostfix));
         var patched = 0;
 
         foreach (var target in TargetMethods)
@@ -235,7 +237,7 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
             $"[MAIN16 LIFE START] realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount} patchedMethods={PatchedMethods.Count}");
     }
 
-    private static void LifecyclePrefix(MonoBehaviour __instance, MethodBase __originalMethod, ref long __state)
+    private static void TargetPrefix(MonoBehaviour __instance, MethodBase __originalMethod, ref long __state)
     {
         __state = 0L;
         if (!windowArmed || __instance == null || __originalMethod == null || !BelongsToMain16(__instance))
@@ -246,7 +248,7 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
         __state = Stopwatch.GetTimestamp();
     }
 
-    private static void LifecyclePostfix(MethodBase __originalMethod, long __state)
+    private static void TargetPostfix(MethodBase __originalMethod, long __state)
     {
         if (__state == 0L || !windowArmed || __originalMethod == null)
         {
@@ -316,7 +318,7 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
     private void LogSummary()
     {
         var now = Stopwatch.GetTimestamp();
-        var totalMeasuredMs = Stats.Values.Sum(s => s.TotalMs);
+        var inclusiveMeasuredMs = Stats.Values.Sum(s => s.TotalMs);
         var qualifying = Stats
             .Where(pair => pair.Value.TotalMs >= Math.Max(0.0, minimumTotalMs.Value))
             .ToList();
@@ -324,8 +326,9 @@ public sealed class Main16LifecycleProfiler : BaseUnityPlugin
 
         Logger.LogInfo(
             $"[MAIN16 LIFE SUMMARY] methods={Stats.Count} qualifying={qualifying.Count} calls={Stats.Values.Sum(s => s.Calls)} " +
-            $"measuredTotal={totalMeasuredMs:0.0}ms requestToEnd={TicksToMilliseconds(now - windowStartedTicks):0.0}ms " +
-            $"sceneLoadedToEnd={TicksToMilliseconds(now - sceneLoadedTicks):0.0}ms framesAfterSceneLoaded={Math.Max(0, Time.frameCount - sceneLoadedFrame)}");
+            $"inclusiveMeasuredTotal={inclusiveMeasuredMs:0.0}ms requestToEnd={TicksToMilliseconds(now - windowStartedTicks):0.0}ms " +
+            $"sceneLoadedToEnd={TicksToMilliseconds(now - sceneLoadedTicks):0.0}ms framesAfterSceneLoaded={Math.Max(0, Time.frameCount - sceneLoadedFrame)} " +
+            $"note='inclusive total can double-count nested target calls'");
 
         var byTotal = qualifying.OrderByDescending(pair => pair.Value.TotalMs).Take(limit).ToArray();
         for (var i = 0; i < byTotal.Length; i++)
