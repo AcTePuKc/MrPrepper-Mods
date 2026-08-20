@@ -16,7 +16,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.dialoguelocalizationprofiler";
     public const string PluginName = "Mr. Prepper Dialogue Localization Profiler";
-    public const string PluginVersion = "0.1.0";
+    public const string PluginVersion = "0.2.0";
 
     private static DialogueLocalizationProfiler instance;
     private static ConfigEntry<bool> profilerEnabled;
@@ -64,7 +64,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         var dialogueType = assembly?.GetType("Characters.Dialogue", false);
         var target = dialogueType?.GetMethod(
             "SetParagraphsFromLocalization",
-            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly,
+            BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly,
             null,
             new[] { typeof(string) },
             null);
@@ -72,6 +72,14 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         if (target == null)
         {
             Logger.LogWarning("[DIALOGUE LOC] Characters.Dialogue.SetParagraphsFromLocalization(string) was not found.");
+            if (dialogueType != null)
+            {
+                foreach (var candidate in dialogueType.GetMethods(BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly)
+                             .Where(m => string.Equals(m.Name, "SetParagraphsFromLocalization", StringComparison.Ordinal)))
+                {
+                    Logger.LogWarning($"[DIALOGUE LOC CANDIDATE] {DescribeMethod(candidate)} static={candidate.IsStatic} return={candidate.ReturnType.FullName}");
+                }
+            }
             return;
         }
 
@@ -102,7 +110,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. target={DescribeMethod(target)} postLoadFrames={postLoadFrames.Value}");
+        Logger.LogInfo($"{PluginName} {PluginVersion} loaded. target={DescribeMethod(target)} static={target.IsStatic} postLoadFrames={postLoadFrames.Value}");
     }
 
     private static void SceneRequestPrefix(object[] __args)
@@ -126,10 +134,10 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         instance?.Logger.LogInfo($"[DIALOGUE LOC START] realtime={Time.realtimeSinceStartup:0.000}s frame={Time.frameCount}");
     }
 
-    private static void TargetPrefix(MonoBehaviour __instance, string __0, ref long __state)
+    private static void TargetPrefix(object[] __args, ref long __state)
     {
         __state = 0L;
-        if (!windowArmed || __instance == null || !BelongsToMain16(__instance))
+        if (!windowArmed)
         {
             return;
         }
@@ -137,7 +145,7 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
         __state = Stopwatch.GetTimestamp();
     }
 
-    private static void TargetPostfix(string __0, long __state)
+    private static void TargetPostfix(object[] __args, long __state)
     {
         if (!windowArmed || __state == 0L)
         {
@@ -152,12 +160,13 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
             maxMs = elapsedMs;
         }
 
-        if (string.IsNullOrEmpty(__0))
+        var key = (__args != null && __args.Length > 0) ? __args[0] as string : null;
+        if (string.IsNullOrEmpty(key))
         {
             nullOrEmptyKeys++;
         }
 
-        var key = __0 ?? "<null>";
+        key ??= "<null>";
         if (!Keys.TryGetValue(key, out var stats))
         {
             stats = new KeyStats();
@@ -258,24 +267,6 @@ public sealed class DialogueLocalizationProfiler : BaseUnityPlugin
             }
         }
         return false;
-    }
-
-    private static bool BelongsToMain16(MonoBehaviour behaviour)
-    {
-        try
-        {
-            var gameObject = behaviour.gameObject;
-            if (gameObject == null)
-            {
-                return false;
-            }
-            var scene = gameObject.scene;
-            return scene.IsValid() && string.Equals(scene.name, "Main16", StringComparison.OrdinalIgnoreCase);
-        }
-        catch
-        {
-            return false;
-        }
     }
 
     private static double TicksToMilliseconds(long ticks)
