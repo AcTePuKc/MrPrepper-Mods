@@ -11,7 +11,7 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.skipstartupvideo";
     public const string PluginName = "Mr. Prepper Skip Startup Video";
-    public const string PluginVersion = "0.2.0";
+    public const string PluginVersion = "0.1.0";
 
     private const string TargetScene = "LoadingScreen";
     private const string TargetObject = "RGintro";

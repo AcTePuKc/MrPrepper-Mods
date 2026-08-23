@@ -2,6 +2,7 @@ param(
     [string]$BgVersion = "0.1.1",
     [string]$TooltipVersion = "0.1.0",
     [string]$CyrillicVersion = "0.1.0",
+    [string]$SkipVersion = "0.1.0",
     [switch]$Build
 )
 
@@ -16,6 +17,7 @@ if ($Build) {
     & (Join-Path $repo "scripts\build-plugin.ps1") | Out-Host
     & (Join-Path $repo "scripts\build-tooltip-scale-fix.ps1") | Out-Host
     & (Join-Path $repo "scripts\build-font-fix.ps1") | Out-Host
+    dotnet build (Join-Path $repo "src\MrPrepperSkipStartupVideo\MrPrepperSkipStartupVideo.csproj") --configuration Release | Out-Host
 }
 
 $bgDll = Join-Path $repo "dist\AcTePuKc Mr Prepper Bulgarian Translation\MrPrepperTranslationMod.dll"
@@ -26,8 +28,9 @@ $imageDir = Join-Path $repo "src\MrPrepperTranslationMod\images"
 $tooltipCfg = Join-Path $repo "src\MrPrepperTooltipScaleFix\config\actepukc.mrprepper.tooltipscalefix.cfg"
 $cyrDll = Join-Path $repo "dist\AcTePuKc Cyrillic Font Fix\CyrillicFontFix.dll"
 $cyrCfg = Join-Path $repo "src\CyrillicFontFix\config\actepukc.mrprepper.cyrillicfontfix.cfg"
+$skipDll = Join-Path $repo "dist\MrPrepperSkipStartupVideo\MrPrepperSkipStartupVideo.dll"
 
-$required = @($bgDll, $tooltipDll, $labels, $changelog, $tooltipCfg, $cyrDll, $cyrCfg)
+$required = @($bgDll, $tooltipDll, $labels, $changelog, $tooltipCfg, $cyrDll, $cyrCfg, $skipDll)
 foreach ($file in $required) {
     if (-not (Test-Path -LiteralPath $file -PathType Leaf)) {
         throw "Required release file is missing: $file`nRun with -Build first if the DLLs have not been built yet."
@@ -94,10 +97,23 @@ Compress-Archive -Path (Join-Path $cyrStage "BepInEx") -DestinationPath $cyrZip 
 Write-Host "--- Cyrillic Font Fix ---"
 tar -tf $cyrZip
 
+# Skip Intro package
+$skipStage = Join-Path $stageRoot "skip"
+$skipPluginDir = Join-Path $skipStage "BepInEx\plugins\MrPrepperSkipStartupVideo"
+New-Item -ItemType Directory -Path $skipPluginDir -Force | Out-Null
+Copy-Item -LiteralPath $skipDll -Destination (Join-Path $skipPluginDir "MrPrepperSkipStartupVideo.dll")
+$skipZip = Join-Path $outRoot "MrPrepper-Skip-Intro-$SkipVersion.zip"
+if (Test-Path -LiteralPath $skipZip) { Remove-Item -LiteralPath $skipZip -Force }
+Compress-Archive -Path (Join-Path $skipStage "BepInEx") -DestinationPath $skipZip -CompressionLevel Optimal
+
+Write-Host "--- Skip Intro ---"
+tar -tf $skipZip
+
 Remove-Item -LiteralPath $stageRoot -Recurse -Force
 
 [pscustomobject]@{
     BulgarianTranslation = $bgZip
     TooltipScaleFix = $tooltipZip
     CyrillicFontFix = $cyrZip
+    SkipIntro = $skipZip
 }

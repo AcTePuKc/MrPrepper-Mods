@@ -1,6 +1,6 @@
 # Mr. Prepper Skip Startup Video
 
-Small BepInEx 5 plugin for Mr. Prepper that disables only the startup `RGintro` video in the `LoadingScreen` scene.
+Small BepInEx 5 plugin for Mr. Prepper that fast-forwards only the startup `RGintro` video in the `LoadingScreen` scene.
 
 It deliberately targets all three identifiers together:
 

@@ -19,9 +19,11 @@ jobs:
       NEXUS_GAME_DOMAIN: mrprepper
       NEXUS_MOD_ID_BG: ${{ secrets.NEXUS_MOD_ID_BG }}
       NEXUS_MOD_ID_CYR_FIX: ${{ secrets.NEXUS_MOD_ID_CYR_FIX }}
+      NEXUS_MOD_ID_SKIP: ${{ secrets.NEXUS_MOD_ID_SKIP }}
       NEXUS_MOD_ID_TOOLTIP: ${{ secrets.NEXUS_MOD_ID_TOOLTIP }}
       NEXUS_FILE_ID_BG: ${{ secrets.NEXUS_FILE_ID_BG }}
       NEXUS_FILE_ID_CYR_FIX: ${{ secrets.NEXUS_FILE_ID_CYR_FIX }}
+      NEXUS_FILE_ID_SKIP: ${{ secrets.NEXUS_FILE_ID_SKIP }}
       NEXUS_FILE_ID_TOOLTIP: ${{ secrets.NEXUS_FILE_ID_TOOLTIP }}
 
     steps:
@@ -57,8 +59,15 @@ jobs:
               echo "version=${tag#cyr-v}" >> "$GITHUB_OUTPUT"
               echo "display_name=Mr. Prepper - Cyrillic Font Fix" >> "$GITHUB_OUTPUT"
               ;;
+            skip-v*)
+              mod_id="$NEXUS_MOD_ID_SKIP"
+              file_id="$NEXUS_FILE_ID_SKIP"
+              echo "key=skip" >> "$GITHUB_OUTPUT"
+              echo "version=${tag#skip-v}" >> "$GITHUB_OUTPUT"
+              echo "display_name=Mr. Prepper - Skip Intro" >> "$GITHUB_OUTPUT"
+              ;;
             *)
-              echo "Unsupported release tag '$tag'. Expected bg-v*, cyr-v*, or tooltip-v*." >&2
+              echo "Unsupported release tag '$tag'. Expected bg-v*, cyr-v*, skip-v*, or tooltip-v*." >&2
               exit 1
               ;;
           esac
