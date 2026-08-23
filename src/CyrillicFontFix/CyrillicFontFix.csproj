@@ -16,6 +16,7 @@
     <DistDir>$(MSBuildProjectDirectory)\..\..\dist\$(PluginFolderName)</DistDir>
     <GamePluginsDir>$(GameDir)\BepInEx\plugins\$(PluginFolderName)</GamePluginsDir>
     <FontBundle>$(MSBuildProjectDirectory)\..\..\.work\font-tests\mrprepper-roboto-bold-cyrillic</FontBundle>
+    <ConfigTemplate>$(MSBuildProjectDirectory)\config\actepukc.mrprepper.cyrillicfontfix.cfg</ConfigTemplate>
   </PropertyGroup>
 
   <Import Project="..\..\User.targets" Condition="Exists('..\..\User.targets')" />
@@ -39,9 +40,13 @@
   <Target Name="StageMod" AfterTargets="Build">
     <MakeDir Directories="$(DistDir)" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(DistDir)" />
+    <MakeDir Directories="$(DistDir)\config" />
+    <Copy SourceFiles="$(ConfigTemplate)" DestinationFolder="$(DistDir)\config" />
     <Copy Condition="Exists('$(FontBundle)')" SourceFiles="$(FontBundle)" DestinationFolder="$(DistDir)" />
     <MakeDir Directories="$(GamePluginsDir)" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GamePluginsDir)" />
+    <MakeDir Directories="$(GameDir)\BepInEx\config" />
+    <Copy SourceFiles="$(ConfigTemplate)" DestinationFolder="$(GameDir)\BepInEx\config" />
     <Copy Condition="Exists('$(FontBundle)')" SourceFiles="$(FontBundle)" DestinationFolder="$(GamePluginsDir)" />
   </Target>
 </Project>
