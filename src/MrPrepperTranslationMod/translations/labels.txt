@@ -4,7 +4,7 @@
 UI/Continue=Продължи
 UI/Craft=Изработка
 UI/Disassemble=Разглоби
-UI/Eat=Яж
+UI/Eat=Изяж
 UI/EventBlackout=Електричеството е спряно!
 UI/EventNoWater=Водата е спряна!
 UI/EventTrade=Пощальонът изчезна!
@@ -17,8 +17,8 @@ UI/Separate=Отдели
 UI/Trade=Търговия
 UI/Use=Използвай
 UI/Hide=Скрий
-UI/Unhide=Разкрий
-UI/LadderHide=Покрив
+UI/Unhide=Открий
+UI/LadderHide=Покрий
 UI/LadderUnhide=Разкрий
 UI/PlanHide=Смени
 UI/PlanUnhide=Обърни
@@ -101,7 +101,7 @@ UI/controlKeyboardLayout=Подредба на клавиатурата
 UI/controlQuickGrab=Бързо вземане
 UI/controlGrid=Алтернативна мрежа за поставяне на предмети
 UI/controlBoost=Ускорение за шофиране
-UI/contextEAT=Яж
+UI/contextEAT=Изяж
 UI/contextSLEEP=СПИ
 UI/contextCRAFT=ИЗРАБОТИ
 UI/contextTRADE=ТЪРГУВАЙ
@@ -296,7 +296,7 @@ UI/mode=Режим на игра
 UI/creative=Креатив
 UI/regular=Обикновен
 UI/special=Специални режими
-UI/regularMode=Нормална игра
+UI/regularMode=Редовна игра
 UI/creativeDesc=Имаш неограничен достъп до всички предмети и материали и можеш да станеш безсмъртен. Този режим е предназначен за хора, които искат да се съсредоточат върху творческата и строителната част на играта без ограничения. В този режим няма да можеш да отключваш постижения.
 UI/sandbox=Песочница
 UI/sandboxDesc=Всички локации са отключени от самото начало. Това е режим без сюжет - сам избираш своя път.
@@ -306,7 +306,7 @@ UI/creativeIcon=Опции на режим на творчество [C]
 UI/beta=Бета
 UI/diffEasy=Лесно
 UI/diffEasyDesc=За тези, които просто искат да се наслаждават на спокойното ежедневие на човек, подготвен за всичко.
-UI/diffNormal=Нормален
+UI/diffNormal=Редовен
 UI/diffNormalDesc=Предвидена/балансирана трудност. Препоръчваме да започнеш с нея.
 UI/diffHard=Трудно
 UI/diffHardDesc=За играчи, които искат по-голямо предизвикателство.
@@ -365,7 +365,7 @@ UI/contextOpenTrunk=Отвори багажника
 UI/contextElevatorStorage=Съхранение
 UI/contextPUSH=БУТНИ
 UI/autopilot=Автопилот
-UI/autopilotUpgrade1=Автопилот ъпгрейд
+UI/autopilotUpgrade1=Подобрение на автопилота
 UI/autopilotUpgrade2=Соларни панели
 UI/autopilotDescription1=Твоята кола ще се кара сама, но ще консумира малко повече гориво.
 UI/autopilotDescription2=Твоята кола ще се кара автоматично без допълнителни разходи
@@ -390,7 +390,7 @@ UI/brokenFence=Счупена ограда
 UI/mazeLevel=Ниво на лабиринта
 UI/mazeUnlocked=отключен
 UI/mazeLocked=заключен
-UI/mazeProgressInfo=Този панел показва отворения нива на лабиринта и твоето напредване към следващото ниво. \nВсеки път, когато стигнеш до края на лабиринта, напредваш към отключване на следващото ниво. \nПо-високите нива на лабиринта са по-дълги, по-трудни и дават по-добри награди.\nВсеки ден нивото на лабиринта се избира случайно от твоите отворени нива.
+UI/mazeProgressInfo=Този панел показва отворените нива на лабиринта и твоето напредване към следващото ниво. \nВсеки път, когато стигнеш до края на лабиринта, напредваш към отключване на следващото ниво. \nПо-високите нива на лабиринта са по-дълги, по-трудни и дават по-добри награди.\nВсеки ден нивото на лабиринта се избира случайно от твоите отключени нива.
 UI/contextGiveTreat=ДАЙ ЛАКОМСТВО
 UI/fishingCaughtFish=Улови:
 UI/fishingNotCaughtFish=Почти! Може би следващия път!
@@ -599,10 +599,10 @@ UI/RemainingTime=Оставащо време
 UI/Under=под
 UI/ToggleReadyToCraftTip=Показвай само чертежите, за които имаш материали.
 UI/ToggleReadyToCookTip=Показвай само рецепти, за които имаш съставки.
-UI/FoodAttributeRegenInfo1=Яж, за да възстановиш [x] [y]
+UI/FoodAttributeRegenInfo1=Изяж, за да възстановиш [x] [y]
 UI/FoodExpireInfo1=Изтича след [x]
 UI/FoodMaxAttributeIncreaseInfo1=<b>Подобрен [x]</b>\n\nПолучаваш +[y] Макс [x] за 24 часа.\nТози ефект не се натрупва.
-UI/FoodMaxAttributeIncreaseInfo2=Яж [z] повече, за да получиш постоянно +1 Макс [x].
+UI/FoodMaxAttributeIncreaseInfo2=Изяж [z] повече, за да получиш постоянно +1 Макс [x].
 UI/FoodMaxAttributeIncreaseInfo3=Текущ постоянен бонус [x]: +[a]
 UI/FoodPoisonedInfo=Ще се отровиш, ако ядеш това.
 UI/FoodHealBeatenUpDebuff=Излекува наранен дебъф.
@@ -618,21 +618,18 @@ Dialogues/herbr1=Моето име е Джани Уинстън.\nЖивея в 
 Dialogues/herbr2=Има много истории в главата ми\nНо те са мистерия за мен.. \nза нас, които сме стари.. \nи сме загубили ума си.
 Dialogues/herbr3=Има мистерия в гората. \nкоято малцина знаят.\nНо мога да ти кажа, че има моменти, когато дори големите птици падат.
 Dialogues/prepCook=Просто смеси някои сурови продукти, добави топлина... \n<voice type=laugh>\nи готово - ХРАНА. \n<voice type=acceptance>\nГотвенето прави храната ти по-богата.
-Dialogues/prepCraft=<voice type=thanks>\nРаботна маса. Най-добрият приятел на Подготвения.\n<voice type=acceptance>\nИзработвай, разглобявай и прави магии.  \n<voice type=order>\nНо по-добре да остане скрита от Агенцията...
+Dialogues/prepCraft=<voice type=thanks>\nРаботна маса. Най-добрият приятел на оцеляващия.\n<voice type=acceptance>\nМайстори, разглобявай и твори чудеса.\n<voice type=order>\nНо е по-добре да остане скрита от Агенцията...
 Dialogues/prepForest=<voice type=greeting>\nА, мирише на приключение.\nСигурен съм, че гората е пълна с полезни материали.
 Dialogues/prepLever=Ох! Лост. Може би ще е полезен за оправяне на въжената линия?
 Dialogues/prepMap=Къде искам да отида днес?
 Dialogues/prepMine=Това може да е добро място за търсене на КАМЪНИ.
 Dialogues/prepPillar=Не трябва да изглежда така. Нали?
 Dialogues/prepRocketPlan=<voice type=order>\nЦел номер едно: оцелей.\n<voice type=order>\nЦел номер две: БЯГСТВО!
-Dialogues/prepStart=Време е за моя УЛТИМАТИВЕН ПЛАН. \nТрябва да се измъкна оттук.
+Dialogues/prepStart=Време е за моя ВЕЛИК ПЛАН. \nТрябва да се измъкна оттук.
 Dialogues/prepTrade=<voice type=acceptance>\nВреме е за малко търговия.\nПравиш поръчка, взимаш я след 2 часа.\n<voice type=acceptance>\nТака трябва да работи.
 Dialogues/preph1=Добре, бабо. \nИ моля те, не ме баламосвай така.
 Dialogues/preph2=Така че сега съм цвете.\nЕ, предполагам, ще трябва да живея с това.
 Dialogues/agentStartScene=По решение на американското правителство, заради последния ви опит за бягство.\nОтсега нататък ще извършвам проверки.\nБъдете подготвен.
-Dialogues/text2=БГ Текст текст
-Dialogues/text3=БГ Текст текст текст
-Dialogues/text4=БГ Текст текст текст текст
 Dialogues/=Търся водород.
 Dialogues/prepHungry2=<voice type=hunger>\nНе бих отказал нещо за хапване.
 Dialogues/prepHungry3=<voice type=hunger>\nПо дяволите, умирам от глад!
@@ -646,7 +643,7 @@ Dialogues/prepLowPrepnes2=<voice type=disappointment>\nНищо не се слу
 Dialogues/prepLowPrepnes3=<voice type=disappointment>\nМоята подготовка е ниска.
 Dialogues/prepLowPrepnes4=<voice type=disappointment>\nВсичко се забави и не се чувствам достатъчно подготвен.
 Dialogues/prepTutAfterAgent=<voice type=surprise>\nО, това беше близо. Трябва да бъда по-внимателен.
-Dialogues/prepTutEnd=<voice type=acceptance>\nДобре, всичко е подготвено. Време е за Моят Краен план.
+Dialogues/prepTutEnd=<voice type=acceptance>\nДобре, всичко е подготвено. Време е за моя Велик план.
 Dialogues/prepNotAllowed=Сега не е подходящо.
 Dialogues/prepBasics1=<voice type=order>\nНека го свършим
 Dialogues/prepBasics2=<voice type=question>\nСутрешно бягане? Не, благодаря.
@@ -661,7 +658,7 @@ Dialogues/prepBuild2=Ще направя първата стая на моя б�
 Dialogues/prepBuild3=Трябва да започна да работя по бункера си.
 Dialogues/prepBuild4=<voice type=order>\nДа копаем първата стая на моят бункер.
 Dialogues/prepPlan1=Ще разгледам плана.
-Dialogues/prepPlan3=<voice type=order>\nТрябва да проверя МОЯТА ОКОНЧАТЕЛНА ПЛАН.
+Dialogues/prepPlan3=<voice type=order>\nТрябва да проверя ВЕЛИКИЯ СИ ПЛАН.
 Dialogues/prepPlan4=Трябва да помисля откъде да започна.
 Dialogues/prepFirstWork1=Ще ми трябва работна маса, за да направя стълба.
 Dialogues/prepFirstWork2=Трябва да имам стара маса някъде в двора...
@@ -686,15 +683,15 @@ Dialogues/prepBackHome4=<voice type=disappointment>\nДостатъчно от �
 Dialogues/prepDisLog1=<voice type=thanks>\nДома си!
 Dialogues/prepDisLog2=<voice type=acceptance>\nВреме е да разглобя някои неща!\nНека отида при работната си маса.
 Dialogues/prepDisLog3=Трябва да нарежа тези трупи на дървени парчета.
-Dialogues/prepDisLog4=Първо трябва да направя дърво от тези дъски.\n<voice type=order>\nРаботна маса!
+Dialogues/prepDisLog4=Първо трябва да направя дървесина от тези дъски.\n<voice type=order>\nРаботна маса!
 Dialogues/prepIGotMail1=<voice type=surprise>\nИмам писмо!
 Dialogues/prepIGotMail2=Трябва да отида до пощенската кутия.
 Dialogues/prepIGotMail3=<voice type=thanks>\nПощальонът е много готин пич.
 Dialogues/prepIGotMail4=<voice type=order>\nВреме е да получиш поръчаните доставки!
-Dialogues/prepUpgrade1=Сега мога да ъпгрейдна работната си маса.
+Dialogues/prepUpgrade1=Сега мога да подобря работната си маса.
 Dialogues/prepUpgrade2=<voice type=acceptance>\nХайде да отидем до работната маса и да я подобрим.
 Dialogues/prepUpgrade3=Трябва да отида до работната маса.
-Dialogues/prepUpgrade4=<voice type=acceptance>\nВреме е да обновим старата си работна маса.
+Dialogues/prepUpgrade4=<voice type=acceptance>\nВреме е да подобрим старата си работна маса.
 Dialogues/prepPleaceLadder1=<voice type=acceptance>\nВреме е да поставиш стълбата, за да сляза в бункера си.
 Dialogues/prepPleaceLadder2=<voice type=acceptance>\nЩе сложа стълбата, трябва ми удобен начин да стигна до бункера си.
 Dialogues/prepPleaceLadder3=Слизам по стълбата и отивам под земята.
@@ -707,7 +704,7 @@ Dialogues/prepPleaceLight1=<voice type=thanks>\nСега мога да го сл
 Dialogues/prepPleaceLight2=<voice type=thanks>\nНяма повече тъмнина! Тук е доста уютно.
 Dialogues/prepPleaceLight3=<voice type=laugh>\nНека има светлина!
 Dialogues/prepPleaceLight4=Мога да светна бункера си сега.
-Dialogues/prepActualSleepTime1=<voice type=acceptance>\nУже късно, трябва да отида да спи.
+Dialogues/prepActualSleepTime1=<voice type=acceptance>\nКъсно е, трябва да спя.
 Dialogues/prepActualSleepTime2=<voice type=negation>\nНяма смисъл от още една дрямка, искам да спя до сутринта.
 Dialogues/prepActualSleepTime3=Уморен съм. План за сега: пижама, легло, сън.
 Dialogues/prepActualSleepTime4=<voice type=laugh>\nДнес беше добър ден. Време е да спиш.
@@ -719,13 +716,13 @@ Dialogues/prepPleaceWorkbench1=Може да поста работната си 
 Dialogues/prepPleaceWorkbench2=<voice type=acceptance>\nВреме е да поставиш работната маса в бункера.\n<voice type=fear>\nНе искам Агентът да я види.
 Dialogues/prepPleaceWorkbench3=<voice type=acceptance>\nТрябва да скрия работната маса в бункера си.
 Dialogues/prepPleaceWorkbench4=Една последна стъпка - сложи работната маса в бункера.
-Dialogues/prepNoAmo=<voice type=disappointment>\nИзчерпанах боеприпаси!
-Dialogues/prepOverheated=<voice type=disappointment>\nПрегрял си се!
+Dialogues/prepNoAmo=<voice type=disappointment>\nСвършиха ми боеприпасите!
+Dialogues/prepOverheated=<voice type=disappointment>\nПрегряване!
 Dialogues/prepTrap=<voice type=negation>\nНяма да работи тук.\n<voice type=acceptance>\nТрябва да го сложа в гората.
 Dialogues/prepTrapForest=<voice type=negation>\nТук няма да работи.\n<voice type=acceptance>\nТрябва да намеря по-подходящо място за капани.
 Dialogues/prepNeedFuel=<voice type=negation>\nТрябва ми гориво.
 Dialogues/prepNeedWater=<voice type=negation>\nИмам нужда от вода.
-Dialogues/prepNeedWood=<voice type=negation>\nИмам нужда от дърво.
+Dialogues/prepNeedWood=<voice type=negation>\nИмам нужда от дървесина.
 Dialogues/prepNoWay=<voice type=negation>\nНе мога да стигна до там!
 Dialogues/prepBlockedWay=<voice type=negation>\nПътят е блокиран!
 Dialogues/prepTree=<voice type=negation>\nИмам нужда от по-висока стая за това.
@@ -733,7 +730,7 @@ Dialogues/prepTreePatch=<voice type=negation>\nИмам нужда от сакс
 Dialogues/prepGreenhouse=<voice type=negation>\nТрябва ми парник за това.
 Dialogues/prepNeedOil=<voice type=negation>\nТрябва ми масло.
 Dialogues/prepGrabbingFullBoxForbidden=<voice type=negation>\nНе мога да взема това, защото е пълно!
-Dialogues/prepPlacingForbiddenForest=<voice type=negation>\nГрижата не е място за това!
+Dialogues/prepPlacingForbiddenForest=<voice type=negation>\nГората не е място за това!
 Dialogues/prepPlacingForbiddenMines=<voice type=negation>\nМина не е място за това!
 Dialogues/prepPlacingForbiddenDesert=<voice type=negation>\nПустинята не е място за това!
 Dialogues/prepPlacingForbiddenOther=<voice type=negation>\nТова не е място за това!
@@ -742,7 +739,7 @@ Dialogues/prepPickaxeNeeded=<voice type=negation>\nТрябва ми кирка 
 Dialogues/prepAxeNeeded=<voice type=negation>\nТрябва ми топор за това!\nМоже би мога да си купя от Джо?
 Dialogues/prepInsideDestroyRoom=<voice type=negation>\nНе мога да унищожа стая в която все още съм!
 Dialogues/prepItemsInsideDestroyRoom=<voice type=negation>\nНе мога да унищожа стая с предмети вътре!
-Dialogues/prepUpgradeDestroyRoom=<voice type=negation>\nНе мога да унищожа надградена стая!
+Dialogues/prepUpgradeDestroyRoom=<voice type=negation>\nНе мога да унищожа подобрена стая!
 Dialogues/prepSick1=<voice type=upset>\nЧувствам се разстроен.
 Dialogues/prepSick2=<voice type=upset>\nБоли ми стомаха.
 Dialogues/prepWrackPlane=Когато Подготвения намери снимка при останките на самолет
@@ -755,9 +752,9 @@ Dialogues/prepPrequel=<voice type=negation>\nТрябва да прочета п
 Dialogues/prepFoodSource=<voice type=acceptance>\nТрябва ми източник на храна. Време е да започна моята подземна плантация.\n<voice type=laugh>\nАгентът няма да се радва на това.
 Dialogues/prepAfterFoodSource=<voice type=acceptance>\nИзточник на храна установен. Ще прегледам отново плана си!
 Dialogues/prepIntro=Най-накрая. Скорост. Пътят пред мен, пространството около мен. Отворен хоризонт - това не съм го виждал отдавна. Далеч от контрола, пропагандата, скуката, от хората с празни очи наоколо. По дяволите, дори тези проклети главоболия изчезват с всяка миля, която се отдалечавам от този град. Към новото начало!
-Dialogues/agentBack1=<voice type=acceptance>\nИ ние се връщаме в твоето място на пребиваване, гражданино.\nЗа опита за бягство, конфискувахме вашето превозно средство. Това е стандартна процедура.\n<voice type=negation>\nОчевидно, също така ти е забранено да купуваш или регистрираш нов.\n<voice type=order>\nАгенцията изразява надежда, че няма да се опиташ да напуснеш Мърикавил отново.
-Dialogues/prepBack2=<voice type=laugh>\nО, разбира се, сега планирам да се влюбия отново в този красив град.
-Dialogues/agentBack3=<voice type=acceptance>\nТова е стандартната процедура, гражданино. От днес и ти си под наблюдение. \nЩе идвам редовно за кратка проверка, за да търся забранени действия или предмети.\nТова е стандартната процедура.\n<voice type=order>\nСигурен съм, че ще се подчиниш и посещенията ми ще бъдат само формалност. Боже, пази президента!
+Dialogues/agentBack1=<voice type=acceptance>\nВърнахме ви на адреса ви, гражданино.\nЗаради опита ви за бягство конфискувахме превозното ви средство. Това е стандартна процедура.\n<voice type=negation>\nРазбира се, забранено ви е и да купувате или регистрирате ново.\n<voice type=order>\nАгенцията се надява, че няма да правите нови опити да напуснете Мърикавил.
+Dialogues/prepBack2=<voice type=laugh>\nО, разбира се, сега направо нямам търпение да се влюбя отново в този прекрасен град.
+Dialogues/agentBack3=<voice type=acceptance>\nПохвално отношение, гражданино. От днес сте и под изпитателен срок.\nЩе идвам редовно за кратка проверка, за да следя за подривна дейност или забранени предмети.\nТова е стандартна процедура.\n<voice type=order>\nСигурен съм, че ще се подчинявате и посещенията ми ще бъдат само формалност. Боже, пази Президента!
 Dialogues/prepBack4=<voice type=negation>\nБоже, пази.
 Dialogues/herbWolf1=<voice type=greeting>\nЗдравей, слънчице! Знаех си, че ще дойдеш. \n<voice type=laugh>\nИзглеждаш като силен и способен млад мъж.
 Dialogues/prepWolf2=<voice type=surprise>\nОтдавна никой не ме е наричал „млад“.\n<voice type=question>\nА ти си...?
@@ -848,7 +845,7 @@ Dialogues/bobJack5=Просто… Трябва да знаеш, че трябв
 Dialogues/prepJack6=Добре, добре, стига. Ще внимавам.
 Dialogues/bobGlass1=<voice type=question>\nЗдравей, Подготвения! Може ли да ти помоля за още една услуга?
 Dialogues/prepGlass2=<voice type=order>\nОбличи.
-Dialogues/bobGlass3=После се боря да се движа по рудника. Първо ми се струваше, че е обикновеното, знаеш – нещата стават замъглени заради проблеми със съня и концентрацията. \nНо не, изглежда, че е само зрението ми, което се влошава.\nИ откога… знаеш, след промяната на правителството, нямаме оптичен в града.\n<voice type=question>\nПосещаваш толкова много места. Може ли да намериш очила за мен?
+Dialogues/bobGlass3=После се боря да се движа по рудника. Първо ми се струваше, че е обикновеното, знаеш - нещата стават замъглени заради проблеми със съня и концентрацията. \nНо не, изглежда, че е само зрението ми, което се влошава.\nИ откога… знаеш, след промяната на правителството, нямаме оптичен в града.\n<voice type=question>\nПосещаваш толкова много места. Може ли да намериш очила за мен?
 Dialogues/prepGlass4=<voice type=acceptance>\nДобре. Ще видя какво мога да направя.
 Dialogues/bobSleep1=Нека ти дам някои съвети.\nИма опасност и на по-ниските нива на тази мина, твърде много водород!\nНякои индустриални неща от онова време...\nЗатова не ти препоръчвам да ходиш там.
 Dialogues/bobSleep2=Какво правиш тук?
@@ -909,7 +906,7 @@ Dialogues/bobSleepless7=Хмм. Добре. Но ти първи!
 Dialogues/prepSleepless8=Уф. Добре. Така че те дойдох тук заради споменаването на водород.
 Dialogues/bobSleepless9=<voice type=surprise>\nКакво?! Защо мислиш да направиш това?
 Dialogues/prepSleepless10=Така че имам този малък… проект за изработка. В мазето ми.\nСтроя ракета, за да се измъкна оттук.\nИ водородът всъщност може да бъде полезен като гориво.
-Dialogues/bobSleepless11=…\nТи си… По-странен, отколкото си мислех, Подготвения. \nДобре, време е за моята част от сделката. Но помни – не казвай на никого, иначе хората може да умрат.\n<voice type=question>\nДа влезем ли?
+Dialogues/bobSleepless11=…\nТи си… По-странен, отколкото си мислех, Подготвения. \nДобре, време е за моята част от сделката. Но помни - не казвай на никого, иначе хората може да умрат.\n<voice type=question>\nДа влезем ли?
 Dialogues/prepSleepless12=<voice type=surprise>\nО, моя. Виждам, че не си единственият, който идва тук.
 Dialogues/bobSleepless13=Не. Ние сме повече, и се наричаме Безсънните. Борим се срещу мерките за контрол на ума, които правителството ни налага. Забелязал ли си, че винаги заспиваш в 3 сутринта, независимо какво правиш? Забелязал ли си проблеми с концентрацията? Главоболие? Неправилна памет?
 Dialogues/prepSleepless14=Разбира се, че имам. Задължителното време за лягане ме побърква.
@@ -942,7 +939,7 @@ Dialogues/postRand16=<voice type=upset>\nПреди беше по-живо ту�
 Dialogues/postRand17=<voice type=question>\nКак си, г-н Подготвения? Тази сутрин взех грешен завой и се изгубих. Смешно, май остарявам!
 Dialogues/postRand18=<voice type=surprise>\nНаскоро чух за вълци, които се връщат в гората извън града. Можеш ли да повярвай?
 Dialogues/postRand19=<voice type=question>\nПонякога мислиш, че писмата ти пътуват по-далеч от това, което някога ще направиш?
-Dialogues/postRand20=<voice type=greeting>\nДобро утро! Имаме нова серия марки! Вълнуващо, нали? Това е – да, познахте – нашият любим президент. Този път е с левия си профил.
+Dialogues/postRand20=<voice type=greeting>\nДобро утро! Имаме нова серия марки! Вълнуващо, нали? Това е - да, познахте - нашият любим президент. Този път е с левия си профил.
 Dialogues/postRand21=Знаеш, г-н Подготвения, и аз имах такива ежедневни посещения от Агенцията преди време, след като направих малка грешка на работа. Бъди търпелив, в един момент ще им писне.
 Dialogues/postRand22=<voice type=greeting>\nДобро утро, г-н Подготвения! Харесва ми, че винаги си за нещо. Мърикавил е доста тих град в наши дни.
 Dialogues/postRand23=<voice type=greeting>\nЗдравей, г-н Подготвения! Надежда да се справяш добре с дефицитите! Винаги е добре да имаш някакви аварийни запаси, ако отново изчезне ток.
@@ -987,10 +984,10 @@ Dialogues/joeFirstMeetingIncomplete3=<voice type=disappointment>\nМоля те,
 Dialogues/prepFirstMeetingComplete1=<voice type=greeting>\nХей, Джо! Донесох ти алуминиевото фолио!
 Dialogues/joeFirstMeetingComplete2=<voice type=thanks>\nО, блести! Благодаря ти много, дано сега си върна концентрацията!\nМежду другото, поправих револвера ти - като нов е. Но ако Агенцията пита за него, нищо не знам!\nСега имам малко работа, но не забравяй да наминаваш от време на време!
 Dialogues/prepFirstMeetingComplete3=<voice type=thanks>\nРазбира се. Благодаря ти, Джо!
-Dialogues/chupaWoof1=<animation trigger=BeforAttack>\nУауф!
-Dialogues/chupaWoof2=<animation trigger=BeforAttack>\nУууф уууф!
-Dialogues/chupaWoof3=<animation trigger=BeforAttack>\n(въсъска)
-Dialogues/chupaWoof4=<animation trigger=BeforAttack>\nГав гав!
+Dialogues/chupaWoof1=<animation trigger=BeforAttack>\nБау!
+Dialogues/chupaWoof2=<animation trigger=BeforAttack>\nБау-бау!
+Dialogues/chupaWoof3=<animation trigger=BeforAttack>\n(Ррр...)
+Dialogues/chupaWoof4=<animation trigger=BeforAttack>\nБау-бау!
 Dialogues/joeDog1=<voice type=thanks>\nЗдравей, Подготвения! Ужалено, че си тук!
 Dialogues/prepDog2=<voice type=question>\nЗдравей, Джо, какво стана?
 Dialogues/joeDog3=<voice type=upset>\nМоят куче, Чупакабра, изчезна! Стива си. Никога не е ходил сам далеч.\nТой е дисциплиниран куче, обикновено ми помага да пазя лагера.\n<voice type=upset>\nНе знам какво е станало! Можеш ли да ми помогнеш да го намериш?
@@ -1062,7 +1059,7 @@ Dialogues/joeChupacabra3=<voice type=negation>\nЧупакабра не се в�
 Dialogues/prepChupacabra4=<voice type=acceptance>\nИзглежда силен и умен. Помага ли ти с работата?
 Dialogues/joeChupacabra5=Да. Плаши вредителите и странните скитници, които се заблуждават насам. Помага ми и да намирам разни неща, когато забравям къде съм ги оставил.\nНамерих го преди около десет години.\n<voice type=surprise>\nМежду другото, от доста време не съм виждал друго куче наоколо. Странно, нали?\n
 Dialogues/prepChupacabra6=Хм, и аз не съм. Значи още повече сте извадили късмет, че сте се намерили.
-Dialogues/chupaChupacabra7=Гав!
+Dialogues/chupaChupacabra7=Бау!
 Dialogues/prepNeon1=<voice type=greeting>\nХей, Джо! Чудех се нещо... Защо „Големия Джо“?
 Dialogues/joeNeon2=А, това е прякор от едно време. Защото, нали знаеш... не съм голям.
 Dialogues/prepNeon3=<voice type=surprise>\nИ това е всичко? Няма тайна на Агенцията зад него? Никаква конспирация?
@@ -1148,8 +1145,6 @@ Dialogues/bossTaunt11=<voice type=laugh>\nТи си просто фалшива 
 Dialogues/bossFightStart=<voice type=thanks>\nБлагодаря. Сега ще бъдеш елиминиран като заплаха за сигурността. Време е Форт „Наблюдател“ да бъде на първо място!
 Dialogues/bossFightMiddle=<voice type=laugh>\nОбикновено елиминирането на заплаха става по-бързо. Но с теб е свършено. Моите копчета са по-големи от твоите!
 Dialogues/bossFightEnd=<voice type=fear>\nКритична повреда. Форт „Наблюдател“ ще остане без наблюдение. Време е да умра.
-Dialogues/agentRandom=<random>\nТекст на агент едно\nТекст на агент две\n<if event=fortObserverUnlocked>\nАгентски текст три\nАгентски текст четири\n</random>
-Dialogues/agentCondition=Агент Текст Пет\nАгент Текст Шест\n<if event=agentSaidTextSeven is=false>\n<event set=agentSaidTextSeven>\nАгент Текст Седем
 Dialogues/agentRoomCheck=<random>\nДа видим какво имаме тук.\nИзвършва се проверка за законност.\nПроверка на помещението съгласно Закона за сигурността и благосъстоянието.\nПроверявам за незаконни и нестандартни предмети.\nНа пръв поглед всичко изглежда прилично. Да видим подробностите.\nПроверявам съдържанието на помещението.\nВсичко е в името на сигурността и благосъстоянието на гражданите. Боже, пази Президента!\nПомещението изглежда подредено и функционално! Надявам се да няма нищо незаконно тук.\nСъбирам информация за доклада.\nЩе проверя съдържанието на помещението. Това е стандартна процедура.\nТова е стандартна процедура.\nПри предишното правителство за всяка проверка беше необходима отделна заповед. Това вредеше на защитата на сигурността и благосъстоянието.\nПоддържането на дома подреден и съобразен със стандартите е от полза за всички граждани на Мърикавил и страната.\nПроверявам за признаци на подривна дейност.\n</random>
 Dialogues/agentBoxCheck=<random>\nДа видим какво имаме тук.\nМоля, не го приемайте лично, граждани. Проверката на контейнери е стандартна процедура.\nТова е много хубава кутия, ще е жалко, ако има нещо незаконно в нея.\nПроверка за незаконни и нестандартни предмети.\nАгенцията търси предмети, които застрашават сигурността и благосъстоянието на гражданите.\nТова е стандартна процедура. Боже, пази президента!\nВажно е да държиш всички контейнери видими и лесни за отваряне. Прозрачността е от полза за всички.\nНадявам се, че няма незаконни предмети вътре, граждани.\nАгенцията твърдо вярва, че няма да се опитате да избягате отново, но искаме да сме сигурни, че нямате средствата за това.\nЗнаци на подривна дейност понякога могат да бъдат добре скрити.\nОтваряне на контейнера. Това е стандартна процедура.\n</random>
 Dialogues/agentElectricityCheck=<random>\nПроверявам дали консумацията на ток е нормална.\nПроверявам за аномалии в консумацията на ток.\nСправедливо и равномерно разпределение на енергията е важно за сигурността и благосъстоянието на Мърикавил.\nИнспекция на консумацията на енергия съгласно Закона за сигурността и благосъстоянието.\nПроверявам електрическия уред за аномалии. Това е стандартна процедура.\nНеобичайно използване на ток може да е признак на подривна дейност.\nТокът е един от ключовите национални ресурси и трябва да се използва отговорно. Боже, пази президента!\n</random>
@@ -1213,7 +1208,7 @@ Dialogues/agentReveal27=За наблюдение на ефектите от М�
 Dialogues/prepReveal28=<voice type=question>\nТи ли ме наблюдаваше?
 Dialogues/agentReveal29=<voice type=negation>\nА, не. Онзи Агент беше уволнен, след като се опитахте да избягате с кола.\nПосле ги убедих да продължат експеримента. Предложих редовни проверки. Съгласиха се.\nА и аз самият исках да ви разгледам по-отблизо.\n
 Dialogues/prepReveal30=<voice type=disappointment>\nТова е малко странно, Опълченеца.
-Dialogues/agentReveal31=Не, възхищавах ви се. Бях очарован. Винаги бяхте различен.\nА бягството ви... кучетата, надписът върху огледалото. Беше... красиво.\nПо онова време вече ми беше писнало от скуката в Агенцията. Затова реших да ви помогна.\nТрябваше да поддържам привидността, така че съвестно извършвах всички проверки, но същевременно създадох alter ego-то Опълченеца, за да ви помагам.\n
+Dialogues/agentReveal31=Не, възхищавах ви се. Бях очарован. Винаги бяхте различен.\nА бягството ви... кучетата, надписът върху огледалото. Беше... красиво.\nПо онова време вече ми беше писнало от скуката в Агенцията. Затова реших да ви помогна.\nТрябваше да поддържам привидността, така че съвестно извършвах всички проверки, но същевременно създадох алтер егото си — Опълченеца, за да ви помагам.\n
 Dialogues/prepReveal32=Значи всичко е било за пред хората. А ти какво печелиш от това?
 Dialogues/agentReveal33=<voice type=question>\nОсвен че искрено исках да помогна на най-интересния човек в Мърикавил?
 Dialogues/prepReveal34=<voice type=acceptance>\nДа, освен това.
@@ -1583,7 +1578,7 @@ Dialogues/prepMilkAndEggsFinished3=Да. Всичко е прясно и от н
 Dialogues/willMilkAndEggsFinished4=<voice type=thanks>\nСупер, благодаря за помощта!\nМисля, че сега мога да издържа още една проверка.
 Dialogues/willMilkAndEggsFinished5=Отсега ще ти плащам за всички яйца и млека, които донасяш.\nТова е твоята работа, все пак, и не мисля, че агенцията планира да ти плаща.
 Dialogues/willMilkAndEggsFinished6=И тук, вземи това, това са някои основни рецепти от яйца и мляко...
-Dialogues/henMilkAndEggsFinished7=Кък!
+Dialogues/henMilkAndEggsFinished7=Кът-кът!
 Dialogues/willMilkAndEggsFinished8=<voice type=thanks>\n...да, и от риба, благодаря, Хенри.
 Dialogues/prepMilkAndEggsFinished9=<voice type=thanks>\nБлагодаря!
 Dialogues/willMilkAndEggsFinished10=Има още много работа. Върни се утре, днес е достатъчно.
@@ -1682,7 +1677,7 @@ Dialogues/willFindAnimals2=<voice type=upset>\nМоже да звучи налу
 Dialogues/prepFindAnimals3=Е... не можем да изключим тази възможност.
 Dialogues/chupaFindAnimals4=Бау!
 Dialogues/prepFindAnimals5=<voice type=acceptance>\nМоже би имам идея.
-Dialogues/prepFindAnimals6=Тези ID ленти... Всички наши животни ги имат.\nИ ако не греша, може да са някакъв вид проследяващи устройства.
+Dialogues/prepFindAnimals6=Тези ИД ленти... Всички наши животни ги имат.\nИ ако не греша, може да са някакъв вид проследяващи устройства.
 Dialogues/prepFindAnimals7a=И единственият човек, който може да знае как да ги проследим, е технологичният експерт на Мърикавил - Джо.
 Dialogues/prepFindAnimals7b=<voice type=negation>\nСамо че не знам как да ги проследя. Трябва да намеря някого, който разбира от такива устройства.
 Dialogues/prepAgentLegFound1=<voice type=question>\nСега това е странно...
@@ -1690,10 +1685,10 @@ Dialogues/prepAgentLegFound2=<voice type=order>\nНякакъв черен пл�
 Dialogues/prepAgentLegFound3=<voice type=question>\nТова да не е...?
 Dialogues/prepAgentLegFound4=<voice type=upset>\nДа, определено има <color=red>кръв</color> по него.
 Dialogues/prepAgentLegFound5=Откъде ли е дошло? Може би Уил има идея.
-Dialogues/prepAnimalsBand1=Джо, имам въпрос към теб.
+Dialogues/prepAnimalsBand1=Джо, имам въпрос.
 Dialogues/joeAnimalsBand2=<voice type=order>\nКазвай!
-Dialogues/prepAnimalsBand3=Да кажем, че имам устройство, което се използва за проследяване на определени същества.
-Dialogues/joeAnimalsBand4=<voice type=surprise>\nЗа какъв криптид говорим? Бигфут? Мотман? Джърси Девил?
+Dialogues/prepAnimalsBand3=Да кажем, че имам устройство, което се използва за проследяване на определени животни.
+Dialogues/joeAnimalsBand4=<voice type=surprise>\nЗа какви митични същества говорим? Голямата стъпка? Човека-молец? Дявола от Джерси?
 Dialogues/prepAnimalsBand5=Каквото и да е същество. Погледни това.
 Dialogues/joeAnimalsBand6=Хм... да...
 Dialogues/joeAnimalsBand7=<voice type=acceptance>\nПравителствена работа, сто процента.
@@ -1701,9 +1696,9 @@ Dialogues/prepAnimalsBand8=<voice type=question>\nЗнаеш ли как мог�
 Dialogues/joeAnimalsBand9=Няма да е лесно...\n<voice type=acceptance>\nНо може би имам идея.
 Dialogues/joeAnimalsBand10=Ела пак утре. Ще измисля нещо.
 Dialogues/prepAnimalsBand11=<voice type=thanks>\nДобре, Джо. Разчитам на теб!
-Dialogues/joeTrackingDevice1=<voice type=laugh>\nИ воала! Най-модерният, домашно направен, copyleft, универсален търсач на ID ленти!\nЩе ги откриеш всичките за нула време!
+Dialogues/joeTrackingDevice1=<voice type=laugh>\nИ воала! Най-модерният, домашно направен, със свободен лиценз, универсален търсач на ИД ленти!\nЩе ги откриеш всичките за нула време!
 Dialogues/prepTrackingDevice2=<voice type=thanks>\nБлагодаря, човече! Длъжник съм ти.
-Dialogues/prepAskJoeMaterial1=<voice type=question>\nТи си специалистът по нещата, които могат да се намерят наоколо. Разпознаваш ли това?
+Dialogues/prepAskJoeMaterial1=<voice type=question>\nТи си специалистът по нещата, които могат да се намерят наоколо - разпознаваш ли това?
 Dialogues/joeAskJoeMaterial2=<voice type=negation>\nНе. Нищо не ми говори.
 Dialogues/prepAskJoeMaterial3=<voice type=order>\nДобре, благодаря.
 Dialogues/prepAskBobMaterial1=<voice type=question>\nРазпознаваш ли това парче плат?
@@ -1721,10 +1716,10 @@ Dialogues/prepAgentMaterialRecognize2=<voice type=question>\nЧакай...
 Dialogues/prepAgentMaterialRecognize3=<voice type=surprise>\nТова парче черен плат да не е от костюма му?!
 Dialogues/prepAgentMaterialConfront1=<voice type=greeting>\nБоже, пази президента!\n<voice type=question>\nУважаеми господин Агент, мога ли да ти зададам въпрос?
 Dialogues/agentAgentMaterialConfront2=<voice type=question>\nКакво е, гражданино?
-Dialogues/prepAgentMaterialConfront3=<voice type=question>\nМожеш ли да ми обясниш как този фрагмент от твоя костюм е попаднал на територията на Мърикавил State Farm?
+Dialogues/prepAgentMaterialConfront3=<voice type=question>\nМожеш ли да ми обясниш как този фрагмент от твоя костюм е попаднал на територията на държавната ферма на Мърикавил?
 Dialogues/agentAgentMaterialConfront5=<voice type=negation>\nТова е неприемливо, Граждани.\n<voice type=anger>\nОтсега нататък си забранен да влизаш във фермата!\n<voice type=order>\nОсобено в следващата неделя!
 Dialogues/agentAgentMaterialConfront6=<voice type=disappointment>\nЕх...
-Dialogues/agentAgentMaterialConfront7=<voice type=negation>\nНе, чакай. Нямам никого да те замени.\n<voice type=acceptance>\nТова, което казах, е... трябва да удвоиш усилията си на фермата, Гражданин.\n<voice type=order>\nМного скоро ще получиш официално писмо с обновените изисквания.\nБлагословено бъде президента.
+Dialogues/agentAgentMaterialConfront7=<voice type=negation>\nНе, чакай. Нямам никого да те замени.\n<voice type=acceptance>\nТова, което казах, е... трябва да удвоиш усилията си на фермата, Гражданино.\n<voice type=order>\nМного скоро ще получиш официално писмо с обновените изисквания.\nБлагословено бъде президента.
 Dialogues/prepAgentMaterialConfront8=<voice type=laugh>\nТова беше... много интересно.\n<voice type=question>\nНеделя, казваш?
 Dialogues/prepPlayesSeeAgent1=<voice type=surprise>\nАгентът?\n<voice type=question>\nКакво прави той тук по това време?\n<voice type=question>\nМислех, че си е отишъл завинаги.
 Dialogues/prepNightAgent1=<voice type=question>\nЕто подходящо време за проверка?
@@ -1888,7 +1883,7 @@ Dialogues/prepBombCreate2=Но това трябва да почака до сл
 Dialogues/prepBombStillStuffToDo=<voice type=negation>\nНе, имам някои неща за вършене преди това.
 Dialogues/prepBombNotSunday=Трябва да изчакам до неделя с това.
 Dialogues/joeJoeMeetWill1=...да, имало е забелязвания още от древни времена и в различни култури: Китай, Япония, Германия...
-Dialogues/willJoeMeetWill2=<voice type=question>\nВау. И знаем ли какво ги привлича тук?
+Dialogues/willJoeMeetWill2=<voice type=question>\nО. И знаем ли какво ги привлича тук?
 Dialogues/joeJoeMeetWill3=Вероятно искат да ни изучават и живота на Земята като цяло.\nИма хипотеза, че са МНОГО заинтересовани от ядрени оръжия - много от наблюденията се случват близо до ядрени бази.
 Dialogues/willJoeMeetWill4=<voice type=anger>\nНе знаех това! Те чудовища от друга планета със сигурност искат да откраднат нашите ядрени оръжия!
 Dialogues/willJoeMeetWill5=<voice type=greeting>\nО, здравей, г-н Подготвения.\nДжо беше заинтригуван от инцидентите на нашата ферма и дойде да поздрави.
@@ -1912,7 +1907,7 @@ Dialogues/willFarmEnd12=<voice type=question>\nНо те те са открад�
 Dialogues/joeFarmEnd13=<voice type=surprise>\nО, погледни! Започва!
 Dialogues/joeFarmEndSecond1=<voice type=laugh>\n…уау.\n<voice type=question>\nВидяхте ли това?
 Dialogues/prepFarmEndSecond2=Да, имаме.
-Dialogues/joeFarmEndSecond3=<voice type=thanks>\nТова е невероятно!\n<voice type=thanks>\nЦели живот съм чакал нещо подобно! \n<voice type=thanks>\nВсички тайни данни, теории, свидетелства, слухове – и накрая ги видя с моите очи!
+Dialogues/joeFarmEndSecond3=<voice type=thanks>\nТова е невероятно!\n<voice type=thanks>\nЦели живот съм чакал нещо подобно! \n<voice type=thanks>\nВсички тайни данни, теории, свидетелства, слухове - и накрая ги видя с моите очи!
 Dialogues/prepFarmEndSecond4=<voice type=laugh>\nМоже би те очакват още няколко изненади, изглежда привличам странни неща.
 Dialogues/willFarmEndSecond5=<voice type=question>\nУф. Значи свърши? 
 Dialogues/msagentFarmEndSecond6=<voice type=negation>\nНе, не мисля, граждани.
@@ -2032,30 +2027,30 @@ Dialogues/willDogeReward13=<voice type=upset>\nПосети ме от време
 Dialogues/willDogeReward14=В тази книга ще намериш всичко необходимо, за да се грижиш за него.
 Dialogues/prepDogeReward15=Ксено ще е в безопасност с мен, обещавам.\n<voice type=thanks>\nБлагодаря, че ми го довери.\n<voice type=acceptance>\nСигурен съм, че ще бъде голяма помощ.
 Dialogues/prepperFIdleRand1=Колко тихо е днес.
-Dialogues/prepperFIdleRand2=<voice type=laugh>\nБебеш акула, ду ду ду...\n<voice type=disappointment>\nАх, доц, най-лошият е този песен в главата.
+Dialogues/prepperFIdleRand2=<voice type=laugh>\nБебе акула, ду-ду-ду...\n<voice type=disappointment>\nОх, не. Тази песен пак ми се заби в главата.
 Dialogues/prepperFIdleRand3=Дай на човека риба и ще го нахраниш за един ден.\nНаучи един човек да лови риба и той скоро ще създаде риболовна индустрия и ще унищожи екосистемата.
 Dialogues/prepperFIdleRand4=Не се случва много. Предполагам, че тези негодници от Агенцията дори не зареждат риба тук.
 Dialogues/prepperFIdleRand5=<voice type=disappointment>\nНе е най-вълнуващият ден за риболов.
-Dialogues/prepperFIdleRand6=<voice type=question>\nКакво е това миризма...? А, нищо, сигурен съм, че това езеро е много чисто.
-Dialogues/prepperFCatchRand1=<voice type=surprise>\nОоо... Намерих нещо!
-Dialogues/prepperFCatchRand2=<voice type=surprise>\nУлових те!
-Dialogues/prepperFCatchRand3=<voice type=surprise>\nЕла при мен!
+Dialogues/prepperFIdleRand6=<voice type=question>\nКаква е тази миризма...? А, нищо. Сигурен съм, че езерото е много чисто.
+Dialogues/prepperFCatchRand1=<voice type=surprise>\nО! Намерих нещо!
+Dialogues/prepperFCatchRand2=<voice type=surprise>\nХванах те!
+Dialogues/prepperFCatchRand3=<voice type=surprise>\nЕла насам!
 Dialogues/prepperFCatchItemRand1=<voice type=disappointment>\nУф... Само боклуци.
 Dialogues/prepperFCatchItemRand2=<voice type=disappointment>\nНищо.
 Dialogues/prepperFCatchItemRand3=<voice type=disappointment>\nЕх... Хайде!
 Dialogues/prepperFLoseMinigameRand1=<voice type=upset>\nПочти!
 Dialogues/prepperFLoseMinigameRand2=<voice type=disappointment>\nЕ, жалко.
-Dialogues/prepperFLoseMinigameRand3=<voice type=upset>\nЕй риба, върни се.
-Dialogues/prepperFHeavyFishRand1=<voice type=laugh>\nВау, това е голяма риба!
-Dialogues/prepperFHeavyFishRand2=Надявам се пръчката да издържи!
-Dialogues/prepperFMediumFishRand1=Ето го момчето!
-Dialogues/prepperFMediumFishRand2=<voice type=order>\nЩе го направя! Ще го направя!
-Dialogues/prepperFSmallFishRand1=<voice type=laugh>\nО, колко си малък!
-Dialogues/prepperFSmallFishRand2=Просто си вървиш бавно и спокойно.
+Dialogues/prepperFLoseMinigameRand3=<voice type=upset>\nЕй, рибке, върни се!
+Dialogues/prepperFHeavyFishRand1=<voice type=laugh>\nО, това е голяма риба!
+Dialogues/prepperFHeavyFishRand2=Надявам се въдицата да издържи!
+Dialogues/prepperFMediumFishRand1=Ето я!
+Dialogues/prepperFMediumFishRand2=<voice type=order>\nЩе успея! Ще успея!
+Dialogues/prepperFSmallFishRand1=<voice type=laugh>\nО, колко си малка!
+Dialogues/prepperFSmallFishRand2=Хайде, бавно и спокойно.
 Dialogues/prepperFUncommonFishRand1=Да!
-Dialogues/prepperFUncommonFishRand2=<voice type=thanks>\nВау, уловът на деня!
+Dialogues/prepperFUncommonFishRand2=<voice type=thanks>\nУловът на деня!
 Dialogues/prepperFRareFishRand1=Плувай направо към мен!
-Dialogues/prepperFRareFishRand2=<voice type=thanks>\nБляскаво!
+Dialogues/prepperFRareFishRand2=<voice type=thanks>\nСтрахотно!
 Dialogues/prepperFEpicFishRand1=<voice type=thanks>\nКакъв щастлив ден!
 Dialogues/prepperFEpicFishRand2=Джакпот!
 Dialogues/willFishRewardStarterRand1=Как върви риболовът ти?
@@ -2070,18 +2065,18 @@ Dialogues/willWhiteMinnowTalk1=Бяла рибка. Не е най-добрат�
 Dialogues/willSilverMinnowTalk1=Сребърна рибка. Блестят като монети на слънцето. Подходящи са за стръв за по-големи риби.
 Dialogues/willEmeraldMinnowTalk1=Смарагдова рибка! Или ефективна жива стръв, или красива аквариумна рибка.
 Dialogues/willGoldMinnowTalk1=Златна рибка! Хубава, рядка уловка.
-Dialogues/willBlackBassTalk1=Черен бас! Класика в американския риболов. Често срещан, но може да окаже сериозна съпротива.
-Dialogues/willWhitePerchTalk1=Бяла риба. Свястно уловена. Вкусна, ако се сготви правилно.
+Dialogues/willBlackBassTalk1=Американски костур! Класика в американския риболов. Често срещан, но може да окаже сериозна съпротива.
+Dialogues/willWhitePerchTalk1=Бял костур. Свестен улов. Вкусен, ако се сготви правилно.
 Dialogues/willYellowPerchTalk1=Жълт костур! Ярък цвят и ивици. Много красив и много вкусен.
-Dialogues/willStripedBassTalk1=Ивичест бас! Издръжливи са и са пригодени за дълги миграции. Добър улов.
+Dialogues/willStripedBassTalk1=Ивичест костур! Издръжливи са и са пригодени за дълги миграции. Добър улов.
 Dialogues/willPinkSalmonTalk1=Хванал си розова сьомга. Популярен рибен вид, макар и не мой фаворит.
-Dialogues/willRedSalmonTalk1=Ето един червен сьомга. Те просто се хвърлят с главата напред в живота и смъртта и обичат да се занимават с интензивно червено.
-Dialogues/willRainbowTroutTalk1=Това е дъгова пъстърва, която имаш тук. Те са много енергични и изискват добра умелост, за да ги уловиш.
+Dialogues/willRedSalmonTalk1=Ето една червена сьомга. Те просто се хвърлят с главата напред в живота и смъртта и обичат да се занимават с интензивно червено.
+Dialogues/willRainbowTroutTalk1=Това е дъгова пъстърва. Много е енергична и трябва добре да си подготвен, за да я уловиш.
 Dialogues/willGoldTroutTalk1=Златна пъстърва! Редка и красива риба. Голям улов.
-Dialogues/willBlackCatfishTalk1=Черен сом. Доста са дребни и са вкусни само ако са живели в чиста вода.
+Dialogues/willBlackCatfishTalk1=Черен сом. Дребен е и е вкусен само ако е живял в чиста вода.
 Dialogues/willBlueCatfishTalk1=Син сом. Издръжливи са и живеят дълго. Но този явно си го надхитрил.
 Dialogues/willWhiteCatfishTalk1=Бял сом. Интересно, не знаех, че могат да се хванат в този район.
-Dialogues/willTigerfishTalk1=Ивиците, формата - трябва да е тигрова риба! Те се бият безмилостно.
+Dialogues/willTigerfishTalk1=Ивиците, формата — трябва да е тигрова риба! Тези риби се бият безмилостно.
 Dialogues/prepNoticeCrashedUFOInLake1=Ето го. Така минава славата на външния свят.
 Dialogues/prepInspectCrashedUFOInLake1=Едно катастрофирало НЛО. Все още не съм сигурен дали беше правилното нещо, но наистина бяха досадни.
 Dialogues/prepCrashedUFOInLakeGone1=Уф, НЛО-то вече го няма. Някой явно е прибрал останките.
@@ -2145,7 +2140,7 @@ Dialogues/prepWillPostGame1=<voice type=greeting>\nЗдравей, Уил. Ис�
 Dialogues/willWillPostGame2=<voice type=question>\nЗдравей, г-н Подготвения. Разбира се, какво има?
 Dialogues/prepWillPostGame3=<voice type=question>\nСпочи, помниш ли какво споменаваше госпожа Агент вчера вечер?
 Dialogues/willWillPostGame4=<voice type=question>\nКакво? Г-ца Агент беше тук вчера?\n<voice type=question>\nЗащо? Какво искаше?\n<voice type=fear>\nСам съм в беда?
-Dialogues/prepWillPostGame5=<voice type=disappointment>\nО.\n<voice type=negation>\nНе, извинявай, не си ме чул добре.\n<voice type=question>\nПросто исках да попитам за мнението ти: коя риба е кралят на всички води: муският или голямата сомче?
+Dialogues/prepWillPostGame5=<voice type=disappointment>\nО.\n<voice type=negation>\nНе, извинявай, не си ме чул добре.\n<voice type=question>\nПросто исках да попитам за мнението ти: коя риба е кралят на всички води — мускито или големият сом?
 Dialogues/willWillPostGame6=Разбира се, големият костур е кралят на всички води, както лъвът е кралят на джунглата.
 Dialogues/henWillPostGame7=Кудкудяк!
 Dialogues/prepWillPostGame8=Благодаря, Уил.
@@ -2209,7 +2204,7 @@ Dialogues/prepFriendshipLevel2=Изглежда, че все пак ме хар�
 Dialogues/prepFriendshipLevel3=Той ми има огромно доверие.
 Dialogues/prepTreatIsNotHealthy=Не бива да давам на кучето си тези лакомства твърде често.\nВеднъж на ден е достатъчно.
 Dialogues/prepDogeDenAdventureTime=По-добре да не безпокоя леговището му.\nВероятно скоро ще се върне.
-Dialogues/prepCannotTakeUpgrade=Аквариумът не е празен.\nТрябва да изпразня аквариума, преди да инсталирам ъпгрейд.
+Dialogues/prepCannotTakeUpgrade=Аквариумът не е празен.\nТрябва да изпразня аквариума, преди да инсталирам подобрението.
 Dialogues/prepNoEnemys=<voice type=question>\nНяма врагове?\nКъсметлия съм.
 Dialogues/prepDogeUpperFloor=<voice type=disappointment>\nХм... \n<voice type=disappointment>\nИзглежда, че Ксено иска да излиза навън.\n<voice type=question>\nМоже би трябва да го сваля долу. Оттам ще може да излиза в двора.
 Dialogues/survNoWay=<voice type=negation>\nНе мога да стигна!
@@ -2275,7 +2270,7 @@ Dialogues/prepGlowingGlass13=<voice type=thanks>\nБлагодаря, Джо, в
 Dialogues/prepUraniumMine1=<voice type=greeting>\nЗдравей, Боб, имам нужда от твоята експертиза по местната история и може би от невероятните ти умения да търсиш книги.
 Dialogues/bobUraniumMine2=<voice type=thanks>\nО, любими! Дай ми каквото имаш.
 Dialogues/prepUraniumMine3=Погледни печата върху това парче стъкло.
-Dialogues/bobUraniumMine4=<voice type=negation>\nНе съм чувал за „Мърикавил Uranium Co.“ Откъде го имаш?
+Dialogues/bobUraniumMine4=<voice type=negation>\nНе съм чувал за „Мърикавил Ураниум Ко.“ Откъде го имаш?
 Dialogues/prepUraniumMine5=Джо го намери в автоморгата си. На мен ми изглежда истинско.
 Dialogues/bobUraniumMine6=Ще се потопя в книгите и ще видя какво мога да намеря. Питай ме пак за това по-късно.
 Dialogues/prepUraniumMineAfterResearch1=<voice type=greeting>\nЗдравей, Боб! Намери ли нещо за урана?
@@ -2363,7 +2358,7 @@ Dialogues/prepFirstInteraction2=О, интересна бизнес страте
 Dialogues/prepFirstInteraction3=Много е вкусно!
 Dialogues/lemonFirstInteraction4=Страхотно! Значи ще станеш редовен! Как се казваш, скъпи клиент?
 Dialogues/prepFirstInteraction5=Аз съм г-н Подготвения. Приятно ми е да се запознаем. Ти оттук ли си?
-Dialogues/lemonFirstInteraction6=Да! Гордо представяме Girl Scouts of Мърикавил! \nДори и групата ни да не е много активна тези дни. Но се надявам, че пак ще се вдигнем на крака! \nМоже би с парите от продажбата на лимонада! След като подкрепя борбения си татко обаче.
+Dialogues/lemonFirstInteraction6=Да! Гордо представяме Момичетата скаути на Мърикавил! \nДори и групата ни да не е много активна тези дни. Но се надявам, че пак ще се вдигнем на крака! \nМоже би с парите от продажбата на лимонада! След като подкрепя борбения си татко обаче.
 Dialogues/prepFirstInteraction7=Успех с продажбата! Може да мина някой път.
 Dialogues/lemonUnlockExpedition1=<voice type=greeting>\nЗдравей, г-н Подготвения. Забелязах, че обикаляш доста.\n<voice type=question>\nЗает живот? Или... търсиш нещо?
 Dialogues/prepUnlockExpedition2=<voice type=order>\nХм... да, трябва да се движа много заради моята... заради моята работа.
@@ -2457,7 +2452,7 @@ Dialogues/scientistSecondFetchQuest3=<voice type=question>\nСупер! Иска
 Dialogues/prepSecondFetchQuest4=<voice type=acceptance>\nДа, предполагам, че да.\nПросто... реших, че е по-добре да те държа под око, в случай че си на път да ни взривиш всички.\nТова изглежда е често срещана опасност тук в града, сега като се замисля.
 Dialogues/scientistSecondFetchQuest5=<voice type=negation>\nНикога! Всичко е под контрол!\nИ е готино, че можем да започнем отново да си сътрудничим.
 Dialogues/scientist_NuclearMaterial=Огледай се навсякъде, Подготвения.\nНе съм само аз, Мърикавил е имал много повече случаи да бъде изложен на радиация през историята си.\nЩе се изненадаш колко много облъчени предмети лежат навсякъде.\nСигурен съм, че ще намериш някои за нула време.
-Dialogues/scientist_AlienIncubator=<voice type=question>\nИмаш проблем с този? Имаш ли някакъв контакт с внеземните?\nТе съществуват, да.\nДори някога съм ги дисектирал. Не съм много в ксенобиологията пък, скучно ми е.\nНо технологиите им! Съвсем различен, страхотен нещият.\nИзползвахме част от техните технологии, за да ги изстреляме от небето, а след това събирахме още технологии.\nВъ всяка случай, намери разбит НЛО, и ако си късметлия, може да намериш инкубатор там.\nТрябва ми един. Какво е било в него, можеш да го хвърлиш, аз просто искам инкубатор.
+Dialogues/scientist_AlienIncubator=<voice type=question>\nИмаш проблем с този? Имаш ли някакъв контакт с извънземните?\nТе съществуват, да.\nДори съм дисектирал някои от тях. Не съм специалист по ксенобиология, а и ми е скучно.\nНо технологиите им! Съвсем различни, страхотни неща.\nИзползвахме част от техните технологии, за да ги изстреляме от небето, а след това събирахме още технологии.\nВъв всеки случай, намери разбито НЛО и ако си късметлия, може да намериш инкубатор там.\nТрябва ми един. Каквото е имало в него, можеш да го изхвърлиш — аз просто искам инкубатор.
 Dialogues/scientist_AtomicWaste=<voice type=question>\nНяма повече ядрени отпадъци наоколо? Хм.\nИзползваха да го изхвърлят дълбоко в земята. Предполагам, че изоставена мина би била идеална за това.
 Dialogues/scientist_Mannequin=Тук имам предвид конкретно манекен, използван в тест на атомна бомба. Като манекен за катастрофи, но за ядрени оръжия.\nПреди много време, някои ядрени тестове са извършени в пустинята, относително далеч оттук.
 Dialogues/scientist_OldGasMask2=<voice type=question>\nМоже би ще намериш маските на някое място, където са били замесени опасни материали?\n<voice type=question>\nМина, може би? И може би някой все още ги използва?
@@ -2588,7 +2583,7 @@ Dialogues/scientistNuclearConfrontation19=<voice type=question>\nКакво им
 Dialogues/prepNuclearConfrontation20=Погледни... Повечето жители на града са под влияние на някаква технология за контрол на ума.\nМисля, че е правителствен проект.\nКара хората да са доволни. Покорни. Изключително скучни също така.
 Dialogues/scientistNuclearConfrontation21=<voice type=question>\nНо… защо би прави разпоредването правителството?\n<voice type=upset>\nТова просто ще задуши ума, креативността и аналитичните способности на хората! Това не е начинът да се напредва!
 Dialogues/prepNuclearConfrontation22=Е, това може да ти е урок, че президентът може би не трябва да се благославя прекалено много.
-Dialogues/scientistNuclearConfrontation23=<voice type=upset>\nА, г-н Подготвения. Не ми харесва да променя парадигмите, принуждава те да научиш много неща отново!\nНо кажи ми едно нещо – казваш, че повечето хора са под влияние на контрол на ума.\n<voice type=question>\nЗащо не всички? А другите? А аз? Ти?
+Dialogues/scientistNuclearConfrontation23=<voice type=upset>\nА, г-н Подготвения. Не ми харесва да променя парадигмите, принуждава те да научиш много неща отново!\nНо кажи ми едно нещо - казваш, че повечето хора са под влияние на контрол на ума.\n<voice type=question>\nЗащо не всички? А другите? А аз? Ти?
 Dialogues/prepNuclearConfrontation24=Не знам всъщност. Някои хора изглеждат имунизирани или поне частично устойчиви.\nТези, които са будни, изглеждат... страстни за нещо. Водени. Обсебени, бих казал.\nЗнам също, че стимулантите помагат. Както и да е, нещото със сигурност влияе и на мен, и на теб, просто в различна степен.
 Dialogues/scientistNuclearConfrontation25=Не съм забелязал нищо. Бях напълно здрав и спокоен през цялото време.
 Dialogues/scientistNuclearConfrontation26=<voice type=question>\nЗдравей, какво е това шумове?
@@ -2617,14 +2612,14 @@ Dialogues/prepSleeplessBaseScientist3=<voice type=question>\nИмаш време
 Dialogues/scientistSleeplessBaseScientist4=Да, мисля, че бях малко... прекалено самовглъбен и исках да постигна голяма победа бързо.\nТази работа с изстрелването на ядрени бойни глави наоколо? Лудост, сега като се замисля.\nЪгълът на издигане за ракетите и посоката на вятъра бяха такива, че...\n
 Dialogues/prepSleeplessBaseScientist5=Спри ме точно тук. Беше контрол над ума, нали?
 Dialogues/scientistSleeplessBaseScientist6=Хм... Добре. Разбира се. Иначе, предполагам, щеше да ме накажеш, вместо просто да ме изпратиш в подземен спа център.
-Dialogues/scientistSleeplessBaseScientist7=А, но има още нещо – в свободното си време все още работя върху някои чертежи.\n<voice type=question>\nИнтересуваш ли се да вземеш още?
+Dialogues/scientistSleeplessBaseScientist7=А, но има още нещо - в свободното си време все още работя върху някои чертежи.\n<voice type=question>\nИнтересуваш ли се да вземеш още?
 Dialogues/prepSleeplessBaseScientist8=<voice type=acceptance>\nРазбира се, досега бяха много полезни. Просто не се опитвай да правиш още един властови ход, моля.
 Dialogues/scientistSleeplessRandom1=Експериментите със стимуланти, които правят тук, са доста интересни, трябва да призная.\nНяма да участвам, но им дадох някои съвети за подобряване на изследователските проекти.
 Dialogues/scientistSleeplessRandom2=Сега, когато нещата се успокоили, може би трябва да завършя резултатите от последните си експерименти в научна статия.\n<voice type=question>\nНо къде да я подам? Имаме ли още научни списания наоколо?
 Dialogues/scientistSleeplessRandom3=Не знам какво е с това, но ми се струва че въздухът тук в рудника ми пасва добре.\n<voice type=question>\nТова е намалено влияние на контрола върху ума? Или може би имаше някакъв неблагоприятен фактор в електроцентралата? Трудно да се каже.
 Dialogues/scientistSleeplessRandom4=<voice type=question>\nМоже би трябва да инсталирам малък ядрен генератор наоколо. Ти мислиш, че не е добра идея? Не?\n<voice type=disappointment>\nДори и малка? О, жалко.
 Dialogues/scientistSleeplessRandom5=<voice type=thanks>\nБаба ми е бил шах в някое място в региона. Може би дори в този шах? Сигурно е било забавно!\nНо никога не съм го срещал, почина рано. Чудесно е, защо.
-Dialogues/prepUraniumCompanySignInspect="Мърикавил Uranium Company."\nТова е мястото.
+Dialogues/prepUraniumCompanySignInspect="Мърикавил Ураниум Ко."\nТова е мястото.
 Dialogues/prepNuclearPowerPlantGeneratorNotActive=<voice type=question>\nКакво имаме тук? Трябва да е някакъв генератор. И се захранва от...\nО, ядрена е. Интересно.
 Dialogues/prepNuclearPowerPlantGeneratorActive=Така че... реакцията продължава и се генерира електричество. Работи! Надявам се да остане стабилно.
 Dialogues/prepNuclearPowerPlantGeneratorUnStable1=<voice type=surprise>\nО, не. Със сигурност прегрява. Изглежда реакторът е нестабилен! \nТрябва да се направи нещо с него, и то бързо.
@@ -2637,7 +2632,7 @@ Dialogues/prepNuclearPowerPlantScintistPlans2=Изглежда, че това е
 Dialogues/prepNuclearPowerPlantScintistPlans3=Това изглежда почти като нашия пощальон. Пощальон, по-скоро. Той е изкуствен. Андроид. Защо? По дяволите, ако знам.
 Dialogues/prepNuclearPowerPlantScintistPlans4=Това са ясно планове за направата на прости ядрени бомби. Честно казано, не бих искал да ги видя на живо.
 Dialogues/prepRadiationPurgeBeaconDiscovered=<voice type=surprise>\nО, това може да е полезно. Нямам представа как работи, но... явно работи?\nНяма да поправи повредената обвивка на генератора, но ще намали радиацията в района, което е добро начало.\nВсе още ми трябва решение за ядрения генератор. Трябва да продължа да търся.
-Dialogues/prepNuclearGeneratorRefuelerDiscovered=<voice type=thanks>\nО, интересно!\nМоже би ако разширя своя дизайн, ще осигуря стабилно захранване на генератора.\nИ това, с малко корекции в регулирането, трябва да поправи нестабилната ядро.\nТрябва да погледна по-близо в този дизайн.
+Dialogues/prepNuclearGeneratorRefuelerDiscovered=<voice type=thanks>\nО, интересно!\nМоже би ако разширя своя дизайн, ще осигуря стабилно захранване на генератора.\nИ това, с малко корекции в регулирането, трябва да поправи нестабилното ядро.\nТрябва да погледна по-близо в този дизайн.
 Dialogues/prepReactorSafetySystemDiscovered=<voice type=acceptance>\nДа, сега имам идея. Всичко се свързва.\nАко свързая водната помпа тук за по-голяма неутронна модулация, това ще намали енергията на деленията и реакцията трябва да бъде по-стабилна.\n<voice type=thanks>\nТова може наистина да работи!
 Dialogues/scientist_Diamond=Диамантите не са вечни, те със сигурност горят.\nНо е възможно да намериш някои в мините.
 Dialogues/scientist_AnimalPart5=<voice type=question>\nРога? Заложи капан в гората. Еленът е рядък наоколо, предполагам? \nИзползването на правилната стръв ще ти помогне да ги хванеш по-бързо.
@@ -2673,7 +2668,7 @@ Dialogues/prepPlatformSupportBrake=<voice type=anger>\nПоддържането 
 Dialogues/prepGrassSnowPeaksView=Става студено.
 Dialogues/prepSnowPeaksView=Тук е студено като куче.
 Dialogues/prepSleepPodBlock=Не мога да спя там тази нощ. \nТялото ми няма да издържи. \nТрябва да изчакам няколко дни.
-Dialogues/prepSleepPodUnlock=Добре, мисля, че започвам да схващам тази крио-технология. \nНека пробваме този дизайн.
+Dialogues/prepSleepPodUnlock=Добре, мисля, че започвам да схващам тази криотехнология. \nНека пробваме този дизайн.
 Dialogues/prepSleepPodFirstNight1=Чувствам се ужасно.\nНай-лошата нощ в живота ми.
 Dialogues/prepSleepPodFirstNight2=Това нещо е счупено.\nПо-добре да спим във фризера ми.
 Dialogues/prepSleepPodFirstNight3=Нещо не е наред с оригиналния дизайн.\nМоже би мога да намеря начин да го оправя.
@@ -2681,14 +2676,14 @@ Dialogues/prepSleepPodRepair1=Добре.\nМисля, че открих про�
 Dialogues/prepSleepPodRepair2=Добре, сега трябва да работи правилно.\nДа опитаме пак.
 Dialogues/prepSleepPodWorking1=Чувствам се... \nДобре.
 Dialogues/prepSleepPodWorking2=Все пак бих се замразил за по-дълго само в случай на спешност.\nНо прекарването на нощ в него от време на време може да бъде полезно.
-Dialogues/prepSaveBlankQuestStart1=Изчакай...\nБланк иска да използва крио-сънната капсула на върха на планината.\nНе мисля, че знае, че се изисква калибрация.
-Dialogues/prepSaveBlankQuestStart2=По дяволите, счупеното радиостанция.\nНямам начин да й кажа за това.
-Dialogues/prepSaveBlankQuestStart3=Настроих крио-леглото си за няколко часа за тест.\nТя каза, че ще се замрази за цяла седмица.\nТова ще е смъртоносно. Ако не направя нищо, тя ще умре.
-Dialogues/prepSaveBlankQuestStart4=Трябва да стигна до върха преди нея.\nИли...\nДори ако тя влезе в крио-сън, все още мога да го настроя с нея вътре.\nНо за да стане това, трябва да знам нейната височина, възраст, нещо, нещо...
-Dialogues/prepSaveBlankQuestStart5=Трябва да я слушам по-внимателно отсега нататък.\nВсяка информация за нея може да помогне при калибрирането на крио-сънния модул.
-Dialogues/prepAllBlankInfo=Добре, мисля, че знам достатъчно за нея, за да калибрирам правилно крио-сънната капсула.\nОстава само да стигна до върха.
+Dialogues/prepSaveBlankQuestStart1=Изчакай...\nБланк иска да използва криосънната капсула на върха на планината.\nНе мисля, че знае, че се изисква калибрация.
+Dialogues/prepSaveBlankQuestStart2=По дяволите, счупената радиостанция.\nНямам начин да ѝ кажа за това.
+Dialogues/prepSaveBlankQuestStart3=Настроих криосънната си капсула за няколко часа за тест.\nТя каза, че ще се замрази за цяла седмица.\nТова ще е смъртоносно. Ако не направя нищо, тя ще умре.
+Dialogues/prepSaveBlankQuestStart4=Трябва да стигна до върха преди нея.\nИли...\nДори ако тя влезе в криосънната капсула, все още мога да я настроя с нея вътре.\nНо за да стане това, трябва да знам нейната височина, възраст, нещо, нещо...
+Dialogues/prepSaveBlankQuestStart5=Трябва да я слушам по-внимателно отсега нататък.\nВсяка информация за нея може да помогне при калибрирането на криосънната капсула.
+Dialogues/prepAllBlankInfo=Добре, мисля, че знам достатъчно за нея, за да калибрирам правилно криосънната капсула.\nОстава само да стигна до върха.
 Dialogues/prepNoticeCryoSleepPod=Ето я.
-Dialogues/prepInspectBlankCryoSleepPod=Празна е вътре.\nВремето е настроено на една седмица.\nИ всички параметри са... настроени на стандартните, както се очаква.\nТя няма да оцелее това.\nИ е твърде опасно да я изключим насила. Това би шокирало системата ѝ.\nТрябва да калибрирам правилно машината за нея. Надявам се, че мога да я активирам.
+Dialogues/prepInspectBlankCryoSleepPod=Бланк е вътре.\nВремето е настроено на една седмица.\nИ всички параметри са... настроени на стандартните, както се очаква.\nТя няма да оцелее това.\nИ е твърде опасно да я изключим насила. Това би шокирало системата ѝ.\nТрябва да калибрирам правилно машината за нея. Надявам се, че мога да я активирам.
 Dialogues/prepCalibratedBlankCryoSleepPod1=Добре, готово, тя трябва да е добре сега.
 Dialogues/prepCalibratedBlankCryoSleepPod2=Трябва да се върна след няколко дни, за да я проверя отново.
 Dialogues/dianaCalibratedBlankCryoSleepPod3=Здравей...?
@@ -2775,8 +2770,8 @@ Items/DesKeyBaseballBat=Замахваш и удряш. (Не очакваше �
 Items/DesKeyBed=Ах, сладък сън. Спането е полезно за възстановяване на енергията.
 Items/DesKeyBin=Вход към бездънна пропаст, която може да погълне всякаква материя. \nОпитай се да не паднеш вътре.
 Items/DesKeyBiodieselBarrel1=Можеш да съхраняваш гориво тук.
-Items/DesKeyBlueberrie=Горски плодове. Можеш да ги ядеш или да ги готвиш.
-Items/DesKeyBlueberryTest=Подаръци от гората. \nСъщо така можеш да ги ядеш или готвиш.
+Items/DesKeyBlueberrie=Горски плодове. Можеш да ги ядеш или да ги сготвиш.
+Items/DesKeyBlueberryTest=Подаръци от гората. \nМожеш да ги ядеш или да ги сготвиш.
 Items/DesKeyBook=Те казват, че четенето на книги разширява хоризонтите ти и увеличава културния и социалния ти капитал.\nНо можеш и да ги рециклираш за материали.\n
 Items/DesKeyBook1=Казват, че четенето на книги разширява хоризонтите ти и увеличава културния и социалния ти капитал.\nНо можеш и да ги рециклираш за материали.\n
 Items/DesKeyBook2=Казват, че четенето на книги разширява хоризонтите ти и увеличава културния и социалния ти капитал.\nНо можеш и да ги рециклираш за материали.\n
@@ -2787,7 +2782,7 @@ Items/DesKeyBookSet2=Казват, че четенето на книги раз�
 Items/DesKeyBowl1=Можеш да ядеш от него или да го разглобиш за материали.
 Items/DesKeyBox Square Large Blue=Синя кутия. Може да се разглоби.
 Items/DesKeyBox Square Large Green=Зелена кутия. Може да се разглоби.
-Items/DesKeyBox Square Large Red=Някои хора държат бисквити в тях. Други ги превръщат във оръжия.
+Items/DesKeyBox Square Large Red=Някои хора държат бисквити в тях. Други ги превръщат в оръжия.
 Items/DesKeyBox Square Small Blue=Къде отидоха всички тези бисквити?
 Items/DesKeyBox Square Small Green=Може да се разглоби. Добър източник на материали.
 Items/DesKeyBox Square Small Red=Може да се разглоби. Добър източник на материали.
@@ -2795,7 +2790,7 @@ Items/DesKeyBoxCookies=Може да се разглоби. Добър изто�
 Items/DesKeyBoxRoundBlue=Може да се разглоби. Добър източник на материали.
 Items/DesKeyBoxRoundGreen=Може да се разглоби. Добър източник на материали.
 Items/DesKeyBoxRoundRed=Може да се разглоби. Добър източник на материали.
-Items/DesKeyBreadBox=Хората, подготвени за оцеляване, не използват хлябници, но те все още могат да се използват за материали.
+Items/DesKeyBreadBox=Хората, подготвени за оцеляване, не използват кутии за хляб, но те все пак могат да се разглобят за материали.
 Items/DesKeyCan=Това е основната единица храна. Ще те спаси в трудни ситуации.
 Items/DesKeyCan_long=Това е основната единица храна. Ще те спаси в трудни ситуации.
 Items/DesKeyCan_puszka_long=Това е основната единица храна. Ще те спаси в трудни ситуации.
@@ -2803,7 +2798,7 @@ Items/DesKeyCan_square=Това е основната единица храна.
 Items/DesKeyCanvas=Една от твоите безценни картини.
 Items/DesKeyCanvas2=Една от твоите безценни картини.
 Items/DesKeyCarpet=Не позволявай на НИКОГО да гледа под килима.
-Items/DesKeyCarrot=Можеш да го ядеш сурово или сготвено. Толкова универсална зеленчука.
+Items/DesKeyCarrot=Можеш да го ядеш суров или сготвен. Изключително универсален зеленчук.
 Items/DesKeyChair=Можеш не само да седнеш на него, но и да го разглобиш!
 Items/DesKeyChair Wood=Можеш не само да седнеш на него, но и да го разглобиш!
 Items/DesKeyChandelier=Нека има светлина! Но можеш също така да го продадеш или разглобиш.
@@ -2811,7 +2806,7 @@ Items/DesKeyChandelier2=Нека има светлина! Но можеш и д�
 Items/DesKeyChandelier3=Нека има светлина! Но можеш също да го продадеш или разглобиш.
 Items/DesKeyChandelier5=Нека има светлина! Но можеш също така да го продадеш или разглобиш.
 Items/DesKeyComputer=Чудо на съвременната технология. Може да бъде източник на материали.
-Items/DesKeyCorn=Вкусно е, когато е сготвено. Можеш да направиш и брашно от него.
+Items/DesKeyCorn=Вкусна е, когато е сготвена. Можеш да направиш и брашно от нея.
 Items/DesKeyCrateBox1=Обикновена дървена кутия. Лесна за разглобяване.
 Items/DesKeyCup Green=Полезна за съхранение на течности. Може да се разглоби. Добър източник на материали.
 Items/DesKeyCup Purple=Полезна за съхранение на течности. Може да се разглоби. Добър източник на материали.
@@ -2828,10 +2823,10 @@ Items/DesKeyFridge=Използвай го, за да съхраняваш хр�
 Items/DesKeyFuel=Основната единица енергия. Може да се използва в генератор.
 Items/DesKeyGasolineBarrel=Съхрани малко гориво, за да можеш да захраниш генератора си в бъдеще.
 Items/DesKeyGenerator=Ще ти позволи да станеш независим от доставчика на енергия. Изяжда горивото като чудовище.
-Items/DesKeyGlass=Основен материал. Можеш да го получиш, като преобразуваш камък във фурна.
+Items/DesKeyGlass=Основен материал. Можеш да го получиш, като превърнеш камък в стъкло във фурна.
 Items/DesKeyGreenHouse=Прави растенията ти уютни, като им осигурява светлина. В него могат да растат домати и портокали.
 Items/DesKeyGround=Основен материал. Позволява ти да направиш лехи за градинарство.
-Items/DesKeyHuntingClothes=Позволява ти да бъдеш по-добър ловец. Използвай го в гората.
+Items/DesKeyHuntingClothes=Позволява ти да бъдеш по-добър ловец. Използвай ги в гората.
 Items/DesKeyKettle=Може би може да направи чай?
 Items/DesKeyKitchenHood=Кухненски абсорбатор. Предпазва те от изпарения или ти дава материали.
 Items/Kitchen Cupboard=Обикновено кухненско шкафче. Разглоби го. Просто го направи!
@@ -2843,13 +2838,13 @@ Items/DesKeyLadder=Използвай го, за да се движиш межд
 Items/DesKeyLamp=Този вид лампа е идеален за използване в подземни убежища.
 Items/DesKeyLettuce=Добра за мариновани храни или свежи салати.
 Items/DesKeyLever=Сравнително прост лост. Може би ще е полезен за поправката на въжената линия?
-Items/DesKeyLog=Дебел и тежък, но си заслужава да го вземеш вкъщи.
+Items/DesKeyLog=Дебела и тежка, но си заслужава да я вземеш вкъщи.
 Items/DesKeyLoona Tuna=Храната е храна, дори и да мирише на риба.
 Items/DesKeyMailBox=Твоят прозорец към света. Донася ти добри и лоши новини. Използва се и за търговия.
 Items/DesKeyManhole=Използвай го, за да се движиш из бункера си.
 Items/DesKeyMeat=Основа за вкусно ястие.\nМоже да се сготви, изсуши или да се направи както искаш.
 Items/DesKeyMetal=Основен материал. Металът ще ти бъде полезен за много неща, които ще изработваш.
-Items/DesKeyMinerHelmet=Защитава главата ти и има прикрепена лампа. Полезно е под земята, нали?
+Items/DesKeyMinerHelmet=Защитава главата ти и има прикрепена лампа. Полезна е под земята, нали?
 Items/DesKeyMoney=Основното средство за плащане в твоята красива страна: апокалиптичен долар.
 Items/DesKeyNewspaper=Само най-истинската и най-важна информация. \nНе пропускай следващите седмици на НАШАТА ИСТИНА!
 Items/DesKeyOilBarrel1=Можеш да съхраняваш излишния петрол тук.
@@ -2861,22 +2856,22 @@ Items/DesKeyPlastic=Основен материал.
 Items/DesKeyPlate Green=Не ти трябват всички тези чинии. Ще получиш стъкло, след като ги разглобиш.
 Items/DesKeyPlate Red=Не ти трябват всички тези чинии. Ще получиш стъкло, след като ги разглобиш.
 Items/DesKeyPlate White=Не ти трябват всички тези чинии. Ще получиш стъкло, след като ги разглобиш.
-Items/DesKeyPot Green=Просто тенджера за готвене. Ще получиш някои материали след като я разглобиш.
-Items/DesKeyPot Main=Просто тенджера за готвене. Ще получиш някои материали след като я разглобиш.
-Items/DesKeyPot Red=Просто една тенджера за готвене. Ще получиш някои материали след като я разглобиш.
+Items/DesKeyPot Green=Просто тенджера за готвене. Ще получиш някои материали, след като я разглобиш.
+Items/DesKeyPot Main=Просто тенджера за готвене. Ще получиш някои материали, след като я разглобиш.
+Items/DesKeyPot Red=Просто една тенджера за готвене. Ще получиш някои материали, след като я разглобиш.
 Items/DesKeyRadio=Никой не уби радиозвездата в тази времева линия.
 Items/DesKeyRafinery=Превръща нефта от мините в истинско, рафинирано гориво.
-Items/DesKeyRevolver=Може да ти бъде полезно в трудни ситуации. Нуждаеш се от куршуми, за да го използваш.
+Items/DesKeyRevolver=Може да ти бъде полезен в трудни ситуации. Нуждаеш се от куршуми, за да го използваш.
 Items/DesKeyRifle=По-силен, но по-бавен от револвер. Може да е полезен срещу големи врагове.
-Items/DesKeyRocketPlan=Твоят безценен УЛТИМАТЕН ПЛАН. Ще ти помогне да построиш ракета.
+Items/DesKeyRocketPlan=Твоят безценен ВЕЛИК ПЛАН. Ще ти помогне да построиш ракета.
 Items/DesKeySaltPepper=Добавя нови свойства на храната ти.
-Items/DesKeySeed Apple=Засади в парче почва, за да порасне ябълково дърво. Нуждаеш се от висока стая за това.
-Items/DesKeySeed Carrot=Постави в парче почва, за да пораснат моркови.
+Items/DesKeySeed Apple=Засади в почва, за да порасне ябълково дърво. Нуждаеш се от висока стая за това.
+Items/DesKeySeed Carrot=Постави в почва, за да пораснат моркови.
 Items/DesKeySeed Corn=Постави в саксия, за да порасне царевица.
-Items/DesKeySeed Lettuce=Постави в парче почва, за да порасне зеле.
+Items/DesKeySeed Lettuce=Постави в почва, за да порасне зеле.
 Items/DesKeySeed Orange=Постави в оранжерията, за да отгледаш портокалово дърво.
 Items/DesKeySeed Tomato=Постави в оранжерията, за да порасне домат.
-Items/DesKeySeed Turnip=Постави в парче почва, за да порасне цвекло.
+Items/DesKeySeed Turnip=Постави в пръст, за да порасне цвекло.
 Items/DesKeyShelf=Мебел, полезна за съхранение.
 Items/DesKeySink=Твоят основен източник на вода.
 Items/DesKeySofa=Още една мебел. Продай я или я разглоби.
@@ -2893,10 +2888,10 @@ Items/DesKeyTreePatch=Идеално за засаждане. Можеш да у
 Items/DesKeyTurnip=Няма проблем, можеш да го изядеш. Можеш също да го използваш, за да направиш захар.
 Items/DesKeyWall Lamp=Този вид лампа е идеален за използване в подземни убежища.
 Items/DesKeyWallLamp=Този вид лампа е идеален за използване в подземни убежища.
-Items/DesKeyWardrobe=Скрий нещо в него или го превърни в дърво.
-Items/DesKeyWardrobe2=Скрий нещо в него или го превърни в дърво.
-Items/DesKeyWardrobe3=Скрий нещо в него или го превърни в дърво.
-Items/DesKeyWater=Това е основната единица вода. Ще направи растенията ти щастливи.
+Items/DesKeyWardrobe=Скрий нещо в него или го превърни в дървесина.
+Items/DesKeyWardrobe2=Скрий нещо в него или го превърни в дървесина.
+Items/DesKeyWardrobe3=Скрий нещо в него или го превърни в дървесина.
+Items/DesKeyWater=Това е основната единица вода. С нея ще поливаш растенията си.
 Items/DesKeyWaterMachine=Това чудо на съвременната технология ще събира вода за теб.\n
 Items/DesKeyWatertank=Можеш да го сложиш където искаш и да го напълниш с много вода.\nКогато настъпи суша, може да бъде основният ти източник на вода.
 Items/DesKeyWinterClothes=Тези дрехи ще те стоплят в трудни условия.
@@ -2904,7 +2899,7 @@ Items/DesKeyWolf Skin=Сега можеш да бъдеш овца в кожа �
 Items/DesKeyWood=Основен материал. Има много от него в гората.
 Items/DesKeyWooden Chest=Проектиран да крие твоите съкровища.
 Items/DesKeyWoodenChest=Създаден да крие твоите съкровища.
-Items/DesKeyWoodenPallet=Друг източник на дърво.
+Items/DesKeyWoodenPallet=Друг източник на дървесина.
 Items/DesKeyWorkbench=Позволява ти да създаваш и разглобяваш предмети.
 Items/DesKeyWorkbench level 1=Позволява ти да създаваш и разглобяваш предмети.
 Items/DesKeyWorkbench level 2=Позволява ти да създаваш и разглобяваш предмети.
@@ -2941,8 +2936,8 @@ Items/Ladder=Стълба
 Items/Lamp=Лампа
 Items/Lettuce=Зеле
 Items/Lever=Лост
-Items/Log=Дневник
-Items/Loona Tuna=Риба тон на Луна
+Items/Log=Дървена трупа
+Items/Loona Tuna=Риба тон „Луна“
 Items/MailBox=Пощенска кутия
 Items/Manhole=Капак на шахтово съоръжение
 Items/Meat=Месо
@@ -2997,11 +2992,11 @@ Items/Wardrobe=Гардероб
 Items/Wardrobe2=Гардероб
 Items/Wardrobe3=Гардероб
 Items/Water=Вода
-Items/WaterMachine=Вотерло 1815
+Items/WaterMachine=Ватерло 1815
 Items/Watertank=Воден резервоар
 Items/WinterClothes=Топли дрехи
 Items/Wolf Skin=Кожа на вълк
-Items/Wood=Дърво
+Items/Wood=дървесина
 Items/Wooden Chest=Дървен сандък
 Items/WoodenChest=Дървен сандък
 Items/WoodenPallet=Дървена палета
@@ -3010,15 +3005,13 @@ Items/Workbench level 1=Работна маса ниво 1
 Items/Workbench level 2=Работна маса ниво 2
 Items/Workbench level 3=Работна маса ниво 3
 Items/Workbench level 4=Работна маса ниво 4
-Items/Workshop shelf large=Работна маса - голяма
-Items/Workshop shelf small=Работна маса - малка
-Items/Zielarka=Чистач
-Items/ZielarkaProto=Прототип на Zielarka
+Items/Workshop shelf large=Голям рафт
+Items/Workshop shelf small=Малък рафт
 Items/beartrap=Капан за мечка
 Items/electricity box=Електрическа кутия
 Items/pillarHolder=Стълб на въжената линия
-Items/DesKeyRoomUpgradeBox=Постави модул за надграждане, за да надградиш стая.
-Items/RoomUpgradeBox=Кутия за надграждане на стая
+Items/DesKeyRoomUpgradeBox=Постави модул за подобрение, за да подобриш стая.
+Items/RoomUpgradeBox=Кутия за подобрение на стая
 Items/SignHome=Знак
 Items/DesKeySignHome=Използвай го, за да пътуваш до други места.
 Items/Sign=Знак
@@ -3057,7 +3050,7 @@ Items/DesKeyCactusJam=Вкусен мармалад от кактуси. Или 
 Items/DesKeyCake=Може би ще си щастлив за известно време. Ще задоволи глада ти и ще ти даде енергия едновременно.
 Items/DesKeyCannedSoup=Консерва толкова красива, че искаш да я нарисуваш. И супата ще издържи по-дълго в нея.
 Items/DesKeyCannedStaw=Супата ще издържи по-дълго в консерва.
-Items/DesKeyCarrotJam=Опитай морковения мармалад, не е само за бебета. Ще те засити и ще ти даде енергия едновременно.
+Items/DesKeyCarrotJam=Опитай морковеното сладко — не е само за бебета. Ще те засити и ще ти даде енергия едновременно.
 Items/DesKeyChicken=Вкусът е като на пиле!
 Items/DesKeyChineseSoup=Международен класик. Държи дълго и е много засищащ.
 Items/DesKeyCucumber=Краставица. Не я подценявай.
@@ -3074,7 +3067,7 @@ Items/DesKeyEnergyBar=Кондензирана енергия в бар. Вре�
 Items/DesKeyFarmingWallLamp=Осигурява по-добра светлина за отглеждане на растения под земята.
 Items/DesKeyFlour=Основна съставка за готвене.
 Items/DesKeyFurnace=Може да се използва за топене на определени материали. Постави малко камък или желязна руда в него и виж какво ще стане.
-Items/DesKeyGondola=Вероятно е паднало от въжената линия. Може би все още има нещо интересно вътре?
+Items/DesKeyGondola=Вероятно е паднала от въжената линия. Може би все още има нещо интересно вътре?
 Items/DesKeyKimchi=Кисело зеле. Малко ориенталско в твоето убежище.
 Items/DesKeyMarinatedCorn=Мариновано царевица. Лека закуска, която може да се превърне в пълноценно ястие.
 Items/DesKeyMarinatedMushroom=Магия от гората в буркан. Наслади се през цялата година.
@@ -3083,32 +3076,32 @@ Items/DesKeyMeatStew=Силно месо с картофи. Тежко, но м�
 Items/DesKeyMushroom=Сигурен ли си, че това е ядлива гъба?
 Items/DesKeyMushroomSoup=Супа от гъби. Кисела с нотка на влажно мазе.
 Items/DesKeyNopales=Храна от кактуси. Кактуси. Както и да е: вкусна.
-Items/DesKeyOil=Постави го в рафинерията, за да го превърнеш във гориво.
+Items/DesKeyOil=Постави го в рафинерията, за да го превърнеш в гориво.
 Items/DesKeyOmelette=Казват, че не можеш да го разбъркаш, така че защо не го изядеш?
 Items/DesKeyOrangeJam=Оранжево сладко, което ти напомня за всички тропически пътувания, които никога не си имал. Ще задоволи глада ти и ще ти даде енергия едновременно.
 Items/DesKeyPasta=Вкусно. Не забравяй да целунеш пръстите си преди сервиране.
 Items/DesKeyPate=Пастет.
 Items/DesKeyPemmican=Много хранителна храна, направена от сушено месо и плодове. Измислена от коренните американци и обичана от хората, подготвени за оцеляване.
-Items/DesKeyPickaxe=Може да е полезно за отваряне на някои блокирани пътеки в мините.
-Items/DesKeyPickles=Кисели краставички – винаги добра идея, нали?
+Items/DesKeyPickaxe=Може да помогне за разчистване на затрупани проходи в мината.
+Items/DesKeyPickles=Кисели краставички - винаги добра идея, нали?
 Items/DesKeyRainWaterCollector=Това е кофа. Постави я навън по време на дъжд, за да събираш допълнителна вода.
 Items/DesKeyRaport=Доклад от агента. Надявам се да е положителен.
 Items/DesKeyRatMeat=Не е точно деликатес, но не заслужава лошата репутация.
 Items/DesKeyRoastedRat=Доста добро. Подходящо е за бяло вино и кисели гарнитури.
 Items/DesKeyRoastedTurkey=Голяма птица, уж идеална за празнуване на колонизацията.
 Items/DesKeyRoomSoil=Качествена почва за отглеждане на растения в твоя бункер.
-Items/DesKeyRoomUpgradeFactory=Изработката на неща е по-бърза благодарение на тази надстройка.
-Items/DesKeyRoomUpgradeFreezer=Тази надстройка ще направи стаята идеална за съхранение на храна.
-Items/DesKeyRoomUpgradeGreenHouse=С тази надстройка растенията ти ще растат по-бързо. Постави я в кутия за надстройка на стая.
-Items/DesKeyRoomUpgradePowerhouse=С тази надстройка генераторът ще работи по-добре в тази стая.
-Items/DesKeyRoomUpgradePumphouse=Инсталира разширена водоснабдителна система в стая. Може да се използва за събиране на вода по-ефективно (с кофи или Уотърлу).
+Items/DesKeyRoomUpgradeFactory=Изработката на предмети е по-бърза благодарение на това подобрение.
+Items/DesKeyRoomUpgradeFreezer=Това подобрение ще направи стаята идеална за съхранение на храна.
+Items/DesKeyRoomUpgradeGreenHouse=С това подобрение растенията ти ще растат по-бързо. Постави го в кутия за подобрение на стая.
+Items/DesKeyRoomUpgradePowerhouse=С това подобрение генераторът ще работи по-добре в тази стая.
+Items/DesKeyRoomUpgradePumphouse=Инсталира разширена водоснабдителна система в стая. Може да се използва за по-ефективно събиране на вода (с кофи или с водната помпа „Ватерло 1815“).
 Items/DesKeySeed Sunflower=Постави в саксия, за да пораснат слънчогледи.
 Items/DesKeySimpleTrap=Прост капан за улавяне на някои невинни животинки.
 Items/DesKeySnakeMeat=Някой не само стъпка тази, но и я наряза на парчета.
 Items/DesKeySnakeStew=Вече не е отровно, но това не означава, че е лесно за стомаха.
 Items/DesKeySpaghetii=Спагети със сос. Важни за дълго изолиране, увери се, че имаш достатъчно.
 Items/DesKeySpices=Тези правят живота ти в убежището малко по-разнообразен.
-Items/DesKeySteamGenerator=Отличен източник на електричество. Използва дърво като гориво.
+Items/DesKeySteamGenerator=Отличен източник на електричество. Използва дървесина като гориво.
 Items/DesKeySugar=За да подсладиш живота си, пълен с трудности.
 Items/DesKeySunflower=Вкусно, но не много хранително. Може би ще се продаде добре?
 Items/DesKeyTomatoSoup=Нещо те кара да искаш да го сложиш в консерва и да го боядисаш.
@@ -3142,7 +3135,7 @@ Items/MeatStew=Супа от месо
 Items/MiningPassOne=Миньорски пропуск -2
 Items/Mushroom=Гъба
 Items/MushroomSoup=Супа от гъби
-Items/Nopales=Нopalеs
+Items/Nopales=Нопалес
 Items/Oil=Масло
 Items/Omelette=Омлет
 Items/OrangeJam=Портокалов мармалад
@@ -3157,15 +3150,15 @@ Items/RatMeat=Плъхово месо
 Items/RoastedRat=Печена мишка
 Items/RoastedTurkey=Печено пиле
 Items/RoastedTurkey2=Печено пиле
-Items/RoomSoil=Място за почва
+Items/RoomSoil=Пръст
 Items/RoomUpgradeFactory=Подобрение на стая - Фабрика
-Items/RoomUpgradeFreezer=Обновяване на стая - Фризер
-Items/RoomUpgradeGreenHouse=Обновяване на стая - оранжерия
+Items/RoomUpgradeFreezer=Подобрение на стая - Фризер
+Items/RoomUpgradeGreenHouse=Подобрение на стая - Оранжерия
 Items/RoomUpgradePowerhouse=Подобрение на стая - Енергиен център
 Items/RoomUpgradePumphouse=Подобрение на стая - Водна помпа
 Items/Seed Cucumber=Семе от краставица
 Items/Seed Sunflower=Семе от слънчоглед
-Items/SimpleTrap=Проста капанka
+Items/SimpleTrap=Прост капан
 Items/SnakeMeat=Месо от змия
 Items/RoastedSnakeMeat=Печена змийска месо
 Items/SnakeStew=Супа от змии
@@ -3244,11 +3237,11 @@ Items/DesKeyMinutManLetter6=Писмо от непознат, който се н
 Items/DesKeyMinutManLetter7=Писмо от непознат, който се нарича "Опълченеца".
 Items/DesKeyMinutManLetter8=Писмо от непознат, който се нарича „Опълченеца“.
 Items/DesKeyNoSleepBook=Агент на съня: Научи се да спиш и да подремваш по-ефективно.
-Items/DesKeyPetrolheadBook=Удар по Пътят на яростта: Научи се как да използваш горивото по-ефективно.
+Items/DesKeyPetrolheadBook=Удар по Пътя на яростта: Научи се как да използваш горивото по-ефективно.
 Items/DesKeyPhoto=Снимка от самолетната катастрофа. На нея е изобразен пилот в самолет. Чакай, дали това не е... г-н Подготвения?
 Items/DesKeyPill=Тази дрога ще те държи буден през нощта.
 Items/DesKeyPipe=Твоят бункер е готов. Направи го още по-сигурен и комфортен.
-Items/DesKeyPlanObject=Твоят ценен ОПАКОВАН ПЛАН. Той ще ти помогне да избягаш.
+Items/DesKeyPlanObject=Твоят ценен ВЕЛИК ПЛАН. Той ще ти помогне да избягаш.
 Items/DesKeyPreppersGuideBook=Наръчник за оцеляване: Научи се да бъдеш по-подготвен.
 Items/DesKeyRocketPhoto=Снимка на великолепен ракет. Много вдъхновяваща.
 Items/DesKeyRottenFood=Ох... развалено е. Храната в хладилника трае по-дълго.
@@ -3273,7 +3266,7 @@ Items/DriedGuarana=Сушена гуарана
 Items/Emerald=Изумруд
 Items/EnergyDrink=Енергийна напитка
 Items/EpicBait=Епична стръв
-Items/Gaiger=Гейгер брояч
+Items/Gaiger=Гайгеров брояч
 Items/GardeningBook1=Градина на затворените врати
 Items/GardeningBook2=Тайният градинар (Градинарство II)
 Items/Gold=Злато
@@ -3367,12 +3360,12 @@ Items/FortObserverPass=Карта за достъп
 Items/DescFortObserverPass=Карта за достъп до някъде. Намерена в останките на самолета.
 Items/AICore=Ядро на ИИ
 Items/DescAICore=Ядрото на охранителния ИИ на Форт „Наблюдател“.
-Items/AICoreCase=Корпус на ядро на ИИ
-Items/DescAICoreCase=Капак за ядро на сигурност. Може би нещо може да се сложи вътре?
+Items/AICoreCase=Корпус на ядрото на ИИ
+Items/DescAICoreCase=Корпус на ядрото на охранителния ИИ. Може би нещо може да се сложи вътре?
 Items/FakeAICore=Фалшив изкуствен интелект
-Items/DescFakeAICore=Фалшив AI ядро с персонализиран вътрешен механизъм
+Items/DescFakeAICore=Фалшиво ядро на ИИ с персонализиран вътрешен механизъм
 Items/RocketPartCore=Модул за управление на ракетата
-Items/DescRocketPartCore=AI модул за управление на ракета. Важен за твоя план за бягство.
+Items/DescRocketPartCore=Модул за управление на ракета с ИИ. Важен за твоя план за бягство.
 Items/Bigos=Бигос
 Items/DesKeyBigos=Силно, ароматно ястие от зеле и месо. Рецепта от баба Марианна.
 Items/BlueberrySmoothie=Смути от боровинки
@@ -3461,15 +3454,15 @@ Items/Switch=Превключване
 Items/DescSwitch=Постави го в стая, за да можеш да включваш и изключваш всичко вътре. Идеално за управление на електричеството.
 Items/DesKeyCalendar=Следи дните и важните събития.
 Items/ArmyChest=Армейски сандък
-Items/DesKeyArmyChest=Това е основна дървена сандъка с надпис "АРМИЯ".
+Items/DesKeyArmyChest=Това е обикновен дървен сандък с надпис „АРМИЯ“.
 Items/Fabrics=Тъкани
 Items/DesKeyFabrics=Добър източник на текстил.
 Items/FortBox=Кутия
 Items/DesKeyScraps=Отпадъци. Използвай ги за изработка или продай на Джо.
 Items/VendingMachine=Автомат за напитки
-Items/RoomUpgradeBook2=Помпай го: Полезни ъпгрейди за стаята
+Items/RoomUpgradeBook2=Помпай го: Полезни подобрения за стаята
 Items/DesRoomUpgradeBook2=Научи как да правиш специфични подобрения за стаи: помпена станция и работилница.
-Items/RoomUpgradeBook3=Г-н Фриз: По-полезни надстройки за стаите
+Items/RoomUpgradeBook3=Г-н Фриз: По-полезни подобрения за стаите
 Items/DesRoomUpgradeBook3=Научи как да направиш конкретни подобрения за стаи: мощна стая и фризер.
 Items/DescRocketLauncher=Последният бутон.
 Items/Hydrogen=Водород
@@ -3508,7 +3501,7 @@ Items/DescSheMamaPoster=Малко фантазия в твоя дом
 Items/SleeplessPoster=Плакат на Безсънния
 Items/DescSleeplessPoster=Те казват, че стените имат уши, но никой не е споменавал за очите.
 Items/WallShelf=Рафт за стена
-Items/DescWallShelf=Перфектната лавица за показване на предмети
+Items/DescWallShelf=Идеален рафт за показване на предмети
 Items/RussianCarpet=Старинен килим на Джени
 Items/DescRussianCarpet=Специален декоративен килим от колекцията на Джени
 Items/Chupakabra=Чупакабра
@@ -3576,7 +3569,7 @@ Items/BarnBackDoor=Врата на хамбара
 Items/Will=Уил
 Items/WheatToCollect=Дива пшеница
 Items/ChickenFeeder=Хранилка за кокошки
-Items/DesChickenFeeder=Хранилка за правилното хранене на кокошките. Можеш да им даваш зърно, царевица, слънчоглед и други семена.
+Items/DesChickenFeeder=Хранилка, с която да храниш кокошките. Можеш да им даваш зърно, царевица, слънчоглед и други семена.
 Items/GoatFeeder=Хранилка за кози
 Items/DesGoatFeeder=Хранилка за кози. Можеш да я пълниш със сено или всякакви зеленчуци.
 Items/BrokenChickenHouse=Счупен кокошарник
@@ -3628,11 +3621,11 @@ Items/Globe=Сфера
 Items/DesGlobe=Точен модел на нашата планета Земя. Показва ти колко много има да се види отвъд Мърикавил и нашата любима страна (да благословим президента).
 Items/EarthDayFlatEarth=Плакат за Земята
 Items/DesEarthDayFlatEarth=Плоскоземците искат да покажат как глобулистката пропаганда измисля данни, за да се подиграе на истината за Плоската Земя. Това, разбира се, е абсурдна вяра: Земята всъщност е куб. Приеми истината и не губи своя ръб!
-Items/EarthDayHearth=Ден на Земята – плакат за сърцето
+Items/EarthDayHearth=Ден на Земята - плакат за сърцето
 Items/DesEarthDayHearth=Покажи любовта си към околната среда с този красив дизайн. Отпечатан на устойчива, рециклирана хартия.
-Items/EarthDayLeaf=Ден на Земята – плакат с листо
+Items/EarthDayLeaf=Ден на Земята - плакат с листо
 Items/DesEarthDayLeaf=Отиди зелено с този минималистичен дизайн, празнуващ Деня на Земята. Вдишай дълбоко и се почувствай благодарен на растенията.
-Items/EarthDayTurtle=Ден на Земята – плакат с костенурка
+Items/EarthDayTurtle=Ден на Земята - плакат с костенурка
 Items/DesEarthDayTurtle=За тазгодишния Ден на Земята, помисли как нашата планета е като гигантска костенурка, плаваща в космоса, носеща ни всички на гърба си... Чакай, това е метафора, нали?
 Items/SuitJacketBlack=Черно яке - Костюм
 Items/DesSuitJacketBlack=Вечен класически мъжки моден артикул. Ще ти придаде професионализъм и формалност.
@@ -3662,7 +3655,7 @@ Items/PilotJacketBrown=Броня - Кафява
 Items/DesPilotJacketBrown=Елегантна пилотска яке. Оставя без дъх твоите почитатели.
 Items/PilotJacketBlack=Пилотско яке - черно
 Items/DesPilotJacketBlack=Елегантна пилотска яке. Оставя без дъх твоите почитатели.
-Items/RegularJacketBlack=Черна редовна яке - Black
+Items/RegularJacketBlack=Обикновено черно яке
 Items/DesRegularJacketBlack=Небрежен, но стилен. Безопасен моден избор.
 Items/HikingBootsBrown=Туристически обувки - кафяви
 Items/DesHikingBootsBrown=Здрави ботуши за всички разнообразни климати на окръг Мърикавил.
@@ -3678,7 +3671,7 @@ Items/SweatpantsBlue=Блузи - Сини
 Items/DesSweatpantsBlue=За когато ти трябва комфорт, но и не се притесняваш от впечатляващия, модерен вид.
 Items/SweatpantsRed=Червени спортни панталони
 Items/DesSweatpantsRed=За когато ти трябва комфорт, но и не се притесняваш от впечатляващия, модерен вид.
-Items/CargoPantsBlack=Черни панталони - Cargo Pants
+Items/CargoPantsBlack=Черни карго панталони
 Items/DesCargoPantsBlack=Панталони за практични, здраво стъпили на земята оцеляващи.
 Items/CargoPantsRottenGreen=Панталони - Оливково зелени
 Items/DesCargoPantsRottenGreen=Панталони за практични, здраво стъпили на земята оцеляващи.
@@ -3705,11 +3698,11 @@ Items/DesFishTemptationTechniques=Научи тънкостите на прим�
 Items/GroundbaitVirtuoso=Примамки с отлично качество
 Items/DesGroundbaitVirtuoso=Научи експертните съвети за улов на най-редките риби.
 Items/MaintenanceOfTheFishermansEquipment=Ръководство за поддръжка на екипировката на рибаря
-Items/DesMaintenanceOfTheFishermansEquipment=Разплети всички въжета, куки, примамки и пръчки с тази полезна инструкция! Тя със сигурност ще ти помогне да поддържаш екипировката си в добро състояние.
+Items/DesMaintenanceOfTheFishermansEquipment=Разплети всички въжета, куки, примамки и въдици с тази полезна инструкция! Тя със сигурност ще ти помогне да поддържаш екипировката си в добро състояние.
 Items/CarAutopilotChip1=Чип за автопилот на кола
 Items/DesCarAutopilotChip1=Отпусни се и се наслаждавай! Позволява да надстроиш колата с автопилот. Изразходва малко повече гориво.
-Items/CarAutopilotChip2=Соларни панели за коли с AI чип
-Items/DesCarAutopilotChip2=Слънчева енергия! Добавя слънчеви панели към колата ти. С тази надстройка автопилотът ти вече няма да използва допълнително гориво.
+Items/CarAutopilotChip2=Соларни панели за коли с чип за ИИ
+Items/DesCarAutopilotChip2=Слънчева енергия! Добавя слънчеви панели към колата ти. С това подобрение автопилотът ти вече няма да използва допълнително гориво.
 Items/Reoiler=Презареждач на масло
 Items/DesReoiler=Автоматично зарежда масло в рафинерията.
 Items/WolfFootprints=Следи от лапи на животни
@@ -3736,10 +3729,10 @@ Items/DesAquaStick=Дървен прът за аквариума ти. Прид�
 Items/Volcano=Украса за вулкана
 Items/DesVolcano=Украса за аквариума ти във формата на вулкан. Защото ако смяташ, че мазето ти все още не е достатъчно експлозивно.
 Items/BeesCareBook=Книга за грижа за пчелите - Да бъдеш или да не бъдеш пчела
-Items/DesBeesCareBook=Тази начална ръководство за пчеларство ще те научи как да строиш кошери и да започнеш първата си пчелина.
+Items/DesBeesCareBook=Това начално ръководство по пчеларство ще те научи как да строиш кошери и да създадеш първия си пчелин.
 Items/ChickenCareBook=Книга за грижа за кокошките - Как да спечелиш играта на кокошките
 Items/DesChickenCareBook=Благодарение на страхотните съвети в тази книга, ще можеш да построиш първокласни кокошарници и хранилки.
-Items/CowCareBook=Книга за грижа за кравите - Как да станеш каубой (или каугърл, или каупърсън)
+Items/CowCareBook=Книга за грижа за кравите — Как да станеш каубой (или каубойка, или кравар)
 Items/DesCowCareBook=Тази книга ще ти помогне да осъществиш мечтата си за отглеждане на добитък, започвайки от подготовката на боксове и хранилки за стадото ти.
 Items/DogCareBook=Книга за грижа за кучета - Направи си сам: Как да направиш кучето си щастливо
 Items/DesDogCareBook=Научи бързо и безболезнено как да приготвиш купа и леговище за най-добрия си приятел.
@@ -3747,22 +3740,22 @@ Items/GoatCareBook=Книга за грижа за козите - Козешки
 Items/DesGoatCareBook=Тази книга ще те научи как да осигуриш на козите си това, което заслужават, започвайки с жилищните им помещения и хранилките.
 Items/HamsterCareBook=Книга за грижа за хамстери - Високият живот на хамстерите
 Items/DesHamsterCareBook=Научи как да подобриш стандарта на живот на любимите си пухкави гризачи! След като прочетеш, ще можеш да направиш техните клетки и да ги оборудваш с колела и системи от тръби.
-Items/BlackBass=Черен бас
-Items/DesBlackBass=Класически американски бас. Можеш да го държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне във филета от риба.
-Items/StripedBass=Ивичест бас
-Items/DesStripedBass=Ивичест бас - много издръжлива риба. Можеш да го държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне в рибни филета.
+Items/BlackBass=Американски костур
+Items/DesBlackBass=Класически американски костур. Можеш да го държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне във филета от риба.
+Items/StripedBass=Ивичест костур
+Items/DesStripedBass=Ивичест костур — много издръжлива риба. Можеш да го държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне в рибни филета.
 Items/WhitePerch=Бял костур
-Items/DesWhitePerch=Бял костур - малка, смела риба. Можеш да го държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне в рибни филета.
+Items/DesWhitePerch=Бял костур - малка, смела риба. Можеш да го държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне в рибни филета.
 Items/YellowPerch=Жълт костур
-Items/DesYellowPerch=Красив, пъстър костур. Можеш да го държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне в рибни филета.
+Items/DesYellowPerch=Красив, пъстър костур. Можеш да го държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне в рибни филета.
 Items/BlackCatfish=Черен сом
-Items/DesBlackCatfish=Обикновен сом, който е малко труден за правилно приготвяне. Можеш да го държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне в рибни филета.
+Items/DesBlackCatfish=Обикновен сом, който е малко труден за правилно приготвяне. Можеш да го държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне в рибни филета.
 Items/BlueCatfish=Син сом
-Items/DesBlueCatfish=Издръжлива риба, с която можеш да се гордееш в колекцията си. Можеш да я държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне в рибни филета.
+Items/DesBlueCatfish=Издръжлива риба, с която можеш да се гордееш в колекцията си. Можеш да я държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне в рибни филета.
 Items/Tigerfish=Тигрова риба
-Items/DesTigerfish=Истински боец, но все пак може да попадне в аквариума ти. Можеш да го държиш в убежището си, ако имаш надстройка за стая с аквариум. Може да се превърне във филета от риба.
+Items/DesTigerfish=Истински боец, но все пак може да попадне в аквариума ти. Можеш да го държиш в убежището си, ако имаш подобрение за стая с аквариум. Може да се превърне във филета от риба.
 Items/WhiteCatfish=Бял сом
-Items/DesWhiteCatfish=Бяла риба, рядка находка. Можеш да я държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне във филета.
+Items/DesWhiteCatfish=Бяла риба, рядка находка. Можеш да я държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне във филета.
 Items/EmeraldMinnow=Смарагдова рибка
 Items/DesEmeraldMinnow=Много красива, лъскава риба. Може да се държи в аквариум с всякакъв размер. Ако я филетираш, ще получиш страхотна стръв.
 Items/GoldMinnow=Златна рибка
@@ -3774,25 +3767,25 @@ Items/DesWhiteMinnow=Бяла рибка, често срещана в аква�
 Items/PinkSalmon=Розова сьомга
 Items/DesPinkSalmon=Популярен вид сьомга. Можеш да я държиш в убежището си, ако имаш аквариумна стая. Може да се превърне във филе от риба.
 Items/RedSalmon=Червена сьомга
-Items/DesRedSalmon=Червена сьомга, много интензивна както на външен вид, така и в поведението си. Можеш да я държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне във филета от риба.
+Items/DesRedSalmon=Червена сьомга, много интензивна както на външен вид, така и в поведението си. Можеш да я държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне във филета от риба.
 Items/GoldTrout=Златна пъстърва
-Items/DesGoldTrout=Златна пъстърва, много търсена в риболовната общност. Можеш да я държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне във филета.
+Items/DesGoldTrout=Златна пъстърва, много търсена в риболовната общност. Можеш да я държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне във филета.
 Items/RainbowTrout=Пъстърва
-Items/DesRainbowTrout=Една много енергична и красива риба. Можеш да я държиш в убежището си, ако имаш надстройка за аквариумна стая. Може да се превърне във филета от риба.
-Items/Expert rod=Експертна риболовна пръчка
-Items/DesExpert rod=Превъзходна риболовна пръчка. Позволява ти да ловиш всякакъв вид риба и е особено ефективна за сьомги и пъстърви.
-Items/Good rod=Добра риболовна пръчка
-Items/DesGood rod=Свястно въдица. С нея можеш да ловиш почти всичко, но е най-подходяща за средно големи риби.
-Items/Old rod=Стара риболовна пръчка
-Items/DesOld rod=Не е най-модерната риболовна технология, но е по-добре от нищо. С това ще можеш да ловиш по-малки риби, но не очаквай големи и силни.
+Items/DesRainbowTrout=Една много енергична и красива риба. Можеш да я държиш в убежището си, ако имаш подобрение за аквариумна стая. Може да се превърне във филета от риба.
+Items/Expert rod=Експертна въдица
+Items/DesExpert rod=Превъзходна въдица. Позволява ти да ловиш всякакъв вид риба и е особено ефективна за сьомги и пъстърви.
+Items/Good rod=Добра въдица
+Items/DesGood rod=Добра въдица. С нея можеш да ловиш почти всичко, но е най-подходяща за средно големи риби.
+Items/Old rod=Стара въдица
+Items/DesOld rod=Не е най-модерната риболовна технология, но е по-добре от нищо. С нея ще можеш да ловиш по-малки риби, но не очаквай големи и силни.
 Items/FBasicBait=Основна стръв
 Items/DesFBasicBait=Основна риболовна стръв. С нея можеш да хванеш някои по-прости риби, но не се изненадвай, ако извадиш само боклуци.
 Items/FExelentBait=Отлична стръв.
 Items/DesFExelentBait=Примамка с отлично качество, най-добрата наоколо. Увеличава шанса ти за улов на най-редките видове риба.
 Items/FGoodBait=Добра стръв
-Items/DesFGoodBait=Свястно примамка. Увеличава шанса ти да хванеш необичайни риби, като сребриста костурка, черен бас, червена сьомга или бял сом.
+Items/DesFGoodBait=Свестна примамка. Увеличава шанса ти да хванеш необичайни риби, като сребрист костур, американски костур, червена сьомга или бял сом.
 Items/FGreatBait=Страхотна стръв
-Items/DesFGreatBait=Тази страхотна технология за примамка ще увеличи шанса ти да уловиш някои редки видове риба, като смарагдова уклейка, жълта костур, дъгова пъстърва или синя риба-меч.
+Items/DesFGreatBait=Тази страхотна технология за примамка ще увеличи шанса ти да уловиш някои редки видове риба, като смарагдова уклейка, жълт костур, дъгова пъстърва или синя риба-меч.
 Items/Anchois=Аншоа
 Items/DesAnchois=Кутия с необичайни аншоа (направени от рибки). Лека закуска с наситен и необичаен вкус.
 Items/Bread=Хляб
@@ -3860,7 +3853,7 @@ Items/DesHey=Органичен материал, който може да сл�
 Items/Honey=Мед
 Items/DesHoney=Сладко и вкусно вещество, произведено от пчели. Дава малко хранителни вещества и те възстановява малко. Може да издържи много дълго време.
 Items/LakeSign=Информационна табела за рибите
-Items/DesLakeSign=Информационна табела за всички видове риби, които можеш да намериш и уловиш в района на Мърикавил. Полезно!
+Items/DesLakeSign=Информационна табела за всички видове риби, които можеш да намериш и уловиш в района на Мърикавил. Ще ти бъде полезна!
 Items/DesMilk1=Прясно мляко. Леко хранително и възстановява част от подготовката. Важна част от много рецепти.
 Items/QweenBee=Пчела-майка
 Items/DesQweenBee=Трябва ти кралица, за да създадеш нов кошер.
@@ -3926,7 +3919,7 @@ Items/DesSpottedSofaBlackWhite=Удобен диван с рустикален �
 Items/SpottedSofaBrownWhite=Кафяво-бял диван
 Items/DesSpottedSofaBrownWhite=Удобен диван с рустикален вид. Отпусни се и мечтаеш за по-зелени пасища. Кафяво-бял вариант.
 Items/WillAndHenPortrait=Американска Дистопия
-Items/DesWillAndHenPortrait=Един работник, неговият верен петел и грижовен надзорник от правителството; размишлявайте върху традиционния американски селски начин на живот с тази умела картина.
+Items/DesWillAndHenPortrait=Един работник, неговият верен петел и грижовен надзорник от правителството; размишлявай върху традиционния американски селски начин на живот с тази умела картина.
 Items/BeeWaxCandle=Восъчна свещ
 Items/DesBeeWaxCandle=Свещ от пчелен восък, когато искаш светлина без електричество или просто искаш да създадеш настроение.
 Items/Dungarees=Гащеризони
@@ -3934,7 +3927,7 @@ Items/DesDungarees=Превърни се в истински оцеляващ с
 Items/CheckeredShirt=Карирана риза
 Items/DesCheckeredShirt=За тези, които обичат да работят здраво, или за тези, които са в своя cottagecore етап. Какъвто и да е случаят, ще изглежда страхотно на теб.
 Items/FishermanHat=Шапка на рибар
-Items/DesFishermanHat=Тази красива рибарска шапка е трофей, доказващ вашето майсторство в изкуството на риболова. Тя също така ви позволява да ловите обикновени риби автоматично. Носете я с гордост!
+Items/DesFishermanHat=Тази красива рибарска шапка е трофей, доказващ твоето майсторство в изкуството на риболова. Тя също така ти позволява да ловиш обикновени риби автоматично. Носи я с гордост!
 Items/CoffeeMachine=Кафемашина
 Items/DesKeyCoffeeMachine=Донеси аромата и вкуса на кафето в твоето убежище и нека тази машина ти служи.
 Items/Halabard=Алабарда
@@ -3955,7 +3948,7 @@ Items/DesMinigameUndeadHell=Разбери колко добре можеш да
 Items/MinigameFreedomRoad=Пътят на свободата
 Items/DesMinigameFreedomRoad=Покажи уменията си в тази аркадна игра в пустинята. Избягвай препятствията и силите за сигурност, събирай гориво и се насочвай към свободата.
 Items/MinigameEventFlyer=Флайър за състезание в играта
-Items/DesMinigameEventFlyer=Обявата за състезание по игри. Явно можеш да играеш и да спечелиш награди. Какво не му харесваш?
+Items/DesMinigameEventFlyer=Обява за състезание по игри. Явно можеш да играеш и да спечелиш награди. Какво има да не ти хареса?
 Items/MinigameEventRewardInfo=Награда от състезанието
 Items/DesMinigameEventRewardInfo=Този плакат гордо потвърждава твоя резултат и печалби в състезание по игри.
 Items/NuclearMaterial=Ядрен материал
@@ -3968,27 +3961,27 @@ Items/JoeUraniumLetter=Писмо от Джо - Странно откритие
 Items/DesJoeUraniumLetter=Писмо от Джо, написано с неговия неравен, ентусиазиран почерк.
 Items/UraniumGlass=Бутилка от уранско стъкло
 Items/UraniumGlassRespawn=Бутилка от уранско стъкло
-Items/DesUraniumGlass=Декоративно стъкло, направено с добавка на уран. Има характерен цвят и свети на UV светлина.\nИма печат на Мърикавил Uranium Co. върху него.
-Items/AntiRadiation=Извлек против радиация
-Items/DesAntiRadiation=Екстракт против радиация, направен от радиоактивни гъби. Билкарството наистина се е адаптирало към атомната ера.
+Items/DesUraniumGlass=Декоративно стъкло, направено с добавка на уран. Има характерен цвят и свети на UV светлина.\nИма печат на „Мърикавил Ураниум Ко.“ върху него.
+Items/AntiRadiation=Антирадиационен екстракт
+Items/DesAntiRadiation=Антирадиационен екстракт, направен от радиоактивни гъби. Билкарството наистина се е адаптирало към атомната ера.
 Items/UraniumMushroom=Радиоактивна гъба
-Items/DesUraniumMushroom=Гъба, взета от урановата мина, продукт на много поколения растеж в радиоактивна среда. Изглежда дори вкусна, но тази изкушение трябва да се устои.
-Items/UraniumCentrifuge=Уранов центрофуга
+Items/DesUraniumMushroom=Гъба от урановата мина, развивала се в радиоактивна среда в продължение на много поколения. Изглежда дори вкусна, но на това изкушение трябва да устоиш.
+Items/UraniumCentrifuge=Уранова центрофуга
 Items/DesUraniumCentrifuge=Напреднало ядрено инженерство — по същество пералня за радиоактивни изотопи. Обогатява уран в ядрено гориво и може да деконтаминира определени облъчени предмети.
 Items/DestroyedHazmatSuit=Унищожен защитен костюм
-Items/GeigerCounter=Гейгер брояч
+Items/GeigerCounter=Гайгеров брояч
 Items/HazmatBackpack=Бункерарски раница
 Items/HazmatBackpackV2=Пакет за опасни материали
 Items/HazmatBackpackV3=Бункерарски раница
 Items/DesHazmatBackpack=Този раница е специално проектирана да предпазва потребителя от алфа, бета и гама радиация. Можеш безопасно да носиш радиоактивни предмети в нея.
 Items/OldGasMask=Стара противогазова маска
-Items/NuclearEngineeringBook=Използване на тъканта на реалността: ядрена инженерна в твоя дом и двор
-Items/DesNuclearEngineeringBook=Ядрената физика не е сложна! Съветите от тази книга ще ти помогнат да съхраняваш и обогатяваш уран, да строиш ядрени генератори и да донесеш силата на атома в дома си!
+Items/NuclearEngineeringBook=Използване на тъканта на реалността: ядрено инженерство в твоя дом и двор
+Items/DesNuclearEngineeringBook=Ядрената физика не е сложна! Съветите от тази книга ще ти помогнат да съхраняваш и обогатяваш уран, да строиш ядрени генератори и да използваш силата на атома у дома!
 Items/NuclearGenerator=Ядрен генератор
 Items/DesNuclearGenerator=Малък, модулен ядрен реактор. Верижна реакция освобождава огромно количество енергия.
 Items/UraniumPickRock=Ураниева скала
-Items/RadiatedRatMeat=Радиоактивна плъша месо
-Items/DesRadiatedRatMeat=Тази радиационна плъша месо би било чудесна деликатес в пост-ядрена пустош. Може би обстрелването с радиоактивни изотопи извлича богати, интензивни вкусове? Междувременно, не е препоръчително да го ядеш. Ако се развали, се превръща в Ядрен материал. Можеш да изчистиш радиацията му в Центрофуга.
+Items/RadiatedRatMeat=Радиоактивно плъхово месо
+Items/DesRadiatedRatMeat=Това облъчено плъхово месо би било чудесен деликатес в постапокалиптичната пустош. Може би облъчването с радиоактивни изотопи извлича наситени вкусове? Все пак не е препоръчително да го ядеш. Ако се развали, се превръща в ядрен материал. Можеш да премахнеш радиацията му в центрофуга.
 Items/MiningPassSix=По-дълбок минен пропуск -1
 Items/DesMiningPassSix=Карта за достъп до ниво -1 в по-дълбоката мина.
 Items/MiningPassSeven=По-дълбок минен пропуск -2
@@ -3998,7 +3991,7 @@ Items/DesMiningPassEight=Карта за достъп до ниво -3 в по-�
 Items/MiningPassNine=По-дълбок минен пропуск -4
 Items/DesMiningPassNine=Карта за достъп до ниво -4 в по-дълбоката мина.
 Items/RadioactiveClothes=Защитен костюм
-Items/DesKeyRadioactiveClothes=Има места, които изискват повече защита.\nИзползвай го в радиоактивни зони – ще те предпази от повечето източници на радиация.
+Items/DesKeyRadioactiveClothes=Има места, които изискват повече защита.\nИзползвай го в радиоактивни зони - ще те предпази от повечето източници на радиация.
 Items/Lemonade=Лимонада
 Items/DesLemonade=Лимонада от местна скаутка. Вкусът може да е по-добър, но е пълна с добри намерения.
 Items/AlienIncubator=Инкубатор за извънземни
@@ -4087,7 +4080,7 @@ Items/DesAutoHarvester=Най-добрият приятел на фермера:
 Items/UraniumLamp=Ураниева лампа
 Items/DesUraniumLamp=Наслади се на блясъка на атомната ера в твоя бункер.
 Items/NuclearFuel=Ядрена гориво
-Items/DesNuclearFuel=Гориво, обогатено с радиоактивен материал. Може да се използва вместо обикновено гориво. Прави частиците да се движат по-бързо или нещо такова.
+Items/DesNuclearFuel=Гориво, обогатено с радиоактивен материал. Може да се използва вместо обикновено гориво. Ускорява движението на частиците или нещо такова.
 Items/LemonadeKid=Момиче от скаутския отряд за лимонада
 Items/ArmyChestNuclear=Бункера на армията
 Items/CraneMinigameBox=Кутия с кран
@@ -4097,7 +4090,7 @@ Items/Scientist=Д-р Едуард
 Items/Lemon=Лимон
 Items/DesLemon=Когато животът ти дава лимони, направи лимонада.
 Items/SeedLemon=Семе от лимон
-Items/DesSeedLemon=Засади в парче почва, за да порасне лимоново дърво. Нуждаеш се от висока стая за това.
+Items/DesSeedLemon=Засади в почва, за да порасне лимоново дърво. Нуждаеш се от висока стая за това.
 Items/LemonadeRecipie=Рецепта за лимонада
 Items/DesLemonadeRecipie=Тайна рецепта на скаутките за перфектната освежаваща напитка. Изисква търпение, лимони и щипка приключение.
 Items/ExpeditionBox=Кутия за експедиция
@@ -4240,7 +4233,7 @@ Items/DesBasicHikingClothes=Основни туристически дрехи
 Items/MountainLootBox1=Планинска кутия 2
 Items/MountainLootBox2=ПланинскаКутия3
 Items/MountainLootBox3=ПланинскаКутия4
-Items/CryoSleepPod=Криосънчо
+Items/CryoSleepPod=Криосънна капсула
 Items/DesCryoSleepPod=Събуждане от криосън
 Items/DesCryoTeslaCoilGun=ДесКриоТе́слаСпиралаПушка
 Items/FreezeDryer=Лиофилизатор
@@ -4284,7 +4277,7 @@ Items/DesTitanOre=Деститанова руда
 Items/TitanRock=Титанска скала
 Items/TravelRefrigerator=Хладилник за пътуване
 Items/DesTravelRefrigerator=Хладилник за пътуване
-Items/Puma=Пумa
+Items/Puma=Пума
 Items/FirstAidKit=Комплект за първа помощ
 Items/MountainPlankCabinetWhiteSmall=Малък бял шкаф от дъски
 Items/MountainArmyChest=Бункера на армията
@@ -4366,8 +4359,8 @@ Letter/minutLetterWaterControl=Просто кратко напомняне: и�
 Letter/minutLetterElectricityControl=Внимавай: тъй като нашата велика страна има проблеми с електрозахранването, Агенцията планира да започне да контролира домашната употреба на електричество. Имай предвид, че високото потребление може да изглежда подозрително. Внимавай!
 Letter/minutLetterCupboardControl=Бързо приятелско предупреждение: Агенцията иска да увеличи интензивността на проверките. Бъди готов, че може да искат да погледнат в шкафовете ти и се подготви съответно.
 Letter/minutLetterCupboardControl2=И ето ме отново с предупреждение: някои хора в Агенцията са решени да докажат, че наистина замисляш нещо, и ще проверяват шкафовете и гардеробите ти още по-внимателно. Увери се, че нищо подозрително не им се изпречва на очите!
-Letter/huntLetterAd=<i><b><pos=20%><size=140%>ЛОВЕН КЛУБ\n<line-height=20%>\n<line-height=100%><pos=10%><size=100%>Всичко, което дивата природа около Мърикавил може да предложи! Свеж дивеч от различни животни, отглеждани на свобода и етично застреляни до смърт! А ако искате сами да ловувате – предлагам богат избор от капани и примамки.\n<line-height=70%><pos=40%><size=80%>-- Лавиния, вашата местна ловджийка
-Letter/minutLetter7=Съжалявам да ви информирам, че макар малкият ни саботаж да е проработил блестящо – агент Фицпатрик никога повече няма да притеснява гражданите – аз сега съм в тежка ситуация. Унищожихме агента, но Агенцията забеляза моите специални интереси. Сега съм в укритие; трябваше да напусна работата си, къщата и повечето си вещи. Не съм толкова добре подготвен за такива ситуации като вас, затова се нуждая от вашата помощ. Можете ли да ми изпратите малко храна? Предпочитам консерви и дълготрайни продукти.\nТрябва също така да те информирам за нещо, което няма да прочетеш в Истината: международната ситуация в момента е много напрегната. Изглежда чуждестранните сили имат сериозни притеснения относно истинската цел на сателита Медният змей. Трудно е да се каже как ще завърши всичко това.\nГрижи се и не ме забравяй, г-н Подготвения!\n
+Letter/huntLetterAd=<i><b><pos=20%><size=140%>ЛОВЕН КЛУБ\n<line-height=20%>\n<line-height=100%><pos=10%><size=100%>Всичко, което дивата природа около Мърикавил може да предложи! Свеж дивеч от различни животни, отглеждани на свобода и етично застреляни до смърт! А ако искате сами да ловувате - предлагам богат избор от капани и примамки.\n<line-height=70%><pos=40%><size=80%>-- Лавиния, вашата местна ловджийка
+Letter/minutLetter7=Съжалявам да ви информирам, че макар малкият ни саботаж да е проработил блестящо - агент Фицпатрик никога повече няма да притеснява гражданите - аз сега съм в тежка ситуация. Унищожихме агента, но Агенцията забеляза моите специални интереси. Сега съм в укритие; трябваше да напусна работата си, къщата и повечето си вещи. Не съм толкова добре подготвен за такива ситуации като вас, затова се нуждая от вашата помощ. Можете ли да ми изпратите малко храна? Предпочитам консерви и дълготрайни продукти.\nТрябва също така да те информирам за нещо, което няма да прочетеш в Истината: международната ситуация в момента е много напрегната. Изглежда чуждестранните сили имат сериозни притеснения относно истинската цел на сателита Медният змей. Трудно е да се каже как ще завърши всичко това.\nГрижи се и не ме забравяй, г-н Подготвения!\n
 Letter/minutLetter8=Благодаря ти много за храната, която ми изпрати! Ти си моят вдъхновител и ангел-пазител, г-н Подготвения. \nТова може да е последното писмо, което ти изпращам, и имам една последна молба. Те идват за мен в скривалището ми. И трябва да съм подготвен: или да си пробия път през тях, или да направя последния си отпор. За това ми трябва достатъчно огнева мощ. Обикновена ръчна пушка няма да свърши работа.\nСкъпи г-н Подготвения, бихте ли ми дали автоматична пушка и 100 патрона? Ако оцелея в битката, обещавам да отговоря на много въпроси, които вероятно ви тормозят. Ако не, моля, спомняйте си за мен с обич, г-н Подготвения.\n
 Letter/HalloweenNote=Скъпи гражданино, Ууу! Време е за Хелоуин! Намери чучелото! (И моля, не забравяй да спазваш правилата за сигурност и благополучие през цялото време.)
 Letter/farmInvitationTittle=Работна поръчка - Ферма
@@ -4464,7 +4457,7 @@ Tips/tipNuclear12=Ако не знаеш къде да намериш нещо �
 Tips/tipNuclear13=Цената на минииграта на кран се нулира всеки ден.
 Tutorial/FirstFight1=Бой: [Q] - атака наляво, [E] - атака надясно
 Tutorial/FirstFight2=Отдръпни се, за да избегнеш вълка.
-Tutorial/FirstFight3=Дръж <color=yellow>Left Control</color> за да блокираш атаките на вълка
+Tutorial/FirstFight3=Дръж <color=yellow>левия Ctrl</color>, за да блокираш атаките на вълка
 Tutorial/FirstFight3Port=Дръж <sprite index=Button26_UIAtlas> за да блокираш атаките на вълка
 Tutorial/FirstFight4=или се отдръпни, за да ги избегнеш.
 Tutorial/FirstFight5=Използвай бухалката си в битка.
@@ -4488,7 +4481,7 @@ Tutorial/tt12=Събиране
 Tutorial/tt13=Вкъщи
 Tutorial/tt14=Разглоби
 Tutorial/tt15=Имаш поща
-Tutorial/tt16=Опресни
+Tutorial/tt16=Подобри
 Tutorial/tt17=Стълба
 Tutorial/tt18=Постави стълбата
 Tutorial/tt19=Светлина
@@ -4500,22 +4493,22 @@ Tutorial/tt24=Докладвай
 Tutorial/tt25=Работна маса
 Tutorial/tt26=Закуска
 Tutorial/tt27=Дневник
-Tutorial/td1=Това е урок. Нека ти покажа наоколо.
-Tutorial/td2=Запознай се с основните контроли.
+Tutorial/td1=Това е урок. Нека те разведа.
+Tutorial/td2=Запознай се с управлението.
 Tutorial/td3=Уморен си след опита си за бягство. Заслужаваш <color=yellow>дрямка</color>.
-Tutorial/td4=Гладък си. Оти <color=yellow>изяди</color> нещо.
+Tutorial/td4=Гладен си. Иди да <color=yellow>хапнеш</color> нещо.
 Tutorial/td5=Поддържай своята Готовност висока.
 Tutorial/td6=Провери своя нов <color=yellow>план за бягство</color>
 Tutorial/td7=Построй първата стая на бункера си.
-Tutorial/td7Port=Изгради първата стая на твоя бункер. Избери опция Стая, укажи мястото за създаване на стаята и потвърди с<sprite index=Button0_UIAtlas>
-Tutorial/td8=Трябва да изработиш <color=yellow>скала</color> за бункера си. \nПърво, открий надеждната си <color=yellow>работна маса</color>.
+Tutorial/td7Port=Изгради първата стая на своя бункер. Избери опция Стая, укажи мястото за създаване на стаята и потвърди с<sprite index=Button0_UIAtlas>
+Tutorial/td8=Трябва да направиш <color=yellow>стълба</color> за бункера си. \nПърво, разкрий надеждната си <color=yellow>работна маса</color>.
 Tutorial/td9=Работната ти маса е малко ръждясала. \nДа видим какво ти трябва, за да я освежиш.
-Tutorial/td10=Ще ти трябват метал и дърво. Започни с купуването на <color=yellow>8 единици метал</color>.
-Tutorial/td11=Отиди в гората и намери малко дърво.
+Tutorial/td10=Ще ти трябват метал и дървесина. Започни като си купиш <color=yellow>осем единици метал</color>.
+Tutorial/td11=Отиди в гората и намери малко дърва.
 Tutorial/td12=# дървени трупи.
 Tutorial/td13=Върни се у дома.
-Tutorial/td14=Разглоби 3 трупи, за да получиш дърво. \n<color=yellow># разглобени трупи<color=yellow>.
-Tutorial/td15=Получи своя метал.
+Tutorial/td14=Разглоби три трупи, за да получиш дървесина. \n<color=yellow># разглобени трупи</color>.
+Tutorial/td15=Вземи своя метал.
 Tutorial/td16=Подобри работната маса.
 Tutorial/td17=Можеш най-накрая да направиш стълба!
 Tutorial/td18=Просто постави стълбата. Плъзни и пусни.
@@ -4526,7 +4519,7 @@ Tutorial/td21Port=Постави лампа на стената в бункер�
 Tutorial/td23=Агентът ще дойде скоро. Трябва да <color=yellow>скриеш или прибереш подозрителните предмети</color> и да му отвориш вратата.
 Tutorial/td24=Това е докладът на агента. Поддържай къщата си в непроменено състояние, за да останат докладите положителни.
 Tutorial/td25=Постави работната маса в бункера си.
-Tutorial/td26=Готви и яж нещо.
+Tutorial/td26=Сготви и хапни нещо.
 Tutorial/td27=Провери дневника си.
 Tutorial/tutPrep1=Това е твоята готовност.
 Tutorial/tutPrep2=Това е най-важната ти характеристика.
@@ -4535,8 +4528,8 @@ Tutorial/tutPrep4=Дръж се добре нахранен и отпочина�
 Tutorial/tutFoodSource=Осигури \nизточник на храна
 Tutorial/tutBuildFirstRoom=Построй първата стая
 Tutorial/tutBuildFirstRoom2=на моя бункер.
-Tutorial/tutGrowPlant=Отгледай някои растения
-Tutorial/tutGrowPlant2=в моя бункер.
+Tutorial/tutGrowPlant=Отгледай растения
+Tutorial/tutGrowPlant2=в твоя бункер.
 Tutorial/tutBasic0=или
 Tutorial/tutBasic1=да видиш какво можеш да направиш с него
 Tutorial/tutBasic2=с
@@ -4545,14 +4538,14 @@ Tutorial/tutBasicPrepper=Премести Подготвения
 Tutorial/tutBasicRun=Кликни два пъти, за да бягаш
 Tutorial/tutBasicRunPort=Двойно натисни <sprite index=Button0_UIAtlas> за бягане
 Tutorial/tutBasicClickOn=върху всеки обект
-Tutorial/tutCantDoThat=Не можеш да направиш това в туториала!
+Tutorial/tutCantDoThat=Не можеш да направиш това в урока!
 Tutorial/tutPlants1.1=За да направиш основната си подземна ферма, ще ти трябват:
-Tutorial/tutPlants1.2=<color=yellow>5x Почва за стая</color> - може да се изработи на работната маса
-Tutorial/tutPlants1.3=<color=yellow>5x Торбички със семена</color> - можеш да намериш няколко у дома
-Tutorial/tutPlants1.4=Семената също могат да се купят в търговията.
+Tutorial/tutPlants1.2=<color=yellow>5x Почва </color> - може да се изработи на работната маса
+Tutorial/tutPlants1.3=<color=yellow>5x Торбички със семена</color> - можеш да намериш няколко у дома си
+Tutorial/tutPlants1.4=Семената също могат да се купят.
 Tutorial/tutPlants2.1=Растенията се нуждаят от <color=yellow>вода</color> и <color=yellow>светлина</color>, за да растат.
 Tutorial/tutPlants2.2=Можеш да вземеш вода от <color=yellow>мивката</color>.
-Tutorial/tutPlants2.3=Дръж стаята си за ферма <color=yellow>добре осветена</color>.\nПовече светлина - по-бърз растеж.
+Tutorial/tutPlants2.3=Осигури <color=yellow>добро осветление</color> на помещението.\nПовече светлина - по-бърз растеж.
 Tutorial/tutDriveAvoid=Дръж <color=yellow>LMB</color> или <color=yellow>SPACE</color> за смяна на лентата и избягване на препятствия
 Tutorial/tutDriveAvoidPort=Дръж <sprite index=Button0_UIAtlas> за смяна на лентата и за избягване на препятствията
 Tutorial/tutDriveJump=Дръж <color=yellow>RMB</color> или <color=yellow>LEFT SHIFT</color> за да ускори автомобила при изкачване на наклон и да прескочи безопасно
@@ -4570,9 +4563,9 @@ Tutorial/trustTut1=Това е нивото на взаимно доверие �
 Tutorial/trustTut2=Всеки път, когато повишиш доверието си,
 Tutorial/trustTut3=ще получиш достъп до повече и по-добри оферти.
 Tutorial/trustTut4=Можеш също така да отключиш повече търговци по този начин чрез препоръка на съсед.
-Tutorial/upgradeTut1=Стая за надграждане придобита!
-Tutorial/upgradeTut2=Постави го в кутия за надграждане на стая, за да надградиш стая.
-Tutorial/upgradeTut3=Броят на модулите за надграждане на стая зависи от размера на стаята.
+Tutorial/upgradeTut1=Придоби подобрение на стая!
+Tutorial/upgradeTut2=Постави го в кутия за подобрение на стая, за да подобриш стая.
+Tutorial/upgradeTut3=Броят на модулите за подобрение на стая зависи от размера на стаята.
 Tutorial/mazeTut1=Стигни до края на лабиринта.
 Tutorial/mazeTut2=Лабиринтът ще се затвори, щом го напуснеш.
 Tutorial/mazeTut3=Лабиринтът има 5 нива на трудност.
@@ -4609,7 +4602,7 @@ Locations/Nancy=Къщата на Нанси
 Locations/OilStation=Бензиностанция
 Locations/Supermarket=Супермаркет
 Locations/Hunter=Ловджийката
-Locations/Gourmet=Гурме
+Locations/Gourmet=Деликатес
 Locations/HomeLable=Дом
 Locations/ForestLable=Гора
 Locations/MineLable=Мина „Олд Крийк“
@@ -4680,23 +4673,19 @@ Buff/Bonfire2=<b>Огън за почивка</b>\nТвоята издръжли
 Buff/WarmedUp=<b>Загрял си се</b>\nЧастично си защитен от студа.
 Buff/ChalkedHands1=<b>Почти без кал</b>\nКатеренето е по-лесно. Този баф се изчерпва докато катериш и е почти изчерпан.
 Buff/ChalkedHands2=<b>Добре изчистени ръце</b>\nКатеренето е по-лесно. Този баф се изчерпва по време на катерене.
-Buff/ColdAcclimation=<b>Адаптация към студа</b>\nИмаш някаква устойчивост към студа. Твоята издръжливост намалява по-бавно.\nДокато този баф действа, не можеш да използваш Cryo Sleep Pod.
+Buff/ColdAcclimation=<b>Адаптация към студа</b>\nИмаш някаква устойчивост към студа. Твоята издръжливост намалява по-бавно.\nДокато този баф действа, не можеш да използваш криосънната капсула.
 Buff/ImprovedHealth=<b>Подобрено здраве</b>\nТвоят максимален живот е временно увеличен.
 Buff/ImprovedStamina=<b>Подобрена издръжливост</b>\nТвоята максимална издръжливост е временно увеличена.
 Buff/ImprovedPreparedness=<b>Подобна подготвеност</b>\nТвоята максимална подготвеност е временно увеличена.
 Fonts/Standard=Ръкописен шрифт
-Fonts/Letter=Ръкописен шрифт
-Quests/quest1_description=Бункерирай, господин вълк, изчисти.
-Quests/quest1_name=БГ Целителката
-Quests/quest2_description=Убий вълка
-Quests/quest2_name=БГ Вълк
+Fonts/Letter=Caveat-Regular SDF
 Images/preparationStart=Започни подготовка
 Images/escapePlan=План за бягство
 Images/runPrepper=Бягай, Подготвения, бягай!
 Images/ready=Готов ли си?
-Images/imgPreparationStart=Започни подготовката
-Images/imgReady=ракета_готови
-Images/imgRun=икона за бягство
+Images/imgPreparationStart=prepStart_bg
+Images/imgReady=ready_bg
+Images/imgRun=escape_bg
 Journal/herbq1Title=Баба и вълкът
 Journal/herbq1=Джени, местната билкарка, ме помоли да убия вълка, който ѝ пречи да стигне до нейната къща. Трябва да поправя въжената линия, за да стигна до него. Също така ще е хубаво да не се бия с чудовището с празни ръце.
 Journal/herbq1::1=Поправи въжената линия в гората.
@@ -4731,19 +4720,19 @@ Journal/herbWait::1=Посети Джени в нейната колиба.
 Journal/herbq6=Джени има нужда от още гуарана. Помоли ме да ѝ донеса <color=yellow>99 плода от гуарана</color>.
 Journal/herbq6bck=Джени има нужда от още гуарана. Поискала е да ѝ донеса $item$.
 Journal/herbq6::1=Донеси на Джени <color=yellow>99 плода от гуарана</color>.
-Journal/herbq6::1bck=Дай на Джени $item$.
+Journal/herbq6::1bck=Донеси на Джени $item$.
 Journal/herbq7Title=Хапчето
 Journal/herbq7=Джени все още не може да ми даде хапчето. Каза нещо за това, че трябва първо да спечеля доверието на Безсънните. Чудя се как мога да го направя?
 Journal/herbq7::1=Намери начин да вземеш хапчето от Джени.
 Journal/rocketInspirationTitle=Нов план за бягство
 Journal/rocketInspiration=Все още не съм измислил добър план за бягство. Трябва да намеря малко вдъхновение и да направя още малко планиране.
-Journal/rocketInspiration::1=Намери вдъхновение за твоя краен план за бягство.
+Journal/rocketInspiration::1=Намери вдъхновение за твоя велик план за бягство.
 Journal/rocketPlan1=Този чертеж на ракета всъщност е доста вдъхновяващ...
-Journal/rocketInspiration::2=Използвай изображението на ракетата за вдъхновение за твоя краен план за бягство.
+Journal/rocketInspiration::2=Използвай изображението на ракетата за вдъхновение за твоя велик план за бягство.
 Journal/herbFirstLetterTitle=Билкарката
 Journal/herbFirstLetter=Местната билкарка може да бъде срещната в гората през деня.
 Journal/herbFirstLetter::1=Отиди в гората през деня и срещни билкаря.
-Journal/minutMan1Title=Чистач
+Journal/minutMan1Title=Опълченеца
 Journal/minutMan1=Един странен човек, който се нарича "Опълченеца", ми изпраща писма. Преди това ми изпрати подробна снимка на ракета, а сега иска конфитюр от боровинки. Мисля, че ще му го направя като жест на добра воля.
 Journal/minutMan1::1=Изпрати на Опълченеца буркан с боровинково сладко
 Journal/minutMan2Title=Ядрена война
@@ -4751,21 +4740,19 @@ Journal/minutMan2=Опълченеца търси добра книга за я�
 Journal/minutMan2::1=Намери книга за ядрена война.
 Journal/minutMan2::2=Достави книгата за ядрена война на Опълченеца.
 Journal/minutMan3Title=Не е лошо, не е и зле
-Journal/minutMan3=Опълченеца все повече се интересува от атомни бомби и радиация. Изглежда, че знае нещо... Както и да е, иска Гайгер брояч. Трябва да намеря един и да му го доставя.
-Journal/minutMan3::1=Намери гейгер брояч.
+Journal/minutMan3=Опълченеца все повече се интересува от атомни бомби и радиация. Изглежда, че знае нещо... Както и да е, иска Гайгеров брояч. Трябва да намеря един и да му го доставя.
+Journal/minutMan3::1=Намери гайгеров брояч.
 Journal/minutMan3::2=Достави гайгеровия брояч на Опълченеца.
 Journal/minutMan4Title=Боже, пази президента
 Journal/minutMan4=Опълченеца казва, че има агент, който е опасен за него, а оттам и за мен. Но той има план: иска да го дискредитира в Агенцията. Трябва да намеря нещо офанзивно и незаконно и да намеря начин да го сложа в дома на агента.
 Journal/minutMan4::1=Намери незаконен и обиден предмет.
 Journal/minutMan4::2=Убеди Пощальона да засади нападателната фигурка.
-Journal/minutMan5Title=Пакет за грижа
+Journal/minutMan5Title=Пакет с припаси
 Journal/minutMan5=Опълченеца се крие и има нужда от дълготрайна храна. Ще му изпратя малко.
 Journal/minutMan5::1=Достави дълготрайна храна на Опълченеца.
 Journal/minutMan6Title=Заключено и заредено
 Journal/minutMan6=Опълченеца се чувства в опасност и има нужда от малко огнева мощ, за да се защити.
 Journal/minutMan6::1=Достави пушка и малко муниции на Опълченеца.
-Journal/minutMan7=minutMan7
-Journal/minutMan8=minutMan8
 Journal/minutMan4::3=Попитай пощальона за незаконната доставка.
 Journal/ForestPillarTitle=В гората
 Journal/ForestPillar=Въжената линия в гората би била страхотен начин да се придвижваш, но е дълго счупена. Трябва да я поправя.
@@ -4781,27 +4768,27 @@ Journal/ForestPillar::5=Поправи лесната кабина на ниво
 Journal/ForestPillar::5bck=Поправи въжената линия в гората на ниво 5 ($items$).
 Journal/RocketTitle=Обратното броене
 Journal/Rocket=Трябва да избягам оттук. Реших да построя функционална ракета.
-Journal/Rocket::1=Изгради ракетен сил (<color=yellow>50 камък</color>, <color=yellow>20 метал</color>, <color=yellow>10 стъкло</color>).
-Journal/Rocket::1bck=Построй ракета ($items$).
-Journal/Rocket::2=Завърши фаза 2 от изграждането на ракета. Нужни предмети: <color=yellow>60 метал</color>, <color=yellow>20 пластмаса</color>, <color=yellow>Изкуствен Хоризонт</color>.
-Journal/Rocket::2bck=Завърши фаза 2 от изработката на ракета. Необходим предмет: $items$.
-Journal/Rocket::3=Завърши фаза 3 от изграждането на ракета. Нужни са: <color=yellow>20 електроника</color>, <color=yellow>40 метал</color>, <color=yellow>Водород</color>.
-Journal/Rocket::3bck=Завърши фаза 3 от изработката на ракета. Необходим предмет: $items$.
-Journal/Rocket::4=Завърши фаза 4 от изграждането на ракета. Нужни предмети: <color=yellow>50 пластмаса</color>, <color=yellow>20 електроника</color>, <color=yellow>10 текстил</color>, <color=yellow>Модул за управление на ракетата</color>.
-Journal/Rocket::4bck=Завърши фаза 4 от изграждането на ракета. Необходим предмет: $items$.
-Journal/FoodSource1Title=Крайна цел
-Journal/FoodSource1=Трябва да започна с проверка на крайния си план.
-Journal/FoodSource1::1=Провери своя краен план за бягство.
-Journal/FoodSource2Title=Самостоятелен
-Journal/FoodSource2=Трябва да си създам източник на храна.
-Journal/FoodSource2::1=Постави 5 парчета почва в бункера си.
+Journal/Rocket::1=Построй ракетен силоз (<color=yellow>50 камък</color>, <color=yellow>20 метал</color>, <color=yellow>10 стъкло</color>).
+Journal/Rocket::1bck=Построй ракетен силоз ($items$).
+Journal/Rocket::2=Завърши фаза 2 от построяването на ракетата. Необходими предмети: <color=yellow>60 метал</color>, <color=yellow>20 пластмаса</color>, <color=yellow>Изкуствен хоризонт</color>.
+Journal/Rocket::2bck=Завърши фаза 2 от построяването на ракетата. Необходим предмет: $items$.
+Journal/Rocket::3=Завърши фаза 3 от построяването на ракетата. Необходими са: <color=yellow>20 електроника</color>, <color=yellow>40 метал</color>, <color=yellow>Водород</color>.
+Journal/Rocket::3bck=Завърши фаза 3 от построяването на ракетата. Необходим предмет: $items$.
+Journal/Rocket::4=Завърши фаза 4 от построяването на ракетата. Необходими предмети: <color=yellow>50 пластмаса</color>, <color=yellow>20 електроника</color>, <color=yellow>10 текстил</color>, <color=yellow>Модул за управление на ракетата</color>.
+Journal/Rocket::4bck=Завърши фаза 4 от построяването на ракетата. Необходим предмет: $items$.
+Journal/FoodSource1Title=Велик план
+Journal/FoodSource1=Трябва да започна с проверка на великия си план.
+Journal/FoodSource1::1=Провери своя велик план за бягство.
+Journal/FoodSource2Title=Самостоятелност
+Journal/FoodSource2=Трябва да си осигуря източник на храна.
+Journal/FoodSource2::1=Постави 5 почва в бункера си.
 Journal/FoodSource2::2=Събери 5 торби със семена.
 Journal/FoodSource2::3=Засади семената.
-Journal/FoodSource2::4=Поливай растенията и им осигурявай светлина.
-Journal/FoodSource4=Поливай растенията и им осигурявай светлина
-Journal/AfterFoodSource=Храна готова. Трябва да се върна към крайния си план за бягство.
-Journal/UltimatePlanTitle=Крайна цел
-Journal/UltimatePlan::AfterFoodSource=Провери своя краен план за бягство.
+Journal/FoodSource2::4=Осигури на растенията вода и светлина.
+Journal/FoodSource4=Осигури на растенията вода и светлина
+Journal/AfterFoodSource=Източникът на храна е готов. Трябва да се върна към великия си план за бягство.
+Journal/UltimatePlanTitle=Велик план
+Journal/UltimatePlan::AfterFoodSource=Провери своя велик план за бягство.
 Journal/joeq1Title=Защита от контрол на ума
 Journal/joeq0=Счупен револвер
 Journal/joeq0::1=Донеси счупения револвер на Джо.
@@ -4809,7 +4796,7 @@ Journal/joeq1=Джо иска да се защити от мисловните �
 Journal/joeq1::1=Донеси на Джо <color=yellow>1 фолио</color>.
 Journal/joeqWaitTitle=Джо
 Journal/joeqWait::1=Ела пак утре.
-Journal/joeq2Title=Липсващият криптид
+Journal/joeq2Title=Мистериозното създание
 Journal/joeq2=Чупакабра, любимото куче на Джо, изчезна. Трябва да помогна да го намеря.
 Journal/joeq2::1=Поправи въжената линия в гората на ниво 3.
 Journal/joeq2::2=Намери Чупакабра в гората.
@@ -4818,7 +4805,7 @@ Journal/joeqWait::2=Опитай пак утре за нещо ново.
 Journal/joeq3Title=Радио Свободна Северна Америка
 Journal/joeq3=Има слухове за излъчване на английски от Мексико, което предупреждава американските граждани и разкрива лъжите на правителството. Искам да го хвана някъде в пустинята.
 Journal/joeq3::1=Донеси на Джо <color=yellow>5 електроника</color>
-Journal/joeq3::1bck=Дай на Джо $item$.
+Journal/joeq3::1bck=Донеси на Джо $item$.
 Journal/joeq3::2=Върни се при Джо по-късно.
 Journal/joeq3::3=Хвани сигнала.
 Journal/joeq3::4=Върни се при Джо и му разкажи за излъчването.
@@ -4883,8 +4870,8 @@ Journal/farmWheatTitle=Зърно
 Journal/farmWheat=Нахрани пилетата и козите. Трябва да събереш малко зърно.
 Journal/farmWheat::1=Нахрани кокошките и козите.
 Journal/farmWheat::1.1=Изчакай животните да се нахранят и провери за тях по-късно.
-Journal/farmWheat::1.2=Погледни животните.
-Journal/farmWheat::2=Дои коза.
+Journal/farmWheat::1.2=Провери животните.
+Journal/farmWheat::2=Издой коза.
 Journal/farmWheat::3=Върни се при Уил.
 Journal/farmSizzorsTitle=Остригане
 Journal/farmSizzors=Подстрижи козите.
@@ -4893,15 +4880,15 @@ Journal/farmSizzors::2=Следвай кучето.
 Journal/farmSizzors::3=Попитай Уил за кучето.
 Journal/farmSizzors::4=Дай на кучето на Уил малко плъхово месо.
 Journal/farmSizzors::5=Подстрижи козите.
-Journal/farmSizzors::6=Дои козите.
+Journal/farmSizzors::6=Издой козите.
 Journal/farmSizzors::7=Върни се при Уил.
 Journal/farmChickenHouseTitle=Кварталът на пилетата
 Journal/farmChickenHouse=Почисти пространството около кокошарника.
 Journal/farmChickenHouse::1=Почисти пространството около кокошарника.
 Journal/farmMilkAndEgssTitle=Мляко и яйца
-Journal/farmMilkAndEgss=Донеси <color=yellow>3 кутии мляко</color> и <color=yellow>5 яйца</color> на Will
-Journal/farmMilkAndEgss::1=Донеси <color=yellow>3 бутилки мляко</color> и <color=yellow>5 яйца</color> на Will
-Journal/farmWaitTitle=Ще
+Journal/farmMilkAndEgss=Донеси <color=yellow>3 кутии мляко</color> и <color=yellow>5 яйца</color> на Уил
+Journal/farmMilkAndEgss::1=Донеси <color=yellow>3 бутилки мляко</color> и <color=yellow>5 яйца</color> на Уил
+Journal/farmWaitTitle=Уил
 Journal/farmWait=Върни се при Уил утре.
 Journal/farmWait::1=Върни се при Уил утре.
 Journal/farmLostAnimalsTitle=Изгубени животни
@@ -4913,9 +4900,9 @@ Journal/farmLostAnimals::3.5=Докладвай на Уил.
 Journal/farmLostAnimals::4=Продължавай да пазиш фермата с капани.
 Journal/farmLostAnimals::5=Провери капаните.
 Journal/farmMazeTitle=Лабиринт
-Journal/farmMaze=Отиди на мазето.
-Journal/farmMaze::1=Отиди на мазето.
-Journal/farmWait2Title=Ще
+Journal/farmMaze=Отиди в лабиринта.
+Journal/farmMaze::1=Отиди в лабиринта.
+Journal/farmWait2Title=Уил
 Journal/farmWait2=Върни се утре при Уил.
 Journal/farmWait2::1=Върни се при Уил утре.
 Journal/farmAgentLegTitle=Черна тъкан
@@ -4999,22 +4986,22 @@ Journal/mountainTitle=Планина.
 Journal/mountain=Провери мястото в планината.
 Journal/mountain::1=Провери мястото в планината.
 Journal/mountainCryoNotesTitle=Записки за криотехнологиите
-Journal/mountainCryoNotes=Искам да направя крио сънна капсула. Трябва да събера бележки за крио-тех експерименти в планината.
-Journal/mountainCryoNotes::1=Събери Cryo-tech бележки ($x$/$y$)
-Journal/mountainCryoSleepPodTitle=Крио сънна капсула
-Journal/mountainCryoSleepPod=Започвам да разбирам крио технологията на Агенцията. Ще пробвам един от проектите на Тейър - Крио Слийп Под.
-Journal/mountainCryoSleepPod::1=Изработи крио-сънна капсула
-Journal/mountainCryoSleepPod::2=Изпробвай Cryo Sleep Pod
-Journal/mountainCryoSleepPod::3=Открий причината за повредата на Cryo Sleep Pod.
-Journal/mountainCryoSleepPod::4=Калибрирай крио-сънна капсула
-Journal/mountainCryoSleepPod::5=Опитай отново с Cryo Sleep Pod.
-Journal/mountainSaveBlankTitle=Запази празен
-Journal/mountainSaveBlank=Бланк иска да използва крио-сънната капсула на върха на планината и не знае, че трябва да бъде калибрирана за нея. Аз съм единственият, който може да спаси живота й.
-Journal/mountainSaveBlank::1=Научи повече за Blank ($x$/$y$)
+Journal/mountainCryoNotes=Искам да направя криосънна капсула. Трябва да събера бележки за експериментите с криотехнология в планината.
+Journal/mountainCryoNotes::1=Събери бележки за криотехнологията ($x$/$y$)
+Journal/mountainCryoSleepPodTitle=Криосънна капсула
+Journal/mountainCryoSleepPod=Започвам да разбирам криотехнологията на Агенцията. Ще пробвам един от проектите на Тейър — криосънната капсула.
+Journal/mountainCryoSleepPod::1=Изработи криосънна капсула
+Journal/mountainCryoSleepPod::2=Изпробвай криосънната капсула
+Journal/mountainCryoSleepPod::3=Открий причината за повредата на криосънната капсула.
+Journal/mountainCryoSleepPod::4=Калибрирай криосънната капсула
+Journal/mountainCryoSleepPod::5=Опитай отново с криосънната капсула.
+Journal/mountainSaveBlankTitle=Спаси Бланк
+Journal/mountainSaveBlank=Бланк иска да използва криосънната капсула на върха на планината и не знае, че трябва да бъде калибрирана за нея. Аз съм единственият, който може да спаси живота ѝ.
+Journal/mountainSaveBlank::1=Научи повече за Бланк ($x$/$y$)
 Journal/mountainSaveBlank::2=Стигни до върха на планината.
-Journal/mountainSaveBlank::3=Намери празното.
-Journal/mountainSaveBlank::4=Разгледай крио-сънната капсула на Бланк.
-Journal/mountainSaveBlank::5=Калибрирай Cryo Sleep Pod на Blank.
+Journal/mountainSaveBlank::3=Намери Бланк.
+Journal/mountainSaveBlank::4=Разгледай криосънната капсула на Бланк.
+Journal/mountainSaveBlank::5=Калибрирай криосънната капсула на Бланк.
 Journal/mountainSaveBlank::6=Провери отново Бланк след известно време.
 Journal/mountainSaveBlank::7=Провери отново Бланк.
 Articles/NP_Electricity_DamagedLines=ВНИМАНИЕ! В резултат на инцидент по време на военни маневри, държавните високоволтови линии са прекъснати. Очаква се проблемът да бъде решен в следващите няколко дни, но е възможно електрозахранването в някои региони на страната да бъде прекъснато. Ако имаш въпроси или проблеми, моля, свържи се с местните аварийни служби за енергетика.
@@ -5083,7 +5070,7 @@ Inspect/bobSleeplessBasePosters=Завладяващо. Наистина обе�
 Inspect/bobSleeplessBaseChairs=Чудя се колко са безсънните. Имат ли редовни срещи?
 Inspect/bobSleeplessBaseContainers=Има много опасни неща за район, който уж е пълен с водород.
 SteamAchievements/NEW_ACHIEVEMENT_1_0_NAME=Пътят на г-н Подготвения
-SteamAchievements/NEW_ACHIEVEMENT_1_0_DESC=Натисни START GAME след като избереш слот.
+SteamAchievements/NEW_ACHIEVEMENT_1_0_DESC=Натисни „Започни играта“, след като избереш слот.
 SteamAchievements/NEW_ACHIEVEMENT_1_1_NAME=Очевидно от самото начало
 SteamAchievements/NEW_ACHIEVEMENT_1_1_DESC=Завърши урока
 SteamAchievements/NEW_ACHIEVEMENT_1_2_NAME=Подготвения Червеношапчо
@@ -5287,6 +5274,7 @@ SteamAchievements/NEW_ACHIEVEMENT_44_17_DESC=Достигни ниво 10 в м�
 SteamAchievements/NEW_ACHIEVEMENT_44_18_NAME=Две птици, един нокът
 SteamAchievements/NEW_ACHIEVEMENT_44_18_DESC=Спечели две награди от една игра на крана
 afterDeath=Ти беше в безсъзнание за
+dayShort=д
 days=дни
 day=ден
 dead=мъртъв
@@ -5295,13 +5283,14 @@ houres=часове
 houresUnder5=часове
 hour=час
 minutes=минути
+minutShort=м
 minutesUnder5=минути
-minut=минут
+minut=мин.
 refresher=олин
 test=Токът е спрян!
 test2=сила
 Bought=купен
-sold=продаден
+sold=ПРОДАДЕНО
 soldSale=Не, благодаря
 inStock=на склад
 inStockSale=необходим
@@ -5311,10 +5300,10 @@ Sell=Продай
 Give=Дай
 total=общо
 demoFinished=\n<color=#FFC700FF><size=175%>ПОЗДРАВЛЯВАМ!\n<line-height=59%><color=#FFFFFFFF><size=100%>Завърши си демото.\nНадяваме се да си хареса. Сподели мнението си, за да направим играта по-добра.\n<line-height=70%>\n<pos=4%>Искаш да продължиш да играеш?
-yes=Да
+yes=Да!
 No=Не
 openAgent=Отвори вратата, агентът е тук!
-tutorialQ=Искаш ли да играеш туториала?
+tutorialQ=Искаш ли да започнеш урока?
 saveing=Запазване
 myCash=Моите пари
 Buy=Купи
@@ -5323,7 +5312,7 @@ exitG=Изход
 exitW=Изход от играта
 Settings=Настройки
 exitM=Изход към менюто
-Hold=Дръж
+Hold=Прекъсни
 Controls=Контроли
 Audio=Аудио
 Results=Резултати
@@ -5369,7 +5358,7 @@ Gear=Екипировка
 eatAll=Изяж всичко
 reload=Презареди?
 moreRocket=Повече ракети\nв пълната версия
-traded=ТЪРГОВИРАНО
+traded=РАЗМЕНЕНО
 Continue=Продължи
 New Game=Нова игра
 Options=Опции
@@ -5384,7 +5373,7 @@ WrongContainer=не е подходящ контейнер
 NotReady=Не е готов
 WayBlocked=Пътят е блокиран
 CantGo=Не можеш да отидеш там
-saved=запазено
+saved=Запазено
 time=време
 NotPrepared=Не беше подготвен
 PrologueExitShowcase0=ПЪЛНАТА ИГРА\nВКЛЮЧВА

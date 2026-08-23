@@ -7,7 +7,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AssemblyName>MrPrepperTranslationMod</AssemblyName>
     <RootNamespace>MrPrepperTranslationMod</RootNamespace>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <GameDir Condition="'$(GameDir)' == '' and '$(MR_PREPPER_DIR)' != ''">$(MR_PREPPER_DIR)</GameDir>
     <GameDir Condition="'$(GameDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\MrPrepper</GameDir>
     <GameManaged>$(GameDir)\MrPrepper_Data\Managed</GameManaged>
@@ -30,6 +30,7 @@
     <Reference Include="Assembly-CSharp"><HintPath>$(GameManaged)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine"><HintPath>$(GameManaged)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameManaged)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(GameManaged)\UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.UI"><HintPath>$(GameManaged)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="TextMeshPro-2017.3-Runtime"><HintPath>$(GameManaged)\TextMeshPro-2017.3-Runtime.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>
@@ -37,6 +38,7 @@
   <ItemGroup>
     <None Include="translations\labels.txt" CopyToOutputDirectory="PreserveNewest" />
     <None Include="translations\changelog.txt" CopyToOutputDirectory="PreserveNewest" />
+    <CustomImages Include="$(MSBuildProjectDirectory)/images/**/*.png" />
   </ItemGroup>
 
   <Target Name="StageMod" AfterTargets="Build">
@@ -44,9 +46,13 @@
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(DistDir)" />
     <Copy SourceFiles="$(TargetDir)translations\labels.txt" DestinationFolder="$(DistDir)\translations" />
     <Copy SourceFiles="$(TargetDir)translations\changelog.txt" DestinationFolder="$(DistDir)\translations" />
+    <MakeDir Directories="$(DistDir)\images" />
+    <Copy SourceFiles="@(CustomImages)" DestinationFolder="$(DistDir)\images" />
     <MakeDir Directories="$(GamePluginsDir)\translations" />
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GamePluginsDir)" />
     <Copy SourceFiles="$(TargetDir)translations\labels.txt" DestinationFolder="$(GamePluginsDir)\translations" />
     <Copy SourceFiles="$(TargetDir)translations\changelog.txt" DestinationFolder="$(GamePluginsDir)\translations" />
+    <MakeDir Directories="$(GamePluginsDir)\images" />
+    <Copy SourceFiles="@(CustomImages)" DestinationFolder="$(GamePluginsDir)\images" />
   </Target>
 </Project>
