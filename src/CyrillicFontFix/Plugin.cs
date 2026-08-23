@@ -32,6 +32,9 @@ public sealed class Plugin : BaseUnityPlugin
     private static UnityEngine.Font legacyReplacementFont;
     private static ConfigEntry<bool> enableTestReplacement;
     private static ConfigEntry<bool> enableFallbackFont;
+    private static ConfigEntry<bool> preferRussianFallbackOrder;
+    private static ConfigEntry<bool> enableHelperOutlineFix;
+    private static ConfigEntry<float> helperOutlineWidthMultiplier;
     private static ConfigEntry<bool> excludeVsync;
     private static ConfigEntry<string> targetFontName;
     private static ConfigEntry<string> replacementFontName;
@@ -43,6 +46,7 @@ public sealed class Plugin : BaseUnityPlugin
     private static readonly HashSet<string> loggedEntries = new(StringComparer.Ordinal);
     private static readonly HashSet<string> loggedFontChains = new(StringComparer.Ordinal);
     private static readonly HashSet<int> replacedComponents = new();
+    private static readonly HashSet<int> outlineFixedComponents = new();
     private static readonly Dictionary<int, TMP_FontAsset> originalFonts = new();
     private static readonly Dictionary<int, float> originalFontSizes = new();
     private static readonly Dictionary<int, float> originalCharacterSpacing = new();
@@ -56,7 +60,7 @@ public sealed class Plugin : BaseUnityPlugin
         dumpFontDiagnostics = Config.Bind(
             "Diagnostics",
             "DumpFontDiagnostics",
-            true,
+            false,
             "Log the TMP font used by visible components containing Cyrillic text.");
         logAllTextComponents = Config.Bind(
             "Diagnostics",
@@ -66,12 +70,12 @@ public sealed class Plugin : BaseUnityPlugin
         logLegacyTextComponents = Config.Bind(
             "Diagnostics",
             "LogLegacyTextComponents",
-            true,
+            false,
             "Log legacy Unity UI.Text components and their Font names.");
         logLoadedLegacyFonts = Config.Bind(
             "Diagnostics",
             "LogLoadedLegacyFonts",
-            true,
+            false,
             "Log all loaded legacy Unity Font assets.");
         scanInterval = Config.Bind(
             "Diagnostics",
@@ -108,6 +112,21 @@ public sealed class Plugin : BaseUnityPlugin
             "Enabled",
             false,
             "Load the bundled Cyrillic TMP font as a global fallback.");
+        preferRussianFallbackOrder = Config.Bind(
+            "FallbackFont",
+            "PreferRussianFallbackOrder",
+            false,
+            "Move the game's Oswald Cyrillic fallback to the front, matching the built-in Russian language tuning.");
+        enableHelperOutlineFix = Config.Bind(
+            "HelperOutlineFix",
+            "Enabled",
+            true,
+            "Reduce the outline only on HelperText components using THIS IS FONT TO USE Outline.");
+        helperOutlineWidthMultiplier = Config.Bind(
+            "HelperOutlineFix",
+            "OutlineWidthMultiplier",
+            0.75f,
+            "Multiplier for the copied HelperText outline material. 1 keeps the original width.");
         excludeVsync = Config.Bind(
             "TestReplacement",
             "ExcludeVSync",
@@ -241,6 +260,8 @@ public sealed class Plugin : BaseUnityPlugin
 
         foreach (var component in components)
         {
+            ApplyHelperOutlineFix(component);
+            PromoteRussianFallbackOrder(component);
             if (TryApplyTestReplacement(component))
             {
                 continue;
@@ -253,6 +274,75 @@ public sealed class Plugin : BaseUnityPlugin
         {
             LogLegacyTextComponents();
         }
+    }
+
+    private static void ApplyHelperOutlineFix(TMP_Text component)
+    {
+        if (!enableHelperOutlineFix.Value || component == null || component.font == null ||
+            !string.Equals(component.gameObject.name, "HelperText", StringComparison.Ordinal) ||
+            !string.Equals(component.font.name, "THIS IS FONT TO USE Outline", StringComparison.Ordinal))
+        {
+            return;
+        }
+
+        var id = component.GetInstanceID();
+        if (!outlineFixedComponents.Add(id))
+        {
+            return;
+        }
+
+        var source = component.fontSharedMaterial;
+        if (source == null)
+        {
+            log.LogWarning("Helper outline fix skipped because the shared material is missing.");
+            return;
+        }
+
+        var material = new Material(source)
+        {
+            name = $"{source.name} (HelperText outline fix)"
+        };
+        var originalWidth = material.GetFloat(ShaderUtilities.ID_OutlineWidth);
+        material.SetFloat(
+            ShaderUtilities.ID_OutlineWidth,
+            originalWidth * Math.Max(0.1f, helperOutlineWidthMultiplier.Value));
+        component.fontMaterial = material;
+        log.LogInfo($"HelperText outline fix applied: original={originalWidth:0.###}, multiplier={helperOutlineWidthMultiplier.Value:0.###}, result={material.GetFloat(ShaderUtilities.ID_OutlineWidth):0.###}");
+    }
+
+    private static void PromoteRussianFallbackOrder(TMP_Text component)
+    {
+        if (!preferRussianFallbackOrder.Value || component == null || !ContainsCyrillic(component.text))
+        {
+            return;
+        }
+
+        var font = component.font;
+        if (font == null || font.fallbackFontAssets == null)
+        {
+            return;
+        }
+
+        var oswaldIndex = -1;
+        for (var i = 0; i < font.fallbackFontAssets.Count; i++)
+        {
+            if (font.fallbackFontAssets[i] != null &&
+                string.Equals(font.fallbackFontAssets[i].name, "Oswald-VariableFont_wght SDF", StringComparison.Ordinal))
+            {
+                oswaldIndex = i;
+                break;
+            }
+        }
+
+        if (oswaldIndex <= 0)
+        {
+            return;
+        }
+
+        var oswald = font.fallbackFontAssets[oswaldIndex];
+        font.fallbackFontAssets.RemoveAt(oswaldIndex);
+        font.fallbackFontAssets.Insert(0, oswald);
+        log.LogInfo($"Promoted Russian Cyrillic fallback: font='{font.name}', fallback='{oswald.name}'");
     }
 
     private static bool TryApplyTestReplacement(TMP_Text component)
@@ -424,7 +514,7 @@ public sealed class Plugin : BaseUnityPlugin
         var entry = $"{objectName}|{fontName}|{text}";
         if (loggedEntries.Add(entry))
         {
-            log.LogInfo($"TMP font: object='{objectName}', font='{fontName}', size={component.fontSize:0.##}, charSpacing={component.characterSpacing:0.##}, wordSpacing={component.wordSpacing:0.##}, lineSpacing={component.lineSpacing:0.##}, text='{TrimForLog(text)}'");
+            log.LogInfo($"TMP font: object='{objectName}', font='{fontName}', style={component.fontStyle}, weight={component.fontWeight}, bold={component.isUsingBold}, size={component.fontSize:0.##}, charSpacing={component.characterSpacing:0.##}, wordSpacing={component.wordSpacing:0.##}, lineSpacing={component.lineSpacing:0.##}, text='{TrimForLog(text)}'");
         }
     }
 
