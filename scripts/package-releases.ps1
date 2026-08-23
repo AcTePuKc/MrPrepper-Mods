@@ -20,6 +20,7 @@ $bgDll = Join-Path $repo "dist\AcTePuKc Mr Prepper Bulgarian Translation\MrPrepp
 $tooltipDll = Join-Path $repo "dist\MrPrepperTooltipScaleFix\MrPrepperTooltipScaleFix.dll"
 $labels = Join-Path $repo "src\MrPrepperTranslationMod\translations\labels.txt"
 $changelog = Join-Path $repo "src\MrPrepperTranslationMod\translations\changelog.txt"
+$imageDir = Join-Path $repo "src\MrPrepperTranslationMod\images"
 $tooltipCfg = Join-Path $repo "src\MrPrepperTooltipScaleFix\config\actepukc.mrprepper.tooltipscalefix.cfg"
 
 $required = @($bgDll, $tooltipDll, $labels, $changelog, $tooltipCfg)
@@ -43,6 +44,9 @@ New-Item -ItemType Directory -Path $bgTranslations -Force | Out-Null
 Copy-Item -LiteralPath $bgDll -Destination (Join-Path $bgPlugin "MrPrepperTranslationMod.dll")
 Copy-Item -LiteralPath $labels -Destination (Join-Path $bgTranslations "labels.txt")
 Copy-Item -LiteralPath $changelog -Destination (Join-Path $bgTranslations "changelog.txt")
+$bgImages = Join-Path $bgPlugin "images"
+New-Item -ItemType Directory -Path $bgImages -Force | Out-Null
+Get-ChildItem -LiteralPath $imageDir -Filter "*.png" -File | Copy-Item -Destination $bgImages
 
 $bgZip = Join-Path $outRoot "MrPrepper-Bulgarian-Translation-$BgVersion.zip"
 if (Test-Path -LiteralPath $bgZip) { Remove-Item -LiteralPath $bgZip -Force }

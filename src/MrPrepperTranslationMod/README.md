@@ -19,10 +19,17 @@ The package should contain:
 ```text
 BepInEx/plugins/AcTePuKc Mr Prepper Bulgarian Translation/
 ├── MrPrepperTranslationMod.dll
-└── translations/
+├── translations/
     ├── labels.txt
     └── changelog.txt
+└── images/
+    ├── prepStart_bg.png
+    ├── ready_bg.png
+    ├── escape_bg.png
+    └── bulgaria.png
 ```
+
+The optional `Cyrillic Font Fix` is distributed as a separate mod. It is recommended for users who want the game's thicker Cyrillic fallback font, but it is not required for the translation.
 
 The game starts in English by default. The mod places the Bulgarian strings into the English localization slot so they are available immediately at startup, without requiring a language change in the settings.
 
@@ -48,10 +55,10 @@ DumpVisibleText = false
 DumpOnly = false
 DumpI2Terms = false
 DumpI2ReferenceLanguage = false
-I2ReferenceLanguageName = Russian
+I2ReferenceLanguageNames = Russian,French
 ```
 
-Diagnostic options are intended for local development and translation research. Generated dumps are working files and are not part of the repository release content.
+Diagnostic options are disabled by default and are intended for local development and translation research. Users who need them can enable them manually in the generated configuration. `DumpI2Terms` writes the English catalog to `dumps/i2-terms.tsv`; `DumpI2ReferenceLanguage` writes one `key=value` file per language listed in `I2ReferenceLanguageNames`. Generated dumps are working files and are not part of the repository release content.
 
 ## Translation files
 

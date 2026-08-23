@@ -20,7 +20,7 @@ public sealed class Plugin : BaseUnityPlugin
 {
     public const string PluginGuid = "actepukc.mrprepper.uitranslationbulgarian";
     public const string PluginName = "(UI) Mr. Prepper Bulgarian Translation";
-    public const string PluginVersion = "0.1.0";
+    public const string PluginVersion = "0.1.1";
 
     private static readonly Dictionary<string, string> Translations =
         new Dictionary<string, string>(StringComparer.Ordinal);
@@ -30,6 +30,9 @@ public sealed class Plugin : BaseUnityPlugin
         new HashSet<string>(StringComparer.Ordinal);
     private static readonly HashSet<string> DumpedI2Terms =
         new HashSet<string>(StringComparer.Ordinal);
+    private static readonly Dictionary<string, HashSet<string>> DumpedI2ReferenceTerms =
+        new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase);
+    private static readonly List<UnityEngine.Object> CustomImageAssets = new List<UnityEngine.Object>();
 
     private static ManualLogSource log;
     private string pluginDirectory;
@@ -45,11 +48,11 @@ public sealed class Plugin : BaseUnityPlugin
     private static ConfigEntry<bool> dumpI2Terms;
     private static string i2DumpPath;
     private static ConfigEntry<bool> dumpI2ReferenceLanguage;
-    private static ConfigEntry<string> i2ReferenceLanguageName;
-    private static string i2ReferenceDumpPath;
-    private static readonly HashSet<string> DumpedI2ReferenceTerms =
-        new HashSet<string>(StringComparer.Ordinal);
+    private static ConfigEntry<string> i2ReferenceLanguageNames;
+    private static readonly Dictionary<string, string> i2ReferenceDumpPaths =
+        new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
     private static bool injectingI2;
+    private static bool initialI2InjectionComplete;
     private static bool startupLanguageApplied;
     private ConfigEntry<float> scanInterval;
     private float nextScan;
@@ -69,8 +72,8 @@ public sealed class Plugin : BaseUnityPlugin
             "Apply exact local translations from translations/labels.txt.");
         enableChangelogTranslations = Config.Bind("General", "EnableChangelogTranslations", true,
             "Apply optional exact translations from translations/changelog.txt.");
-        dumpVisibleText = Config.Bind("Diagnostics", "DumpVisibleText", true,
-            "Record observed UI text in dumps/visible-text.tsv for later translation.");
+        dumpVisibleText = Config.Bind("Diagnostics", "DumpVisibleText", false,
+            "Record observed UI text in dumps/visible-text.tsv for later translation. Keep disabled during normal play.");
         dumpOnly = Config.Bind("Diagnostics", "DumpOnly", false,
             "Record visible text without applying translations during diagnostics.");
         enableI2Injection = Config.Bind("General", "EnableI2LocalizationInjection", true,
@@ -81,14 +84,10 @@ public sealed class Plugin : BaseUnityPlugin
             "Dump the complete I2 term catalog and English values once per startup.");
         dumpI2ReferenceLanguage = Config.Bind("Diagnostics", "DumpI2ReferenceLanguage", false,
             "Dump a second I2 language as key=translation for reference.");
-        i2ReferenceLanguageName = Config.Bind("Diagnostics", "I2ReferenceLanguageName", "Russian",
-            "Second I2 language to dump in key=translation format.");
-        i2ReferenceDumpPath = Path.Combine(
-            pluginDirectory,
-            "dumps",
-            "i2-reference-" + SafeFilePart(i2ReferenceLanguageName.Value) + ".txt");
+        i2ReferenceLanguageNames = Config.Bind("Diagnostics", "I2ReferenceLanguageNames", "Russian,French",
+            "Comma-separated I2 languages to dump separately as key=translation files. English is in i2-terms.tsv.");
         scanInterval = Config.Bind("Diagnostics", "ScanIntervalSeconds", 0.5f,
-            "Seconds between scans of visible UGUI and TextMeshPro text components.");
+            "Seconds between scans of visible UGUI and TextMeshPro text components when DumpVisibleText is enabled.");
 
         Directory.CreateDirectory(Path.GetDirectoryName(translationPath));
         Directory.CreateDirectory(Path.GetDirectoryName(dumpPath));
@@ -98,9 +97,17 @@ public sealed class Plugin : BaseUnityPlugin
         }
         if (dumpI2ReferenceLanguage.Value)
         {
-            File.WriteAllText(i2ReferenceDumpPath, "# I2 reference language: " + i2ReferenceLanguageName.Value + Environment.NewLine, Encoding.UTF8);
+            foreach (var languageName in GetReferenceLanguageNames())
+            {
+                var path = Path.Combine(pluginDirectory, "dumps", "i2-reference-" + SafeFilePart(languageName) + ".txt");
+                i2ReferenceDumpPaths[languageName] = path;
+                DumpedI2ReferenceTerms[languageName] = new HashSet<string>(StringComparer.Ordinal);
+                File.WriteAllText(path, "# I2 reference language: " + languageName + Environment.NewLine, Encoding.UTF8);
+            }
         }
+
         LoadTranslations();
+        LoadCustomImageAssets();
         InstallTextHooks();
         InstallI2Hooks();
         StartCoroutine(WaitForI2Localization());
@@ -108,32 +115,55 @@ public sealed class Plugin : BaseUnityPlugin
         log.LogInfo($"{PluginName} {PluginVersion} loaded");
         log.LogInfo($"Translation entries: {Translations.Count}");
         log.LogInfo($"Translation file: {translationPath}");
-        log.LogInfo($"Dump file: {dumpPath}");
+        log.LogInfo($"DumpVisibleText={dumpVisibleText.Value}");
     }
 
     private void InstallI2Hooks()
     {
-        var setLanguage = AccessTools.Method(typeof(LocalizationManager), "SetLanguage", new[] { typeof(string) });
+        var setLanguage = FindMethod(
+            typeof(LocalizationManager),
+            "SetLanguage",
+            BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
+            typeof(string));
         if (setLanguage != null)
         {
             var harmony = new Harmony(PluginGuid + ".i2");
             harmony.Patch(setLanguage, postfix: new HarmonyMethod(typeof(Plugin), nameof(I2_SetLanguage_Postfix)));
             log.LogInfo("I2 hook installed: LocalizationManager.SetLanguage");
         }
+        else
+        {
+            log.LogInfo("I2 LocalizationManager.SetLanguage(string) is not present in this game build; using dictionary injection only.");
+        }
 
-        var updateDictionary = AccessTools.Method(typeof(LanguageSourceData), "UpdateDictionary", new[] { typeof(bool) });
+        var updateDictionary = FindMethod(
+            typeof(LanguageSourceData),
+            "UpdateDictionary",
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+            typeof(bool));
         if (updateDictionary != null)
         {
             var harmony = new Harmony(PluginGuid + ".i2.dictionary");
             harmony.Patch(updateDictionary, postfix: new HarmonyMethod(typeof(Plugin), nameof(I2_UpdateDictionary_Postfix)));
             log.LogInfo("I2 hook installed: LanguageSourceData.UpdateDictionary");
         }
+
+    }
+
+    private static MethodInfo FindMethod(Type type, string name, BindingFlags flags, params Type[] parameterTypes)
+    {
+        return type.GetMethod(name, flags, null, parameterTypes, null);
     }
 
     private static IEnumerator WaitForI2Localization()
     {
         for (var attempt = 0; attempt < 30; attempt++)
         {
+            if (initialI2InjectionComplete)
+            {
+                yield break;
+            }
+
             yield return new WaitForSecondsRealtime(0.25f);
             if (enableI2Injection.Value && InjectI2Translations())
             {
@@ -156,10 +186,11 @@ public sealed class Plugin : BaseUnityPlugin
         startupLanguageApplied = true;
         try
         {
-            var setLanguage = AccessTools.Method(
+            var setLanguage = FindMethod(
                 typeof(LocalizationManager),
                 "SetLanguage",
-                new[] { typeof(string) });
+                BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
+                typeof(string));
             if (setLanguage == null)
             {
                 throw new MissingMethodException("I2 LocalizationManager.SetLanguage(string) was not found");
@@ -177,7 +208,7 @@ public sealed class Plugin : BaseUnityPlugin
 
     private static void I2_SetLanguage_Postfix()
     {
-        if (enableI2Injection.Value)
+        if (enableI2Injection.Value && !initialI2InjectionComplete && !injectingI2)
         {
             InjectI2Translations();
         }
@@ -185,7 +216,7 @@ public sealed class Plugin : BaseUnityPlugin
 
     private static void I2_UpdateDictionary_Postfix()
     {
-        if (enableI2Injection.Value && !injectingI2)
+        if (enableI2Injection.Value && !initialI2InjectionComplete && !injectingI2)
         {
             InjectI2Translations();
         }
@@ -193,9 +224,9 @@ public sealed class Plugin : BaseUnityPlugin
 
     private static bool InjectI2Translations()
     {
-        if (injectingI2 || Translations.Count == 0)
+        if (injectingI2 || initialI2InjectionComplete || Translations.Count == 0)
         {
-            return false;
+            return initialI2InjectionComplete;
         }
 
         injectingI2 = true;
@@ -209,11 +240,13 @@ public sealed class Plugin : BaseUnityPlugin
                 return false;
             }
 
-            var injected = 0;
+            var changed = 0;
+            var alreadyCurrent = 0;
             var sourceCount = 0;
             var matchedByKey = 0;
             var matchedByEnglishValue = 0;
             var termCount = 0;
+
             foreach (var sourceObject in sources)
             {
                 var source = sourceObject as LanguageSourceData;
@@ -223,6 +256,7 @@ public sealed class Plugin : BaseUnityPlugin
                 }
 
                 sourceCount++;
+                var sourceChanged = 0;
 
                 var languageIndex = source.GetLanguageIndex(i2LanguageName.Value, true, true);
                 if (languageIndex < 0)
@@ -237,7 +271,6 @@ public sealed class Plugin : BaseUnityPlugin
                 }
 
                 var englishIndex = source.GetLanguageIndex("English", true, true);
-                var referenceIndex = source.GetLanguageIndex(i2ReferenceLanguageName.Value, true, true);
 
                 foreach (var term in source.GetTermsList(string.Empty))
                 {
@@ -247,10 +280,16 @@ public sealed class Plugin : BaseUnityPlugin
                         ? data?.GetTranslation(englishIndex, string.Empty, false)
                         : string.Empty;
                     DumpI2Term(source, term, englishValue);
-                    var referenceValue = referenceIndex >= 0
-                        ? data?.GetTranslation(referenceIndex, string.Empty, false)
-                        : string.Empty;
-                    DumpI2ReferenceTerm(term, referenceValue);
+
+                    foreach (var languageName in GetReferenceLanguageNames())
+                    {
+                        var referenceIndex = source.GetLanguageIndex(languageName, true, true);
+                        var referenceValue = referenceIndex >= 0
+                            ? data?.GetTranslation(referenceIndex, string.Empty, false)
+                            : string.Empty;
+                        DumpI2ReferenceTerm(languageName, term, referenceValue);
+                    }
+
                     var matched = Translations.TryGetValue(term, out var translation);
                     if (matched)
                     {
@@ -266,30 +305,50 @@ public sealed class Plugin : BaseUnityPlugin
                         }
                     }
 
-                    if (!matched)
+                    if (!matched || data == null)
                     {
                         continue;
                     }
 
-                    if (data == null)
+                    var current = data.GetTranslation(languageIndex, string.Empty, false);
+                    if (string.Equals(current, translation, StringComparison.Ordinal))
                     {
+                        alreadyCurrent++;
                         continue;
                     }
 
                     data.SetTranslation(languageIndex, translation, string.Empty);
-                    injected++;
+                    changed++;
+                    sourceChanged++;
                 }
 
-                source.UpdateDictionary(true);
+                if (sourceChanged > 0)
+                {
+                    source.UpdateDictionary(true);
+                }
             }
 
-            if (injected > 0)
+            if (sourceCount > 0 && termCount > 0)
             {
-                log.LogInfo($"I2 localization injection: {injected} translations into '{i2LanguageName.Value}' (by key={matchedByKey}, by English value={matchedByEnglishValue}, terms={termCount}, sources={sourceCount})");
+                initialI2InjectionComplete = true;
+                RegisterCustomImagesWithI2Sources();
+                try
+                {
+                    LocalizationManager.LocalizeAll(true);
+                    log.LogInfo("I2 localized UI refreshed after translation injection");
+                }
+                catch (Exception ex)
+                {
+                    log.LogWarning($"Could not refresh I2 localized UI after injection: {ex.Message}");
+                }
+                log.LogInfo(
+                    $"I2 localization injection complete: changed={changed}, alreadyCurrent={alreadyCurrent}, " +
+                    $"language='{i2LanguageName.Value}', by key={matchedByKey}, by English value={matchedByEnglishValue}, " +
+                    $"terms={termCount}, sources={sourceCount}");
                 return true;
             }
 
-            return sourceCount > 0;
+            return false;
         }
         catch (Exception ex)
         {
@@ -332,23 +391,49 @@ public sealed class Plugin : BaseUnityPlugin
             .Replace("\t", "\\t");
     }
 
-    private static void DumpI2ReferenceTerm(string term, string value)
+    private static IEnumerable<string> GetReferenceLanguageNames()
     {
-        if (!dumpI2ReferenceLanguage.Value || string.IsNullOrEmpty(term) || string.IsNullOrEmpty(value))
+        if (i2ReferenceLanguageNames == null)
+        {
+            yield break;
+        }
+
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var rawName in (i2ReferenceLanguageNames.Value ?? string.Empty).Split(','))
+        {
+            var name = rawName.Trim();
+            if (name.Length > 0 && seen.Add(name))
+            {
+                yield return name;
+            }
+        }
+    }
+
+    private static void DumpI2ReferenceTerm(string languageName, string term, string value)
+    {
+        if (!dumpI2ReferenceLanguage.Value || string.IsNullOrEmpty(languageName) ||
+            string.IsNullOrEmpty(term) || string.IsNullOrEmpty(value) ||
+            !i2ReferenceDumpPaths.TryGetValue(languageName, out var dumpPath))
         {
             return;
         }
 
         lock (DumpedI2ReferenceTerms)
         {
-            if (!DumpedI2ReferenceTerms.Add(term))
+            if (!DumpedI2ReferenceTerms.TryGetValue(languageName, out var dumpedTerms))
+            {
+                dumpedTerms = new HashSet<string>(StringComparer.Ordinal);
+                DumpedI2ReferenceTerms[languageName] = dumpedTerms;
+            }
+
+            if (!dumpedTerms.Add(term))
             {
                 return;
             }
         }
 
         var line = EncodeLabelField(term) + "=" + EncodeLabelField(value) + Environment.NewLine;
-        File.AppendAllText(i2ReferenceDumpPath, line, Encoding.UTF8);
+        File.AppendAllText(dumpPath, line, Encoding.UTF8);
     }
 
     private static string EncodeLabelField(string value)
@@ -384,23 +469,14 @@ public sealed class Plugin : BaseUnityPlugin
             harmony.Patch(tmpSetter, postfix: tmpPostfix);
             log.LogInfo("Static hook installed: TMP_Text.text");
         }
-        else
-        {
-            log.LogError("Could not find TMP_Text.text setter");
-        }
 
         if (uiSetter != null)
         {
             harmony.Patch(uiSetter, postfix: uiPostfix);
             log.LogInfo("Static hook installed: UnityEngine.UI.Text.text");
         }
-        else
-        {
-            log.LogError("Could not find UnityEngine.UI.Text.text setter");
-        }
 
-        var setTextMethods = typeof(TMP_Text).GetMethods(
-            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+        var setTextMethods = typeof(TMP_Text).GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         foreach (var method in setTextMethods)
         {
             if (!string.Equals(method.Name, "SetText", StringComparison.Ordinal))
@@ -410,14 +486,12 @@ public sealed class Plugin : BaseUnityPlugin
 
             var parameters = method.GetParameters();
             if (parameters.Length == 0 ||
-                (parameters[0].ParameterType != typeof(string) &&
-                 parameters[0].ParameterType != typeof(StringBuilder)))
+                (parameters[0].ParameterType != typeof(string) && parameters[0].ParameterType != typeof(StringBuilder)))
             {
                 continue;
             }
 
-            harmony.Patch(method, postfix: new HarmonyMethod(typeof(Plugin), nameof(TMP_Text_SetText_Postfix)));
-            log.LogInfo($"Static hook installed: TMP_Text.{method.Name}({parameters.Length} args)");
+            harmony.Patch(method, postfix: tmpPostfix);
         }
 
         foreach (var method in setTextMethods)
@@ -434,25 +508,34 @@ public sealed class Plugin : BaseUnityPlugin
                 continue;
             }
 
-            harmony.Patch(method, postfix: new HarmonyMethod(typeof(Plugin), nameof(TMP_Text_SetText_Postfix)));
-            log.LogInfo($"Static hook installed: TMP_Text.{method.Name}({parameters.Length} args)");
+            harmony.Patch(method, postfix: tmpPostfix);
         }
 
-        var tmpOnEnable = AccessTools.Method(typeof(TMP_Text), "OnEnable");
-        if (tmpOnEnable != null)
-        {
-            harmony.Patch(tmpOnEnable, postfix: new HarmonyMethod(typeof(Plugin), nameof(TMP_Text_OnEnable_Postfix)));
-            log.LogInfo("Static hook installed: TMP_Text.OnEnable");
-        }
+        PatchDeclaredOnEnable(harmony, typeof(TextMeshProUGUI), nameof(TMP_Text_OnEnable_Postfix));
+        PatchDeclaredOnEnable(harmony, typeof(TextMeshPro), nameof(TMP_Text_OnEnable_Postfix));
 
-        var uiOnEnable = AccessTools.Method(typeof(Text), "OnEnable");
+        var uiOnEnable = typeof(MaskableGraphic).GetMethod(
+            "OnEnable",
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
         if (uiOnEnable != null)
         {
-            harmony.Patch(uiOnEnable, postfix: new HarmonyMethod(typeof(Plugin), nameof(UnityText_OnEnable_Postfix)));
-            log.LogInfo("Static hook installed: UnityEngine.UI.Text.OnEnable");
+            harmony.Patch(uiOnEnable, postfix: new HarmonyMethod(typeof(Plugin), nameof(MaskableGraphic_OnEnable_Postfix)));
+            log.LogInfo("Static hook installed: UnityEngine.UI.MaskableGraphic.OnEnable");
+        }
+    }
+
+    private static void PatchDeclaredOnEnable(Harmony harmony, Type type, string postfixName)
+    {
+        var method = type.GetMethod(
+            "OnEnable",
+            BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+        if (method == null)
+        {
+            return;
         }
 
-
+        harmony.Patch(method, postfix: new HarmonyMethod(typeof(Plugin), postfixName));
+        log.LogInfo($"Static hook installed: {type.FullName}.OnEnable");
     }
 
     private void Update()
@@ -490,6 +573,104 @@ public sealed class Plugin : BaseUnityPlugin
         }
     }
 
+    private void LoadCustomImageAssets()
+    {
+        var imageDirectory = Path.Combine(pluginDirectory, "images");
+        if (!Directory.Exists(imageDirectory))
+        {
+            return;
+        }
+
+        foreach (var imagePath in Directory.GetFiles(imageDirectory, "*.png"))
+        {
+            var assetName = Path.GetFileNameWithoutExtension(imagePath);
+            try
+            {
+                var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false)
+                {
+                    name = assetName,
+                    wrapMode = TextureWrapMode.Clamp,
+                    filterMode = FilterMode.Bilinear
+                };
+
+                if (!ImageConversion.LoadImage(texture, File.ReadAllBytes(imagePath), markNonReadable: false))
+                {
+                    UnityEngine.Object.Destroy(texture);
+                    log.LogWarning($"Could not decode custom image: {imagePath}");
+                    continue;
+                }
+
+                var sprite = Sprite.Create(
+                    texture,
+                    new Rect(0f, 0f, texture.width, texture.height),
+                    new Vector2(0.5f, 0.5f),
+                    100f);
+                sprite.name = assetName;
+                CustomImageAssets.Add(sprite);
+                log.LogInfo($"Custom image loaded: {assetName} ({texture.width}x{texture.height})");
+            }
+            catch (Exception ex)
+            {
+                log.LogWarning($"Could not load custom image '{imagePath}': {ex.Message}");
+            }
+        }
+
+        if (CustomImageAssets.Count == 0)
+        {
+            return;
+        }
+
+        var resourceManager = ResourceManager.pInstance;
+        var existingAssets = resourceManager.Assets ?? Array.Empty<UnityEngine.Object>();
+        var mergedAssets = new List<UnityEngine.Object>(existingAssets);
+        foreach (var asset in CustomImageAssets)
+        {
+            if (asset != null && !mergedAssets.Exists(existing => existing != null && existing.name == asset.name))
+            {
+                mergedAssets.Add(asset);
+            }
+        }
+
+        resourceManager.Assets = mergedAssets.ToArray();
+        RegisterCustomImagesWithI2Sources();
+        log.LogInfo($"Custom image assets registered: {CustomImageAssets.Count}");
+    }
+
+    private static void RegisterCustomImagesWithI2Sources()
+    {
+        var sourcesField = typeof(LocalizationManager).GetField(
+            "Sources", BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
+        var sources = sourcesField?.GetValue(null) as IEnumerable;
+        if (sources == null)
+        {
+            return;
+        }
+
+        var sourceCount = 0;
+        foreach (var sourceObject in sources)
+        {
+            var source = sourceObject as LanguageSourceData;
+            if (source == null)
+            {
+                continue;
+            }
+
+            sourceCount++;
+            foreach (var asset in CustomImageAssets)
+            {
+                if (asset != null)
+                {
+                    source.AddAsset(asset);
+                }
+            }
+        }
+
+        if (sourceCount > 0)
+        {
+            log.LogInfo($"Custom image assets registered with I2 sources: {sourceCount}");
+        }
+    }
+
     private static void LoadTranslationFile(string path, Dictionary<string, string> target)
     {
         foreach (var rawLine in File.ReadAllLines(path, Encoding.UTF8))
@@ -507,11 +688,9 @@ public sealed class Plugin : BaseUnityPlugin
             }
 
             var separator = line.IndexOf('\t');
-            var separatorLength = 1;
             if (separator < 0)
             {
                 separator = line.IndexOf('=');
-                separatorLength = 1;
             }
 
             if (separator <= 0 || separator == line.Length - 1)
@@ -520,7 +699,7 @@ public sealed class Plugin : BaseUnityPlugin
             }
 
             var source = Decode(line.Substring(0, separator));
-            var translated = Decode(line.Substring(separator + separatorLength));
+            var translated = Decode(line.Substring(separator + 1));
             if (source.Length == 0 || translated.Length == 0)
             {
                 continue;
@@ -590,6 +769,11 @@ public sealed class Plugin : BaseUnityPlugin
         TranslateComponent(__instance);
     }
 
+    private static void TMP_Text_OnEnable_Postfix(TMP_Text __instance)
+    {
+        TranslateComponent(__instance);
+    }
+
     private static void UnityText_SetText_Postfix(Text __instance)
     {
         if (__instance == null)
@@ -605,6 +789,22 @@ public sealed class Plugin : BaseUnityPlugin
         }
     }
 
+    private static void MaskableGraphic_OnEnable_Postfix(MaskableGraphic __instance)
+    {
+        var text = __instance as Text;
+        if (text == null)
+        {
+            return;
+        }
+
+        var value = text.text;
+        TranslateValue(ref value);
+        if (!string.Equals(value, text.text, StringComparison.Ordinal))
+        {
+            text.text = value;
+        }
+    }
+
     private static void TranslateComponent(TMP_Text instance)
     {
         if (instance == null)
@@ -617,36 +817,6 @@ public sealed class Plugin : BaseUnityPlugin
         if (!string.Equals(value, instance.text, StringComparison.Ordinal))
         {
             instance.text = value;
-        }
-    }
-
-    private static void TMP_Text_OnEnable_Postfix(TMP_Text __instance)
-    {
-        if (__instance == null)
-        {
-            return;
-        }
-
-        var value = __instance.text;
-        TranslateValue(ref value);
-        if (!string.Equals(value, __instance.text, StringComparison.Ordinal))
-        {
-            __instance.text = value;
-        }
-    }
-
-    private static void UnityText_OnEnable_Postfix(Text __instance)
-    {
-        if (__instance == null)
-        {
-            return;
-        }
-
-        var value = __instance.text;
-        TranslateValue(ref value);
-        if (!string.Equals(value, __instance.text, StringComparison.Ordinal))
-        {
-            __instance.text = value;
         }
     }
 
@@ -670,12 +840,10 @@ public sealed class Plugin : BaseUnityPlugin
             translated = new string(' ', leading) + translated + new string(' ', trailing);
         }
 
-        if (translated == value)
+        if (translated != value)
         {
-            return;
+            value = translated;
         }
-
-        value = translated;
     }
 
     private static bool TryGetTranslation(string value, out string translated)
@@ -692,6 +860,11 @@ public sealed class Plugin : BaseUnityPlugin
 
     private void Dump(string value)
     {
+        if (value == null)
+        {
+            return;
+        }
+
         lock (DumpedText)
         {
             if (!DumpedText.Add(value))
