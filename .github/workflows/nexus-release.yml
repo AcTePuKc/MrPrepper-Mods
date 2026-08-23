@@ -17,8 +17,12 @@ jobs:
     env:
       NEXUS_API_KEY: ${{ secrets.NEXUS_API_KEY }}
       NEXUS_GAME_DOMAIN: mrprepper
-      NEXUS_GAME_SCOPED_MOD_ID: ${{ startsWith(github.event.release.tag_name, 'bg-v') && secrets.NEXUS_MOD_ID_BG || startsWith(github.event.release.tag_name, 'cyr-v') && secrets.NEXUS_MOD_ID_CYR_FIX || startsWith(github.event.release.tag_name, 'tooltip-v') && secrets.NEXUS_MOD_ID_TOOLTIP || '' }}
-      NEXUS_FILE_ID: ${{ startsWith(github.event.release.tag_name, 'bg-v') && secrets.NEXUS_FILE_ID_BG || startsWith(github.event.release.tag_name, 'cyr-v') && secrets.NEXUS_FILE_ID_CYR_FIX || startsWith(github.event.release.tag_name, 'tooltip-v') && secrets.NEXUS_FILE_ID_TOOLTIP || '' }}
+      NEXUS_MOD_ID_BG: ${{ secrets.NEXUS_MOD_ID_BG }}
+      NEXUS_MOD_ID_CYR_FIX: ${{ secrets.NEXUS_MOD_ID_CYR_FIX }}
+      NEXUS_MOD_ID_TOOLTIP: ${{ secrets.NEXUS_MOD_ID_TOOLTIP }}
+      NEXUS_FILE_ID_BG: ${{ secrets.NEXUS_FILE_ID_BG }}
+      NEXUS_FILE_ID_CYR_FIX: ${{ secrets.NEXUS_FILE_ID_CYR_FIX }}
+      NEXUS_FILE_ID_TOOLTIP: ${{ secrets.NEXUS_FILE_ID_TOOLTIP }}
 
     steps:
       - name: Checkout uploader script
@@ -33,16 +37,22 @@ jobs:
 
           case "$tag" in
             bg-v*)
+              mod_id="$NEXUS_MOD_ID_BG"
+              file_id="$NEXUS_FILE_ID_BG"
               echo "key=bg" >> "$GITHUB_OUTPUT"
               echo "version=${tag#bg-v}" >> "$GITHUB_OUTPUT"
               echo "display_name=Mr. Prepper - Bulgarian Translation" >> "$GITHUB_OUTPUT"
               ;;
             tooltip-v*)
+              mod_id="$NEXUS_MOD_ID_TOOLTIP"
+              file_id="$NEXUS_FILE_ID_TOOLTIP"
               echo "key=tooltip" >> "$GITHUB_OUTPUT"
               echo "version=${tag#tooltip-v}" >> "$GITHUB_OUTPUT"
               echo "display_name=Mr. Prepper - Tooltip Scale Fix" >> "$GITHUB_OUTPUT"
               ;;
             cyr-v*)
+              mod_id="$NEXUS_MOD_ID_CYR_FIX"
+              file_id="$NEXUS_FILE_ID_CYR_FIX"
               echo "key=cyr" >> "$GITHUB_OUTPUT"
               echo "version=${tag#cyr-v}" >> "$GITHUB_OUTPUT"
               echo "display_name=Mr. Prepper - Cyrillic Font Fix" >> "$GITHUB_OUTPUT"
@@ -52,6 +62,16 @@ jobs:
               exit 1
               ;;
           esac
+
+          if [[ -z "$mod_id" ]]; then
+            echo "Nexus mod ID secret is missing for tag '$tag'." >&2
+            exit 1
+          fi
+
+          {
+            printf 'NEXUS_GAME_SCOPED_MOD_ID=%s\n' "$mod_id"
+            printf 'NEXUS_FILE_ID=%s\n' "$file_id"
+          } >> "$GITHUB_ENV"
 
       - name: Validate Nexus mod before any file upload
         shell: bash
