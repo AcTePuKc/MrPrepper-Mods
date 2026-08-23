@@ -17,8 +17,8 @@ jobs:
     env:
       NEXUS_API_KEY: ${{ secrets.NEXUS_API_KEY }}
       NEXUS_GAME_DOMAIN: mrprepper
-      NEXUS_GAME_SCOPED_MOD_ID: ${{ startsWith(github.event.release.tag_name, 'bg-v') && secrets.NEXUS_MOD_ID_BG || startsWith(github.event.release.tag_name, 'cyr-v') && secrets.NEXUS_MOD_ID_CYR_FIX || secrets.NEXUS_MOD_ID_TOOLTIP }}
-      NEXUS_FILE_ID: ${{ startsWith(github.event.release.tag_name, 'bg-v') && secrets.NEXUS_FILE_ID_BG || startsWith(github.event.release.tag_name, 'cyr-v') && secrets.NEXUS_FILE_ID_CYR_FIX || secrets.NEXUS_FILE_ID_TOOLTIP }}
+      NEXUS_GAME_SCOPED_MOD_ID: ${{ startsWith(github.event.release.tag_name, 'bg-v') && secrets.NEXUS_MOD_ID_BG || startsWith(github.event.release.tag_name, 'cyr-v') && secrets.NEXUS_MOD_ID_CYR_FIX || startsWith(github.event.release.tag_name, 'tooltip-v') && secrets.NEXUS_MOD_ID_TOOLTIP || '' }}
+      NEXUS_FILE_ID: ${{ startsWith(github.event.release.tag_name, 'bg-v') && secrets.NEXUS_FILE_ID_BG || startsWith(github.event.release.tag_name, 'cyr-v') && secrets.NEXUS_FILE_ID_CYR_FIX || startsWith(github.event.release.tag_name, 'tooltip-v') && secrets.NEXUS_FILE_ID_TOOLTIP || '' }}
 
     steps:
       - name: Checkout uploader script
